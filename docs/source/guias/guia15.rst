@@ -148,7 +148,7 @@ React - Hook: useEffect
 DataFetcher
 ^^^^^^^^^^^
 
-1. Cree el componente funcional `DataFetcher` en el archivo `src/hooks/DataFetcher.tsx`.
+1. Cree el componente funcional `DataFetcher` en el archivo `src/functions/DataFetcher.tsx`.
 2. Utilice su cliente de IAG, para generar el código del componente `DataFetcher`, con:
 
    a) Importe los hooks `useState` y `useEffect` de React.
@@ -236,7 +236,7 @@ DataFetcher
        :emphasize-lines: 2,8
 
        ...
-       import DataFetcher from './hooks/DataFetcher';
+       import DataFetcher from './functions/DataFetcher';
        ...
 
        function App() {
