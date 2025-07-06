@@ -10,7 +10,7 @@ Guía 16: React - LocalStorage
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar persistencia de datos para la mejora de la experiencia de usuario sin necesidad de una base de datos externa.
+    Implementar persistencia de datos en el navegador para la mejora de la experiencia de usuario sin necesidad de una base de datos externa.
 
 Actividades previas
 =====================
@@ -30,19 +30,35 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+.. note::
+    
+    Elabora una estrategia para utilizar el `localstorage` como almacenamiento temporal de la respuesta a un requerimiento asincrónico. Considere que la estrategia debe combinar la eficiencia (menos llamadas a la API), resiliencia (uso de datos en caso de falla) y vigencia de la información (control temporal de 1 hora).
+
+
 LocalStorage
 ------------
+
+1. Utilice la documentación API de `localStorage` para almacenar datos en el navegador que se encuentra en `Window: localStorage property <https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage>`_. 
+2. Utilice la documentación de Chrome DevTools para inspeccionar el almacenamiento local en `Chrome DevTools: Ver y editar el almacenamiento local <https://developer.chrome.com/docs/devtools/storage/localstorage>`_.
+3. Sin utilizar IAG, diseñe e implemente la estrategia, considerando los siguientes puntos:
+
+   - Utilice `localStorage.setItem(key, value)` para almacenar datos.
+   - Utilice `localStorage.getItem(key)` para recuperar datos.
+   - Utilice `localStorage.removeItem(key)` para eliminar datos.
+   - Considere el uso de `localStorage.clear()` para limpiar todo el almacenamiento local si es necesario.
+
+4. Utilice su cliente de IAG para justificar la eficiencia, la resiliencia y la vigencia de la información de su estrategia.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a entender el papel de localStorage en la persistencia de datos del lado del cliente, y qué limitaciones tiene en cuanto a seguridad y capacidad?
 
-    * ¿Qué?
+    * ¿Qué modificaciones realizaste a la estrategia generada por la IA para adaptarla al flujo de tu dashboard, asegurando una sincronización efectiva entre localStorage y el estado de la aplicación?
 
-    * ¿Cómo?
+    * ¿Cómo garantizas que la estrategia aplicada refleje tanto tu comprensión técnica como tu compromiso con la calidad, confiabilidad y mantenimiento del dashboard a lo largo del tiempo?
 
 Actividades autónomas
 =====================
