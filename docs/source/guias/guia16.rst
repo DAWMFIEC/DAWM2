@@ -33,15 +33,11 @@ Actividades en clases
 LocalStorage
 ------------
 
-1. Revise la documentación API de:
-    
-   a) `localStorage` para almacenar datos en el navegador que se encuentra en `Window: localStorage property <https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage>`_. 
-   b) Chrome DevTools para inspeccionar el almacenamiento local en `Chrome DevTools: Ver y editar el almacenamiento local <https://developer.chrome.com/docs/devtools/storage/localstorage>`_.
-
+1. Revise la documentación API del `localStorage` para almacenar datos en el navegador que se encuentra en `Window: localStorage property <https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage>`_ y de Chrome DevTools para inspeccionar el almacenamiento local en `Chrome DevTools: Ver y editar el almacenamiento local <https://developer.chrome.com/docs/devtools/storage/localstorage>`_.
 2. Sin utilizar IAG, diseñe e implemente una estrategia de almacenamiento temporal de la respuesta a un requerimiento asincrónico en la memoria del navegador, considerando: 
 
-    - El `localStorage`, con una clave específica, como almacenamiento de su respuesta.
-    - La eficiencia (menos llamadas a la API), la resiliencia (uso de datos en caso de falla) y la vigencia de la información (control temporal de *x* minutos) en su respuesta.
+   a) El `localStorage`, con una clave específica, como almacenamiento de su respuesta.
+   b) La eficiencia (menos llamadas a la API), la resiliencia (uso de datos en caso de falla) y la vigencia de la información (control temporal de *x* minutos) en su respuesta.
 
 3. Verifique su respuesta en el navegador. 
 4. Utilice su cliente de IAG para justificar la eficiencia, la resiliencia y la vigencia de la información de su estrategia.
