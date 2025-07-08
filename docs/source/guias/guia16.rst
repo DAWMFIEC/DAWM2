@@ -3,17 +3,28 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-=============================
-Guía 16: React - LocalStorage
-=============================
+==============================================
+Guía 16: React - Gestión y visualización datos
+==============================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar persistencia de datos en el navegador para la mejora de la experiencia de usuario sin necesidad de una base de datos externa.
+    Incorporar componentes avanzados de gestión y visualización de datos para la representación de datos climáticas en tiempo en el dashboard.
 
 Actividades previas
 =====================
+
+Open-Meteo
+----------
+
+1. Configure API de Open-Meteo en `Open-Meteo API <https://open-meteo.com/en/docs>`_, con:
+   
+   a) Seleccione la zona horaria, para Ecuador elija la opción **America/Chicago** (GMT-5).
+   b) Marque los indicadores que desea mostrar el dashboard en la sección de `Current Weather <https://open-meteo.com/en/docs#current_weather>`_ de la documentación, en este caso: temperatura (`Temperature (2 m)`), humedad relativa (`Relative Humidity (2 m)`), temperatura aparente (`Apparent Temperature`) y  velocidad del viento (`Wind Speed (10 m)`).
+   c) **Seleccione dos variables meteorológicas por hora, por ejemplo: Temperatura (`Temperature (2 m)`) y Velocidad del viento (`Wind Speed (10 m)`), etc.**
+   d) Seleccione la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`), etc.  
+2. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
 
 Ambiente de desarrollo
 ----------------------
@@ -30,28 +41,126 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-LocalStorage
-------------
+TableUI y ChartUI
+-----------------
 
-1. Revise la documentación de `Window: localStorage property <https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage>`_ (almacenamiento de datos en el navegador) y `Chrome DevTools: Ver y editar el almacenamiento local <https://developer.chrome.com/docs/devtools/storage/localstorage>`_ (inspección del almacenamiento local).
-2. Sin utilizar IAG, diseñe e implemente una estrategia de almacenamiento temporal de la respuesta a un requerimiento asincrónico en la memoria del navegador, considerando: 
+1. Instale los paquetes necesarios para la gestión y visualización de datos, con:
 
-   a) Use el `localStorage`, con una clave específica, como almacenamiento de su respuesta.
-   b) La eficiencia (menos llamadas a la API), la resiliencia (uso de datos en caso de falla) y la vigencia de la información (control temporal de *x* minutos) en su respuesta.
+   .. code-block:: bash
 
-3. Verifique su respuesta en el navegador. 
-4. Utilice su cliente de IAG para justificar la eficiencia, la resiliencia y la vigencia de la información de su estrategia.
+      npm install npm install @mui/x-data-grid @mui/x-charts
+
+2. Cree los componentes funcionales.
+
+   a) `TableUI` en el archivo `src/components/TableUI.tsx`, con el siguiente código:
+
+   .. code-block:: tsx
+       :emphasize-lines: 1-23
+
+   b) `ChartUI` en el archivo `src/components/ChartUI.tsx`, con el siguiente código:
+
+   .. code-block:: tsx
+       :emphasize-lines: 1-23
+
+       import { LineChart } from '@mui/x-charts/LineChart';
+       import Typography from '@mui/material/Typography';
+
+       const arrValues1 = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+       const arrValues2 = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+       const arrLabels = ['A','B','C','D','E','F','G'];
+
+
+       export default function ChartUI() {
+         return (
+            <>
+                  <Typography variant="h5" component="div">
+                     Chart arrLabels vs arrValues1 & arrValues2
+                  </Typography>
+                  <LineChart
+                     height={300}
+                     series={[
+                        { data: arrValues1, label: 'value1'},
+                        { data: arrValues2, label: 'value2'},
+                     ]}
+                     xAxis={[{ scaleType: 'point', data: arrLabels }]}
+                     
+                  />
+            </>
+         );
+       }
+
+3. Importe los componentes `TableUI` y `ChartUI` en el archivo `src/App.tsx`, con:
+
+   .. code-block:: tsx
+       :emphasize-lines: 2-3, 15, 20
+
+       ...
+       import TableUI from './components/TableUI';
+       import ChartUI from './components/ChartUI';
+
+       function App() {
+
+            ...
+            return (
+                <Grid ... >
+
+                  ...
+
+                  {/* Gráfico */}
+                  <Grid size={{ xs: 6, md: 6 }} sx={{ display: { xs: "none", md: "block" } }}>
+                     <ChartUI />
+                  </Grid>
+
+                  {/* Tabla */}
+                  <Grid size={{ xs: 6, md: 6 }} sx={{ display: { xs: "none", md: "block" } }}>
+                     <TableUI />
+                  </Grid>
+
+                  ...
+                
+                </Grid>
+            )
+       }
+
+4. Compruebe la vista previa del resultado en el navegador.
+
+Renderizado
+-----------
+
+1. Modifique los componentes `TableUI` y `ChartUI` para que obtengan los datos de la API de Open-Meteo.
+2. Asegúrese de que los datos se muestren correctamente en la tabla y el gráfico, considerando el tiempo de carga y el manejo de errores.
+3. Compruebe la vista previa del resultado en el navegador.
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *dashboard*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+
+Despliegue
+----------
+
+1. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+
+   .. code-block:: bash
+
+      npm run deploy
+
+   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
+   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
+
+2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo te ayudó la inteligencia artificial generativa a entender el papel de localStorage en la persistencia de datos del lado del cliente, y qué limitaciones tiene en cuanto a seguridad y capacidad?
+    * ¿Cómo?
 
-    * ¿Qué modificaciones realizaste a la estrategia generada por la IA para adaptarla al flujo de tu dashboard, asegurando una sincronización efectiva entre localStorage y el estado de la aplicación?
+    * ¿Qué?
 
-    * ¿Cómo garantizas que la estrategia aplicada refleje tanto tu comprensión técnica como tu compromiso con la calidad, confiabilidad y mantenimiento del dashboard a lo largo del tiempo?
+    * ¿Cómo?
 
 Actividades autónomas
 =====================
@@ -63,4 +172,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">What is JavaScript local Storage and 🧵 how to use local Storage to store persistent data. <a href="https://t.co/A1k3546Eiq">pic.twitter.com/A1k3546Eiq</a></p>&mdash; Garen Crowngaurd (@0xGaren) <a href="https://twitter.com/0xGaren/status/1611689064243298312?ref_src=twsrc%5Etfw">January 7, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
