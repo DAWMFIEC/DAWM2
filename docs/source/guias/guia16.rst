@@ -15,8 +15,8 @@ Guía 16: React - Gestión y visualización datos
 Actividades previas
 =====================
 
-Open-Meteo e interfaces
------------------------
+Open-Meteo
+----------
 
 1. Configure API de Open-Meteo en `Open-Meteo API <https://open-meteo.com/en/docs>`_, con:
    
@@ -27,7 +27,10 @@ Open-Meteo e interfaces
 
 2. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
 
-3. Genere el tipo de datos TypeScript para el JSON de salida de la API de Open-Meteo, con:
+Interfaces y tipos de datos
+---------------------------
+
+1. Genere el tipo de datos TypeScript para el JSON de salida de la API de Open-Meteo, con:
 
    a) Utilice `JSON to TypeScript <https://json2ts.vercel.app/>`_. 
    b) Coloque el JSON de salida de la API de Open-Meteo en el campo de entrada.
