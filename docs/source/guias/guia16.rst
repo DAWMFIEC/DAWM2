@@ -15,8 +15,8 @@ Guía 16: React - Gestión y visualización datos
 Actividades previas
 =====================
 
-Open-Meteo
-----------
+Open-Meteo e interfaces
+-----------------------
 
 1. Configure API de Open-Meteo en `Open-Meteo API <https://open-meteo.com/en/docs>`_, con:
    
@@ -24,8 +24,15 @@ Open-Meteo
    b) Marque los indicadores que desea mostrar el dashboard en la sección de `Current Weather <https://open-meteo.com/en/docs#current_weather>`_ de la documentación, en este caso: temperatura (`Temperature (2 m)`), humedad relativa (`Relative Humidity (2 m)`), temperatura aparente (`Apparent Temperature`) y  velocidad del viento (`Wind Speed (10 m)`).
    c) Seleccione **dos variables meteorológicas por hora**, por ejemplo: Temperatura (`Temperature (2 m)`) y Velocidad del viento (`Wind Speed (10 m)`), etc.
    d) Seleccione la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`), etc.  
+
 2. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
-3. Copie la URL de la API y guárdela para su uso posterior.
+
+3. Genere el tipo de datos TypeScript para el JSON de salida de la API de Open-Meteo, con:
+
+   a) Utilice `JSON to TypeScript <https://json2ts.vercel.app/>`_. 
+   b) Coloque el JSON de salida de la API de Open-Meteo en el campo de entrada.
+   c) Genere el código TypeScript de las interfaces y cópielo en su proyecto en el archivo `src/types/DashboardTypes.tsx`.
+   d) Modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
 
 Ambiente de desarrollo
 ----------------------
