@@ -55,7 +55,8 @@ Interfaces y tipos de datos
 IndicatorUI
 -----------
 
-1. Cree el componente funcional `IndicatorUI` en el archivo `src/components/IndicatorUI.tsx`, con el siguiente código:
+1. Revise la documentación del componente `Card <https://mui.com/material-ui/react-card/>`_.
+2. Cree el componente funcional `IndicatorUI` en el archivo `src/components/IndicatorUI.tsx`, con el siguiente código:
   
    .. code-block:: tsx
        :emphasize-lines: 1-23
@@ -84,7 +85,7 @@ IndicatorUI
             )
         }
 
-2. Modifique el archivo `src/App.tsx`, con:
+3. Modifique el archivo `src/App.tsx`, con:
 
    a) Importe el componente `IndicatorUI` desde el archivo `./components/IndicatorUI`.
    b) En la sección en la seccion **Indicadores**:
@@ -136,7 +137,7 @@ IndicatorUI
        }
 
 
-3. Compruebe la vista previa del resultado en el navegador.
+4. Compruebe la vista previa del resultado en el navegador.
 
 React - Hook: useEffect
 -----------------------
@@ -193,7 +194,7 @@ DataFetcher
                 useEffect(() => {
 
                     // Reemplace con su URL de la API de Open-Meteo obtenida en actividades previas
-                    const url = `https://api.open-meteo.com/v1/forecast?latitude=-2.1962&longitude=-79.8862&hourly=temperature_2m&current=temperature_2m,wind_speed_10m,relative_humidity_2m,apparent_temperature&timezone=America%2FChicago`
+                    const url = ``
 
                     const fetchData = async () => {
 
