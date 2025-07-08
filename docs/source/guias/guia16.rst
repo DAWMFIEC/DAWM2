@@ -22,9 +22,10 @@ Open-Meteo
    
    a) Seleccione la zona horaria, para Ecuador elija la opción **America/Chicago** (GMT-5).
    b) Marque los indicadores que desea mostrar el dashboard en la sección de `Current Weather <https://open-meteo.com/en/docs#current_weather>`_ de la documentación, en este caso: temperatura (`Temperature (2 m)`), humedad relativa (`Relative Humidity (2 m)`), temperatura aparente (`Apparent Temperature`) y  velocidad del viento (`Wind Speed (10 m)`).
-   c) **Seleccione dos variables meteorológicas por hora, por ejemplo: Temperatura (`Temperature (2 m)`) y Velocidad del viento (`Wind Speed (10 m)`), etc.**
+   c) Seleccione **dos variables meteorológicas por hora**, por ejemplo: Temperatura (`Temperature (2 m)`) y Velocidad del viento (`Wind Speed (10 m)`), etc.
    d) Seleccione la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`), etc.  
 2. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
+3. Copie la URL de la API y guárdela para su uso posterior.
 
 Ambiente de desarrollo
 ----------------------
@@ -59,83 +60,83 @@ TableUI y ChartUI
    .. dropdown:: Ver el código 
       :color: primary   
 
-      .. code-block:: tsx
-         :emphasize-lines: 1-66
+         .. code-block:: tsx
+            :emphasize-lines: 1-66
 
-         import Box from '@mui/material/Box';
-         import { DataGrid, type GridColDef } from '@mui/x-data-grid';
+            import Box from '@mui/material/Box';
+            import { DataGrid, type GridColDef } from '@mui/x-data-grid';
 
-         function combineArrays(arrLabels: Array<string>, arrValues1: Array<number>, arrValues2: Array<number>) {
+            function combineArrays(arrLabels: Array<string>, arrValues1: Array<number>, arrValues2: Array<number>) {
                return arrLabels.map((label, index) => ({
                   id: index,
                   label: label,
                   value1: arrValues1[index],
                   value2: arrValues2[index]
                }));
-         }
+            }
 
-         const columns: GridColDef[] = [
-            { field: 'id', headerName: 'ID', width: 90 },
-            {
-               field: 'label',
-               headerName: 'Label',
-               width: 150,
-            },
-            {
-               field: 'value1',
-               headerName: 'Value 1',
-               width: 150,
-            },
-            {
-               field: 'value2',
-               headerName: 'Value 2',
-               width: 150,
-            },
-            {
-               field: 'resumen',
-               headerName: 'Resumen',
-               description: 'No es posible ordenar u ocultar esta columna.',
-               sortable: false,
-               hideable: false,
-               width: 160,
-               valueGetter: (_, row) => `${row.label || ''} ${row.value1 || ''} ${row.value2 || ''}`,
-            },
-         ];
+            const columns: GridColDef[] = [
+               { field: 'id', headerName: 'ID', width: 90 },
+               {
+                  field: 'label',
+                  headerName: 'Label',
+                  width: 150,
+               },
+               {
+                  field: 'value1',
+                  headerName: 'Value 1',
+                  width: 150,
+               },
+               {
+                  field: 'value2',
+                  headerName: 'Value 2',
+                  width: 150,
+               },
+               {
+                  field: 'resumen',
+                  headerName: 'Resumen',
+                  description: 'No es posible ordenar u ocultar esta columna.',
+                  sortable: false,
+                  hideable: false,
+                  width: 160,
+                  valueGetter: (_, row) => `${row.label || ''} ${row.value1 || ''} ${row.value2 || ''}`,
+               },
+            ];
 
-         const arrValues1 = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-         const arrValues2 = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
-         const arrLabels = ['A','B','C','D','E','F','G'];
+            const arrValues1 = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+            const arrValues2 = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+            const arrLabels = ['A','B','C','D','E','F','G'];
 
-         export default function TableUI() {
+            export default function TableUI() {
 
-            const rows = combineArrays(arrLabels, arrValues1, arrValues2);
+               const rows = combineArrays(arrLabels, arrValues1, arrValues2);
 
-            return (
-               <Box sx={{ height: 350, width: '100%' }}>
-                  <DataGrid
-                  rows={rows}
-                  columns={columns}
-                  initialState={{
-                     pagination: {
-                        paginationModel: {
-                        pageSize: 5,
-                        },
-                     },
-                  }}
-                  pageSizeOptions={[5]}
-                  disableRowSelectionOnClick
-                  />
-               </Box>
-            );
-         }
+               return (
+                  <Box sx={{ height: 350, width: '100%' }}>
+                     <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        initialState={{
+                           pagination: {
+                              paginationModel: {
+                                 pageSize: 5,
+                              },
+                           },
+                        }}
+                        pageSizeOptions={[5]}
+                        disableRowSelectionOnClick
+                     />
+                  </Box>
+               );
+            }
 
    b) `ChartUI`, con el siguiente código:
 
    .. dropdown:: Ver el código 
       :color: primary  
-   
+
       .. code-block:: tsx
-         :emphasize-lines: 1-26
+         :emphasize-lines: 1-29
 
          import { LineChart } from '@mui/x-charts/LineChart';
          import Typography from '@mui/material/Typography';
@@ -148,18 +149,17 @@ TableUI y ChartUI
          export default function ChartUI() {
             return (
                <>
-                     <Typography variant="h5" component="div">
-                        Chart arrLabels vs arrValues1 & arrValues2
-                     </Typography>
-                     <LineChart
-                        height={300}
-                        series={[
-                           { data: arrValues1, label: 'value1'},
-                           { data: arrValues2, label: 'value2'},
-                        ]}
-                        xAxis={[{ scaleType: 'point', data: arrLabels }]}
-                        
-                     />
+                  <Typography variant="h5" component="div">
+                     Chart arrLabels vs arrValues1 & arrValues2
+                  </Typography>
+                  <LineChart
+                     height={300}
+                     series={[
+                        { data: arrValues1, label: 'value1'},
+                        { data: arrValues2, label: 'value2'},
+                     ]}
+                     xAxis={[{ scaleType: 'point', data: arrLabels }]}
+                  />
                </>
             );
          }
