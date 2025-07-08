@@ -164,7 +164,7 @@ TableUI y ChartUI
             );
          }
 
-3. Importe los componentes `TableUI` y `ChartUI` en el archivo `src/App.tsx`, con:
+5. Importe los componentes `TableUI` y `ChartUI` en el archivo `src/App.tsx`, con:
 
    .. code-block:: tsx
        :emphasize-lines: 2-3, 15, 20
@@ -197,7 +197,7 @@ TableUI y ChartUI
             )
        }
 
-4. Compruebe la vista previa del resultado en el navegador.
+6. Compruebe la vista previa del resultado en el navegador.
 
 Renderizado
 -----------
@@ -231,11 +231,12 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo?
+    * ¿Qué criterios técnicos consideraste al evaluar si las propuestas de la IA para la gestión y visualización de datos eran adecuadas para el tipo de información que tu dashboard necesitaba presentar?
 
-    * ¿Qué?
+    * ¿Cómo integraste de forma efectiva la visualización de datos con los demás elementos del dashboard, asegurando coherencia visual y funcional entre los componentes sugeridos por la IA y los desarrollados por ti?
+    
+    * ¿Cómo garantizas que el uso de inteligencia artificial en la configuración de componentes no reste valor a tu propio proceso de diseño y toma de decisiones como desarrollador?
 
-    * ¿Cómo?
 
 Actividades autónomas
 =====================
@@ -247,4 +248,4 @@ En redes:
 
 .. raw:: html
 
-    
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Data visualization guide for creating plots for a data visualization project👍<br><br>Which chart to use in what circumstances?? (See the below image) <a href="https://t.co/6EwcE6Ld9N">pic.twitter.com/6EwcE6Ld9N</a></p>&mdash; Avi Kumar Talaviya (@avikumart_) <a href="https://twitter.com/avikumart_/status/1541534335278338049?ref_src=twsrc%5Etfw">June 27, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
