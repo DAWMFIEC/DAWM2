@@ -61,11 +61,10 @@ TableUI y ChartUI
 
       npm install npm install @mui/x-data-grid @mui/x-charts
 
-2. Considere la documentación `MUI X Data Grid <https://mui.com/x/react-data-grid/>`_  y `MUI X Charts <https://mui.com/x/react-charts/>`_ de MUI X.
-3. Cree los componentes funcionales  `TableUI` en el archivo `src/components/TableUI.tsx` y `ChartUI` en el archivo `src/components/ChartUI.tsx`.
-4. Implemente los componentes:
+2. Revise la documentación `MUI X Data Grid <https://mui.com/x/react-data-grid/>`_  y `MUI X Charts <https://mui.com/x/react-charts/>`_ de MUI X.
+3. Cree los componentes funcionales  `TableUI` en el archivo `src/components/TableUI.tsx` y `ChartUI` en el archivo `src/components/ChartUI.tsx`, con el siguiente código:
 
-   a) `TableUI`, con el siguiente código:
+   a) `TableUI`, 
 
    .. dropdown:: Ver el código 
       :color: primary   
@@ -140,7 +139,7 @@ TableUI y ChartUI
             );
          }
 
-   b) `ChartUI`, con el siguiente código:
+   b) `ChartUI`
 
    .. dropdown:: Ver el código 
       :color: primary  
