@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==============================================
-Guía 16: React - Gestión y visualización datos
-==============================================
+=======================================================================
+Guía 16: React - MUI-X (Componentes para gestión y visualización datos)
+=======================================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
