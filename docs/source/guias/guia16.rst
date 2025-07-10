@@ -55,7 +55,7 @@ Actividades en clases
 TableUI y ChartUI
 -----------------
 
-1. Instale los paquetes necesarios para la gestión y visualización de datos, con:
+1. Instale los paquetes necesarios para la :term:`gestión y visualización de datos`, con:
 
    .. code-block:: bash
 
