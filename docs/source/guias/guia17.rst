@@ -33,7 +33,7 @@ Actividades en clases
 PWA Vite Plugin
 ---------------
 
-1. Instale el plugin de `PWA Vite Plugin <https://vite-pwa-org.netlify.app/guide/>`_, con:
+1. Instale el plugin de `PWA Vite Plugin <https://vite-pwa-org.netlify.app/>`_, con:
 
    .. code-block:: bash
 
@@ -47,12 +47,29 @@ PWA Vite Plugin
       ...
       import { VitePWA } from 'vite-plugin-pwa'
 
+      let config = {}
+
       export default {
          plugins: [
             react(),
-            VitePWA()
+            VitePWA( config )
          ]
       }
+
+3. Utilice su cliente de IAG para explicar el concepto y el uso de :term:`PWA`; además, cómo el plugin `PWA Vite Plugin` ayuda a implementarlo.
+
+Manifiesto de la app web
+------------------------
+
+1. Use su cliente de IAG para explicar el concepto y uso del :term:`manifiesto de la app web`en relación con PWA. 
+2. Revise la documentación `Manifiesto de la app web <https://web.dev/learn/pwa/web-app-manifest>`_.
+
+
+Service workers
+---------------
+
+Almacenamiento en caché
+-----------------------
 
 Conclusiones
 ============
