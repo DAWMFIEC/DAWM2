@@ -61,8 +61,26 @@ PWA Vite Plugin
 Manifiesto de la app web
 ------------------------
 
-1. Use su cliente de IAG para explicar el concepto y uso del :term:`manifiesto de la app web` en relación con PWA. 
-2. Revise la documentación `Manifiesto de la app web <https://web.dev/learn/pwa/web-app-manifest>`_.
+1. Use su cliente de IAG para explicar el concepto y uso del :term:`manifiesto de la app web` en una aplicación PWA. 
+2. Revise la documentación `Manifiesto de la app web <https://web.dev/articles/add-manifest?hl=es-419>`_.
+3. Modifique el json **config** en el archivo ``vite.config.ts``, con:
+
+   .. code-block:: javascript
+      :emphasize-lines: 3-23
+
+      ...
+      
+      let config = {
+         manifest: {
+            "id": '/dashboard/',
+            "name": "Dashboard",
+            "short_name": "Dashboard",
+            "description": "Dashboard de datos climatológicos",
+            "theme_color": "#000000",
+            "background_color": "#ffffff",
+         }
+      }
+      ...
 
 
 Service workers
