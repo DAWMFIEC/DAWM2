@@ -219,3 +219,10 @@ Diccionario de términos
 
     función de actualización
         Es la función que se obtiene junto con una variable de estado al usar el hook useState, y se utiliza para cambiar el valor de dicha variable. 
+
+    gestión y visualización de datos
+        Es el proceso de organizar, almacenar y presentar datos de manera efectiva en una aplicación. Esto incluye la obtención de datos de fuentes externas (como APIs), su procesamiento y transformación, y la representación visual de esos datos en la interfaz de usuario mediante tablas, gráficos y otros componentes visuales.
+
+    PWA
+        (Progressive Web App) es un tipo de aplicación web que utiliza tecnologías modernas para ofrecer una experiencia similar a las aplicaciones nativas en dispositivos móviles. Las PWAs son rápidas, confiables y pueden funcionar sin conexión a internet, lo que las hace accesibles en una amplia variedad de dispositivos y condiciones de red.
+
