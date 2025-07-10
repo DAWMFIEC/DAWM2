@@ -39,7 +39,7 @@ PWA Vite Plugin
 
       npm install -D vite-plugin-pwa
 
-2. Configure el plugin en el archivo ``vite.config.js``, agregando:
+2. Configure el plugin en el archivo ``vite.config.ts``, agregando:
 
    .. code-block:: javascript
       :emphasize-lines: 2, 4, 9
@@ -61,7 +61,7 @@ PWA Vite Plugin
 Manifiesto de la app web
 ------------------------
 
-1. Use su cliente de IAG para explicar el concepto y uso del :term:`manifiesto de la app web`en relación con PWA. 
+1. Use su cliente de IAG para explicar el concepto y uso del :term:`manifiesto de la app web` en relación con PWA. 
 2. Revise la documentación `Manifiesto de la app web <https://web.dev/learn/pwa/web-app-manifest>`_.
 
 
