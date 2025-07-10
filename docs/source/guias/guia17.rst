@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==================================
-Guía 15: React - PWA
-==================================
+==========================================
+Guía 17: React - Progressive Web App (PWA)
+==========================================
 
 .. topic:: Objetivo específico
     :class: objetivo
