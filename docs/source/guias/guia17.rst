@@ -42,7 +42,7 @@ PWA Vite Plugin
 2. Configure el plugin en el archivo ``vite.config.js``, agregando:
 
    .. code-block:: javascript
-      :emphasize-lines: 2, 7
+      :emphasize-lines: 2, 4, 9
 
       ...
       import { VitePWA } from 'vite-plugin-pwa'
