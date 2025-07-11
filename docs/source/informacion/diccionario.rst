@@ -226,3 +226,5 @@ Diccionario de términos
     PWA
         (Progressive Web App) es un tipo de aplicación web que utiliza tecnologías modernas para ofrecer una experiencia similar a las aplicaciones nativas en dispositivos móviles. Las PWAs son rápidas, confiables y pueden funcionar sin conexión a internet, lo que las hace accesibles en una amplia variedad de dispositivos y condiciones de red.
 
+    manifest
+        Es un archivo JSON que describe la configuración y características de una Progressive Web App (PWA). El manifest incluye información como el nombre de la aplicación, iconos, colores de tema, orientación de pantalla y otras propiedades que permiten a los navegadores web tratar la PWA como una aplicación nativa.
