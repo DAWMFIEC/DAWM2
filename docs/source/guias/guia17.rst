@@ -88,11 +88,38 @@ PWA Vite Plugin
 4. Verifique en la carpeta  ``dist`` que se han generado los archivos necesarios para la PWA, como ``manifest.webmanifest`` y ``sw.js``.
 5. Utilice su cliente de IAG para explicar el concepto y el uso de :term:`PWA`; además, cómo el plugin `PWA Vite Plugin` ayuda a implementarlo.
 
+Manifesto de la PWA
+-------------------
+
+
+
 Service workers
 ---------------
 
+
 Almacenamiento en caché
 -----------------------
+
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *dashboard*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+
+Despliegue
+----------
+
+1. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+
+   .. code-block:: bash
+
+      npm run deploy
+
+   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
+   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
+
+2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
 
 Conclusiones
 ============
