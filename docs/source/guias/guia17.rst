@@ -37,51 +37,39 @@ PWA Vite Plugin
 
    .. code-block:: bash
 
-      npm install -D vite-plugin-pwa
+      npm install vite-plugin-pwa --save-dev
 
 2. Configure el plugin en el archivo ``vite.config.ts``, agregando:
 
    .. code-block:: javascript
-      :emphasize-lines: 2, 4, 9
+      :emphasize-lines: 2, 7-12
 
       ...
       import { VitePWA } from 'vite-plugin-pwa'
 
-      let config = {}
-
       export default {
          plugins: [
             react(),
-            VitePWA( config )
+            VitePWA({
+               registerType: 'autoUpdate',
+               devOptions: {
+                  enabled: true
+               }
+            })
          ]
       }
 
-3. Utilice su cliente de IAG para explicar el concepto y el uso de :term:`PWA`; además, cómo el plugin `PWA Vite Plugin` ayuda a implementarlo.
+3. Compilar para producción
 
-Manifiesto de la app web
-------------------------
+   .. code-block:: bash
 
-1. Use su cliente de IAG para explicar el concepto y uso del :term:`manifiesto de la app web` en una aplicación PWA. 
-2. Revise la documentación `Manifiesto de la app web <https://web.dev/articles/add-manifest?hl=es-419>`_.
-3. Modifique el json **config** en el archivo ``vite.config.ts``, con:
+      npm run build
+      npm run preview
 
-   .. code-block:: javascript
-      :emphasize-lines: 3-23
+   Esto generará una carpeta ``dist`` con los archivos necesarios para la PWA.
 
-      ...
-      
-      let config = {
-         manifest: {
-            "id": '/dashboard/',
-            "name": "Dashboard",
-            "short_name": "Dashboard",
-            "description": "Dashboard de datos climatológicos",
-            "theme_color": "#000000",
-            "background_color": "#ffffff",
-         }
-      }
-      ...
-
+4. Verifique que la PWA esté funcionando correctamente, abriendo el navegador y accediendo a la URL de su aplicación.
+5. Utilice su cliente de IAG para explicar el concepto y el uso de :term:`PWA`; además, cómo el plugin `PWA Vite Plugin` ayuda a implementarlo.
 
 Service workers
 ---------------
