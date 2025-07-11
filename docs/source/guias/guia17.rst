@@ -94,7 +94,7 @@ Manifesto de la PWA
 1. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
-      :emphasize-lines: 8-28
+      :emphasize-lines: 8-27
 
       ...
 
