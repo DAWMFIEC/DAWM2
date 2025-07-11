@@ -30,6 +30,25 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Producción en local
+-------------------
+
+1. Asegúrese de que su proyecto esté funcionando correctamente en el entorno de desarrollo.
+2. Compile su proyecto para producción, con: 
+
+   .. code-block:: bash
+
+      npm run build
+
+3. Verifique que la compilación se haya realizado correctamente, revisando la carpeta ``dist`` que se genera en el directorio raíz del proyecto.
+4. Levante un servidor local para servir los archivos de producción, con:
+
+   .. code-block:: bash
+
+      npm run preview
+
+5. Abra su navegador y acceda a la URL de su aplicación
+
 PWA Vite Plugin
 ---------------
 
@@ -37,9 +56,9 @@ PWA Vite Plugin
 
    .. code-block:: bash
 
-      npm install vite-plugin-pwa --save-dev
+      npm install -D vite-plugin-pwa
 
-2. Configure el plugin en el archivo ``vite.config.ts``, agregando:
+2. Configure el plugin en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
       :emphasize-lines: 2, 7-12
@@ -59,16 +78,14 @@ PWA Vite Plugin
          ]
       }
 
-3. Compilar para producción
+3. Compile para producción y levante el servidor local, con:
 
    .. code-block:: bash
 
       npm run build
       npm run preview
 
-   Esto generará una carpeta ``dist`` con los archivos necesarios para la PWA.
-
-4. Verifique que la PWA esté funcionando correctamente, abriendo el navegador y accediendo a la URL de su aplicación.
+4. Verifique en la carpeta  ``dist`` que se han generado los archivos necesarios para la PWA, como ``manifest.webmanifest`` y ``sw.js``.
 5. Utilice su cliente de IAG para explicar el concepto y el uso de :term:`PWA`; además, cómo el plugin `PWA Vite Plugin` ayuda a implementarlo.
 
 Service workers
