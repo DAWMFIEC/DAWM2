@@ -189,8 +189,50 @@ Manifesto de la PWA
 Service workers y Almacenamiento en caché
 -----------------------------------------
 
-1. Con Chrome, inspeccione el sitio web en la opción "Red" (Network) para desahbilitar la conexión a internet ``Sin conexión``.
+1. Con Chrome, inspeccione el sitio web en la opción "Red" (Network) para deshabilitar la conexión a internet ``Sin conexión``.
+2. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
 
+   .. code-block:: javascript
+      :emphasize-lines: 8-26
+
+      ...
+
+      VitePWA({
+         registerType: ... ,
+         devOptions: { ... },
+         includeAssets: [ ... ],
+         manifest: { ... }, 
+         workbox: {
+            runtimeCaching: [
+               {
+                  // Intercepta todas las peticiones a esta API (ajusta según necesidad)
+                  urlPattern: /^https:\/\/api\.open-meteo\.com\/.*$/,
+                  handler: 'NetworkFirst',
+                  options: {
+                     cacheName: 'open-meteo-cache',
+                     expiration: {
+                        maxEntries: 10,
+                        maxAgeSeconds: 60 * 60 * 24, // 1 día
+                     },
+                     cacheableResponse: {
+                        statuses: [0, 200],
+                     }
+                  }
+               }
+            ]
+         }
+      })
+
+3. Compile para producción y levante el servidor local, con:
+
+   .. code-block:: bash
+
+      npm run build && npm run preview
+
+4. Con Chrome:
+   
+   a) Habilite la conexión a internet y recargue la página.
+   b) 
 
 Versionamiento
 --------------
