@@ -64,7 +64,7 @@ PWA Vite Plugin
    b) Importe y configure el plugin.
 
    .. code-block:: javascript
-      :emphasize-lines: 2, 4, 7-12
+      :emphasize-lines: 2, 4, 8-13
 
       ...
       import { VitePWA } from 'vite-plugin-pwa'
