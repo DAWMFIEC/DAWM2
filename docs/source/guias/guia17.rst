@@ -101,12 +101,36 @@ PWA Vite Plugin
 Manifesto de la PWA
 -------------------
 
-1. Utilice el servicio `Image Generator <https://www.pwabuilder.com/imageGenerator>`_ para generar los íconos de la PWA.
-2. Descargue los íconos generados y guárdelos en la carpeta ``public`` de su proyecto. Asegúrese de que los íconos tengan los siguientes tamaños: 192x192 y 512x512 píxeles.
-3. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
+1. Utilice el servicio `Favicon InBrowser.App <https://favicon.inbrowser.app/tools/favicon-generator>`_ para generar los íconos de la PWA.
+2. Descargue y descomprima los archivos generados. Guárdelos en la carpeta ``public`` de su proyecto.
+3. Reemplace el contenido de la etiqueta `<head>` en el archivo ``index.html`` de su proyecto, con:
+
+   .. code-block:: html
+      :emphasize-lines: 4-8
+
+      <!DOCTYPE html>
+      <html lang="es">
+      
+      <head>
+         <meta name="viewport" content="width=device-width,initial-scale=1.0">
+         <title>Dashboard del Clima</title>
+         <meta name="description" content="Dashboard del Clima con PWA">
+         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+         <meta name="theme-color" content="#D3D1D1">
+      </head>
+      
+      <body>
+         ...
+      </body>
+      
+      </html>
+
+4. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
-      :emphasize-lines: 8-27
+      :emphasize-lines: 8-38
 
       ...
 
@@ -117,11 +141,10 @@ Manifesto de la PWA
          },
          includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
          manifest: {
-            id: '/dashboard/',
             name: 'Dashboard del Clima - Proyecto 04',
             short_name: 'Dashboard del Clima',
             description: 'Proyecto 04 - dashboard del clima desarrollado con React y MUI',
-            theme_color: '#ffffff',
+            theme_color: '#D3D1D1',
             icons: [
                {
                   src: 'pwa-192x192.png',
@@ -132,7 +155,19 @@ Manifesto de la PWA
                   src: 'pwa-512x512.png',
                   sizes: '512x512',
                   type: 'image/png'
-               }
+               },
+               {
+                  "src": "pwa-maskable-192x192.png",
+                  "sizes": "192x192",
+                  "type": "image/png",
+                  "purpose": "any"
+               },
+               {
+                  "src": "pwa-maskable-512x512.png",
+                  "sizes": "512x512",
+                  "type": "image/png",
+                  "purpose": "maskable" 
+               },
             ]
          }
       })
@@ -145,6 +180,7 @@ Manifesto de la PWA
       npm run preview
 
 5. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
+6. Instale la PWA en su dispositivo móvil o en su navegador, y verifique que se muestre el ícono de la aplicación y que funcione correctamente.
 
 Service workers
 ---------------
