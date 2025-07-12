@@ -60,6 +60,9 @@ PWA Vite Plugin
 
 2. Configure el plugin en el archivo ``vite.config.ts``, con:
 
+   a) Asegúrese que la base de la URL sea la correcta.
+   b) Importe y configure el plugin.
+
    .. code-block:: javascript
       :emphasize-lines: 2, 7-12
 
@@ -67,6 +70,7 @@ PWA Vite Plugin
       import { VitePWA } from 'vite-plugin-pwa'
 
       export default defineConfig({
+         base: "/dashboard/",
          plugins: [
             react(),
             VitePWA({
@@ -86,32 +90,16 @@ PWA Vite Plugin
       npm run preview
 
 4. Verifique que la carpeta  ``dist`` contenga los archivos necesarios para la PWA, como ``manifest.webmanifest`` y ``sw.js``.
-5. Utilice su cliente de IAG para explicar el concepto y los archivos necesarios para desarrollar una :term:`PWA`; además, explique el beneficio en utilizar el `PWA Vite Plugin`.
+5. Use el inspector de su navegador para verificar que el service worker se ha registrado correctamente y que el manifest está disponible.
+6. Utilice su cliente de IAG para explicar el concepto y los archivos necesarios para desarrollar una :term:`PWA`; además, explique el beneficio en utilizar el `PWA Vite Plugin`.
 
-Despliegue
-----------
-
-1. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
-
-   .. code-block:: bash
-
-      npm run deploy
-
-   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
-   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
-
-2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
-3. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
-
-Íconos de la PWA
-----------------
-
-`Image Generator <https://www.pwabuilder.com/imageGenerator>`_
 
 Manifesto de la PWA
 -------------------
 
-1. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
+1. Utilice el servicio `Image Generator <https://www.pwabuilder.com/imageGenerator>`_ para generar los íconos de la PWA.
+2. Descargue los íconos generados y guárdelos en la carpeta ``public`` de su proyecto. Asegúrese de que los íconos tengan los siguientes tamaños: 192x192 y 512x512 píxeles.
+3. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
       :emphasize-lines: 8-27
@@ -145,17 +133,14 @@ Manifesto de la PWA
          }
       })
 
-2. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+4. Compile para producción y levante el servidor local, con:
 
    .. code-block:: bash
 
-      npm run deploy
+      npm run build
+      npm run preview
 
-   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
-   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
-
-3. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
-4. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
+5. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
 
 Service workers
 ---------------
