@@ -60,11 +60,11 @@ PWA Vite Plugin
 
 2. Configure el plugin en el archivo ``vite.config.ts``, con:
 
-   a) Asegúrese que la base de la URL sea la correcta.
+   a) Asegúrese que la base de la URL sea **base: "/dashboard/"**.
    b) Importe y configure el plugin.
 
    .. code-block:: javascript
-      :emphasize-lines: 2, 7-12
+      :emphasize-lines: 2, 4, 7-12
 
       ...
       import { VitePWA } from 'vite-plugin-pwa'
