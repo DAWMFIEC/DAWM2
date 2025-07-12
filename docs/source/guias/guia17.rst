@@ -34,20 +34,14 @@ Producción en local
 -------------------
 
 1. Asegúrese de que su proyecto esté funcionando correctamente en el entorno de desarrollo.
-2. Compile su proyecto para producción, con: 
+2. Compile para producción y levante el servidor local, con:
 
    .. code-block:: bash
 
-      npm run build
+      npm run build && npm run preview
 
 3. Verifique que la compilación se haya realizado correctamente, revisando la carpeta ``dist`` que se genera en el directorio raíz del proyecto.
-4. Levante un servidor local para servir los archivos de producción, con:
-
-   .. code-block:: bash
-
-      npm run preview
-
-5. Abra su navegador y acceda a la URL de su aplicación
+4. Abra su navegador y acceda a la URL de su aplicación
 
 PWA Vite Plugin
 ---------------
