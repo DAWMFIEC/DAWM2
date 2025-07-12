@@ -96,7 +96,7 @@ Manifesto de la PWA
 -------------------
 
 1. Utilice el servicio `Favicon InBrowser.App <https://favicon.inbrowser.app/tools/favicon-generator>`_ para generar los íconos de la PWA.
-2. Descargue y descomprima los archivos generados; excepto el archivo **manifest**. Guárdelos en la carpeta ``public`` de su proyecto.
+2. Descargue y descomprima los archivos generados; excepto el archivo **site.webmanifest**. Guárdelos en la carpeta ``public`` de su proyecto.
 3. Reemplace el contenido de la etiqueta `<head>` en el archivo ``index.html`` de su proyecto, con:
 
    .. code-block:: html
@@ -151,7 +151,7 @@ Manifesto de la PWA
                   src: 'pwa-512x512.png',
                   sizes: '512x512',
                   type: 'image/png',
-                  purpose: "maskable"
+                  purpose: "any"
                },
                {
                   src: "pwa-maskable-192x192.png",
@@ -179,6 +179,12 @@ Manifesto de la PWA
    
    a) Inspeccione el sitio web para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
    b) Instale la PWA en su dispositivo móvil o en su navegador, y verifique que se muestre el ícono de la aplicación y que funcione correctamente.
+
+   .. note:: 
+
+      Si no se muestra la opción de instalar la PWA, elimine el directorio ``dist`` y vuelva a compilar el proyecto.
+
+6. Con su cliente de IAG, explique el propósito del :term:`manifest` de la PWA, la importancia de los íconos y cómo estos contribuyen a la experiencia del usuario al instalar la aplicación.
 
 Service workers y Almacenamiento en caché
 -----------------------------------------
