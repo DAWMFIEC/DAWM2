@@ -232,7 +232,12 @@ Service workers y Almacenamiento en caché
 4. Con Chrome:
    
    a) Habilite la conexión a internet y recargue la página.
-   b) 
+   b) Realice las peticiones para todas las ciudades que desee almacenar en caché.
+   c) En la pestaña **Almacenamiento**, en las opciones **IndexedDB** y **Almacenamiento en caché**, verifique que las peticiones a la API de Open Meteo se almacenan en caché.
+   d) Deshabilite la conexión a internet y recargue la página.
+   e) Verifique que la aplicación funciona correctamente y que los datos se cargan desde el caché manejado por el ServiceWorker.
+
+5. Con su cliente de IAG, explique el concepto de :term:`service worker`, el uso del `Workbox` para manejar el almacenamiento en caché y cómo esto mejora la experiencia del usuario al permitir que la aplicación funcione sin conexión a internet.
 
 Versionamiento
 --------------
