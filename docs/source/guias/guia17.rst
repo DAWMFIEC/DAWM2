@@ -179,18 +179,17 @@ Manifesto de la PWA
 
    .. code-block:: bash
 
-      npm run build
-      npm run preview
+      npm run build && npm run preview
 
-5. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
-6. Instale la PWA en su dispositivo móvil o en su navegador, y verifique que se muestre el ícono de la aplicación y que funcione correctamente.
+5. Con Chrome, 
+   
+   a) Inspeccione el sitio web para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
+   b) Instale la PWA en su dispositivo móvil o en su navegador, y verifique que se muestre el ícono de la aplicación y que funcione correctamente.
 
-Service workers
----------------
+Service workers y Almacenamiento en caché
+-----------------------------------------
 
-
-Almacenamiento en caché
------------------------
+1. Con Chrome, inspeccione el sitio web en la opción "Red" (Network) para desahbilitar la conexión a internet ``Sin conexión``.
 
 
 Versionamiento
@@ -218,11 +217,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Qué conceptos clave sobre PWA lograste comprender mejor gracias a la inteligencia artificial generativa, y cómo se relacionan con la capacidad del dashboard para funcionar sin conexión y ser instalable?
 
-    * ¿Qué?
+    * ¿Qué ajustes realizaste a la configuración sugerida por la IA para garantizar que tu dashboard cumpla con los criterios de una PWA (instalabilidad, funcionamiento offline, respuesta rápida)?
 
-    * ¿Cómo?
+    * ¿Cómo demuestras que el uso de la inteligencia artificial no reemplazó tu responsabilidad en la creación de una aplicación sólida, sino que fue una herramienta para desarrollar tus competencias como desarrollador de PWAs?
 
 Actividades autónomas
 =====================
