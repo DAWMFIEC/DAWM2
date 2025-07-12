@@ -130,7 +130,7 @@ Manifesto de la PWA
 4. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
-      :emphasize-lines: 8-40
+      :emphasize-lines: 8-41
 
       ...
 
@@ -141,6 +141,7 @@ Manifesto de la PWA
          },
          includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
          manifest: {
+            id: '/dashboard/',
             name: 'Dashboard del Clima - Proyecto 04',
             short_name: 'Dashboard del Clima',
             description: 'Proyecto 04 - dashboard del clima desarrollado con React y MUI',
