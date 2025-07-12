@@ -106,7 +106,7 @@ Manifesto de la PWA
 3. Reemplace el contenido de la etiqueta `<head>` en el archivo ``index.html`` de su proyecto, con:
 
    .. code-block:: html
-      :emphasize-lines: 4-8
+      :emphasize-lines: 4-12
 
       <!DOCTYPE html>
       <html lang="es">
