@@ -60,11 +60,11 @@ PWA Vite Plugin
 
 2. Configure el plugin en el archivo ``vite.config.ts``, con:
 
-   a) Asegúrese que la base de la URL sea **base: "/dashboard/"**.
+   a) Asegúrese que la base de la URL sea **base: \"/dashboard/\"**.
    b) Importe y configure el plugin.
 
    .. code-block:: javascript
-      :emphasize-lines: 2, 5, 8-13
+      :emphasize-lines: 2, 5, 7-13
 
       ...
       import { VitePWA } from 'vite-plugin-pwa'
@@ -96,7 +96,7 @@ PWA Vite Plugin
       npm run preview
 
 6. Abra su navegador y acceda a la URL de su aplicación para verificar que el service worker se ha registrado correctamente y que el manifest está disponible.
-7. Utilice su cliente de IAG para explicar el concepto y los archivos necesarios para desarrollar una :term:`PWA`; además, explique el beneficio en utilizar el `PWA Vite Plugin`.
+7. Utilice su cliente de IAG para explicar el concepto de :term:`PWA`, el uso de los archivos ``manifest.webmanifest`` y ``sw.js``; además, el beneficio en utilizar el `PWA Vite Plugin`.
 
 Manifesto de la PWA
 -------------------
