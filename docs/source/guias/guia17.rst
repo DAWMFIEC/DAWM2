@@ -82,21 +82,15 @@ PWA Vite Plugin
          ]
       }
 
-3. Compile su proyecto para producción, con: 
+3. Compile para producción y levante el servidor local, con:
 
    .. code-block:: bash
 
-      npm run build
+      npm run build && npm run preview
 
 4. Verifique que la carpeta  ``dist`` contenga los archivos necesarios para la PWA, como ``manifest.webmanifest`` y ``sw.js``.
-5. Levante un servidor local para servir los archivos de producción, con:
-
-   .. code-block:: bash
-
-      npm run preview
-
-6. Abra su navegador y acceda a la URL de su aplicación para verificar que el service worker se ha registrado correctamente y que el manifest está disponible.
-7. Utilice su cliente de IAG para explicar el concepto de :term:`PWA`, el uso de los archivos ``manifest.webmanifest`` y ``sw.js``; además, el beneficio en utilizar el `PWA Vite Plugin`.
+5. Abra su navegador y acceda a la URL de su aplicación para verificar que el service worker se ha registrado correctamente y que el manifest está disponible.
+6. Utilice su cliente de IAG para explicar el concepto de :term:`PWA`, el uso de los archivos ``manifest.webmanifest`` y ``sw.js``; además, el beneficio en utilizar el `PWA Vite Plugin`.
 
 Manifesto de la PWA
 -------------------
