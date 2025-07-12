@@ -306,7 +306,7 @@ Configuración para el despliegue
        :emphasize-lines: 2
 
        export default defineConfig({
-            base: "/dashboard",
+            base: "/dashboard/",
             plugins: ... ,
        })
 
