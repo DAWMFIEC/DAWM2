@@ -228,3 +228,6 @@ Diccionario de términos
 
     manifest
         Es un archivo JSON que describe la configuración y características de una Progressive Web App (PWA). El manifest incluye información como el nombre de la aplicación, iconos, colores de tema, orientación de pantalla y otras propiedades que permiten a los navegadores web tratar la PWA como una aplicación nativa.
+
+    service worker
+        Es un script que se ejecuta en segundo plano en el navegador y permite a las Progressive Web Apps (PWAs) gestionar el almacenamiento en caché, las notificaciones push y otras funcionalidades avanzadas. Los service workers actúan como intermediarios entre la aplicación web y la red, lo que permite a las PWAs funcionar sin conexión a internet y mejorar el rendimiento al almacenar recursos localmente.

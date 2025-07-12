@@ -145,13 +145,11 @@ Manifesto de la PWA
                   src: 'pwa-192x192.png',
                   sizes: '192x192',
                   type: 'image/png',
-                  purpose: "any"
                },
                {
                   src: 'pwa-512x512.png',
                   sizes: '512x512',
                   type: 'image/png',
-                  purpose: "any"
                },
                {
                   src: "pwa-maskable-192x192.png",
@@ -258,6 +256,7 @@ Despliegue
    b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
 
 2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
+3. Verifique que la aplicación sea instalable como una PWA y que funcione correctamente sin conexión a internet.
 
 Conclusiones
 ============
