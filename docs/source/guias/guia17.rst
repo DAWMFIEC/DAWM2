@@ -102,7 +102,7 @@ Manifesto de la PWA
 -------------------
 
 1. Utilice el servicio `Favicon InBrowser.App <https://favicon.inbrowser.app/tools/favicon-generator>`_ para generar los íconos de la PWA.
-2. Descargue y descomprima los archivos generados. Guárdelos en la carpeta ``public`` de su proyecto.
+2. Descargue y descomprima los archivos generados; excepto el archivo **manifest**. Guárdelos en la carpeta ``public`` de su proyecto.
 3. Reemplace el contenido de la etiqueta `<head>` en el archivo ``index.html`` de su proyecto, con:
 
    .. code-block:: html
@@ -149,24 +149,26 @@ Manifesto de la PWA
                {
                   src: 'pwa-192x192.png',
                   sizes: '192x192',
-                  type: 'image/png'
+                  type: 'image/png',
+                  purpose: "any"
                },
                {
                   src: 'pwa-512x512.png',
                   sizes: '512x512',
-                  type: 'image/png'
+                  type: 'image/png',
+                  purpose: "maskable"
                },
                {
-                  "src": "pwa-maskable-192x192.png",
-                  "sizes": "192x192",
-                  "type": "image/png",
-                  "purpose": "any"
+                  src: "pwa-maskable-192x192.png",
+                  sizes: "192x192",
+                  type: "image/png",
+                  purpose: "maskable"
                },
                {
-                  "src": "pwa-maskable-512x512.png",
-                  "sizes": "512x512",
-                  "type": "image/png",
-                  "purpose": "maskable" 
+                  src: "pwa-maskable-512x512.png",
+                  sizes: "512x512",
+                  type: "image/png",
+                  purpose: "maskable" 
                },
             ]
          }
