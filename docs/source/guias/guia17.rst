@@ -85,8 +85,28 @@ PWA Vite Plugin
       npm run build
       npm run preview
 
-4. Verifique en la carpeta  ``dist`` que se han generado los archivos necesarios para la PWA, como ``manifest.webmanifest`` y ``sw.js``.
-5. Utilice su cliente de IAG para explicar el concepto y el uso de :term:`PWA`; además, cómo el plugin `PWA Vite Plugin` ayuda a implementarlo.
+4. Verifique que la carpeta  ``dist`` contenga los archivos necesarios para la PWA, como ``manifest.webmanifest`` y ``sw.js``.
+5. Utilice su cliente de IAG para explicar el concepto y los archivos necesarios para desarrollar una :term:`PWA`; además, explique el beneficio en utilizar el `PWA Vite Plugin`.
+
+Despliegue
+----------
+
+1. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+
+   .. code-block:: bash
+
+      npm run deploy
+
+   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
+   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
+
+2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
+3. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
+
+Íconos de la PWA
+----------------
+
+`Image Generator <https://www.pwabuilder.com/imageGenerator>`_
 
 Manifesto de la PWA
 -------------------
@@ -124,6 +144,18 @@ Manifesto de la PWA
             ]
          }
       })
+
+2. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+
+   .. code-block:: bash
+
+      npm run deploy
+
+   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
+   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
+
+3. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
+4. Inspeccione el sitio web en el navegador para verificar que se ha registrado el service worker y que el manifest está correctamente configurado.
 
 Service workers
 ---------------
