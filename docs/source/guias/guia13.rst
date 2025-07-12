@@ -170,48 +170,10 @@ Versionamiento
 1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *dashboard*.
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
-Configuración para el despliegue
---------------------------------
+Despliegue
+----------
 
-1. Desde la línea de comandos:
-
-   a) Instale el paquete `gh-pages`
-
-   .. code-block:: 
-
-        npm install gh-pages --save-dev
-   
-2. Modifique el archivo `package.json`, con:
-
-   a) La entrada **homepage**. Reemplace `<username>` por su nombre de usuario.
-   b) Los comandos **predeploy** y **deploy** a la entrada **scripts**.
-
-   .. code-block:: 
-       :emphasize-lines: 3,7,8
-
-       {
-            ...
-            "homepage": "https://<username>.github.io/dashboard",
-            ...
-            "scripts": { 
-                ...
-                "predeploy": "npm run build",
-                "deploy": "gh-pages -d dist",
-                ...
-            }
-       }
-
-3. Modifique el archivo `vite.config.js`, con la ruta al repositorio remoto:
-
-   .. code-block:: 
-       :emphasize-lines: 2
-
-       export default defineConfig({
-            base: "/dashboard",
-            plugins: ... ,
-       })
-
-4. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+1. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
 
    .. code-block:: bash
 
@@ -220,7 +182,7 @@ Configuración para el despliegue
    a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
    b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
 
-5. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
+2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
 
 Conclusiones
 ============
