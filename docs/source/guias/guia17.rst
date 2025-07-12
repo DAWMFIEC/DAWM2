@@ -124,15 +124,13 @@ Manifesto de la PWA
 4. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
-      :emphasize-lines: 8-41
+      :emphasize-lines: 7-40
 
       ...
 
       VitePWA({
-         registerType: 'autoUpdate',
-         devOptions: {
-            enabled: true
-         },
+         registerType: ...,
+         devOptions: { ... },
          includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
          manifest: {
             id: '/dashboard/',
