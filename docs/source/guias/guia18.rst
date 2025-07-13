@@ -38,8 +38,8 @@ Actividades en clases
 
       npm install cohere-ai
 
-4. Cree el componente ``MeteoAI`` en `src/components/CohereAssistant.js`, considerando la documentación `Working with Cohere's API and SDK <https://docs.cohere.com/reference/about>`_.
-5. Utilice el componente ``MeteoAI`` en su dashboard para enviar consultas al modelo de lenguaje y recibir respuestas relacionadas con el clima. Asegúrese de manejar adecuadamente las respuestas, especialmente si son ambiguas o extensas.
+4. Cree el componente ``CohereAssistant`` en `src/functions/CohereAssistant.tsx`, considerando la documentación `Working with Cohere's API and SDK <https://docs.cohere.com/reference/about>`_.
+5. Utilice el componente ``CohereAssistant`` en su dashboard para enviar consultas al modelo de lenguaje y recibir respuestas relacionadas con el clima. Asegúrese de manejar adecuadamente las respuestas, especialmente si son ambiguas o extensas.
 
 Conclusiones
 ============
