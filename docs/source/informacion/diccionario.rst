@@ -232,5 +232,14 @@ Diccionario de términos
     service worker
         Es un script que se ejecuta en segundo plano en el navegador y permite a las Progressive Web Apps (PWAs) gestionar el almacenamiento en caché, las notificaciones push y otras funcionalidades avanzadas. Los service workers actúan como intermediarios entre la aplicación web y la red, lo que permite a las PWAs funcionar sin conexión a internet y mejorar el rendimiento al almacenar recursos localmente.
 
-    ambiente de desarrollo
-        Es un entorno configurado para desarrollar, probar y depurar aplicaciones web o móviles. Incluye herramientas como editores de código, sistemas de control de versiones, servidores locales y bibliotecas de desarrollo que facilitan el proceso de creación de software.
+    ambiente virtual de desarrollo
+        Es un entorno aislado en el que se pueden instalar y ejecutar dependencias de un proyecto sin interferir con otras aplicaciones o proyectos en el sistema. Los ambientes virtuales son útiles para gestionar diferentes versiones de bibliotecas y evitar conflictos entre proyectos.
+
+    Django
+        Es un framework de desarrollo web de alto nivel para Python que permite crear aplicaciones web de manera rápida y sencilla. Proporciona una estructura organizada para el desarrollo, incluyendo herramientas para la gestión de bases de datos, autenticación de usuarios, enrutamiento de URLs y generación de contenido dinámico.
+
+    proyecto Django
+        Es un marco de trabajo de alto nivel para el desarrollo de aplicaciones web en Python. Un proyecto Django incluye una estructura de directorios y archivos que facilitan la organización del código, la configuración del entorno y la implementación de funcionalidades específicas.
+
+    aplicación Django
+        Es un componente modular dentro de un proyecto Django que encapsula una funcionalidad específica. Las aplicaciones Django pueden ser reutilizadas en diferentes proyectos y se componen de modelos, vistas, plantillas y archivos estáticos que trabajan juntos para proporcionar una funcionalidad completa.

@@ -25,7 +25,7 @@ Ambiente de desarrollo
    
 2. Acceda a su proyecto *backend* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
-4. Cree y habilite el :term:`ambiente de desarrollo`, con:
+4. Cree y habilite el :term:`ambiente virtual de desarrollo`, con:
 
    .. code-block:: bash
 
@@ -36,7 +36,7 @@ Ambiente de desarrollo
       
       Revise las instrucciones para `habilitar el ambiente de desarrollo <https://docs.python.org/3/tutorial/venv.html#tut-venv>`_ para su sistema operativo.
 
-5. Instale Django en su ambiente de desarrollo:
+5. Instale :term:`Django` en su ambiente de desarrollo:
 
    .. code-block:: bash
     
@@ -48,7 +48,7 @@ Actividades en clases
 Proyecto: Backend
 -----------------
 
-1. Cree un proyecto Django llamado *backend* en la ubicación actual:
+1. Cree un :term:`proyecto Django` llamado *backend* en la ubicación actual:
 
    .. code-block:: bash
 
@@ -66,7 +66,7 @@ Proyecto: Backend
 Aplicación: Main
 ----------------
 
-1. Cree una aplicación Django llamada *main*:
+1. Cree una :term:`aplicación Django` llamada *main*:
 
    .. code-block:: bash
 
