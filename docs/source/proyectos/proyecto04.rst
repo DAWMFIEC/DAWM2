@@ -19,7 +19,7 @@ Introducción
 
     Como desarrollador de aplicaciones web, ¿Qué es un dashboard y qué información debe tener un dashboard?
 
-.. figure:: ./respuestas/proyecto04-respouesta01.png
+.. figure:: ./respuestas/proyecto04-respuesta01.png
 
 .. toctree::
   :maxdepth: 1

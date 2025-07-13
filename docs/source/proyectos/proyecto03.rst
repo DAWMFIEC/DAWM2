@@ -19,7 +19,7 @@ Introducción
 
     Como desarrollador, explica ¿Qué es una landing page?
 
-.. figure:: ./respuestas/proyecto03-respouesta01.png
+.. figure:: ./respuestas/proyecto03-respuesta01.png
 
 .. toctree::
   :maxdepth: 1

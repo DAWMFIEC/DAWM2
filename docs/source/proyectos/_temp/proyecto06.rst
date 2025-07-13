@@ -3,9 +3,9 @@
   Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
   SPDX-License-Identifier: CC-BY-SA-4.0
   
-=============================
-Proyecto 06: Backend - Django
-=============================
+===============================================
+Proyecto 06: Aplicación Híbrida - React y Ionic
+===============================================
 
 .. topic:: Objetivo general
     :class: objetivo
