@@ -144,9 +144,6 @@ Archivos estáticos
 Plantillas
 ----------
 
-Parciales
----------
-
 Gestión de dependencias
 -----------------------
 
