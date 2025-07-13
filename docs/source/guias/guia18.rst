@@ -38,8 +38,34 @@ Actividades en clases
 
       npm install cohere-ai
 
-4. Cree el componente ``CohereAssistant`` en `src/functions/CohereAssistant.tsx`, considerando la documentación `Working with Cohere's API and SDK <https://docs.cohere.com/reference/about>`_.
-5. Utilice el componente ``CohereAssistant`` en su dashboard para enviar consultas al modelo de lenguaje y recibir respuestas relacionadas con el clima. Asegúrese de manejar adecuadamente las respuestas, especialmente si son ambiguas o extensas.
+4. Cree ``CohereAssistant`` para que se encargue de interactuar con la API de Cohere para enviar consultas y recibir respuestas. De acuerdo con: 
+ 
+   a) La documentación `Working with Cohere's API and SDK <https://docs.cohere.com/reference/about>`_.
+   b) Los `límites de llamadas a la API <https://docs.cohere.com/v2/docs/rate-limits>` y el manejo de errores. 
+   c) Asegúrese de que el componente pueda enviar consultas al modelo de lenguaje y recibir respuestas adecuadas.
+
+5. Utilice ``CohereAssistant`` en su proyecto React.
+6. Compruebe el resultado en el navegador, asegurándose de que el asistente pueda responder a las consultas del usuario sobre el clima.
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *dashboard*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+
+Despliegue
+----------
+
+1. Desde la línea de comandos, ejecute el comando de transpilación y despliegue del sitio web, con:
+
+   .. code-block:: bash
+
+      npm run deploy
+
+   a) De ser necesario, elimine, corrija o comente las secciones de código identificadas por el transpilador.
+   b) Vuelva a ejecutar el comando de transpilación y despliegue del sitio web.
+
+2. Compruebe el resultado en el navegador, con la URL: `https://<username>.github.io/dashboard`
 
 Conclusiones
 ============
