@@ -118,13 +118,13 @@ Aplicación: Main
 
 4. Cree una vista en `main/views.py` que retorne un mensaje de bienvenida:
 
-    .. code-block:: python
-       :emphasize-lines: 1-4
+   .. code-block:: python
+      :emphasize-lines: 1-4
 
-       from django.http import HttpResponse
+      from django.http import HttpResponse
 
-       def index(request):
-            return HttpResponse("¡Bienvenido a la aplicación Django!")
+      def index(request):
+          return HttpResponse("¡Bienvenido a la aplicación Django!")
 
 5. Levante el servidor de desarrollo de Django:
 
