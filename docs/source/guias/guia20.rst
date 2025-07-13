@@ -3,14 +3,14 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==================================
-Guía 15: React - Hooks (useEffect)
-==================================
+==============================================
+Guía 15: Django -  Django Rest Framework (DRF)
+==============================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar la gestión efectos secundarios y la actualización dinámica de la interfaz según los cambios de ubicación o preferencias del usuario en el dashboard. 
+    Implementar Django Rest Framework (DRF) para la construcción y estructuración de los endpoints de una API REST, utilizando vistas, serializadores y rutas adecuadas que permitan realizar operaciones CRUD sobre datos en Firebase Realtime Database. 
 
 Actividades previas
 =====================
@@ -18,23 +18,44 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Acceda a su proyecto *dashboard* en Codespaces o en su máquina local.
+1. Acceda a su proyecto *backend* en Codespaces o en su máquina local.
 2. Cree y utilice la(s) rama(s) de desarrollo.
-3. Instale los paquetes y levante el servidor, con:
+3. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
-      npm install
-      npm run dev
+       python -m venv environment
+       source environment/bin/activate
+
+4. Instale las librerías de requirements.txt, con:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
 
 Actividades en clases
 =====================
 
-React - Hook: useEffect
+Gestión de dependencias
 -----------------------
 
-React - Hook: useState
------------------------
+1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
+
+   .. code-block:: bash
+
+       pip freeze > requirements.txt
+
+2. Desactive el ambiente virtual de desarrollo, con:
+
+   .. code-block:: bash
+
+       deactivate
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *backend*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
 ============
