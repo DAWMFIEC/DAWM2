@@ -37,12 +37,12 @@ Actividades en clases
 
       npm install cohere-ai
 
-3. Cree ``CohereAssistant``, considerando los siguientes aspectos: 
+3. Cree ``CohereAssistant`` para que se encargue de interactuar con la API de Cohere del envío de consultas con los parámetros del clima y el manejo de la respuesta, considerando los siguientes aspectos: 
  
    a) La documentación de `Endpoints / Chat <https://docs.cohere.com/v2/reference/chat>`_. 
    b) Los `límites de llamadas a la API <https://docs.cohere.com/v2/docs/rate-limits>`_ y `el manejo de errores <https://docs.cohere.com/v2/reference/errors>`_.
 
-4. Utilice ``CohereAssistant`` para que se encargue de interactuar con la API de Cohere para enviar consultas con los parámetros del clima y manejar la respuesta en la interfaz del dashboard.
+4. Maneje la respuesta de ``CohereAssistant`` en la interfaz del dashboard.
 5. Compruebe el resultado en el navegador, asegurándose de que el asistente pueda responder a las consultas del usuario sobre el clima.
 
 Versionamiento
