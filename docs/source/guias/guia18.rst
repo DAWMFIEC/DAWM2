@@ -42,7 +42,7 @@ Actividades en clases
    a) La documentación de `Endpoints / Chat <https://docs.cohere.com/v2/reference/chat>`_. 
    b) Los `límites de llamadas a la API <https://docs.cohere.com/v2/docs/rate-limits>`_ y `el manejo de errores <https://docs.cohere.com/v2/reference/errors>`_.
 
-4. Maneje la respuesta de ``CohereAssistant`` en la interfaz del dashboard.
+4. Maneje la respuesta de ``CohereAssistant`` en la interfaz del dashboard del clima.
 5. Compruebe el resultado en el navegador, asegurándose de que el asistente pueda responder a las consultas del usuario sobre el clima.
 
 Versionamiento
