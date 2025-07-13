@@ -30,22 +30,20 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-1. Obtenga una cuenta `Cohere <https://cohere.com/>`_ y cree un proyecto.
-2. Obtenga el token de acceso a la `API Keys <https://dashboard.cohere.com/api-keys>`_ de Cohere.
-3. Instale el paquete de `Cohere-AI <https://www.npmjs.com/package/cohere-ai>`_ en su proyecto React:
+1. Obtenga una cuenta `Cohere <https://cohere.com/>`_ y el token de acceso a la `API Keys <https://dashboard.cohere.com/api-keys>`_ de Cohere.
+2. Instale el paquete de `Cohere-AI <https://www.npmjs.com/package/cohere-ai>`_ en su proyecto React:
 
    .. code-block:: bash
 
       npm install cohere-ai
 
-4. Cree ``CohereAssistant`` para que se encargue de interactuar con la API de Cohere para enviar consultas y recibir respuestas. De acuerdo con: 
+3. Cree ``CohereAssistant`` para que se encargue de interactuar con la API de Cohere para enviar consultas y recibir respuestas. De acuerdo con: 
  
-   a) La documentación `Working with Cohere's API and SDK <https://docs.cohere.com/reference/about>`_.
-   b) Los `límites de llamadas a la API <https://docs.cohere.com/v2/docs/rate-limits>` y el manejo de errores. 
-   c) Asegúrese de que el componente pueda enviar consultas al modelo de lenguaje y recibir respuestas adecuadas.
+   a) La documentación para crear un cliente en `Creating a client <https://docs.cohere.com/v1/docs/create-client>`_.
+   b) Los `límites de llamadas a la API <https://docs.cohere.com/v2/docs/rate-limits>`_ y `el manejo de errores <https://docs.cohere.com/v2/reference/errors>`_.
 
-5. Utilice ``CohereAssistant`` en su proyecto React.
-6. Compruebe el resultado en el navegador, asegurándose de que el asistente pueda responder a las consultas del usuario sobre el clima.
+4. Utilice ``CohereAssistant`` con los parámetros del clima.
+5. Compruebe el resultado en el navegador, asegurándose de que el asistente pueda responder a las consultas del usuario sobre el clima.
 
 Versionamiento
 --------------
