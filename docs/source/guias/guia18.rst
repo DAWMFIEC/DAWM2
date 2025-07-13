@@ -10,7 +10,7 @@ Guía 15: React - Cliente de IA generativa
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar
+    Integrar el servicio de procesamiento de lenguaje natural en el dashboard para generar descripciones automatizadas, recomendaciones o resúmenes interpretativos de los datos climáticos en tiempo real
 
 Actividades previas
 =====================
@@ -30,6 +30,16 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+1. Obtenga una cuenta `Cohere <https://cohere.com/>`_ y cree un proyecto.
+2. Obtenga el token de acceso a la `API Keys <https://dashboard.cohere.com/api-keys>`_ de Cohere.
+3. Instale el paquete de `Cohere-AI <https://www.npmjs.com/package/cohere-ai>`_ en su proyecto React:
+
+   .. code-block:: bash
+
+      npm install cohere-ai
+
+4. Cree el componente ``MeteoAI`` en `src/components/CohereAssistant.js`, considerando la documentación `Working with Cohere's API and SDK <https://docs.cohere.com/reference/about>`_.
+5. Utilice el componente ``MeteoAI`` en su dashboard para enviar consultas al modelo de lenguaje y recibir respuestas relacionadas con el clima. Asegúrese de manejar adecuadamente las respuestas, especialmente si son ambiguas o extensas.
 
 Conclusiones
 ============
