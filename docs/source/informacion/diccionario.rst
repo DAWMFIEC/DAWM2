@@ -231,3 +231,6 @@ Diccionario de términos
 
     service worker
         Es un script que se ejecuta en segundo plano en el navegador y permite a las Progressive Web Apps (PWAs) gestionar el almacenamiento en caché, las notificaciones push y otras funcionalidades avanzadas. Los service workers actúan como intermediarios entre la aplicación web y la red, lo que permite a las PWAs funcionar sin conexión a internet y mejorar el rendimiento al almacenar recursos localmente.
+
+    ambiente de desarrollo
+        Es un entorno configurado para desarrollar, probar y depurar aplicaciones web o móviles. Incluye herramientas como editores de código, sistemas de control de versiones, servidores locales y bibliotecas de desarrollo que facilitan el proceso de creación de software.

@@ -25,9 +25,110 @@ Ambiente de desarrollo
    
 2. Acceda a su proyecto *backend* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
+4. Cree y habilite el :term:`ambiente de desarrollo`, con:
+
+   .. code-block:: bash
+
+       python -m venv environment
+       source environment/bin/activate
+
+   .. note:: 
+      
+      Revise las instrucciones para `habilitar el ambiente de desarrollo <https://docs.python.org/3/tutorial/venv.html#tut-venv>`_ para su sistema operativo.
+
+5. Instale Django en su ambiente de desarrollo:
+
+   .. code-block:: bash
+    
+       pip install django
 
 Actividades en clases
 =====================
+
+Proyecto: Backend
+-----------------
+
+1. Cree un proyecto Django llamado *backend* en la ubicación actual:
+
+   .. code-block:: bash
+
+       django-admin startproject backend .
+
+2. Levante el servidor de desarrollo de Django:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+3. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto (backend) Django.
+
+Aplicación: Main
+----------------
+
+1. Cree una aplicación Django llamada *main*:
+
+   .. code-block:: bash
+
+       python manage.py startapp main
+
+2. Registre la aplicación *main* en el proyecto *backend*:
+
+   a) Modifique el archivo `backend/settings.py` del proyecto:
+
+   .. code-block:: python
+      :emphasize-lines: 5
+
+        ...
+
+        INSTALLED_APPS = [
+            ...
+            'main',
+        ]
+
+    b) Importe el módulo **include** y asocie la ruta raíz ('') con las rutas de la aplicación **main** en el archivo `backend/urls.py`:
+
+   .. code-block:: python
+      :emphasize-lines: 2, 6
+
+        from django.contrib import admin
+        from django.urls import path, include
+
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('', include('main.urls')),
+        ]
+
+3. Cree un archivo `urls.py` en la carpeta *main* y registre las rutas de la aplicación:
+
+   .. code-block:: python
+      :emphasize-lines: 1-3
+
+        from django.urls import path
+        from . import views
+
+        urlpatterns = [
+            path('', views.index, name='index'),
+        ]
+
+4. Cree una vista en `main/views.py` que retorne un mensaje de bienvenida:
+
+   .. code-block:: python
+        :emphasize-lines: 1-3
+    
+            from django.http import HttpResponse
+    
+            def index(request):
+                return HttpResponse("¡Bienvenido a la aplicación Django!")
+
+5. Levante el servidor de desarrollo de Django:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+7. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
 
 Conclusiones
 ============
