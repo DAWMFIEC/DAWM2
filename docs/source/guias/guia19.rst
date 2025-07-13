@@ -147,7 +147,7 @@ Vistas
 2. Edite el archivo ``backend/settings.py``, en el arreglo **TEMPLATES**, en la entrada **DIRS** con la ruta a la carpeta de plantillas:
 
    .. code-block:: python
-      :emphasize-lines: 5
+      :emphasize-lines: 4
 
       TEMPLATES = [
           {
@@ -177,6 +177,27 @@ Archivos estáticos
 ------------------
 
 1. Descargue y descomprima el archivo :download:`static.zip <./files/static.zip>`. en la carpeta ``static``.
+2. Edite el archivo ``backend/settings.py``, 
+
+   a) Instale la aplicación **staticfiles** en el arreglo **INSTALLED_APPS**:
+
+   .. code-block:: python
+      :emphasize-lines: 3
+
+      INSTALLED_APPS = [
+        ...
+        'django.contrib.staticfiles',
+        'main',
+      ]
+
+   b) El arreglo **STATICFILES_DIRS**, con la ruta a la carpeta de archivos estáticos:
+
+   .. code-block:: python
+      :emphasize-lines: 3
+
+      STATICFILES_DIRS = [
+          os.path.join(BASE_DIR, 'static'),
+      ]
 
 Plantillas
 ----------
