@@ -138,7 +138,7 @@ Aplicación: Main
 Vistas
 ------
 
-1. Descargue y descomprima los archivos base.zip en la carpeta ``templates/main``.
+1. Descargue y descomprima los archivos :download:`base.html <./templates/base.html>`. en la carpeta ``templates/main``.
 2. Edite el archivo ``backend/settings.py``, para el arreglo **TEMPLATES**, en la entrada **DIRS** y agregue la ruta a la carpeta de plantillas:
 
    .. code-block:: python
