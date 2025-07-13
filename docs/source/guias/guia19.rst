@@ -79,25 +79,25 @@ Aplicación: Main
    .. code-block:: python
       :emphasize-lines: 5
 
+      ...
+
+      INSTALLED_APPS = [
         ...
+        'main',
+      ]
 
-        INSTALLED_APPS = [
-            ...
-            'main',
-        ]
-
-    b) Importe el módulo **include** y asocie la ruta raíz ('') con las rutas de la aplicación **main** en el archivo `backend/urls.py`:
+   b) Importe el módulo **include** y asocie la ruta raíz ('') con las rutas de la aplicación **main** en el archivo `backend/urls.py`:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
 
-        from django.contrib import admin
-        from django.urls import path, include
+      from django.contrib import admin
+      from django.urls import path, include
 
-        urlpatterns = [
-            path('admin/', admin.site.urls),
-            path('', include('main.urls')),
-        ]
+      urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('main.urls')),
+      ]
 
 3. Cree un archivo `urls.py` en la carpeta *main* y registre las rutas de la aplicación:
 
