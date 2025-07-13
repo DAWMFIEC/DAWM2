@@ -79,7 +79,7 @@ Aplicación: Main
 
 2. Registre la aplicación *main* en el proyecto *backend*:
 
-   a) Modifique el archivo `backend/settings.py` del proyecto:
+   a) Modifique el archivo ``backend/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 5
@@ -91,7 +91,7 @@ Aplicación: Main
         'main',
       ]
 
-   b) Importe el módulo **include** y asocie la ruta raíz ('') con las rutas de la aplicación **main** en el archivo `backend/urls.py`:
+   b) Importe el módulo **include** y asocie la ruta raíz ('') con las rutas de la aplicación **main** en el archivo ``backend/urls.py``:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -104,7 +104,7 @@ Aplicación: Main
             path('', include('main.urls')),
       ]
 
-3. Cree un archivo `urls.py` en la carpeta *main* y registre las rutas de la aplicación:
+3. Cree un archivo ``main/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -116,7 +116,7 @@ Aplicación: Main
             path('', views.index, name='index'),
       ]
 
-4. Cree una vista en `main/views.py` que retorne un mensaje de bienvenida:
+4. Cree una vista en ``main/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 1-4
@@ -137,6 +137,36 @@ Aplicación: Main
 
 Vistas
 ------
+
+1. Descargue y descomprima los archivos base.zip en la carpeta ``templates/main``.
+2. Edite el archivo ``backend/settings.py``, para el arreglo **TEMPLATES**, en la entrada **DIRS** y agregue la ruta a la carpeta de plantillas:
+
+   .. code-block:: python
+      :emphasize-lines: 5
+
+      TEMPLATES = [
+          {
+              ...
+              'DIRS': [os.path.join(BASE_DIR, 'templates')],
+              ...
+          },
+      ]
+
+3. Edite el archivo ``main/views.py``, 
+
+   a) Importe el módulo **render**
+   b) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
+
+   .. code-block:: python
+      :emphasize-lines: 1, 5
+
+      from django.shortcuts import render
+
+      def index(request):
+          # return HttpResponse("¡Bienvenido a la aplicación Django!")
+          return render(request, 'main/base.html')
+
+4. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 
 Archivos estáticos
 ------------------
