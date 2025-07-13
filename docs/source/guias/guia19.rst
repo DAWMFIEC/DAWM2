@@ -138,8 +138,13 @@ Aplicación: Main
 Vistas
 ------
 
-1. Descargue y descomprima los archivos :download:`base.html <./templates/base.html>`. en la carpeta ``templates/main``.
-2. Edite el archivo ``backend/settings.py``, para el arreglo **TEMPLATES**, en la entrada **DIRS** y agregue la ruta a la carpeta de plantillas:
+1. Descargue y descomprima el archivo :download:`base.html <./files/base.html>`. en la carpeta ``templates/main``.
+   
+   .. note:: 
+
+      La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
+
+2. Edite el archivo ``backend/settings.py``, en el arreglo **TEMPLATES**, en la entrada **DIRS** con la ruta a la carpeta de plantillas:
 
    .. code-block:: python
       :emphasize-lines: 5
@@ -158,7 +163,7 @@ Vistas
    b) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
 
    .. code-block:: python
-      :emphasize-lines: 1, 5
+      :emphasize-lines: 1, 4-5
 
       from django.shortcuts import render
 
@@ -170,6 +175,8 @@ Vistas
 
 Archivos estáticos
 ------------------
+
+1. Descargue y descomprima el archivo :download:`static.zip <./files/static.zip>`. en la carpeta ``static``.
 
 Plantillas
 ----------
