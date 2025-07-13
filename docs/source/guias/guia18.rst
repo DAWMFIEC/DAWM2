@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =========================================
-Guía 15: React - Cliente de IA generativa
+Guía 18: React - Cliente de IA generativa
 =========================================
 
 .. topic:: Objetivo específico
