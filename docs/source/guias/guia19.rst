@@ -173,11 +173,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender la estructura jerárquica de un proyecto Django y el rol que cumplen las aplicaciones, vistas y plantillas en la separación de responsabilidades?
 
-    * ¿Qué?
+    * ¿Cómo estructuraste los archivos estáticos y plantillas en tu proyecto para lograr una arquitectura clara, eficiente y reutilizable, y qué papel jugó la IA en ese proceso de diseño?
 
-    * ¿Cómo?
+    * ¿Cómo aseguras que el uso de IA generativa no reemplace tu comprensión del marco de trabajo Django, sino que complemente tu aprendizaje como desarrollador backend responsable?
 
 Actividades autónomas
 =====================
