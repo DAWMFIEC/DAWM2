@@ -100,8 +100,8 @@ Aplicación: Main
       from django.urls import path, include
 
       urlpatterns = [
-        path('admin/', admin.site.urls),
-        path('', include('main.urls')),
+            path('admin/', admin.site.urls),
+            path('', include('main.urls')),
       ]
 
 3. Cree un archivo `urls.py` en la carpeta *main* y registre las rutas de la aplicación:
@@ -109,21 +109,21 @@ Aplicación: Main
    .. code-block:: python
       :emphasize-lines: 1-6
 
-        from django.urls import path
-        from . import views
+      from django.urls import path
+      from . import views
 
-        urlpatterns = [
+      urlpatterns = [
             path('', views.index, name='index'),
-        ]
+      ]
 
 4. Cree una vista en `main/views.py` que retorne un mensaje de bienvenida:
 
-   .. code-block:: python
-        :emphasize-lines: 1-4
-    
-        from django.http import HttpResponse
+    .. code-block:: python
+       :emphasize-lines: 1-4
 
-        def index(request):
+       from django.http import HttpResponse
+
+       def index(request):
             return HttpResponse("¡Bienvenido a la aplicación Django!")
 
 5. Levante el servidor de desarrollo de Django:
