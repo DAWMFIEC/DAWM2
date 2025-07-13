@@ -107,7 +107,7 @@ Aplicación: Main
 3. Cree un archivo `urls.py` en la carpeta *main* y registre las rutas de la aplicación:
 
    .. code-block:: python
-      :emphasize-lines: 1-3
+      :emphasize-lines: 1-6
 
         from django.urls import path
         from . import views
@@ -119,12 +119,12 @@ Aplicación: Main
 4. Cree una vista en `main/views.py` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-        :emphasize-lines: 1-3
+        :emphasize-lines: 1-4
     
-            from django.http import HttpResponse
-    
-            def index(request):
-                return HttpResponse("¡Bienvenido a la aplicación Django!")
+        from django.http import HttpResponse
+
+        def index(request):
+            return HttpResponse("¡Bienvenido a la aplicación Django!")
 
 5. Levante el servidor de desarrollo de Django:
 
@@ -134,6 +134,18 @@ Aplicación: Main
 
 6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 7. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
+
+Vistas
+------
+
+Archivos estáticos
+------------------
+
+Plantillas
+----------
+
+Parciales
+---------
 
 Gestión de dependencias
 -----------------------
