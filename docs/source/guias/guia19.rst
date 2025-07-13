@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ==============================
-Guía 19: Django - Introduccion
+Guía 19: Django - Introducción
 ==============================
 
 .. topic:: Objetivo específico
@@ -36,14 +36,19 @@ Ambiente de desarrollo
       
       Revise las instrucciones para `habilitar el ambiente de desarrollo <https://docs.python.org/3/tutorial/venv.html#tut-venv>`_ para su sistema operativo.
 
-5. Instale :term:`Django` en su ambiente de desarrollo:
+Actividades en clases
+=====================
+
+Django
+------
+
+1. Instale :term:`Django` en su ambiente de desarrollo:
 
    .. code-block:: bash
     
        pip install django
 
-Actividades en clases
-=====================
+2. Utilice su cliente de IAG generativa para explicar qué es Django y cuáles son sus principales características.
 
 Proyecto: Backend
 -----------------
@@ -129,6 +134,27 @@ Aplicación: Main
 
 6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 7. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
+
+Gestión de dependencias
+-----------------------
+
+1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
+
+   .. code-block:: bash
+
+       pip freeze > requirements.txt
+
+2. Desactive el ambiente virtual de desarrollo, con:
+
+   .. code-block:: bash
+
+       deactivate
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *backend*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
 ============
