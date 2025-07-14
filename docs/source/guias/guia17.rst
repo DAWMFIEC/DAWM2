@@ -115,7 +115,7 @@ Manifesto de la PWA
       
       </html>
 
-4. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
+4. Modifique la definición del manifest de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
       :emphasize-lines: 6-37
@@ -180,7 +180,7 @@ Service workers y Almacenamiento en caché
 -----------------------------------------
 
 1. Con Chrome, inspeccione el sitio web en la opción "Red" (Network) para deshabilitar la conexión a internet ``Sin conexión``.
-2. Modifique la definición del :term:`manifest` de la PWA en el archivo ``vite.config.ts``, con:
+2. Modifique la definición del manifest de la PWA en el archivo ``vite.config.ts``, con:
 
    .. code-block:: javascript
       :emphasize-lines: 8-26
