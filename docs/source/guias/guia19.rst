@@ -169,11 +169,10 @@ Vistas
 
 4. Edite el archivo ``main/views.py``:
 
-   a) Importe el módulo **render**
-   b) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
+   a) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
 
    .. code-block:: python
-      :emphasize-lines: 1, 4-5
+      :emphasize-lines: 4-5
 
       from django.shortcuts import render
 
