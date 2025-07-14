@@ -237,6 +237,7 @@ Archivos estáticos
       </html>
 
 5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+6. Utilice su cliente de IAG generativa para explicar la estructura de archivos estáticos en un proyecto Django y la utilidad de la etiqueta **{% load static %}** .
 
 Plantillas
 ----------
