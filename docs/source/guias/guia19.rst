@@ -82,16 +82,14 @@ Aplicación: Main
    a) Modifique el archivo ``backend/settings.py`` del proyecto:
 
    .. code-block:: python
-      :emphasize-lines: 5
-
-      ...
+      :emphasize-lines: 3
 
       INSTALLED_APPS = [
         ...
         'main',
       ]
 
-   b) Importe el módulo **include** y asocie la ruta raíz ('') con las rutas de la aplicación **main** en el archivo ``backend/urls.py``:
+   b) En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'\') con las rutas de la aplicación **main**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -119,8 +117,11 @@ Aplicación: Main
 4. Cree una vista en ``main/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-      :emphasize-lines: 1-4
+      :emphasize-lines: 4-7
 
+      from django.shortcuts import render
+
+      # Create your views here.
       from django.http import HttpResponse
 
       def index(request):
@@ -138,13 +139,15 @@ Aplicación: Main
 Vistas
 ------
 
-1. Descargue y descomprima el archivo :download:`base.html <./files/base.html>`. en la carpeta ``templates/main``.
+1. Descargue el archivo :download:`base.html <./files/base.html>` en la carpeta ``templates/main``.
    
    .. note:: 
 
       La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
 
-2. Edite el archivo ``backend/settings.py``, en el arreglo **TEMPLATES**, en la entrada **DIRS** con la ruta a la carpeta de plantillas:
+2. Modifique el archivo ``backend/settings.py``:abbr:
+
+   a) En el arreglo **TEMPLATES**, agregue la ruta a las plantillas en la entrada **DIRS**
 
    .. code-block:: python
       :emphasize-lines: 4
@@ -153,11 +156,11 @@ Vistas
           {
               ...
               'DIRS': [os.path.join(BASE_DIR, 'templates')],
-              ...
+              'main',
           },
       ]
 
-3. Edite el archivo ``main/views.py``, 
+3. Edite el archivo ``main/views.py``:
 
    a) Importe el módulo **render**
    b) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
