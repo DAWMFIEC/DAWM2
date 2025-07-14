@@ -139,7 +139,7 @@ Aplicación: Main
 Vistas
 ------
 
-1. Cree la jerarquía de carpetas ``templates/main`` 
+1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/main`` 
 2. Descargue el archivo :download:`base.html <./files/base.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
    
    .. note:: 
@@ -185,7 +185,8 @@ Vistas
 Archivos estáticos
 ------------------
 
-1. Descargue y descomprima el archivo :download:`static.zip <./files/static.zip>`. en la carpeta ``static``.
+1. En la raíz del repositorio, cree la carpeta ``static`` 
+1. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
 2. Edite el archivo ``backend/settings.py``, 
 
    a) Instale la aplicación **staticfiles** en el arreglo **INSTALLED_APPS**:
