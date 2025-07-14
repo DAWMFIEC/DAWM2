@@ -186,28 +186,57 @@ Archivos estáticos
 ------------------
 
 1. En la raíz del repositorio, cree la carpeta ``static`` 
-1. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
-2. Edite el archivo ``backend/settings.py``, 
+2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
+3. Edite el archivo ``backend/settings.py``, 
 
-   a) Instale la aplicación **staticfiles** en el arreglo **INSTALLED_APPS**:
-
-   .. code-block:: python
-      :emphasize-lines: 3
-
-      INSTALLED_APPS = [
-        ...
-        'django.contrib.staticfiles',
-        'main',
-      ]
-
-   b) El arreglo **STATICFILES_DIRS**, con la ruta a la carpeta de archivos estáticos:
+   a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
 
    .. code-block:: python
-      :emphasize-lines: 3
+      :emphasize-lines: 4-6
+
+      ...
+      STATIC_URL = "static/"
 
       STATICFILES_DIRS = [
-          os.path.join(BASE_DIR, 'static'),
+          os.path.join(BASE_DIR, STATIC_URL),
       ]
+
+4. Edite el archivo ``templates/main/base.html``:
+
+   a) Agregue la etiqueta **{% load static %}** al inicio del archivo.
+   b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
+
+   .. code-block:: html
+      :emphasize-lines: 1, 8, 11, 15-16
+
+      {% load static %}
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+
+         ...
+         <!-- Local stylesheets -->
+         <link rel="stylesheet" href="{% static 'css/tailwind.output.css' %}">
+         
+         ...
+         <!-- Local script files -->
+         <script src="{% static 'js/init-alpine.js' %}"></script>
+
+         ...
+         <!-- Local script files -->
+         <script src="{% static 'js/charts-lines.js' %}" defer></script>
+         <script src="{% static 'js/charts-pie.js' %}" defer></script>
+
+         ...
+
+      </head>
+      <body>
+          ...
+      </body>
+      </html>
+
+5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 
 Plantillas
 ----------
