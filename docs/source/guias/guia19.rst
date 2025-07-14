@@ -139,13 +139,14 @@ Aplicación: Main
 Vistas
 ------
 
-1. Descargue el archivo :download:`base.html <./files/base.html>` en la carpeta ``templates/main``.
+1. Descargue el archivo :download:`base.html <./files/base.html>` 
    
    .. note:: 
 
       La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
 
-2. Modifique el archivo ``backend/settings.py``:abbr:
+2. Cree la jerarquía de carpetas ``templates/main`` y coloque el archivo ``base.html`` en la carpeta ``templates/main``.
+3. Modifique el archivo ``backend/settings.py``:abbr:
 
    a) En el arreglo **TEMPLATES**, agregue la ruta a las plantillas en la entrada **DIRS**
 
@@ -160,7 +161,7 @@ Vistas
           },
       ]
 
-3. Edite el archivo ``main/views.py``:
+4. Edite el archivo ``main/views.py``:
 
    a) Importe el módulo **render**
    b) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
@@ -174,7 +175,7 @@ Vistas
           # return HttpResponse("¡Bienvenido a la aplicación Django!")
           return render(request, 'main/base.html')
 
-4. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 
 Archivos estáticos
 ------------------
