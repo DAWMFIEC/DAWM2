@@ -207,7 +207,7 @@ Archivos estáticos
    b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
 
    .. code-block:: html
-      :emphasize-lines: 1, 9, 13, 17-18
+      :emphasize-lines: 1, 9, 14, 19-20
 
       {% load static %}
 
@@ -216,19 +216,20 @@ Archivos estáticos
       <head>
 
          ...
+         
          <!-- Local stylesheets -->
          <link rel="stylesheet" href="{% static 'css/tailwind.output.css' %}">
          
          ...
+         
          <!-- Local script files -->
          <script src="{% static 'js/init-alpine.js' %}"></script>
 
          ...
+         
          <!-- Local script files -->
          <script src="{% static 'js/charts-lines.js' %}" defer></script>
          <script src="{% static 'js/charts-pie.js' %}" defer></script>
-
-         ...
 
       </head>
       <body>
