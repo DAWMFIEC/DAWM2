@@ -207,7 +207,7 @@ Archivos estáticos
    b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
 
    .. code-block:: html
-      :emphasize-lines: 1, 8, 11, 15-16
+      :emphasize-lines: 1, 9, 13, 17-18
 
       {% load static %}
 
