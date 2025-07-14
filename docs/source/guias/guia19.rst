@@ -139,25 +139,31 @@ Aplicación: Main
 Vistas
 ------
 
-1. Descargue el archivo :download:`base.html <./files/base.html>` 
+1. Cree la jerarquía de carpetas ``templates/main`` 
+2. Descargue el archivo :download:`base.html <./files/base.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
    
    .. note:: 
 
       La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
 
-2. Cree la jerarquía de carpetas ``templates/main`` y coloque el archivo ``base.html`` en la carpeta ``templates/main``.
-3. Modifique el archivo ``backend/settings.py``:abbr:
+3. Modifique el archivo ``backend/settings.py`` 
 
-   a) En el arreglo **TEMPLATES**, agregue la ruta a las plantillas en la entrada **DIRS**
+   a) Importe el módulo **os**
+   b) Agregue la ruta a las plantillas en el arreglo **TEMPLATES**, en la entrada **DIRS**.
 
    .. code-block:: python
-      :emphasize-lines: 4
+      :emphasize-lines: 2, 9
+
+      from pathlib import Path
+      import os
+
+      ... 
 
       TEMPLATES = [
           {
               ...
-              'DIRS': [os.path.join(BASE_DIR, 'templates')],
-              'main',
+              "DIRS": [os.path.join(BASE_DIR, 'templates')],
+              ...
           },
       ]
 
