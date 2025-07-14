@@ -192,9 +192,8 @@ Archivos estáticos
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
 
    .. code-block:: python
-      :emphasize-lines: 4-6
+      :emphasize-lines: 3-5
 
-      ...
       STATIC_URL = "static/"
 
       STATICFILES_DIRS = [
