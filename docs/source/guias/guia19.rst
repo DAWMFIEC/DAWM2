@@ -141,7 +141,7 @@ Rutas y Vistas de la aplicación
        python manage.py runserver
 
 7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
-8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
+8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación en Django.
 
 Gestión de dependencias
 -----------------------
