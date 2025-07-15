@@ -39,8 +39,8 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Django
-------
+Paquete: Django
+---------------
 
 1. Instale :term:`Django` en su ambiente de desarrollo:
 
@@ -68,28 +68,32 @@ Proyecto: Backend
 3. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto (backend) Django.
 
-Aplicación: Main
-----------------
+Aplicación: Landing API
+-----------------------
 
-1. Cree una :term:`aplicación Django` llamada *main*:
+Creación de la aplicación
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Cree una :term:`aplicación Django` llamada *landingapi*:
 
    .. code-block:: bash
 
-       python manage.py startapp main
+       python manage.py startapp landingapi
 
-2. Registre la aplicación *main* en el proyecto *backend*:
+Registro de la aplicación
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   a) Modifique el archivo ``backend/settings.py`` del proyecto:
+2. Modifique el archivo ``backend/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
 
       INSTALLED_APPS = [
         ...
-        'main',
+        'landingapi',
       ]
 
-   b) En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'\') con las rutas de la aplicación **main**:
+3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'api/landing/\') con las rutas de la aplicación **landingapi**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -99,10 +103,13 @@ Aplicación: Main
 
       urlpatterns = [
             path('admin/', admin.site.urls),
-            path('', include('main.urls')),
+            path('api/landing/', include('landingapi.urls')),
       ]
 
-3. Cree un archivo ``main/urls.py`` con las rutas de la aplicación:
+Rutas y Vistas de la aplicación
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+4. Cree un archivo ``landingapi/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -111,10 +118,10 @@ Aplicación: Main
       from . import views
 
       urlpatterns = [
-            path('', views.index, name='index'),
+            path('index/', views.index, name='index'),
       ]
 
-4. Cree una vista en ``main/views.py`` que retorne un mensaje de bienvenida:
+5. Cree una vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7
@@ -127,120 +134,14 @@ Aplicación: Main
       def index(request):
           return HttpResponse("¡Bienvenido a la aplicación Django!")
 
-5. Levante el servidor de desarrollo de Django:
+6. Levante el servidor de desarrollo de Django:
 
    .. code-block:: bash
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
-7. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
-
-Vistas
-------
-
-1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/main`` 
-2. Descargue el archivo :download:`base.html <./files/base.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
-   
-   .. note:: 
-
-      La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
-
-3. Modifique el archivo ``backend/settings.py`` 
-
-   a) Importe el módulo **os**
-   b) Agregue la ruta a las plantillas en el arreglo **TEMPLATES**, en la entrada **DIRS**.
-
-   .. code-block:: python
-      :emphasize-lines: 2, 9
-
-      from pathlib import Path
-      import os
-
-      ... 
-
-      TEMPLATES = [
-          {
-              ...
-              "DIRS": [os.path.join(BASE_DIR, 'templates')],
-              ...
-          },
-      ]
-
-4. Edite el archivo ``main/views.py``:
-
-   a) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
-
-   .. code-block:: python
-      :emphasize-lines: 4-5
-
-      from django.shortcuts import render
-
-      def index(request):
-          # return HttpResponse("¡Bienvenido a la aplicación Django!")
-          return render(request, 'main/base.html')
-
-5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
-
-Archivos estáticos
-------------------
-
-1. En la raíz del repositorio, cree la carpeta ``static`` 
-2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
-3. Edite el archivo ``backend/settings.py``, 
-
-   a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
-
-   .. code-block:: python
-      :emphasize-lines: 3-5
-
-      STATIC_URL = "static/"
-
-      STATICFILES_DIRS = [
-          os.path.join(BASE_DIR, STATIC_URL),
-      ]
-
-4. Edite el archivo ``templates/main/base.html``:
-
-   a) Agregue la etiqueta **{% load static %}** al inicio del archivo.
-   b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
-
-   .. code-block:: html
-      :emphasize-lines: 1, 10, 15, 20-21
-
-      {% load static %}
-
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-
-         ...
-         
-         <!-- Local stylesheets -->
-         <link rel="stylesheet" href="{% static 'css/tailwind.output.css' %}">
-         
-         ...
-         
-         <!-- Local script files -->
-         <script src="{% static 'js/init-alpine.js' %}"></script>
-
-         ...
-         
-         <!-- Local script files -->
-         <script src="{% static 'js/charts-lines.js' %}" defer></script>
-         <script src="{% static 'js/charts-pie.js' %}" defer></script>
-
-      </head>
-      <body>
-          ...
-      </body>
-      </html>
-
-5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
-6. Utilice su cliente de IAG generativa para explicar la estructura de archivos estáticos en un proyecto Django y la utilidad de la etiqueta **{% load static %}** .
-
-Plantillas
-----------
+7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
 
 Gestión de dependencias
 -----------------------
@@ -268,11 +169,12 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender la estructura jerárquica de un proyecto Django y el rol que cumplen las aplicaciones, vistas y plantillas en la separación de responsabilidades?
+    * ¿Qué?
 
-    * ¿Cómo estructuraste los archivos estáticos y plantillas en tu proyecto para lograr una arquitectura clara, eficiente y reutilizable, y qué papel jugó la IA en ese proceso de diseño?
+    * ¿Cómo?
 
-    * ¿Cómo aseguras que el uso de IA generativa no reemplace tu comprensión del marco de trabajo Django, sino que complemente tu aprendizaje como desarrollador backend responsable?
+    * ¿Por qué?
+
 
 Actividades autónomas
 =====================
