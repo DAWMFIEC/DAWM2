@@ -243,3 +243,6 @@ Diccionario de términos
 
     aplicación Django
         Es un componente modular dentro de un proyecto Django que encapsula una funcionalidad específica. Las aplicaciones Django pueden ser reutilizadas en diferentes proyectos y se componen de modelos, vistas, plantillas y archivos estáticos que trabajan juntos para proporcionar una funcionalidad completa.
+
+    Django REST framework
+        Es una biblioteca de Django que facilita la creación de APIs RESTful. Proporciona herramientas y utilidades para definir serializadores, vistas y enrutamiento de URLs, lo que permite construir APIs de manera rápida y eficiente.

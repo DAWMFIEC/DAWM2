@@ -36,6 +36,66 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Paquete: Django REST framework
+------------------------------
+
+1. Instale :term:`Django REST framework` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+    
+       pip install djangorestframework
+
+2. Registre el Django REST framewor en el archivo ``backend/settings.py`` del proyecto:
+
+   .. code-block:: python
+      :emphasize-lines: 3
+
+      INSTALLED_APPS = [
+        ...
+        "rest_framework",
+      ]
+
+3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
+
+Aplicación: Landing API
+-----------------------
+
+1. Cree la aplicación **landingapi** en su proyecto.
+2. Registre la aplicación con  la ruta \"api/landing\" con las rutas de la aplicación **landingapi**
+3. Cree el archivo ``landingapi/urls.py`` con las rutas de la aplicación:
+
+   .. code-block:: python
+      :emphasize-lines: 1-6
+
+      from django.urls import path
+      from . import views
+
+      urlpatterns = [
+            path("v1/", views.LandingAPI.as_view(), name='firebase_resources' ),
+      ]
+
+4. Cree la vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
+
+   .. code-block:: python
+      :emphasize-lines: 4-7
+
+      from django.shortcuts import render
+
+      # Create your views here.
+      from rest_framework.views import APIView
+      
+      class LandingAPI(APIView):
+        name = 'Landing API'
+
+5. Levante el servidor de desarrollo de Django:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
+7. Utilice su cliente de IAG generativa para explicar APIView. 
+
 Gestión de dependencias
 -----------------------
 
