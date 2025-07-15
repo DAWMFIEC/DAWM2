@@ -128,7 +128,7 @@ POST
 1. Utilice su cliente de IAG para manejar el método POST en la vista de la API, considerando:
 
    a) Procese el requerimiento con los campos **name** y **email**. En caso que no cuente con los campos requeridos retorne un mensaje y un código de estado HTTP del error.
-   c) Para cualquier otro caso:
+   b) Para cualquier otro caso:
       
       (i) Genere un identificador único uuid, 
       (ii) Agregue el campo **id** al dato, 
@@ -139,7 +139,7 @@ POST
       :color: primary  
     
       .. code-block:: python
-         :emphasize-lines: 4-12
+         :emphasize-lines: 4-14
 
          class LandingAPI(APIView):
             ...
