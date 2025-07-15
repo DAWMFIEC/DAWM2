@@ -57,12 +57,12 @@ Paquete: Django REST framework
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
 
-Aplicación: RESTful API
+Aplicación: REST API
 -----------------------
 
-1. Cree una la aplicación **restfulapi** en su proyecto.
-2. Registre la aplicación con  la ruta \"restfulapi/api/\" con las rutas de la aplicación **restfulapi**
-3. Cree el archivo ``restfulapi/urls.py`` con las rutas de la aplicación:
+1. Cree una la aplicación **restapi** en su proyecto.
+2. Registre la aplicación con  la ruta \"rest/api/\" con las rutas de la aplicación **restapi**
+3. Cree el archivo ``restapi/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -71,10 +71,10 @@ Aplicación: RESTful API
       from . import views
 
       urlpatterns = [
-            path("", views.RESTfulAPI.as_view(), name="rest_resources" ),
+            path("", views.RESTapi.as_view(), name="rest_resources" ),
       ]
 
-4. Cree la :term:`vista basada en clases` en ``restfulapi/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-12
@@ -89,7 +89,7 @@ Aplicación: RESTful API
       # Simulación de base de datos local en memoria
       data_list = []
       
-      class RESTfulAPI(APIView):
+      class RESTapi(APIView):
           name = "REST API"
 
 5. Levante el servidor de desarrollo de Django:
@@ -98,8 +98,8 @@ Aplicación: RESTful API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/restful/api/`
-7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`RESTful Api` y su diferencia con una :term:`REST Api`. 
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/rest/api/`
+7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`REST Api`. 
 
 GET
 ^^^
@@ -114,13 +114,13 @@ GET
       .. code-block:: python
          :emphasize-lines: 4-5
 
-         class RESTfulAPI(APIView):
+         class RESTapi(APIView):
             ...
 
             def get(self, request):
                 return Response(data_list, status=status.HTTP_200_OK)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/restful/api/?format=json`
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=json`
 
 POST
 ^^^^
@@ -141,7 +141,7 @@ POST
       .. code-block:: python
          :emphasize-lines: 4-14
 
-         class RESTfulAPI(APIView):
+         class restapi(APIView):
             ...
 
             def post(self, request):
@@ -156,7 +156,7 @@ POST
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/restful/api/?format=api` 
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=api` 
 
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ PUT, PATCH y DELETE
       (i) En caso de que el índice no exista, retorne un mensaje de error y un código de estado HTTP del error.
       (ii) En caso de éxito, retorne un mensaje de éxito y el código de estado HTTP correspondiente.
 
-2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **RESTfulAPI**.
+2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **restapi**.
 
 
 Gestión de dependencias
