@@ -77,7 +77,7 @@ Aplicación: Landing API
 4. Cree la :term:`vista basada en clases` en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-      :emphasize-lines: 4-11
+      :emphasize-lines: 4-12
 
       from django.shortcuts import render
 
