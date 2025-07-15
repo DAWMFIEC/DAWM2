@@ -36,8 +36,8 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Paquete: Django REST framework
-------------------------------
+Paquete: Django REST framework (DRF)
+------------------------------------
 
 1. Instale :term:`Django REST framework` en su ambiente de desarrollo:
 
@@ -99,7 +99,7 @@ Aplicación: REST API
        python manage.py runserver
 
 6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/rest/api/`
-7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`REST Api`. 
+7. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST Api` y su implementación en DRF. 
 
 GET
 ^^^
