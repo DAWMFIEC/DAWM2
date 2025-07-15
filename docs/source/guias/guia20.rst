@@ -57,12 +57,12 @@ Paquete: Django REST framework
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
 
-Aplicación: REST API
+Aplicación: RESTful API
 -----------------------
 
-1. Cree la aplicación **restapi** en su proyecto.
-2. Registre la aplicación con  la ruta \"rest/api/\" con las rutas de la aplicación **restapi**
-3. Cree el archivo ``restapi/urls.py`` con las rutas de la aplicación:
+1. Cree una la aplicación **restfulapi** en su proyecto.
+2. Registre la aplicación con  la ruta \"restfulapi/api/\" con las rutas de la aplicación **restfulapi**
+3. Cree el archivo ``restfulapi/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -71,10 +71,10 @@ Aplicación: REST API
       from . import views
 
       urlpatterns = [
-            path("", views.RestAPI.as_view(), name="rest_resources" ),
+            path("", views.RESTfulAPI.as_view(), name="rest_resources" ),
       ]
 
-4. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en clases` en ``restfulapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-12
@@ -87,9 +87,9 @@ Aplicación: REST API
       import uuid
 
       # Simulación de base de datos local en memoria
-      rest_data = []
+      data_list = []
       
-      class RestAPI(APIView):
+      class RESTfulAPI(APIView):
           name = "REST API"
 
 5. Levante el servidor de desarrollo de Django:
@@ -98,15 +98,15 @@ Aplicación: REST API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/rest/api/`
-7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`REST Api`. 
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/restful/api/`
+7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`RESTful Api` y su diferencia con una :term:`REST Api`. 
 
 GET
 ^^^
 
 1. Utilice su cliente de IAG para manejar el método GET en la vista de la API, considerando:
 
-   a) Retorne el arreglo **rest_data** como respuesta JSON, con el :term:`código de estado HTTP` 200 OK.
+   a) Retorne el arreglo **data_list** como respuesta JSON, con el :term:`código de estado HTTP` 200 OK.
 
    .. dropdown:: Ver el código 
       :color: primary  
@@ -114,13 +114,13 @@ GET
       .. code-block:: python
          :emphasize-lines: 4-5
 
-         class RestAPI(APIView):
+         class RESTfulAPI(APIView):
             ...
 
             def get(self, request):
-                return Response(rest_data, status=status.HTTP_200_OK)
+                return Response(data_list, status=status.HTTP_200_OK)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=json`
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/restful/api/?format=json`
 
 POST
 ^^^^
@@ -132,7 +132,7 @@ POST
       
       (i) Genere un identificador único uuid, 
       (ii) Agregue el campo **id** al dato, 
-      (iii) Agregue el dato al arreglo **rest_data**. 
+      (iii) Agregue el dato al arreglo **data_list**. 
       (iv) Retorne un mensaje de éxito, con el dato agregado y un código de estado 201 Created.
 
    .. dropdown:: Ver el código 
@@ -141,7 +141,7 @@ POST
       .. code-block:: python
          :emphasize-lines: 4-14
 
-         class RestAPI(APIView):
+         class RESTfulAPI(APIView):
             ...
 
             def post(self, request):
@@ -152,11 +152,11 @@ POST
                     return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
                 
                 data['id'] = str(uuid.uuid4())
-                rest_data.append(data)
+                data_list.append(data)
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=api` 
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/restful/api/?format=api` 
 
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ PUT, PATCH y DELETE
       (i) En caso de que el índice no exista, retorne un mensaje de error y un código de estado HTTP del error.
       (ii) En caso de éxito, retorne un mensaje de éxito y el código de estado HTTP correspondiente.
 
-2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **restapi**.
+2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **RESTfulAPI**.
 
 
 Gestión de dependencias
