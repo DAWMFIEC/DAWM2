@@ -68,17 +68,17 @@ Proyecto: Backend
 3. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto (backend) Django.
 
-Aplicación: Landing API
------------------------
+Aplicación: Main
+----------------
 
 Creación de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Cree una :term:`aplicación Django` llamada *landingapi*:
+1. Cree una :term:`aplicación Django` llamada *main*:
 
    .. code-block:: bash
 
-       python manage.py startapp landingapi
+       python manage.py startapp main
 
 Registro de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,10 +90,10 @@ Registro de la aplicación
 
       INSTALLED_APPS = [
         ...
-        "landingapi",
+        "main",
       ]
 
-3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'api/landing/\') con las rutas de la aplicación **landingapi**:
+3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'main/\') con las rutas de la aplicación **main**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -103,13 +103,13 @@ Registro de la aplicación
 
       urlpatterns = [
             path("admin/", admin.site.urls),
-            path("api/landing/", include('landingapi.urls')),
+            path("main/", include("main.urls")),
       ]
 
 Rutas y Vistas de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4. Cree un archivo ``landingapi/urls.py`` con las rutas de la aplicación:
+4. Cree un archivo ``main/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -121,7 +121,7 @@ Rutas y Vistas de la aplicación
             path("index/", views.index, name="index"),
       ]
 
-5. Cree una vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
+5. Cree una vista en ``main/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7
@@ -140,7 +140,7 @@ Rutas y Vistas de la aplicación
 
        python manage.py runserver
 
-7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
 
 Gestión de dependencias
