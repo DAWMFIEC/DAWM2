@@ -246,3 +246,6 @@ Diccionario de términos
 
     Django REST framework
         Es una biblioteca de Django que facilita la creación de APIs RESTful. Proporciona herramientas y utilidades para definir serializadores, vistas y enrutamiento de URLs, lo que permite construir APIs de manera rápida y eficiente.
+
+    REST Api
+        Es una interfaz de programación de aplicaciones (API) que sigue los principios de la arquitectura REST (Representational State Transfer). Las REST APIs utilizan el protocolo HTTP para realizar operaciones sobre recursos, permitiendo a los desarrolladores interactuar con servicios web de manera sencilla y eficiente. Estas APIs son ampliamente utilizadas en aplicaciones web y móviles para acceder a datos y funcionalidades de backend.

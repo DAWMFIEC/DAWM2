@@ -97,7 +97,7 @@ Aplicación: Landing API
        python manage.py runserver
 
 6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/api/landing/`
-7. Utilice su cliente de IAG generativa para explicar y comparar las vistas que ofrece Django REST framework. 
+7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`REST Api`. 
 
 GET
 ^^^
