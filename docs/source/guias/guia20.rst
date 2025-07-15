@@ -10,7 +10,7 @@ Guía 20: Django -  Django Rest Framework (DRF)
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar Django Rest Framework (DRF) para la construcción y estructuración de los endpoints de una API REST, utilizando vistas, serializadores y rutas adecuadas que permitan realizar operaciones CRUD sobre datos en Firebase Realtime Database. 
+    Implementar Django Rest Framework (DRF) para la construcción y estructuración de los endpoints de una API REST. 
 
 Actividades previas
 =====================
@@ -45,7 +45,7 @@ Paquete: Django REST framework
     
        pip install djangorestframework
 
-2. Registre el Django REST framewor en el archivo ``backend/settings.py`` del proyecto:
+2. Registre el Django REST framework en el archivo ``backend/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
@@ -83,6 +83,9 @@ Aplicación: Landing API
 
       # Create your views here.
       from rest_framework.views import APIView
+
+      # Simulación de base de datos local en memoria
+      landing_data = []
       
       class LandingAPI(APIView):
           name = "Landing API"
@@ -93,8 +96,59 @@ Aplicación: Landing API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/api/landing/v1/`
-7. Utilice su cliente de IAG generativa para explicar APIView en el contexto de Django REST Framework. 
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/api/landing/`
+7. Utilice su cliente de IAG generativa para explicar y comparar las vistas que ofrece Django REST framework. 
+
+GET
+^^^
+
+1. Utilice su cliente de IAG para manejar el método GET en la vista de la API:
+
+   a) Retorne el arreglo **landing_data** como respuesta JSON, con el estado 200 OK.
+
+   .. dropdown:: Ver el código 
+      :color: primary  
+    
+      .. code-block:: python
+         :emphasize-lines: 4-5
+
+         class LandingAPI(APIView):
+            ...
+
+            def get(self, request):
+                return Response(landing_data, status=status.HTTP_200_OK)
+
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/api/landing/?format=json`
+
+POST
+^^^^
+
+1. Utilice su cliente de IAG para manejar el método POST en la vista de la API:
+
+   a) Procese el requerimiento con los campos **name** y **email**. 
+   b) En caso que no cuente con los campos requeridos retorne un mensaje y un estado de error.
+   c) Caso contrario, agregue el dato al arreglo **landing_data**. Retorne un mensaje de éxito, con el dato agregado y el estado 201 Created.
+
+   .. dropdown:: Ver el código 
+      :color: primary  
+    
+      .. code-block:: python
+         :emphasize-lines: 4-5
+
+         class LandingAPI(APIView):
+            ...
+
+            def post(self, request):
+                data = request.data
+
+                # Validación mínima
+                if 'name' not in data or 'email' not in data:
+                    return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+                landing_data.append(data)
+                return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
+
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/api/landing/?format=api` 
 
 Gestión de dependencias
 -----------------------
