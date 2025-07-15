@@ -57,12 +57,12 @@ Paquete: Django REST framework
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
 
-Aplicación: Landing API
+Aplicación: REST API
 -----------------------
 
-1. Cree la aplicación **landingapi** en su proyecto.
-2. Registre la aplicación con  la ruta \"api/landing/\" con las rutas de la aplicación **landingapi**
-3. Cree el archivo ``landingapi/urls.py`` con las rutas de la aplicación:
+1. Cree la aplicación **restapi** en su proyecto.
+2. Registre la aplicación con  la ruta \"rest/api/\" con las rutas de la aplicación **restapi**
+3. Cree el archivo ``restapi/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -71,10 +71,10 @@ Aplicación: Landing API
       from . import views
 
       urlpatterns = [
-            path("", views.LandingAPI.as_view(), name="landing_resources" ),
+            path("", views.RestAPI.as_view(), name="rest_resources" ),
       ]
 
-4. Cree la :term:`vista basada en clases` en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-12
@@ -87,10 +87,10 @@ Aplicación: Landing API
       import uuid
 
       # Simulación de base de datos local en memoria
-      landing_data = []
+      rest_data = []
       
-      class LandingAPI(APIView):
-          name = "Landing API"
+      class RestAPI(APIView):
+          name = "REST API"
 
 5. Levante el servidor de desarrollo de Django:
 
@@ -98,7 +98,7 @@ Aplicación: Landing API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/api/landing/`
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/rest/api/`
 7. Utilice su cliente de IAG generativa para explicar la utilidad de Django REST framework en la construcción de un :term:`REST Api`. 
 
 GET
@@ -106,7 +106,7 @@ GET
 
 1. Utilice su cliente de IAG para manejar el método GET en la vista de la API, considerando:
 
-   a) Retorne el arreglo **landing_data** como respuesta JSON, con el :term:`código de estado HTTP` 200 OK.
+   a) Retorne el arreglo **rest_data** como respuesta JSON, con el :term:`código de estado HTTP` 200 OK.
 
    .. dropdown:: Ver el código 
       :color: primary  
@@ -114,13 +114,13 @@ GET
       .. code-block:: python
          :emphasize-lines: 4-5
 
-         class LandingAPI(APIView):
+         class RestAPI(APIView):
             ...
 
             def get(self, request):
-                return Response(landing_data, status=status.HTTP_200_OK)
+                return Response(rest_data, status=status.HTTP_200_OK)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/api/landing/?format=json`
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=json`
 
 POST
 ^^^^
@@ -132,7 +132,7 @@ POST
       
       (i) Genere un identificador único uuid, 
       (ii) Agregue el campo **id** al dato, 
-      (iii) Agregue el dato al arreglo **landing_data**. 
+      (iii) Agregue el dato al arreglo **rest_data**. 
       (iv) Retorne un mensaje de éxito, con el dato agregado y un código de estado 201 Created.
 
    .. dropdown:: Ver el código 
@@ -141,7 +141,7 @@ POST
       .. code-block:: python
          :emphasize-lines: 4-14
 
-         class LandingAPI(APIView):
+         class RestAPI(APIView):
             ...
 
             def post(self, request):
@@ -152,11 +152,11 @@ POST
                     return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
                 
                 data['id'] = str(uuid.uuid4())
-                landing_data.append(data)
+                rest_data.append(data)
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/api/landing/?format=api` 
+2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=api` 
 
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
@@ -173,6 +173,9 @@ PUT, PATCH y DELETE
 
       (i) En caso de que el índice no exista, retorne un mensaje de error y un código de estado HTTP del error.
       (ii) En caso de éxito, retorne un mensaje de éxito y el código de estado HTTP correspondiente.
+
+2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **restapi**.
+
 
 Gestión de dependencias
 -----------------------
