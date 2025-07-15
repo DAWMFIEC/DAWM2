@@ -93,7 +93,7 @@ Registro de la aplicación
         "main",
       ]
 
-3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'main/\') con las rutas de la aplicación **main**:
+3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta \"main/\" con las rutas de la aplicación **main**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -109,7 +109,7 @@ Registro de la aplicación
 Rutas y Vistas de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4. Cree un archivo ``main/urls.py`` con las rutas de la aplicación:
+4. Cree el archivo ``main/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -121,7 +121,7 @@ Rutas y Vistas de la aplicación
             path("index/", views.index, name="index"),
       ]
 
-5. Cree una vista en ``main/views.py`` que retorne un mensaje de bienvenida:
+5. Cree la vista en ``main/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7
