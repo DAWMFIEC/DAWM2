@@ -161,7 +161,7 @@ POST
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
 
-1. Utilice su cliente de IAG para manejar los métodos PUT, PATCH y DELETE en la vista de la API, considerando:
+1. Utilice su cliente de IAG para generar el código para los métodos PUT, PATCH y DELETE en la vista de la API, considerando:
    
    a) Las diferencias de los métodos
       
