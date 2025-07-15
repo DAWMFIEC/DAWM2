@@ -61,7 +61,7 @@ Aplicación: Landing API
 -----------------------
 
 1. Cree la aplicación **landingapi** en su proyecto.
-2. Registre la aplicación con  la ruta \"api/landing\" con las rutas de la aplicación **landingapi**
+2. Registre la aplicación con  la ruta \"api/landing/\" con las rutas de la aplicación **landingapi**
 3. Cree el archivo ``landingapi/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
@@ -71,7 +71,7 @@ Aplicación: Landing API
       from . import views
 
       urlpatterns = [
-            path("v1/", views.LandingAPI.as_view(), name='firebase_resources' ),
+            path("", views.LandingAPI.as_view(), name="landing_resources" ),
       ]
 
 4. Cree la vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
@@ -85,7 +85,7 @@ Aplicación: Landing API
       from rest_framework.views import APIView
       
       class LandingAPI(APIView):
-        name = 'Landing API'
+          name = "Landing API"
 
 5. Levante el servidor de desarrollo de Django:
 
@@ -93,7 +93,7 @@ Aplicación: Landing API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
+6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/api/landing/v1/`
 7. Utilice su cliente de IAG generativa para explicar APIView. 
 
 Gestión de dependencias
