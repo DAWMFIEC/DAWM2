@@ -121,7 +121,7 @@ Rutas y Vistas de la aplicación
             path("index/", views.index, name="index"),
       ]
 
-5. Cree la vista en ``main/views.py`` que retorne un mensaje de bienvenida:
+5. Cree la :term:`vista basada en funciones` en ``main/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7

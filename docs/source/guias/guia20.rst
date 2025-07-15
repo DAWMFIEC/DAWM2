@@ -74,15 +74,17 @@ Aplicación: Landing API
             path("", views.LandingAPI.as_view(), name="landing_resources" ),
       ]
 
-4. Cree la vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en clases` en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-      :emphasize-lines: 4-10
+      :emphasize-lines: 4-11
 
       from django.shortcuts import render
 
       # Create your views here.
       from rest_framework.views import APIView
+
+      import uuid
 
       # Simulación de base de datos local en memoria
       landing_data = []
@@ -102,9 +104,9 @@ Aplicación: Landing API
 GET
 ^^^
 
-1. Utilice su cliente de IAG para manejar el método GET en la vista de la API:
+1. Utilice su cliente de IAG para manejar el método GET en la vista de la API, considerando:
 
-   a) Retorne el arreglo **landing_data** como respuesta JSON, con el estado 200 OK.
+   a) Retorne el arreglo **landing_data** como respuesta JSON, con el :term:`código de estado HTTP` 200 OK.
 
    .. dropdown:: Ver el código 
       :color: primary  
@@ -123,11 +125,15 @@ GET
 POST
 ^^^^
 
-1. Utilice su cliente de IAG para manejar el método POST en la vista de la API:
+1. Utilice su cliente de IAG para manejar el método POST en la vista de la API, considerando:
 
-   a) Procese el requerimiento con los campos **name** y **email**. 
-   b) En caso que no cuente con los campos requeridos retorne un mensaje y un estado de error.
-   c) Caso contrario, agregue el dato al arreglo **landing_data**. Retorne un mensaje de éxito, con el dato agregado y el estado 201 Created.
+   a) Procese el requerimiento con los campos **name** y **email**. En caso que no cuente con los campos requeridos retorne un mensaje y un código de estado HTTP del error.
+   c) Para cualquier otro caso:
+      
+      (i) Genere un identificador único uuid, 
+      (ii) Agregue el campo **id** al dato, 
+      (iii) Agregue el dato al arreglo **landing_data**. 
+      (iv) Retorne un mensaje de éxito, con el dato agregado y un código de estado 201 Created.
 
    .. dropdown:: Ver el código 
       :color: primary  
@@ -145,10 +151,28 @@ POST
                 if 'name' not in data or 'email' not in data:
                     return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
                 
+                data['id'] = str(uuid.uuid4())
                 landing_data.append(data)
+
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
 2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/api/landing/?format=api` 
+
+PUT, PATCH y DELETE
+^^^^^^^^^^^^^^^^^^^
+
+1. Utilice su cliente de IAG para manejar los métodos PUT, PATCH y DELETE en la vista de la API, considerando:
+   
+   a) Las diferencias de los métodos
+      
+      (i) El método **put** debe reemplazar completamente los datos de un elemento del arreglo, excepto el identificador que se envía como campo obligatorio en el cuerpo de la solicitud.
+      (ii) El método **patch** debe actualizar parcialmente los campos del elemento identificado por su identificador, manteniendo los valores no modificados.
+      (iii) El método **delete** debe eliminar un elemento del arreglo según el identificador proporcionado.
+   
+   b) Código de estado HTTP:
+
+      (i) En caso de que el índice no exista, retorne un mensaje de error y un código de estado HTTP del error.
+      (ii) En caso de éxito, retorne un mensaje de éxito y el código de estado HTTP correspondiente.
 
 Gestión de dependencias
 -----------------------

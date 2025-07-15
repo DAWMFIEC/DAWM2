@@ -247,5 +247,14 @@ Diccionario de términos
     Django REST framework
         Es una biblioteca de Django que facilita la creación de APIs RESTful. Proporciona herramientas y utilidades para definir serializadores, vistas y enrutamiento de URLs, lo que permite construir APIs de manera rápida y eficiente.
 
+    código de estado HTTP
+        Es un número que indica el resultado de una petición HTTP. Los códigos de estado se dividen en categorías, como 2xx para éxito, 4xx para errores del cliente y 5xx para errores del servidor. Estos códigos son utilizados por los navegadores y clientes HTTP para interpretar la respuesta del servidor.
+
+    vista basada en funciones
+        Es una forma de definir vistas en Django utilizando funciones en lugar de clases. Las vistas basadas en funciones son más simples y directas, permitiendo a los desarrolladores definir la lógica de la vista de manera clara y concisa. Son ideales para vistas que no requieren una lógica compleja o reutilización.
+
+    vista basada en clases
+        Es una forma de definir vistas en Django utilizando clases en lugar de funciones. Las vistas basadas en clases permiten organizar el código de manera más estructurada y reutilizable, facilitando la implementación de funcionalidades comunes como la autenticación, la paginación y la gestión de permisos.
+
     REST Api
         Es una interfaz de programación de aplicaciones (API) que sigue los principios de la arquitectura REST (Representational State Transfer). Las REST APIs utilizan el protocolo HTTP para realizar operaciones sobre recursos, permitiendo a los desarrolladores interactuar con servicios web de manera sencilla y eficiente. Estas APIs son ampliamente utilizadas en aplicaciones web y móviles para acceder a datos y funcionalidades de backend.
