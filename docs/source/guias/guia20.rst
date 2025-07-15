@@ -77,7 +77,7 @@ Aplicación: Landing API
 4. Cree la vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-      :emphasize-lines: 4-7
+      :emphasize-lines: 4-10
 
       from django.shortcuts import render
 
