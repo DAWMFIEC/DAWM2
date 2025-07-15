@@ -90,7 +90,7 @@ Registro de la aplicación
 
       INSTALLED_APPS = [
         ...
-        'landingapi',
+        "landingapi",
       ]
 
 3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta raíz (\'api/landing/\') con las rutas de la aplicación **landingapi**:
@@ -102,8 +102,8 @@ Registro de la aplicación
       from django.urls import path, include
 
       urlpatterns = [
-            path('admin/', admin.site.urls),
-            path('api/landing/', include('landingapi.urls')),
+            path("admin/", admin.site.urls),
+            path("api/landing/", include('landingapi.urls')),
       ]
 
 Rutas y Vistas de la aplicación
@@ -118,7 +118,7 @@ Rutas y Vistas de la aplicación
       from . import views
 
       urlpatterns = [
-            path('index/', views.index, name='index'),
+            path("index/", views.index, name="index"),
       ]
 
 5. Cree una vista en ``landingapi/views.py`` que retorne un mensaje de bienvenida:
@@ -169,11 +169,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Cómo te ayudó la IA a diferenciar entre el propósito de un proyecto y el de una aplicación dentro de Django, y por qué es importante esa distinción en el desarrollo modular del backend?
 
-    * ¿Cómo?
+    * ¿Qué decisiones técnicas tomaste al adaptar el código sugerido por la IA para crear correctamente un proyecto y una aplicación en Django que respondan a los requerimientos iniciales del proyecto?
 
-    * ¿Por qué?
+    * ¿Cómo mantuviste tu rol activo y reflexivo durante el proceso de aprendizaje, evitando depender exclusivamente del código generado por la IA para configurar tu proyecto Django?
 
 
 Actividades autónomas
