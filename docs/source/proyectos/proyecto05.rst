@@ -21,3 +21,9 @@ Introducción
 
 .. figure:: ./respuestas/proyecto05-respuesta01.png
 
+.. toctree::
+  :maxdepth: 1
+  :caption: Guías
+  
+  ../guias/guia19.rst
+  ../guias/guia20.rst
