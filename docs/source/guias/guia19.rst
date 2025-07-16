@@ -143,9 +143,109 @@ Rutas y Vistas de la aplicación
 7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
 
-Plantillas y archivos estáticos
--------------------------------
+Plantillas
+----------
 
+1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/main`` 
+2. Descargue el archivo :download:`base.html <./files/base.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
+   
+   .. note:: 
+
+      La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
+
+3. Modifique el archivo ``backend/settings.py`` 
+
+   a) Importe el módulo **os**
+   b) Agregue la ruta a las plantillas en el arreglo **TEMPLATES**, en la entrada **DIRS**.
+
+   .. code-block:: python
+      :emphasize-lines: 2, 9
+
+      from pathlib import Path
+      import os
+
+      ... 
+
+      TEMPLATES = [
+          {
+              ...
+              "DIRS": [os.path.join(BASE_DIR, 'templates')],
+              ...
+          },
+      ]
+
+4. Edite el archivo ``main/views.py``:
+
+   a) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
+
+   .. code-block:: python
+      :emphasize-lines: 4-5
+
+      from django.shortcuts import render
+
+      def index(request):
+          # return HttpResponse("¡Bienvenido a la aplicación Django!")
+          return render(request, 'main/base.html')
+
+5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
+
+Archivos estáticos
+------------------
+
+1. En la raíz del repositorio, cree la carpeta ``static`` 
+2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
+3. Edite el archivo ``backend/settings.py``, 
+
+   a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
+
+   .. code-block:: python
+      :emphasize-lines: 3-5
+
+      STATIC_URL = "static/"
+
+      STATICFILES_DIRS = [
+          os.path.join(BASE_DIR, STATIC_URL),
+      ]
+
+4. Edite el archivo ``templates/main/base.html``:
+
+   a) Agregue la etiqueta **{% load static %}** al inicio del archivo.
+   b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
+
+   .. code-block:: html
+      :emphasize-lines: 1, 10, 15, 20-21
+
+      {% load static %}
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+
+         ...
+         
+         <!-- Local stylesheets -->
+         <link rel="stylesheet" href="{% static 'css/tailwind.output.css' %}">
+         
+         ...
+         
+         <!-- Local script files -->
+         <script src="{% static 'js/init-alpine.js' %}"></script>
+
+         ...
+         
+         <!-- Local script files -->
+         <script src="{% static 'js/charts-lines.js' %}" defer></script>
+         <script src="{% static 'js/charts-pie.js' %}" defer></script>
+
+      </head>
+      <body>
+          ...
+      </body>
+      </html>
+
+5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+6. Utilice su cliente de IAG generativa para explicar la utilidad de la etiqueta **{% load static %}** .
 
 
 Gestión de dependencias
