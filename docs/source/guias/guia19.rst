@@ -143,6 +143,11 @@ Rutas y Vistas de la aplicación
 7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
 
+Plantillas y archivos estáticos
+-------------------------------
+
+
+
 Gestión de dependencias
 -----------------------
 

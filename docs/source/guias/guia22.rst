@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ==================================
-Guía 15: React - Hooks (useEffect)
+Guía 22: Django - Hooks (useEffect)
 ==================================
 
 .. topic:: Objetivo específico
@@ -98,8 +98,8 @@ Aplicación: Main
 6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 7. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación (main) en Django.
 
-Vistas
-------
+Plantillas
+----------
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/main`` 
 2. Descargue el archivo :download:`base.html <./files/base.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
@@ -200,9 +200,6 @@ Archivos estáticos
 
 5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 6. Utilice su cliente de IAG generativa para explicar la estructura de archivos estáticos en un proyecto Django y la utilidad de la etiqueta **{% load static %}** .
-
-Plantillas
-----------
 
 Conclusiones
 ============
