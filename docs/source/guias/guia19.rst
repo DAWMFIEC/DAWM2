@@ -276,7 +276,7 @@ Conclusiones
 
     * ¿Cómo te ayudó la IA a diferenciar entre el propósito de un proyecto y el de una aplicación dentro de Django, y por qué es importante esa distinción en el desarrollo modular del backend?
 
-    * ¿Qué decisiones técnicas tomaste al adaptar el código sugerido por la IA para crear correctamente un proyecto y una aplicación en Django que respondan a los requerimientos iniciales del proyecto?
+    * ¿Cómo estructuraste los archivos estáticos y plantillas en tu proyecto para lograr una arquitectura clara, eficiente y reutilizable, y qué papel jugó la IA en ese proceso de diseño?
 
     * ¿Cómo mantuviste tu rol activo y reflexivo durante el proceso de aprendizaje, evitando depender exclusivamente del código generado por la IA para configurar tu proyecto Django?
 
