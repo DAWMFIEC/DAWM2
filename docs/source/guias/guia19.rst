@@ -147,7 +147,7 @@ Plantillas
 ----------
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/main`` 
-2. Descargue el archivo :download:`base.html <./files/base.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
+2. Descargue el archivo :download:`index.html <./files/index.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
    
    .. note:: 
 
@@ -176,7 +176,7 @@ Plantillas
 
 4. Edite el archivo ``main/views.py``:
 
-   a) Agregue la renderización de la plantilla ``main/base.html`` en la vista `index`:
+   a) Agregue la renderización de la plantilla ``main/index.html`` en la vista `index`:
 
    .. code-block:: python
       :emphasize-lines: 4-5
@@ -185,7 +185,7 @@ Plantillas
 
       def index(request):
           # return HttpResponse("¡Bienvenido a la aplicación Django!")
-          return render(request, 'main/base.html')
+          return render(request, 'main/index.html')
 
 5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
 6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
@@ -194,7 +194,7 @@ Archivos estáticos
 ------------------
 
 1. En la raíz del repositorio, cree la carpeta ``static`` 
-2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
+2. Descargue y descomprima el contenido del archivo :download:`assets.zip <./files/assets.zip>` en la carpeta ``static``.
 3. Edite el archivo ``backend/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
@@ -208,7 +208,7 @@ Archivos estáticos
           os.path.join(BASE_DIR, STATIC_URL),
       ]
 
-4. Edite el archivo ``templates/main/base.html``:
+4. Edite el archivo ``templates/main/index.html``:
 
    a) Agregue la etiqueta **{% load static %}** al inicio del archivo.
    b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
