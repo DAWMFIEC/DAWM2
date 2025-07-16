@@ -10,7 +10,7 @@ Guía 25: Django - Despliegue y producción
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar la gestión efectos secundarios y la actualización dinámica de la interfaz según los cambios de ubicación o preferencias del usuario en el dashboard. 
+    Preparar el API REST para su despliegue en un entorno de producción mediante la configuración de variables de entorno, ajustes de seguridad, logs, y publicación en plataformas en la nube, garantizando disponibilidad, escalabilidad y estabilidad del sistema. 
 
 Actividades previas
 =====================

@@ -10,7 +10,7 @@ Guía 22: Django - Autenticación y autorización
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar la gestión efectos secundarios y la actualización dinámica de la interfaz según los cambios de ubicación o preferencias del usuario en el dashboard. 
+    Implementar mecanismos de autenticación y autorización en el API REST mediante el uso de tokens o integración con Firebase Authentication, con el fin de proteger los endpoints y restringir el acceso a usuarios válidos, garantizando la seguridad de los datos administrados desde la aplicación cliente. 
 
 Actividades previas
 =====================

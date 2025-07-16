@@ -10,7 +10,7 @@ Guía 23: Django - Pruebas y Documentación (Swagger)
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar la gestión efectos secundarios y la actualización dinámica de la interfaz según los cambios de ubicación o preferencias del usuario en el dashboard. 
+    Diseñar y ejecutar pruebas automatizadas para validar el comportamiento de los endpoints del API, e integrar herramientas como Swagger para documentar de manera interactiva los servicios expuestos, promoviendo la mantenibilidad y comprensión del sistema por parte de desarrolladores y usuarios técnicos. 
 
 Actividades previas
 =====================

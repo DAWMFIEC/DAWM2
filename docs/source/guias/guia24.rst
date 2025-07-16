@@ -10,7 +10,7 @@ Guía 24: Django - Server Side Rendering (SSR)
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar la gestión efectos secundarios y la actualización dinámica de la interfaz según los cambios de ubicación o preferencias del usuario en el dashboard. 
+    Explorar la integración del API REST con aplicaciones que utilizan renderizado del lado del servidor (SSR), evaluando su impacto en el rendimiento, la indexación SEO y la interacción inicial del usuario, con el fin de asegurar una experiencia web optimizada desde el servidor. 
 
 Actividades previas
 =====================
