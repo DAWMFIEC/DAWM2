@@ -256,5 +256,5 @@ Diccionario de términos
     vista basada en clases
         Es una forma de definir vistas en Django utilizando clases en lugar de funciones. Las vistas basadas en clases permiten organizar el código de manera más estructurada y reutilizable, facilitando la implementación de funcionalidades comunes como la autenticación, la paginación y la gestión de permisos.
 
-    REST Api
+    REST
         Es un tipo de API que sigue los principios de la arquitectura REST (Representational State Transfer) y utiliza el protocolo HTTP para realizar operaciones sobre recursos. Las RESTful APIs permiten a los desarrolladores interactuar con servicios web de manera sencilla y eficiente, utilizando métodos HTTP como GET, POST, PUT y DELETE para acceder y manipular datos.
