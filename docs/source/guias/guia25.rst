@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==============================================
-Guía 22: Django - Autenticación y autorización
-==============================================
+=========================================
+Guía 25: Django - Despliegue y producción
+=========================================
 
 .. topic:: Objetivo específico
     :class: objetivo
