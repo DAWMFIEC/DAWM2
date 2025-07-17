@@ -47,13 +47,13 @@ Paquete: Firebase Admin Python SDK
 
 2. Registre el Firebase Admin Python SDK en el archivo ``backend/settings.py`` del proyecto:
 
-    .. code-block:: python
-        :emphasize-lines: 3
-    
-        INSTALLED_APPS = [
-          ...
-          "firebase_admin",
-        ]
+   .. code-block:: python
+      :emphasize-lines: 3
+
+      INSTALLED_APPS = [
+        ...
+        "firebase_admin",
+      ]
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Firebase Admin Python SDK <https://firebase.google.com/docs/admin/setup>`_ y cuáles son sus principales características.
 
