@@ -61,7 +61,7 @@ Aplicación: REST API
 --------------------
 
 1. Cree una la aplicación **restapi** en su proyecto.
-2. Registre la aplicación con  la ruta \"rest/api/\" con las rutas de la aplicación **restapi**
+2. Registre la ruta \"rest/api/\" con las subrutas de la aplicación **restapi**
 3. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python

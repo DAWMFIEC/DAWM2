@@ -61,7 +61,7 @@ Aplicación: Landing API
 -----------------------
 
 1. Cree una la aplicación **landingapi** en su proyecto.
-2. Registre la aplicación con  la ruta \"landing/api/\" con las rutas de la aplicación **landingapi**
+2. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landingapi**
 3. Cree la vista basada en clases **LandingAPI** en ``landing/views.py``
 4. Cree el archivo ``landing/urls.py`` con la ruta raíz a la vista **RestAPI**.
 5. Levante el servidor de desarrollo de Django.

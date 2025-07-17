@@ -93,7 +93,7 @@ Registro de la aplicación
         "main",
       ]
 
-3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta \"main/\" con las rutas de la aplicación **main**:
+3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta \"main/\" con las subrutas de la aplicación **main**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
