@@ -170,7 +170,7 @@ PUT, PATCH y DELETE
       
       (i) El método **put** debe reemplazar completamente los datos de un elemento del arreglo, excepto el identificador que se envía como campo obligatorio en el cuerpo de la solicitud.
       (ii) El método **patch** debe actualizar parcialmente los campos del elemento identificado por su identificador, manteniendo los valores no modificados.
-      (iii) El método **delete** debe eliminar un elemento del arreglo según el identificador proporcionado.
+      (iii) El método **delete** debe eliminar lógicamente un elemento del arreglo según el identificador proporcionado.
    
    b) Código de estado HTTP:
 
