@@ -65,7 +65,7 @@ Proyecto: Backend
 
        python manage.py runserver
 
-3. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+3. Revise los cambios en el navegador en la URL raíz.
 4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto, en el contexto de Django.
 
 Aplicación: Main
@@ -140,7 +140,7 @@ Rutas y Vistas de la aplicación
 
        python manage.py runserver
 
-7. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
+7. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
 
 Plantillas
@@ -187,7 +187,7 @@ Plantillas
           # return HttpResponse("¡Bienvenido a la aplicación Django!")
           return render(request, 'main/index.html')
 
-5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
+5. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
 6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
 
 Archivos estáticos
@@ -238,7 +238,7 @@ Archivos estáticos
       </body>
       </html>
 
-5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+5. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
 6. Utilice su cliente de IAG generativa para explicar la utilidad de la etiqueta **{% load static %}** y el uso **{% static '...' %}** en Django.
 
 Gestión de dependencias
