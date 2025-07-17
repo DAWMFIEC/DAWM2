@@ -109,19 +109,7 @@ Registro de la aplicación
 Rutas y Vistas de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4. Cree el archivo ``main/urls.py`` con las rutas de la aplicación:
-
-   .. code-block:: python
-      :emphasize-lines: 1-6
-
-      from django.urls import path
-      from . import views
-
-      urlpatterns = [
-            path("index/", views.index, name="index"),
-      ]
-
-5. Cree la :term:`vista basada en funciones` en ``main/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en funciones` en ``main/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7
@@ -133,6 +121,18 @@ Rutas y Vistas de la aplicación
 
       def index(request):
           return HttpResponse("¡Bienvenido a la aplicación Django!")
+
+5. Cree el archivo ``main/urls.py`` con las rutas de la aplicación:
+
+   .. code-block:: python
+      :emphasize-lines: 1-6
+
+      from django.urls import path
+      from . import views
+
+      urlpatterns = [
+            path("index/", views.index, name="index"),
+      ]
 
 6. Levante el servidor de desarrollo de Django:
 
