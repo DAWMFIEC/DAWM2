@@ -214,39 +214,32 @@ Archivos estáticos
    b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
 
    .. code-block:: html
-      :emphasize-lines: 1, 10, 15, 20-21
+      :emphasize-lines: 1, 13, 16
 
       {% load static %}
 
       <!DOCTYPE html>
       <html lang="en">
       <head>
-
-         ...
-         
-         <!-- Local stylesheets -->
-         <link rel="stylesheet" href="{% static 'css/tailwind.output.css' %}">
-         
-         ...
-         
-         <!-- Local script files -->
-         <script src="{% static 'js/init-alpine.js' %}"></script>
-
-         ...
-         
-         <!-- Local script files -->
-         <script src="{% static 'js/charts-lines.js' %}" defer></script>
-         <script src="{% static 'js/charts-pie.js' %}" defer></script>
-
+          ...
       </head>
       <body>
+      
+          ...
+          
+          <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" 
+                src="{% static '/img/team.jpg' %}"
+                alt="Office" />
+           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" 
+                src="{% static '/img/team.jpg' %}"
+                alt="Office" />
+
           ...
       </body>
       </html>
 
 5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
-6. Utilice su cliente de IAG generativa para explicar la utilidad de la etiqueta **{% load static %}** .
-
+6. Utilice su cliente de IAG generativa para explicar la utilidad de la etiqueta **{% load static %}** y el uso **{% static '...' %}** en Django.
 
 Gestión de dependencias
 -----------------------
