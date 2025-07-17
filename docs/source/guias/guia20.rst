@@ -77,12 +77,14 @@ Aplicación: REST API
 4. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-      :emphasize-lines: 4-12
+      :emphasize-lines: 4-14
 
       from django.shortcuts import render
 
       # Create your views here.
       from rest_framework.views import APIView
+      from rest_framework.response import Response
+      from rest_framework import status
 
       import uuid
 
