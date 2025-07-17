@@ -98,7 +98,7 @@ Aplicación: REST API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/rest/api/`
+6. Revise los cambios en el navegador en la URL en la ruta `/rest/api/`
 7. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
 
 GET
@@ -120,7 +120,7 @@ GET
             def get(self, request):
                 return Response(data_list, status=status.HTTP_200_OK)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=json`
+2. Compruebe el resultado en su navegador en la URL en la ruta `/rest/api/?format=json`
 
 POST
 ^^^^
@@ -156,7 +156,7 @@ POST
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Compruebe el resultado en su navegador en la URL `http://127.0.0.1:8000/rest/api/?format=api` 
+2. Compruebe el resultado en su navegador en la URL en la ruta `/rest/api/?format=api` 
 
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
