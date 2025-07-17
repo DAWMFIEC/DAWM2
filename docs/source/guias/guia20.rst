@@ -58,23 +58,11 @@ Paquete: Django REST framework (DRF)
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
 
 Aplicación: REST API
------------------------
+--------------------
 
 1. Cree una la aplicación **restapi** en su proyecto.
 2. Registre la aplicación con  la ruta \"rest/api/\" con las rutas de la aplicación **restapi**
-3. Cree el archivo ``restapi/urls.py`` con las rutas de la aplicación:
-
-   .. code-block:: python
-      :emphasize-lines: 1-6
-
-      from django.urls import path
-      from . import views
-
-      urlpatterns = [
-            path("", views.RESTapi.as_view(), name="rest_resources" ),
-      ]
-
-4. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
+3. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-14
@@ -91,8 +79,20 @@ Aplicación: REST API
       # Simulación de base de datos local en memoria
       data_list = []
       
-      class RESTapi(APIView):
+      class RestAPI(APIView):
           name = "REST API"
+
+4. Cree el archivo ``restapi/urls.py`` con la ruta raíz a la vista **RestAPI**:
+
+   .. code-block:: python
+      :emphasize-lines: 1-6
+
+      from django.urls import path
+      from . import views
+
+      urlpatterns = [
+            path("", views.RestAPI.as_view(), name="rest_resources" ),
+      ]
 
 5. Levante el servidor de desarrollo de Django:
 
@@ -116,7 +116,7 @@ GET
       .. code-block:: python
          :emphasize-lines: 4-5
 
-         class RESTapi(APIView):
+         class RestAPI(APIView):
             ...
 
             def get(self, request):
@@ -141,9 +141,9 @@ POST
       :color: primary  
     
       .. code-block:: python
-         :emphasize-lines: 4-14
+         :emphasize-lines: 4-15
 
-         class restapi(APIView):
+         class RestAPI(APIView):
             ...
 
             def post(self, request):
@@ -154,6 +154,7 @@ POST
                     return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
                 
                 data['id'] = str(uuid.uuid4())
+                data['status'] = True
                 data_list.append(data)
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)

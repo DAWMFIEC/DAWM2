@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-============================================
-Guía 21: Django - REST API + Firebase Admin
-============================================
+======================================================
+Guía 21: Django - REST API + Firebase Admin Python SDK
+======================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
@@ -35,6 +35,37 @@ Ambiente de desarrollo
 
 Actividades en clases
 =====================
+
+Paquete: Firebase Admin Python SDK
+----------------------------------
+
+1. Instale la librería :term:`Firebase Admin Python SDK` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+    
+       pip install firebase-admin
+
+2. Registre el Firebase Admin Python SDK en el archivo ``backend/settings.py`` del proyecto:
+
+    .. code-block:: python
+        :emphasize-lines: 3
+    
+        INSTALLED_APPS = [
+          ...
+          "firebase_admin",
+        ]
+
+3. Utilice su cliente de IAG generativa para explicar qué es `Firebase Admin Python SDK <https://firebase.google.com/docs/admin/setup>`_ y cuáles son sus principales características.
+
+Aplicación: Landing API
+-----------------------
+
+1. Cree una la aplicación **landingapi** en su proyecto.
+2. Registre la aplicación con  la ruta \"landing/api/\" con las rutas de la aplicación **landingapi**
+3. Cree la vista basada en clases **LandingAPI** en ``landing/views.py``
+4. Cree el archivo ``landing/urls.py`` con la ruta raíz a la vista **RestAPI**.
+5. Levante el servidor de desarrollo de Django.
+6. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 Gestión de dependencias
 -----------------------
@@ -78,4 +109,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">⚛️ useEffect cheatsheet ↓<br><br>❌ Thinking of useEffect as a lifecycle method.<br><br>✅ Thinking of useEffect as a mechanism to sync data (state/props) with systems that aren’t controlled by React. <a href="https://t.co/v8BK5CLsSn">pic.twitter.com/v8BK5CLsSn</a></p>&mdash; George Moller (@_georgemoller) <a href="https://twitter.com/_georgemoller/status/1714250976947794418?ref_src=twsrc%5Etfw">October 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">When you&#39;re building an app, you&#39;ll often need a way to send and get back data between your app &amp; a server.<br><br>And using a REST API is a great way to do this.<br><br>In this tutorial, <a href="https://twitter.com/_udemezue?ref_src=twsrc%5Etfw">@_udemezue</a> teaches you how to build a REST API in Django using the Django Rest Framework.… <a href="https://t.co/aPeAxcpTAM">pic.twitter.com/aPeAxcpTAM</a></p>&mdash; freeCodeCamp.org (@freeCodeCamp) <a href="https://twitter.com/freeCodeCamp/status/1945454273652785446?ref_src=twsrc%5Etfw">July 16, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
