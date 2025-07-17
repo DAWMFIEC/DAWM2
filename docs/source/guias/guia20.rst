@@ -132,8 +132,8 @@ POST
    a) Procese el requerimiento con los campos **name** y **email**. En caso que no cuente con los campos requeridos retorne un mensaje y un código de estado HTTP del error.
    b) Para cualquier otro caso:
       
-      (i) Genere un identificador único uuid, 
-      (ii) Agregue el campo **id** al dato, 
+      (i) Genere un identificador único uuid y agregue el campo **id** al dato, 
+      (ii) Agregue el campo **status** con el valor **True** al dato, 
       (iii) Agregue el dato al arreglo **data_list**. 
       (iv) Retorne un mensaje de éxito, con el dato agregado y un código de estado 201 Created.
 
