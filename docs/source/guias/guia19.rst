@@ -29,8 +29,8 @@ Ambiente de desarrollo
 
    .. code-block:: bash
 
-       python -m venv environment
-       source environment/bin/activate
+       python -m venv env
+       source env/bin/activate
 
    .. note:: 
       
@@ -187,7 +187,7 @@ Plantillas
           # return HttpResponse("¡Bienvenido a la aplicación Django!")
           return render(request, 'main/index.html')
 
-5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/`
+5. Revise los cambios en el navegador en la URL `http://127.0.0.1:8000/main/index/`
 6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
 
 Archivos estáticos

@@ -24,8 +24,8 @@ Ambiente de desarrollo
 
    .. code-block:: bash
 
-       python -m venv environment
-       source environment/bin/activate
+       python -m venv env
+       source env/bin/activate
 
 4. Instale las librerías de requirements.txt, con:
 
