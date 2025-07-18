@@ -104,11 +104,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender la función del Firebase Admin SDK en la administración de servicios como la autenticación, la base de datos y el almacenamiento desde el backend en Python?
 
-    * ¿Qué?
+    * ¿Cómo garantizaste que las operaciones realizadas desde Firebase Admin SDK, como la lectura o escritura de datos, se ejecutaran de forma segura y eficiente en tu proyecto backend?
 
-    * ¿Cómo?
+    * ¿Cómo equilibraste el uso del código generado por la IA con tu responsabilidad como desarrollador para asegurar que comprendes y controlas el flujo de datos y la configuración del backend?
 
 Actividades autónomas
 =====================
