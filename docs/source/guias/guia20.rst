@@ -177,7 +177,7 @@ PUT, PATCH y DELETE
       (i) En caso de que el índice no exista, retorne un mensaje de error y un código de estado HTTP del error.
       (ii) En caso de éxito, retorne un mensaje de éxito y el código de estado HTTP correspondiente.
 
-2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **restapi**.
+2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **rest_api**.
 
 
 Gestión de dependencias
