@@ -142,6 +142,10 @@ Rutas y Vistas de la aplicación
 
 7. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
+   
+   .. note:: 
+
+      La ruta raíz de la aplicación puede ser modificada 
 
 Plantillas
 ----------
@@ -187,7 +191,7 @@ Plantillas
           # return HttpResponse("¡Bienvenido a la aplicación Django!")
           return render(request, 'main/index.html')
 
-5. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
+5. Revise los cambios en el navegador en la URL en la ruta de la aplicación.
 6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
 
 Archivos estáticos
@@ -238,7 +242,7 @@ Archivos estáticos
       </body>
       </html>
 
-5. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
+5. Revise los cambios en el navegador en la URL en la ruta de la aplicación.
 6. Utilice su cliente de IAG generativa para explicar la utilidad de la etiqueta **{% load static %}** y el uso **{% static '...' %}** en Django.
 
 Gestión de dependencias
