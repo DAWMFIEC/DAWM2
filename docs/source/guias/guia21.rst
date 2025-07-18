@@ -68,6 +68,21 @@ Paquete: Firebase Admin Python SDK
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Firebase Admin Python SDK <https://firebase.google.com/docs/admin/setup>`_ y cuáles son sus principales características.
 
+Secrets
+-------
+
+1. En la raíz del repositorio, cree la carpeta ``secrets``
+2. Agregue el archivo con la clave privada.
+3. Añada al archivo **.gitignore** la carpeta ``secrets``.
+
+   .. code-block:: text
+      :emphasize-lines: 4
+
+      ...
+      __marimo__/
+
+      secrets/
+
 Aplicación: Landing API
 -----------------------
 
@@ -77,6 +92,15 @@ Aplicación: Landing API
 4. Cree el archivo ``landing_api/urls.py`` con la ruta raíz a la vista **RestAPI**.
 5. Levante el servidor de desarrollo de Django.
 6. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+
+GET
+---
+
+1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
+2. Edite el archivo ``backend/settings.py``, con:
+3. Edite el archivo ``landing_api/views.py``, con:
+4. Levante el servidor de desarrollo de Django.
+5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 Gestión de dependencias
 -----------------------
