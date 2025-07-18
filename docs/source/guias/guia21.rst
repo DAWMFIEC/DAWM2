@@ -72,7 +72,7 @@ Secrets
 -------
 
 1. En la raíz del repositorio, cree la carpeta ``secrets``
-2. Agregue el archivo con la clave privada.
+2. Agregue el archivo con la clave privada a la carpeta ``secrets``.
 3. Añada al archivo **.gitignore** la carpeta ``secrets``.
 
    .. code-block:: text
