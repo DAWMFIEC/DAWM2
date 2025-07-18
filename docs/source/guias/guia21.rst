@@ -67,18 +67,19 @@ Aplicación: Landing API
 5. Levante el servidor de desarrollo de Django.
 6. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
-Firebase Private key
---------------------
+Firebase Console
+----------------
 
-1. En `Firebase Console <https://console.firebase.google.com/>`_
+1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
+2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin`, genere la clave privada. 
+3. Acceda al servicio **Realtime Database** y copie la URL de referencia 
 
-   a) Acceda el proyecto **landing**
-   b) Acceda a la `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin`.
-   c) Genere una clave privada. 
+   .. note:: 
+      
+      La URL de referencia luce como `https://<URL-REALTIME-DATABASE>.firebaseio.com/`
 
 SDK Firebase Admin
 ------------------
-
 
 Gestión de dependencias
 -----------------------
