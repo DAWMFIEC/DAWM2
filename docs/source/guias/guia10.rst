@@ -15,14 +15,11 @@ Guía 10: Firebase: Realtime Database y SDK
 Actividades previas
 =====================
 
-Firebase
---------
-
-Proyecto
-^^^^^^^^
+Firebase: Proyecto
+------------------
 
 1. Acceda a `Firebase <https://firebase.google.com/>`_ con su cuenta personal de Google.
-2. Cree un proyecto en `Firebase Console <https://console.firebase.google.com/>`_. No es necesario configurar Google Analytics para este proyecto.
+2. En `Firebase Console <https://console.firebase.google.com/>`_, cree el proyecto **landing**. No es necesario configurar Google Analytics para este proyecto.
 3. Utilice un cliente de IAG para explicar los servicios, y sus casos prácticos de uso, que ofrece Firebase.
 
 Ambiente de desarrollo
@@ -83,11 +80,8 @@ HTML
 
 
 
-Firebase
---------
-
-App - web
-^^^^^^^^^
+Firebase: App - web
+-------------------
 
 1. En su proyecto de Firebase:
    
