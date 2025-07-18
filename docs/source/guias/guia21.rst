@@ -19,12 +19,12 @@ Firebase Console
 ----------------
 
 1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
-2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin`, genere la clave privada. 
-3. Acceda al servicio **Realtime Database** y copie la URL de referencia 
+2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin` para generar la clave privada. 
+3. Acceda al servicio **Realtime Database** y copie la URL de referencia a la base de datos no relacional.
 
    .. note:: 
       
-      La URL de referencia luce como `https://<URL-REALTIME-DATABASE>.firebaseio.com/`
+      La URL de referencia luce como `https://<PROJECT-ID>-default-rtdb.firebaseio.com//`
 
 Ambiente de desarrollo
 ----------------------
