@@ -15,6 +15,17 @@ Guía 21: Django - REST API + Firebase Admin Python SDK
 Actividades previas
 =====================
 
+Firebase Console
+----------------
+
+1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
+2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin`, genere la clave privada. 
+3. Acceda al servicio **Realtime Database** y copie la URL de referencia 
+
+   .. note:: 
+      
+      La URL de referencia luce como `https://<URL-REALTIME-DATABASE>.firebaseio.com/`
+
 Ambiente de desarrollo
 ----------------------
 
@@ -66,20 +77,6 @@ Aplicación: Landing API
 4. Cree el archivo ``landing_api/urls.py`` con la ruta raíz a la vista **RestAPI**.
 5. Levante el servidor de desarrollo de Django.
 6. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
-
-Firebase Console
-----------------
-
-1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
-2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin`, genere la clave privada. 
-3. Acceda al servicio **Realtime Database** y copie la URL de referencia 
-
-   .. note:: 
-      
-      La URL de referencia luce como `https://<URL-REALTIME-DATABASE>.firebaseio.com/`
-
-SDK Firebase Admin
-------------------
 
 Gestión de dependencias
 -----------------------
