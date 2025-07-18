@@ -60,9 +60,9 @@ Paquete: Django REST framework (DRF)
 Aplicación: REST API
 --------------------
 
-1. Cree una la aplicación **restapi** en su proyecto.
-2. Registre la ruta \"rest/api/\" con las subrutas de la aplicación **restapi**
-3. Cree la :term:`vista basada en clases` en ``restapi/views.py`` que retorne un mensaje de bienvenida:
+1. Cree una la aplicación **rest_api** en su proyecto.
+2. Registre la ruta \"rest/api/\" con las subrutas de la aplicación **rest_api**
+3. Cree la :term:`vista basada en clases` en ``rest_api/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-14
@@ -82,7 +82,7 @@ Aplicación: REST API
       class RestAPI(APIView):
           name = "REST API"
 
-4. Cree el archivo ``restapi/urls.py`` con la ruta raíz a la vista **RestAPI**:
+4. Cree el archivo ``rest_api/urls.py`` con la ruta raíz a la vista **RestAPI**:
 
    .. code-block:: python
       :emphasize-lines: 1-6
