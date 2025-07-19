@@ -258,3 +258,6 @@ Diccionario de términos
 
     REST
         Es un tipo de API que sigue los principios de la arquitectura REST (Representational State Transfer) y utiliza el protocolo HTTP para realizar operaciones sobre recursos. Las RESTful APIs permiten a los desarrolladores interactuar con servicios web de manera sencilla y eficiente, utilizando métodos HTTP como GET, POST, PUT y DELETE para acceder y manipular datos.
+
+    URL raíz
+        Es la dirección base de un sitio web o aplicación web, a partir de la cual se construyen todas las demás rutas o enlaces.

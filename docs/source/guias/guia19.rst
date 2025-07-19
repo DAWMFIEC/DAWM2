@@ -198,7 +198,7 @@ Archivos estáticos
 ------------------
 
 1. En la raíz del repositorio, cree la carpeta ``static`` 
-2. Descargue y descomprima el contenido del archivo :download:`assets.zip <./files/assets.zip>` en la carpeta ``static``.
+2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
 3. Edite el archivo ``backend_api/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
