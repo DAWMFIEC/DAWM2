@@ -48,7 +48,7 @@ Paquete: Django
     
        pip install django
 
-2. Utilice su cliente de IAG generativa para explicar qué es Django y cuáles son sus principales características.
+2. Utilice su cliente de IAG generativa para explicar qué es Django, cuáles son sus principales características y los patrones de diseño que implementa.
 
 Proyecto: Backend API
 ----------------------
@@ -66,7 +66,7 @@ Proyecto: Backend API
        python manage.py runserver
 
 3. Revise los cambios en el navegador en la URL raíz.
-4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto y los patrones de diseño implementados en Django.
+4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto en Django.
 
 Aplicación: Homepage
 --------------------
