@@ -18,12 +18,12 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Cree un repositorio en GitHub con el nombre *backend*.
+1. Cree un repositorio en GitHub con el nombre *django-api-suite*.
 
    a) Agregue un archivo README.md con el título de su backend y una breve descripción del objetivo de su proyecto.
    b) Agregue un archivo *.gitignore* con la plantilla de *Python*.
    
-2. Acceda a su proyecto *backend* en Codespaces o en su máquina local.
+2. Acceda a su proyecto *django-api-suite* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
 4. Cree y habilite el :term:`ambiente virtual de desarrollo`, con:
 
@@ -50,14 +50,14 @@ Paquete: Django
 
 2. Utilice su cliente de IAG generativa para explicar qué es Django y cuáles son sus principales características.
 
-Proyecto: Backend
------------------
+Proyecto: Backend API
+----------------------
 
-1. Cree un :term:`proyecto Django` llamado *backend* en la ubicación actual:
+1. Cree un :term:`proyecto Django` llamado *backend_api* en la ubicación actual:
 
    .. code-block:: bash
 
-       django-admin startproject backend .
+       django-admin startproject backend_api .
 
 2. Levante el servidor de desarrollo de Django:
 
@@ -66,34 +66,34 @@ Proyecto: Backend
        python manage.py runserver
 
 3. Revise los cambios en el navegador en la URL raíz.
-4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto, en el contexto de Django.
+4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto y los patrones de diseño implementados en Django.
 
-Aplicación: Main
-----------------
+Aplicación: Homepage
+--------------------
 
 Creación de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Cree una :term:`aplicación Django` llamada *main*:
+1. Cree una :term:`aplicación Django` llamada *homepage*:
 
    .. code-block:: bash
 
-       python manage.py startapp main
+       python manage.py startapp homepage
 
 Registro de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2. Modifique el archivo ``backend/settings.py`` del proyecto:
+2. Modifique el archivo ``backend_api/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
 
       INSTALLED_APPS = [
         ...
-        "main",
+        "homepage",
       ]
 
-3. En el archivo ``backend/urls.py``, importe el módulo **include** y asocie la ruta \"main/\" con las subrutas de la aplicación **main**:
+3. En el archivo ``backend_api/urls.py``, importe el módulo **include** y asocie la ruta \"homepage/\" con las subrutas de la aplicación **homepage**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -103,13 +103,13 @@ Registro de la aplicación
 
       urlpatterns = [
             path("admin/", admin.site.urls),
-            path("main/", include("main.urls")),
+            path("homepage/", include("homepage.urls")),
       ]
 
 Rutas y Vistas de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4. Cree la :term:`vista basada en funciones` en ``main/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en funciones` en ``homepage/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7
@@ -122,7 +122,7 @@ Rutas y Vistas de la aplicación
       def index(request):
           return HttpResponse("¡Bienvenido a la aplicación Django!")
 
-5. Cree el archivo ``main/urls.py`` con las rutas de la aplicación:
+5. Cree el archivo ``homepage/urls.py`` con las rutas de la aplicación:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -140,7 +140,7 @@ Rutas y Vistas de la aplicación
 
        python manage.py runserver
 
-7. Revise los cambios en el navegador en la URL en la ruta `/main/index/`
+7. Revise los cambios en el navegador en la URL en la ruta `/homepage/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
    
    .. note:: 
