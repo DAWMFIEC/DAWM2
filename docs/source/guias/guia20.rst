@@ -92,9 +92,9 @@ Aplicación: DEMO API
       data_list = []
 
       # Añadiendo algunos datos de ejemplo para probar el GET
-      data_list.append({'id': str(uuid.uuid4()), 'name': 'Producto A', 'email': 'a@example.com', 'is_active': True})
-      data_list.append({'id': str(uuid.uuid4()), 'name': 'Producto B', 'email': 'b@example.com', 'is_active': True})
-      data_list.append({'id': str(uuid.uuid4()), 'name': 'Producto C', 'email': 'c@example.com', 'is_active': False}) # Ejemplo de item inactivo
+      data_list.append({'id': str(uuid.uuid4()), 'name': 'User01', 'email': 'user01@example.com', 'is_active': True})
+      data_list.append({'id': str(uuid.uuid4()), 'name': 'User02', 'email': 'user01@example.com', 'is_active': True})
+      data_list.append({'id': str(uuid.uuid4()), 'name': 'User03', 'email': 'user01@example.com', 'is_active': False}) # Ejemplo de item inactivo
       
       class DemoRestApi(APIView):
           name = "Demo REST API"
