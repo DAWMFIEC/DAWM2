@@ -263,7 +263,7 @@ Gestión de dependencias
 Versionamiento
 --------------
 
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *backend*.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django-api-suite*.
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones

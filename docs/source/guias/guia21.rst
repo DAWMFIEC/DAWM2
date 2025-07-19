@@ -98,6 +98,18 @@ GET
 
 1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
 2. Edite el archivo ``backend_data_server/settings.py``, con:
+
+   .. code-block:: python
+      :emphasize-lines: 1-3
+
+      ...
+
+      import firebase_admin
+      from firebase_admin import credentials
+
+      cred = credentials.Certificate("secrets/firebase-adminsdk.json")
+      firebase_admin.initialize_app(cred)
+
 3. Edite el archivo ``firebase_api/views.py``, con:
 4. Levante el servidor de desarrollo de Django.
 5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
@@ -120,7 +132,7 @@ Gestión de dependencias
 Versionamiento
 --------------
 
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *backend*.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django-api-suite*.
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
