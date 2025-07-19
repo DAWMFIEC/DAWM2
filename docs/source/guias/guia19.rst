@@ -50,14 +50,14 @@ Paquete: Django
 
 2. Utilice su cliente de IAG generativa para explicar qué es Django, cuáles son sus principales características y los patrones de diseño que implementa.
 
-Proyecto: Backend API
-----------------------
+Proyecto: Backend Data Server
+-----------------------------
 
-1. Cree un :term:`proyecto Django` llamado *backend_api* en la ubicación actual:
+1. Cree un :term:`proyecto Django` llamado *backend_data_server* en la ubicación actual:
 
    .. code-block:: bash
 
-       django-admin startproject backend_api .
+       django-admin startproject backend_data_server .
 
 2. Levante el servidor de desarrollo de Django:
 
@@ -83,7 +83,7 @@ Creación de la aplicación
 Registro de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2. Modifique el archivo ``backend_api/settings.py`` del proyecto:
+2. Modifique el archivo ``backend_data_server/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
@@ -93,7 +93,7 @@ Registro de la aplicación
         "homepage",
       ]
 
-3. En el archivo ``backend_api/urls.py``, importe el módulo **include** y asocie la ruta \"homepage/\" con las subrutas de la aplicación **homepage**:
+3. En el archivo ``backend_data_server/urls.py``, importe el módulo **include** y asocie la ruta \"homepage/\" con las subrutas de la aplicación **homepage**:
 
    .. code-block:: python
       :emphasize-lines: 2, 6
@@ -157,7 +157,7 @@ Plantillas
 
       La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
 
-3. Modifique el archivo ``backend_api/settings.py`` 
+3. Modifique el archivo ``backend_data_server/settings.py`` 
 
    a) Importe el módulo **os**
    b) Agregue la ruta a las plantillas en el arreglo **TEMPLATES**, en la entrada **DIRS**.
@@ -199,7 +199,7 @@ Archivos estáticos
 
 1. En la raíz del repositorio, cree la carpeta ``static`` 
 2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
-3. Edite el archivo ``backend_api/settings.py``, 
+3. Edite el archivo ``backend_data_server/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
 

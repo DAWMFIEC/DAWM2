@@ -45,7 +45,7 @@ Paquete: Django REST framework (DRF)
     
        pip install djangorestframework
 
-2. Registre el Django REST framework en el archivo ``backend_api/settings.py`` del proyecto:
+2. Registre el Django REST framework en el archivo ``backend_data_server/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3

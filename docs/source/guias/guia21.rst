@@ -56,7 +56,7 @@ Paquete: Firebase Admin Python SDK
     
        pip install firebase-admin
 
-2. Registre el Firebase Admin Python SDK en el archivo ``backend/settings.py`` del proyecto:
+2. Registre el Firebase Admin Python SDK en el archivo ``backend_data_server/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
@@ -83,13 +83,13 @@ Secrets
 
       secrets/
 
-Aplicación: Landing API
+Aplicación: Firebase API
 -----------------------
 
-1. Cree una la aplicación **landing_api** en su proyecto.
-2. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
-3. Cree la vista basada en clases **LandingAPI** en ``landing_api/views.py``
-4. Cree el archivo ``landing_api/urls.py`` con la ruta raíz a la vista **RestAPI**.
+1. Cree una la aplicación **firebase_api** en su proyecto.
+2. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **firebase_api**
+3. Cree la vista basada en clases **LandingAPI** en ``firebase_api/views.py``
+4. Cree el archivo ``firebase_api/urls.py`` con la ruta raíz a la vista **RestAPI**.
 5. Levante el servidor de desarrollo de Django.
 6. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
@@ -97,8 +97,8 @@ GET
 ---
 
 1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
-2. Edite el archivo ``backend/settings.py``, con:
-3. Edite el archivo ``landing_api/views.py``, con:
+2. Edite el archivo ``backend_data_server/settings.py``, con:
+3. Edite el archivo ``firebase_api/views.py``, con:
 4. Levante el servidor de desarrollo de Django.
 5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
