@@ -65,7 +65,7 @@ Proyecto: Backend API
 
        python manage.py runserver
 
-3. Revise los cambios en el navegador en la URL raíz.
+3. Revise los cambios en el navegador en la :term:`URL raíz`.
 4. Utilice su cliente de IAG generativa para explicar la estructura de archivos de un proyecto en Django.
 
 Aplicación: Homepage
@@ -109,7 +109,19 @@ Registro de la aplicación
 Rutas y Vistas de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4. Cree la :term:`vista basada en funciones` en ``homepage/views.py`` que retorne un mensaje de bienvenida:
+4. Cree el archivo ``homepage/urls.py`` con las rutas de la aplicación:
+
+   .. code-block:: python
+      :emphasize-lines: 1-6
+
+      from django.urls import path
+      from . import views
+
+      urlpatterns = [
+            path("index/", views.index, name="index"),
+      ]
+
+5. Cree la :term:`vista basada en funciones` en ``homepage/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-7
@@ -122,42 +134,30 @@ Rutas y Vistas de la aplicación
       def index(request):
           return HttpResponse("¡Bienvenido a la aplicación Django!")
 
-5. Cree el archivo ``homepage/urls.py`` con las rutas de la aplicación:
-
-   .. code-block:: python
-      :emphasize-lines: 1-6
-
-      from django.urls import path
-      from . import views
-
-      urlpatterns = [
-            path("index/", views.index, name="index"),
-      ]
-
 6. Levante el servidor de desarrollo de Django:
 
    .. code-block:: bash
 
        python manage.py runserver
 
-7. Revise los cambios en el navegador en la URL en la ruta `/homepage/index/`
+7. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/homepage/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
    
    .. note:: 
 
-      La ruta raíz de la aplicación puede ser modificada 
+      Para que su sitio web responda a la URL raíz, asocie la ruta vacía (\"\") del proyecto con la aplicación **homepage** y la ruta vacía (\"\") de la aplicación con la vista **index**.
 
 Plantillas
 ----------
 
-1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/main`` 
-2. Descargue el archivo :download:`index.html <./files/index.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/main``.
+1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/homepage`` 
+2. Descargue el archivo :download:`index.html <./files/index.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/homepage``.
    
    .. note:: 
 
       La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
 
-3. Modifique el archivo ``backend/settings.py`` 
+3. Modifique el archivo ``backend_api/settings.py`` 
 
    a) Importe el módulo **os**
    b) Agregue la ruta a las plantillas en el arreglo **TEMPLATES**, en la entrada **DIRS**.
@@ -178,9 +178,9 @@ Plantillas
           },
       ]
 
-4. Edite el archivo ``main/views.py``:
+4. Edite el archivo ``homepage/views.py``:
 
-   a) Agregue la renderización de la plantilla ``main/index.html`` en la vista `index`:
+   a) Agregue la renderización de la plantilla ``homepage/index.html`` en la vista `index`:
 
    .. code-block:: python
       :emphasize-lines: 4-5
@@ -189,7 +189,7 @@ Plantillas
 
       def index(request):
           # return HttpResponse("¡Bienvenido a la aplicación Django!")
-          return render(request, 'main/index.html')
+          return render(request, 'homepage/index.html')
 
 5. Revise los cambios en el navegador en la URL en la ruta de la aplicación.
 6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
@@ -199,7 +199,7 @@ Archivos estáticos
 
 1. En la raíz del repositorio, cree la carpeta ``static`` 
 2. Descargue y descomprima el contenido del archivo :download:`assets.zip <./files/assets.zip>` en la carpeta ``static``.
-3. Edite el archivo ``backend/settings.py``, 
+3. Edite el archivo ``backend_api/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
 
@@ -212,7 +212,7 @@ Archivos estáticos
           os.path.join(BASE_DIR, STATIC_URL),
       ]
 
-4. Edite el archivo ``templates/main/index.html``:
+4. Edite el archivo ``templates/homepage/index.html``:
 
    a) Agregue la etiqueta **{% load static %}** al inicio del archivo.
    b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
