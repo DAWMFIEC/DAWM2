@@ -71,13 +71,13 @@ Aplicación: DEMO API
       from . import views
 
       urlpatterns = [
-            path("", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
+            path("index/", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
       ]
 
 4. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
-      :emphasize-lines: 4-14
+      :emphasize-lines: 4-19
 
       from django.shortcuts import render
 
@@ -90,6 +90,11 @@ Aplicación: DEMO API
 
       # Simulación de base de datos local en memoria
       data_list = []
+
+      # Añadiendo algunos datos de ejemplo para probar el GET
+      data_list.append({'id': str(uuid.uuid4()), 'name': 'Producto A', 'email': 'a@example.com', 'is_active': True})
+      data_list.append({'id': str(uuid.uuid4()), 'name': 'Producto B', 'email': 'b@example.com', 'is_active': True})
+      data_list.append({'id': str(uuid.uuid4()), 'name': 'Producto C', 'email': 'c@example.com', 'is_active': False}) # Ejemplo de item inactivo
       
       class DemoRestApi(APIView):
           name = "Demo REST API"
@@ -100,7 +105,7 @@ Aplicación: DEMO API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/`
+6. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/index/`
 7. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
 
 GET
@@ -122,7 +127,7 @@ GET
             def get(self, request):
                 return Response(data_list, status=status.HTTP_200_OK)
 
-2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/?format=json`
+2. Revise los cambios en el navegador con la URL raíz, seguido por las rutas `/demo/api/` y `/demo/api/?format=json`
 
 POST
 ^^^^
@@ -160,7 +165,7 @@ POST
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/?format=api` y envíe una solicitud POST con el cuerpo, p.e.:
+2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/` y envíe una solicitud POST con el cuerpo, p.e.:
 
    .. code-block:: json
       :emphasize-lines: 1-4
@@ -174,20 +179,21 @@ POST
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
 
-1. Utilice su cliente de IAG para generar el código para los métodos PUT, PATCH y DELETE en la vista de la API, considerando:
-   
-   a) Las diferencias de los métodos
-      
-      (i) El método **put** debe reemplazar completamente los datos de un elemento del arreglo, excepto el identificador que se envía como campo obligatorio en el cuerpo de la solicitud.
-      (ii) El método **patch** debe actualizar parcialmente los campos del elemento identificado por su identificador, manteniendo los valores no modificados.
-      (iii) El método **delete** debe eliminar lógicamente un elemento del arreglo según el identificador proporcionado.
-   
-   b) Código de estado HTTP:
+1. Utilice su cliente de IAG para modificar:
 
-      (i) En caso de que el índice no exista, retorne un mensaje de error y un código de estado HTTP del error.
-      (ii) En caso de éxito, retorne un mensaje de éxito y el código de estado HTTP correspondiente.
+   a) El archivo ``demo_api/views.py`` con la clase ``DemoRestApiItem``, que responda a los métodos:
+   
+      (i) **PUT** debe reemplazar completamente los datos de un elemento del arreglo, excepto el identificador que se envía como campo obligatorio en el cuerpo de la solicitud.
+      (ii) **PATCH** debe actualizar parcialmente los campos del elemento identificado por su identificador, manteniendo los valores no modificados.
+      (iii) **DELETE** debe eliminar lógicamente un elemento del arreglo según el identificador proporcionado.
 
-2. Agrega los patrones de rutas para los métodos PUT, PATCH y DELETE para recibir el identificador del elemento a modificar o eliminar, en el archivo con las rutas de la aplicación **demo_api**.
+      .. note:: 
+         
+         Cada método debe responder, en caso de éxito o error, con el código de estado HTTP correspondiente.
+
+   b) El archivo ``demo_api/urls.py`` con la ruta `"<str:id>/"` con la vista ``DemoRestApiItem``.
+
+2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
 
 
 Gestión de dependencias
