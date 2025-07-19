@@ -57,7 +57,7 @@ Paquete: Django REST framework (DRF)
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
 
-Aplicación: REST API
+Aplicación: DEMO API
 --------------------
 
 1. Cree una la aplicación **demo_api** en su proyecto.
@@ -134,7 +134,7 @@ POST
    c) Si los campos son válidos:
       
       (i) Generar un identificador único utilizando uuid.uuid4() y agregue el campo `'id'` a la variable **data**, 
-      (ii) Agregue el campo `'status'` con el valor **True** a la variable **data**, 
+      (ii) Agregue el campo `'is_active'` con el valor **True** a la variable **data**, 
       (iii) Agregue la variable **data** a la lista **data_list**. 
       (iv) Finalmente, debe retornar una respuesta con código HTTP 201 (Created), un mensaje de éxito y los datos guardados.
 
@@ -155,12 +155,12 @@ POST
                     return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
                 
                 data['id'] = str(uuid.uuid4())
-                data['status'] = True
+                data['is_active'] = True
                 data_list.append(data)
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/?format=api` y envié una solicitud POST con el cuerpo, p.e.:
+2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/?format=api` y envíe una solicitud POST con el cuerpo, p.e.:
 
    .. code-block:: json
       :emphasize-lines: 1-4
