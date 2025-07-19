@@ -197,8 +197,8 @@ Plantillas
 Archivos estáticos
 ------------------
 
-1. En la raíz del repositorio, cree la carpeta ``static`` 
-2. Descargue y descomprima el contenido del archivo :download:`static.zip <./files/static.zip>` en la carpeta ``static``.
+1. En la raíz del repositorio, cree la jerarquía de carpetas ``static/img``  
+2. Descargue el archivo :download:`team.jpg <./files/team.jpg>` en la carpeta ``static/img``.
 3. Edite el archivo ``backend_data_server/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
