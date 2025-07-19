@@ -45,7 +45,7 @@ Paquete: Django REST framework (DRF)
     
        pip install djangorestframework
 
-2. Registre el Django REST framework en el archivo ``backend/settings.py`` del proyecto:
+2. Registre el Django REST framework en el archivo ``backend_api/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
@@ -60,9 +60,9 @@ Paquete: Django REST framework (DRF)
 Aplicación: REST API
 --------------------
 
-1. Cree una la aplicación **rest_api** en su proyecto.
-2. Registre la ruta \"rest/api/\" con las subrutas de la aplicación **rest_api**
-3. Cree la :term:`vista basada en clases` en ``rest_api/views.py`` que retorne un mensaje de bienvenida:
+1. Cree una la aplicación **demo_api** en su proyecto.
+2. Registre la ruta \"demo/api/\" con las subrutas de la aplicación **demo_api**
+3. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que retorne un mensaje de bienvenida:
 
    .. code-block:: python
       :emphasize-lines: 4-14
@@ -79,10 +79,10 @@ Aplicación: REST API
       # Simulación de base de datos local en memoria
       data_list = []
       
-      class RestAPI(APIView):
-          name = "REST API"
+      class DemoRestApi(APIView):
+          name = "Demo REST API"
 
-4. Cree el archivo ``rest_api/urls.py`` con la ruta raíz a la vista **RestAPI**:
+4. Cree el archivo ``demo_api/urls.py`` con la ruta raíz a la vista **DemoRestApi**:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -91,7 +91,7 @@ Aplicación: REST API
       from . import views
 
       urlpatterns = [
-            path("", views.RestAPI.as_view(), name="rest_resources" ),
+            path("", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
       ]
 
 5. Levante el servidor de desarrollo de Django:
@@ -100,7 +100,7 @@ Aplicación: REST API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador en la URL en la ruta `/rest/api/`
+6. Revise los cambios en el navegador en la URL en la ruta `/demo/api/`
 7. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
 
 GET
@@ -116,13 +116,13 @@ GET
       .. code-block:: python
          :emphasize-lines: 4-5
 
-         class RestAPI(APIView):
+         class DemoRestApi(APIView):
             ...
 
             def get(self, request):
                 return Response(data_list, status=status.HTTP_200_OK)
 
-2. Compruebe el resultado en su navegador en la URL en la ruta `/rest/api/?format=json`
+2. Compruebe el resultado en su navegador en la URL en la ruta `/demo/api/?format=json`
 
 POST
 ^^^^
@@ -143,7 +143,7 @@ POST
       .. code-block:: python
          :emphasize-lines: 4-15
 
-         class RestAPI(APIView):
+         class DemoRestApi(APIView):
             ...
 
             def post(self, request):
@@ -159,7 +159,7 @@ POST
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Compruebe el resultado en su navegador en la URL en la ruta `/rest/api/?format=api` 
+2. Compruebe el resultado en su navegador en la URL en la ruta `/demo/api/?format=api` 
 
 PUT, PATCH y DELETE
 ^^^^^^^^^^^^^^^^^^^
