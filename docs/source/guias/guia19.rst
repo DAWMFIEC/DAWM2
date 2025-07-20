@@ -74,7 +74,7 @@ Aplicación: Homepage
 Creación de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Cree una :term:`aplicación Django` llamada *homepage*:
+1. Cree una :term:`aplicación Django` llamada *homepage*, con:
 
    .. code-block:: bash
 
@@ -83,7 +83,7 @@ Creación de la aplicación
 Registro de la aplicación
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2. Modifique el archivo ``backend_data_server/settings.py`` del proyecto:
+2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
 
    .. code-block:: python
       :emphasize-lines: 3
@@ -140,7 +140,7 @@ Rutas y Vistas de la aplicación
 
        python manage.py runserver
 
-7. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/homepage/index/`
+7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/homepage/index/`
 8. Utilice su cliente de IAG generativa para explicar la estructura de archivos de una aplicación, en el contexto de Django.
    
    .. note:: 

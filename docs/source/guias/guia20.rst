@@ -105,7 +105,7 @@ Aplicación: DEMO API
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/index/`
+6. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/index/`
 7. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
 
 GET
@@ -127,7 +127,7 @@ GET
             def get(self, request):
                 return Response(data_list, status=status.HTTP_200_OK)
 
-2. Revise los cambios en el navegador con la URL raíz, seguido por las rutas `/demo/api/` y `/demo/api/?format=json`
+2. Revise los cambios en el navegador con la URL raíz, seguida por las rutas `/demo/api/` y `/demo/api/?format=json`
 
 POST
 ^^^^
@@ -165,7 +165,7 @@ POST
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/` y envíe una solicitud POST con el cuerpo, p.e.:
+2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/` y envíe una solicitud POST con el cuerpo, p.e.:
 
    .. code-block:: json
       :emphasize-lines: 1-4
@@ -193,7 +193,7 @@ PUT, PATCH y DELETE
 
    b) El archivo ``demo_api/urls.py`` con la ruta `"<str:id>/"` con la vista ``DemoRestApiItem``.
 
-2. Revise los cambios en el navegador con la URL raíz, seguido por la ruta `/demo/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
+2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
 
 
 Gestión de dependencias
