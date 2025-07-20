@@ -10,7 +10,7 @@ Guía 20: Django -  Django Rest Framework (DRF)
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar Django Rest Framework (DRF) para la construcción y estructuración de los endpoints de una API REST. 
+    Implementar Django Rest Framework (DRF) para el desarrollo de una API REST relacionadas con las operaciones CRUD en un conjunto de datos. 
 
 Actividades previas
 =====================

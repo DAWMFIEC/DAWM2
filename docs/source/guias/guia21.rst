@@ -10,7 +10,7 @@ Guía 21: Django - DRF + Firebase Admin Python SDK
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar Django Rest Framework (DRF) para la administración de los endpoints de una API REST que permitan realizar operaciones CRUD sobre datos en Firebase Realtime Database. 
+    Implementar Django Rest Framework (DRF) para la administración de los endpoints de una API REST que sirva de pasarela de comunicación con la base de datos de Firebase Realtime Database. 
 
 Actividades previas
 =====================
