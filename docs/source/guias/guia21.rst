@@ -130,8 +130,11 @@ Aplicación: Landing API
 4. En ``landing_api/views.py``, cree la vista basada en clases de DRF . 
 
    .. code-block:: python
-      :emphasize-lines: 4-6
+      :emphasize-lines: 4-9
 
+      from django.shortcuts import render
+
+      # Create your views here.
       from rest_framework.views import APIView
       from rest_framework.response import Response
       from rest_framework import status
