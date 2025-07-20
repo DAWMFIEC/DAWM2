@@ -128,6 +128,20 @@ Aplicación: Landing API
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
 3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
 4. En ``landing_api/views.py``, importe los módulos **APIView**, **Response** y **status** de DRF y cree la clase **LandingAPI** vista basada en clases.
+
+   .. code-block:: python
+      :emphasize-lines: 1-9
+
+      from rest_framework.views import APIView
+      from rest_framework.response import Response
+      from rest_framework import status
+
+      class LandingAPI(APIView):
+         name = "Landing API"
+
+         # Coloque el nombre de su colección en el Realtime Database
+         collection_name = 'COLLECTION_NAME_REALTIME_DATABASE'
+
 5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
 6. Levante el servidor de desarrollo de Django.
 7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/landing/api/index/`
@@ -138,25 +152,23 @@ GET
 1. Edite el archivo ``landing_api/views.py``, con:
 
    .. code-block:: python
-      :emphasize-lines: 3-4, 8-9, 11-20
+      :emphasize-lines: 3, 9-18
 
       ...
 
-      from datetime import datetime
+      # Importar el módulo db de Firebase Admin SDK
       from firebase_admin import db
 
       class LandingAPI(APIView):
-         name = "Landing API"
-
-         # Coloque el nombre de su colección en el Realtime Database
-         collection_name = 'COLLECTION_NAME_REALTIME_DATABASE'
-
+         
+         ...
+         
          def get(self, request):
 
             # Referencia a la colección
             ref = db.reference(f'{self.collection_name}')
             
-            # get: Obtiene todos los elementos de la colección
+            # get: Obtiene todos los elementos de la col ección
             data = ref.get()
 
             # Devuelve un arreglo JSON
