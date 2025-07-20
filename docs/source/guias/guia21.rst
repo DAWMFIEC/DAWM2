@@ -127,21 +127,7 @@ Aplicación: Landing API
 
    a) Importe los módulos **APIView**, **Response** y **status** de DRF,
    b) Cree la clase **LandingAPI** vista basada en clases,
-   c) Agregue el atributo **name** con el valor \"Landing API\",
-   d) Agregue el atributo **collection_name** con el nombre de la colección en Firebase Realtime Database que se utilizará para las operaciones CRUD,
-
-   .. code-block:: python
-      :emphasize-lines: 1-9
-
-      from rest_framework.views import APIView
-      from rest_framework.response import Response
-      from rest_framework import status
-
-      class LandingAPI(APIView):
-         name = "Landing API"
-
-         # Coloque el nombre de su colección en el Realtime Database
-         collection_name = 'COLLECTION_NAME_REALTIME_DATABASE'
+   c) Agregue el atributo **name** con el valor \"Landing API\",     
 
 5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
 6. Levante el servidor de desarrollo de Django.
@@ -157,10 +143,11 @@ GET
 1. Edite el archivo ``landing_api/views.py``, con:
 
    a) Importe el módulo **db** de Firebase Admin SDK,
-   b) Implemente el método **get** que retorne todos los elementos de la colección en formato JSON
+   b) En la clase **LandingAPI**, agregue el atributo **collection_name** con el nombre de la colección en Firebase Realtime Database que se utilizará para las operaciones CRUD,
+   c) Implemente el método **get** que retorne todos los elementos de la colección en formato JSON
 
    .. code-block:: python
-      :emphasize-lines: 3-4, 10-19
+      :emphasize-lines: 3-4, 10-11, 13-22
 
       ...
 
@@ -170,6 +157,9 @@ GET
       class LandingAPI(APIView):
          
          ...
+
+         # Coloque el nombre de su colección en el Realtime Database
+         collection_name = 'COLLECTION_NAME_REALTIME_DATABASE'
          
          def get(self, request):
 
