@@ -87,11 +87,12 @@ Aplicación: Landing API
 -----------------------
 
 1. Cree una la aplicación **landing_api** en su proyecto.
-2. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
-3. Cree la vista basada en clases **LandingAPI** en ``landing_api/views.py``
-4. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
-5. Levante el servidor de desarrollo de Django.
-6. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
+3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
+4. Cree la vista basada en clases **LandingAPI** en ``landing_api/views.py``
+5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
+6. Levante el servidor de desarrollo de Django.
+7. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 GET
 ---

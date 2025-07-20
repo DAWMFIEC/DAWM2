@@ -62,8 +62,9 @@ Aplicación: DEMO API
 --------------------
 
 1. Cree una la aplicación **demo_api** en su proyecto.
-2. Registre la ruta \"demo/api/\" con las subrutas de la aplicación **demo_api**
-3. Cree el archivo ``demo_api/urls.py`` con la ruta \"index/\" a la vista **DemoRestApi**:
+2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto.
+3. Registre la ruta \"demo/api/\" con las subrutas de la aplicación **demo_api**
+4. Cree el archivo ``demo_api/urls.py`` con la ruta \"index/\" a la vista **DemoRestApi**:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -75,7 +76,7 @@ Aplicación: DEMO API
             path("index/", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
       ]
 
-4. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que muestre la vista predeterminada de DRF:
+5. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que muestre la vista predeterminada de DRF:
 
    .. code-block:: python
       :emphasize-lines: 4-19
@@ -100,14 +101,14 @@ Aplicación: DEMO API
       class DemoRestApi(APIView):
           name = "Demo REST API"
 
-5. Levante el servidor de desarrollo de Django:
+6. Levante el servidor de desarrollo de Django:
 
    .. code-block:: bash
 
        python manage.py runserver
 
-6. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/index/`
-7. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
+7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/index/`
+8. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
 
 GET
 ^^^
