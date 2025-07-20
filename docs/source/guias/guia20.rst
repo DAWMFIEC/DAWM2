@@ -63,7 +63,7 @@ Aplicación: DEMO API
 
 1. Cree una la aplicación **demo_api** en su proyecto.
 2. Registre la ruta \"demo/api/\" con las subrutas de la aplicación **demo_api**
-3. Cree el archivo ``demo_api/urls.py`` con la ruta raíz a la vista **DemoRestApi**:
+3. Cree el archivo ``demo_api/urls.py`` con la ruta \"index/\" a la vista **DemoRestApi**:
 
    .. code-block:: python
       :emphasize-lines: 1-6
