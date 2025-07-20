@@ -58,8 +58,8 @@ Paquete: Django REST framework (DRF)
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
 
-Aplicación: DEMO API
---------------------
+Aplicación: DEMO REST API
+-------------------------
 
 1. Cree una la aplicación **demo_rest_api** en su proyecto.
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto.
@@ -73,7 +73,7 @@ Aplicación: DEMO API
       from . import views
 
       urlpatterns = [
-            path("index/", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
+         path("index/", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
       ]
 
 5. Cree la :term:`vista basada en clases` en ``demo_rest_api/views.py`` que muestre la vista predeterminada de DRF:
@@ -159,17 +159,17 @@ POST
             ...
 
             def post(self, request):
-                data = request.data
+               data = request.data
 
-                # Validación mínima
-                if 'name' not in data or 'email' not in data:
-                    return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
-                
-                data['id'] = str(uuid.uuid4())
-                data['is_active'] = True
-                data_list.append(data)
+               # Validación mínima
+               if 'name' not in data or 'email' not in data:
+                  return Response({'error': 'Faltan campos requeridos.'}, status=status.HTTP_400_BAD_REQUEST)
+               
+               data['id'] = str(uuid.uuid4())
+               data['is_active'] = True
+               data_list.append(data)
 
-                return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
+               return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
 2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/rest/api/` y envíe una solicitud POST con el cuerpo, p.e.:
 
