@@ -64,6 +64,8 @@ Paquete: Firebase Admin Python SDK
       INSTALLED_APPS = [
         ...
         "firebase_admin",
+        "rest_framework",
+        ...
       ]
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Firebase Admin Python SDK <https://firebase.google.com/docs/admin/setup>`_ y cuáles son sus principales características.
@@ -92,7 +94,7 @@ Aplicación: Landing API
 4. Cree la vista basada en clases **LandingAPI** en ``landing_api/views.py``
 5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
 6. Levante el servidor de desarrollo de Django.
-7. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/landing/api/index/`
 
 GET
 ---
