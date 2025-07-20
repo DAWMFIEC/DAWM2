@@ -199,6 +199,11 @@ PUT, PATCH y DELETE
    b) El archivo ``demo_api/urls.py`` con la ruta `"<str:id>/"` con la vista ``DemoRestApiItem``.
 
 2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
+
+   .. note:: 
+
+      Verifique que el nombre del parámetro (`"<str:item_id>/"`) en la ruta coincida con el nombre del parámetro (`def delete(self, request, item_id):`) en el método de la vista basada en clases.
+
 3. Utilice su cliente de IAG generativa para explicar los métodos PUT, PATCH y DELETE en el contexto de una API REST y la importancia de los códigos de estado HTTP en las respuestas.
 
 Gestión de dependencias
