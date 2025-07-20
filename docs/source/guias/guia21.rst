@@ -96,8 +96,8 @@ Aplicación: Landing API
 6. Levante el servidor de desarrollo de Django.
 7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/landing/api/index/`
 
-GET
----
+Configuración del Firebase Admin SDK
+------------------------------------
 
 1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
 2. Edite el archivo ``backend_data_server/settings.py``, con:
@@ -116,6 +116,9 @@ GET
 3. Edite el archivo ``firebase_api/views.py``, con:
 4. Levante el servidor de desarrollo de Django.
 5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+
+GET
+---
 
 Gestión de dependencias
 -----------------------
