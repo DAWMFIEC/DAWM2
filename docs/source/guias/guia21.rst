@@ -24,7 +24,7 @@ Firebase Console
 
    .. note:: 
       
-      La URL de referencia luce como `https://<PROJECT-ID>-default-rtdb.firebaseio.com//`
+      La URL de referencia luce como `https://<PROJECT-ID>-default-rtdb.firebaseio.com/`
 
 Ambiente de desarrollo
 ----------------------
@@ -74,7 +74,7 @@ Secrets
 -------
 
 1. En la raíz del repositorio, cree la carpeta ``secrets``
-2. Agregue el archivo con la clave privada a la carpeta ``secrets``.
+2. Agregue el archivo con la clave privada a la carpeta ``secrets`` y renombre el archivo como ``landing-key.json``.
 3. Añada al archivo **.gitignore** la carpeta ``secrets``.
 
    .. code-block:: text
@@ -84,6 +84,37 @@ Secrets
       __marimo__/
 
       secrets/
+
+Configuración del Firebase Admin SDK
+------------------------------------
+
+1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
+2. Edite el archivo ``backend_data_server/settings.py``, con:
+
+   .. code-block:: python
+      :emphasize-lines: 4-5, 11-12, 14-17
+
+      ...
+      import os
+
+      import firebase_admin
+      from firebase_admin import credentials
+
+      ...
+
+      DEFAULT_AUTO_FIELD = ... 
+
+      # Coloque la ruta relativa al archivo con la clave privada
+      FIREBASE_CREDENTIALS_PATH = credentials.Certificate("secrets/landing-key.json")
+      
+      # Inicialice la conexión con el Realtime Database con la clave privada y la URL de referencia
+      firebase_admin.initialize_app(FIREBASE_CREDENTIALS_PATH, {
+         'databaseURL': 'https://<PROJECT-ID>-default-rtdb.firebaseio.com/'
+      })
+
+3. Edite el archivo ``firebase_api/views.py``, con:
+4. Levante el servidor de desarrollo de Django.
+5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 Aplicación: Landing API
 -----------------------
@@ -95,27 +126,6 @@ Aplicación: Landing API
 5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
 6. Levante el servidor de desarrollo de Django.
 7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/landing/api/index/`
-
-Configuración del Firebase Admin SDK
-------------------------------------
-
-1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
-2. Edite el archivo ``backend_data_server/settings.py``, con:
-
-   .. code-block:: python
-      :emphasize-lines: 1-3
-
-      ...
-
-      import firebase_admin
-      from firebase_admin import credentials
-
-      cred = credentials.Certificate("secrets/firebase-adminsdk.json")
-      firebase_admin.initialize_app(cred)
-
-3. Edite el archivo ``firebase_api/views.py``, con:
-4. Levante el servidor de desarrollo de Django.
-5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 GET
 ---
