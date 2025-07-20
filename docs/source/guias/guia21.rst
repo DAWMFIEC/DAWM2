@@ -15,17 +15,6 @@ Guía 21: Django - DRF + Firebase Admin Python SDK
 Actividades previas
 =====================
 
-Firebase Console
-----------------
-
-1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
-2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin` para generar la clave privada. 
-3. Acceda al servicio **Realtime Database** y copie la URL de referencia a la base de datos no relacional.
-
-   .. note:: 
-      
-      La URL de referencia luce como `https://<PROJECT-ID>-default-rtdb.firebaseio.com/`
-
 Ambiente de desarrollo
 ----------------------
 
@@ -70,12 +59,30 @@ Paquete: Firebase Admin Python SDK
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Firebase Admin Python SDK <https://firebase.google.com/docs/admin/setup>`_ y cuáles son sus principales características.
 
-Secrets
--------
+Firebase Admin Python SDK
+---------------------------
 
-1. En la raíz del repositorio, cree la carpeta ``secrets``
-2. Agregue el archivo con la clave privada a la carpeta ``secrets`` y renombre el archivo como ``landing-key.json``.
-3. Añada al archivo **.gitignore** la carpeta ``secrets``.
+.. note:: 
+   
+   Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
+
+Credenciales
+^^^^^^^^^^^^
+
+1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
+2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin` para generar la clave privada. 
+3. Acceda al servicio **Realtime Database** y copie la URL de referencia a la base de datos no relacional.
+
+   .. note:: 
+      
+      La URL de referencia luce como `https://<PROJECT-ID>-default-rtdb.firebaseio.com/`
+
+Secrets
+^^^^^^^
+
+4. En la raíz del repositorio, cree la carpeta ``secrets``
+5. Agregue el archivo con la clave privada a la carpeta ``secrets`` y renombre el archivo como ``landing-key.json``.
+6. Añada al archivo **.gitignore** la carpeta ``secrets``.
 
    .. code-block:: text
       :emphasize-lines: 4
@@ -85,11 +92,11 @@ Secrets
 
       secrets/
 
-Configuración del Firebase Admin SDK
-------------------------------------
 
-1. Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
-2. Edite el archivo ``backend_data_server/settings.py``, con:
+Configuración en el proyecto
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+7. Edite el archivo ``backend_data_server/settings.py``, con:
 
    .. code-block:: python
       :emphasize-lines: 4-5, 11-12, 14-17
@@ -112,9 +119,7 @@ Configuración del Firebase Admin SDK
          'databaseURL': 'https://<PROJECT-ID>-default-rtdb.firebaseio.com/'
       })
 
-3. Edite el archivo ``firebase_api/views.py``, con:
-4. Levante el servidor de desarrollo de Django.
-5. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+8. Utilice su cliente de IAG generativa para explicar cómo se configura el Firebase Admin SDK en un proyecto Django y cuáles son los pasos necesarios para establecer una conexión con Firebase Realtime Database.
 
 Aplicación: Landing API
 -----------------------
@@ -129,6 +134,10 @@ Aplicación: Landing API
 
 GET
 ---
+
+1. Edite el archivo ``landing_api/views.py``, con:
+2. Levante el servidor de desarrollo de Django.
+3. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 Gestión de dependencias
 -----------------------
