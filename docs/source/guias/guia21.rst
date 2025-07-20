@@ -62,10 +62,6 @@ Paquete: Firebase Admin Python SDK
 Firebase Admin Python SDK
 ---------------------------
 
-.. note:: 
-   
-   Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
-
 Credenciales
 ^^^^^^^^^^^^
 
@@ -153,6 +149,10 @@ Aplicación: Landing API
 
 GET
 ---
+
+.. note:: 
+   
+   Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
 
 1. Edite el archivo ``landing_api/views.py``, con:
 
