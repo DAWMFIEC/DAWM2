@@ -61,10 +61,10 @@ Paquete: Django REST framework (DRF)
 Aplicación: DEMO API
 --------------------
 
-1. Cree una la aplicación **demo_api** en su proyecto.
+1. Cree una la aplicación **demo_rest_api** en su proyecto.
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto.
-3. Registre la ruta \"demo/api/\" con las subrutas de la aplicación **demo_api**
-4. Cree el archivo ``demo_api/urls.py`` con la ruta \"index/\" a la vista **DemoRestApi**:
+3. Registre la ruta \"demo/rest/api/\" con las subrutas de la aplicación **demo_rest_api**
+4. Cree el archivo ``demo_rest_api/urls.py`` con la ruta \"index/\" a la vista **DemoRestApi**:
 
    .. code-block:: python
       :emphasize-lines: 1-6
@@ -76,7 +76,7 @@ Aplicación: DEMO API
             path("index/", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
       ]
 
-5. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que muestre la vista predeterminada de DRF:
+5. Cree la :term:`vista basada en clases` en ``demo_rest_api/views.py`` que muestre la vista predeterminada de DRF:
 
    .. code-block:: python
       :emphasize-lines: 4-19
@@ -107,7 +107,7 @@ Aplicación: DEMO API
 
        python manage.py runserver
 
-7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/index/`
+7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/rest/api/index/`
 8. Utilice su cliente de IAG generativa para explicar el estilo arquitectónico :term:`REST` y su implementación en DRF. 
 
 GET
@@ -132,7 +132,7 @@ GET
                active_items = [item for item in data_list if item.get('is_active', False)]
                return Response(active_items, status=status.HTTP_200_OK)
 
-2. Revise los cambios en el navegador con la URL raíz, seguida por las rutas `/demo/api/` y `/demo/api/?format=json`
+2. Revise los cambios en el navegador con la URL raíz, seguida por las rutas `/demo/rest/api/` y `/demo/rest/api/?format=json`
 3. Utilice su cliente de IAG generativa para explicar el método GET en el contexto de una API REST y la utilidad del código de estado HTTP en la respuesta. 
 
 POST
@@ -171,7 +171,7 @@ POST
 
                 return Response({'message': 'Dato guardado exitosamente.', 'data': data}, status=status.HTTP_201_CREATED)
 
-2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/` y envíe una solicitud POST con el cuerpo, p.e.:
+2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/rest/api/` y envíe una solicitud POST con el cuerpo, p.e.:
 
    .. code-block:: json
       :emphasize-lines: 1-4
@@ -187,7 +187,7 @@ PUT, PATCH y DELETE
 
 1. Utilice su cliente de IAG para modificar:
 
-   a) El archivo ``demo_api/views.py`` con la clase ``DemoRestApiItem``, que responda a los métodos:
+   a) El archivo ``demo_rest_api/views.py`` con la clase ``DemoRestApiItem``, que responda a los métodos:
    
       (i) **PUT** debe reemplazar completamente los datos de un elemento del arreglo, excepto el identificador que se envía como campo obligatorio en el cuerpo de la solicitud.
       (ii) **PATCH** debe actualizar parcialmente los campos del elemento identificado por su identificador, manteniendo los valores no modificados.
@@ -197,9 +197,9 @@ PUT, PATCH y DELETE
          
          Cada método debe responder, en caso de éxito o error, con el código de estado HTTP correspondiente y un mensaje descriptivo.
 
-   b) El archivo ``demo_api/urls.py`` con la ruta `"<str:id>/"` con la vista ``DemoRestApiItem``.
+   b) El archivo ``demo_rest_api/urls.py`` con la ruta `"<str:id>/"` con la vista ``DemoRestApiItem``.
 
-2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
+2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/rest/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
 
    .. note:: 
 
