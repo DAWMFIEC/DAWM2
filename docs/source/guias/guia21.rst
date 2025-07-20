@@ -127,7 +127,12 @@ Aplicación: Landing API
 1. Cree una la aplicación **landing_api** en su proyecto.
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
 3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
-4. En ``landing_api/views.py``, importe los módulos **APIView**, **Response** y **status** de DRF y cree la clase **LandingAPI** vista basada en clases.
+4. En ``landing_api/views.py``:
+
+   a) Importe los módulos **APIView**, **Response** y **status** de DRF,
+   b) Cree la clase **LandingAPI** vista basada en clases,
+   c) Agregue el atributo **name** con el valor \"Landing API\",
+   d) Agregue el atributo **collection_name** con el nombre de la colección en Firebase Realtime Database que se utilizará para las operaciones CRUD,
 
    .. code-block:: python
       :emphasize-lines: 1-9
@@ -151,8 +156,11 @@ GET
 
 1. Edite el archivo ``landing_api/views.py``, con:
 
+   a) Importe el módulo **db** de Firebase Admin SDK,
+   b) Implemente el método **get** que retorne todos los elementos de la colección en formato JSON
+
    .. code-block:: python
-      :emphasize-lines: 3, 9-18
+      :emphasize-lines: 3-4, 10-19
 
       ...
 
