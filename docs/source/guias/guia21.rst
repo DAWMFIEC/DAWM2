@@ -125,7 +125,7 @@ Aplicación: Landing API
 3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
 4. Modifique el archivo ``landing_api/views.py``:
 
-   a) Importe los módulos **APIView**, **Response** y **status** de DRF y el módulo **db** de Firebase Admin SDK,
+   a) Importe los módulos **APIView**, **Response** y **status** de DRF, el módulo **db** de Firebase Admin SDK y el módulo **datetime** de Python,
    b) Cree la clase **LandingAPI** vista basada en clases,
    c) Dentro la clase, agregue el atributo **name** con el valor \"Landing API\" y el atributo **collection_name** con el nombre de la colección en Firebase Realtime Database que se utilizará para las operaciones CRUD,   
 
@@ -168,6 +168,50 @@ GET
 
                # Devuelve un arreglo JSON
                return Response(data, status=status.HTTP_200_OK)
+
+2. Levante el servidor de desarrollo de Django.
+3. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+
+POST
+----
+
+1. Edite el archivo ``landing_api/views.py``, con el método **post** que:
+
+   a) Obtenga los datos del cuerpo de la solicitud,
+   b) Obtenga una referencia a la colección en Firebase Realtime Database,
+   c) Obtener la fecha y hora actual en el servidor y formatearla con el siguiente formato personalizado: "dd/mm/yyyy, hh:mm:ss a. m./p. m." en minúsculas y con la notación española (a. m. y p. m.).
+   d) Añadir esa fecha formateada al objeto recibido en la solicitud bajo el campo "timestamp"
+   e) Utilice el método **push** de la referencia para guardar el objeto en la colección,
+   f) Devuelva el ID del objeto guardado y el código de estado HTTP 201 Created, para que el cliente pueda confirmar que el objeto fue creado exitosamente.
+
+   .. dropdown:: Ver el código 
+      :color: primary  
+
+      .. code-block:: python
+         :emphasize-lines: 7-22
+
+         ...
+
+         class LandingAPI(APIView):
+            
+            ...
+
+            def post(self, request):
+
+               data = request.data
+	        
+               # Referencia a la colección
+               ref = db.reference(f'{self.collection_name}')
+
+               current_time  = datetime.now()
+               custom_format = current_time.strftime("%d/%m/%Y, %I:%M:%S %p").lower().replace('am', 'a. m.').replace('pm', 'p. m.')
+               data.update({"timestamp": custom_format })
+               
+               # push: Guarda el objeto en la colección
+               new_resource = ref.push(data)
+               
+               # Devuelve el id del objeto guardado
+               return Response({"id": new_resource.key}, status=status.HTTP_201_CREATED)
 
 2. Levante el servidor de desarrollo de Django.
 3. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
