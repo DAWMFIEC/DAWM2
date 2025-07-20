@@ -123,11 +123,11 @@ Aplicación: Landing API
 1. Cree una la aplicación **landing_api** en su proyecto.
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
 3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
-4. En ``landing_api/views.py``:
+4. Modifique el archivo ``landing_api/views.py``:
 
-   a) Importe los módulos **APIView**, **Response** y **status** de DRF,
+   a) Importe los módulos **APIView**, **Response** y **status** de DRF y el módulo **db** de Firebase Admin SDK,
    b) Cree la clase **LandingAPI** vista basada en clases,
-   c) Agregue el atributo **name** con el valor \"Landing API\",     
+   c) Dentro la clase, agregue el atributo **name** con el valor \"Landing API\" y el atributo **collection_name** con el nombre de la colección en Firebase Realtime Database que se utilizará para las operaciones CRUD,   
 
 5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
 6. Levante el servidor de desarrollo de Django.
@@ -140,37 +140,34 @@ GET
    
    Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
 
-1. Edite el archivo ``landing_api/views.py``, con:
+1. Edite el archivo ``landing_api/views.py``, con el método **get** que:
 
-   a) Importe el módulo **db** de Firebase Admin SDK,
-   b) En la clase **LandingAPI**, agregue el atributo **collection_name** con el nombre de la colección en Firebase Realtime Database que se utilizará para las operaciones CRUD,
-   c) Implemente el método **get** que retorne todos los elementos de la colección en formato JSON
+   a) Obtenga una referencia a la colección en Firebase Realtime Database,
+   b) Utilice el método **get** de la referencia para obtener todos los elementos de la colección,
+   c) Devuelva un arreglo JSON con los datos obtenidos y el código de estado HTTP 200 OK, para que el cliente pueda consumir la información de la colección.
 
-   .. code-block:: python
-      :emphasize-lines: 3-4, 10-11, 13-22
+   .. dropdown:: Ver el código 
+      :color: primary  
+      
+      .. code-block:: python
+         :emphasize-lines: 7-16
 
-      ...
-
-      # Importar el módulo db de Firebase Admin SDK
-      from firebase_admin import db
-
-      class LandingAPI(APIView):
-         
          ...
-
-         # Coloque el nombre de su colección en el Realtime Database
-         collection_name = 'COLLECTION_NAME_REALTIME_DATABASE'
          
-         def get(self, request):
-
-            # Referencia a la colección
-            ref = db.reference(f'{self.collection_name}')
+         class LandingAPI(APIView):
             
-            # get: Obtiene todos los elementos de la col ección
-            data = ref.get()
+            ...
 
-            # Devuelve un arreglo JSON
-            return Response(data, status=status.HTTP_200_OK)
+            def get(self, request):
+
+               # Referencia a la colección
+               ref = db.reference(f'{self.collection_name}')
+               
+               # get: Obtiene todos los elementos de la col ección
+               data = ref.get()
+
+               # Devuelve un arreglo JSON
+               return Response(data, status=status.HTTP_200_OK)
 
 2. Levante el servidor de desarrollo de Django.
 3. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
