@@ -127,34 +127,8 @@ Aplicación: Landing API
 1. Cree una la aplicación **landing_api** en su proyecto.
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
 3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
-4. En ``landing_api/views.py``, cree la vista basada en clases de DRF . 
-
-   .. code-block:: python
-      :emphasize-lines: 4-9
-
-      from django.shortcuts import render
-
-      # Create your views here.
-      from rest_framework.views import APIView
-      from rest_framework.response import Response
-      from rest_framework import status
-
-      class LandingAPI(APIView):
-         name = "Landing API"
-
+4. En ``landing_api/views.py``, cree la clase **LandingAPI** vista basada en clases de DRF. Importe los módulos **APIView**, **Response** y **status** de DRF.
 5. Cree el archivo ``landing_api/urls.py`` con la ruta \"index/\" a la vista **LandingAPI**.
-
-
-   .. code-block:: python
-      :emphasize-lines: 1-6
-
-      from django.urls import path
-      from .views import LandingAPI
-
-      urlpatterns = [
-         path('index/', views.LandingAPI.as_view(), name='landing_api_index'),
-      ]
-
 6. Levante el servidor de desarrollo de Django.
 7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/landing/api/index/`
 
