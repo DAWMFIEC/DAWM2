@@ -151,7 +151,7 @@ Plantillas
 ----------
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/homepage`` 
-2. Descargue el archivo :download:`index.html <./files/index.html>` con la plantilla base de la aplicación y colóquelo en la carpeta ``templates/homepage``.
+2. Descargue el archivo :download:`index.html <./files/index.html>` y colóquelo en la carpeta ``templates/homepage``.
    
    .. note:: 
 
@@ -192,13 +192,13 @@ Plantillas
           return render(request, 'homepage/index.html')
 
 5. Revise los cambios en el navegador en la URL en la ruta de la aplicación.
-6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django y la estructura de archivos de una aplicación.
+6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django.
 
 Archivos estáticos
 ------------------
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``static/img``  
-2. Descargue el archivo :download:`team.jpg <./files/team.jpg>` en la carpeta ``static/img``.
+2. Descargue el archivo :download:`team.jpg <./files/team.jpg>` y colóquelo en la carpeta ``static/img``.
 3. Edite el archivo ``backend_data_server/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
