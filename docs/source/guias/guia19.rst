@@ -102,8 +102,8 @@ Registro de la aplicación
       from django.urls import path, include
 
       urlpatterns = [
-            path("admin/", admin.site.urls),
-            path("homepage/", include("homepage.urls")),
+         path("admin/", admin.site.urls),
+         path("homepage/", include("homepage.urls")),
       ]
 
 Rutas y Vistas de la aplicación
@@ -118,7 +118,7 @@ Rutas y Vistas de la aplicación
       from . import views
 
       urlpatterns = [
-            path("index/", views.index, name="index"),
+         path("index/", views.index, name="index"),
       ]
 
 5. Cree la :term:`vista basada en funciones` en ``homepage/views.py`` que retorne un mensaje de bienvenida:
