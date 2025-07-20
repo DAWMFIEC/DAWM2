@@ -53,6 +53,7 @@ Paquete: Django REST framework (DRF)
       INSTALLED_APPS = [
         ...
         "rest_framework",
+        "homepage",
       ]
 
 3. Utilice su cliente de IAG generativa para explicar qué es `Django REST framework <https://www.django-rest-framework.org/>`_ y cuáles son sus principales características.
@@ -74,7 +75,7 @@ Aplicación: DEMO API
             path("index/", views.DemoRestApi.as_view(), name="demo_rest_api_resources" ),
       ]
 
-4. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que retorne un mensaje de bienvenida:
+4. Cree la :term:`vista basada en clases` en ``demo_api/views.py`` que muestre la vista predeterminada de DRF:
 
    .. code-block:: python
       :emphasize-lines: 4-19
@@ -125,9 +126,13 @@ GET
             ...
 
             def get(self, request):
-                return Response(data_list, status=status.HTTP_200_OK)
+            
+               # Filtra la lista para incluir solo los elementos donde 'is_active' es True
+               active_items = [item for item in data_list if item.get('is_active', False)]
+               return Response(active_items, status=status.HTTP_200_OK)
 
 2. Revise los cambios en el navegador con la URL raíz, seguida por las rutas `/demo/api/` y `/demo/api/?format=json`
+3. Utilice su cliente de IAG generativa para explicar el método GET en el contexto de una API REST y la utilidad del código de estado HTTP en la respuesta. 
 
 POST
 ^^^^
@@ -138,8 +143,8 @@ POST
    b) Validar que los campos **name** y **email** estén presentes. Si falta alguno, debe retornar una respuesta con código HTTP 400 y un mensaje de error.
    c) Si los campos son válidos:
       
-      (i) Generar un identificador único utilizando uuid.uuid4() y agregue el campo `'id'` a la variable **data**, 
-      (ii) Agregue el campo `'is_active'` con el valor **True** a la variable **data**, 
+      (i) Generar un identificador único utilizando uuid.uuid4() y asigne al campo `'id'` a la variable **data**, 
+      (ii) Agregue a la variable **data** el campo `'is_active'` con el valor **True** ,
       (iii) Agregue la variable **data** a la lista **data_list**. 
       (iv) Finalmente, debe retornar una respuesta con código HTTP 201 (Created), un mensaje de éxito y los datos guardados.
 
@@ -171,8 +176,8 @@ POST
       :emphasize-lines: 1-4
 
       {
-          "name": "John Jay",
-          "email": "john.jay@example.com"
+          "name": "User04",
+          "email": "user04@example.com"
       }
 
 
@@ -189,12 +194,12 @@ PUT, PATCH y DELETE
 
       .. note:: 
          
-         Cada método debe responder, en caso de éxito o error, con el código de estado HTTP correspondiente.
+         Cada método debe responder, en caso de éxito o error, con el código de estado HTTP correspondiente y un mensaje descriptivo.
 
    b) El archivo ``demo_api/urls.py`` con la ruta `"<str:id>/"` con la vista ``DemoRestApiItem``.
 
 2. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/demo/api/<str:id>/` y compruebe el funcionamiento de las solicituds PUT, PATCH y DELETE.
-
+3. Utilice su cliente de IAG generativa para explicar los métodos PUT, PATCH y DELETE en el contexto de una API REST y la importancia de los códigos de estado HTTP en las respuestas.
 
 Gestión de dependencias
 -----------------------
