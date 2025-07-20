@@ -18,12 +18,12 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Cree un repositorio en GitHub con el nombre *django-api-suite*.
+1. Cree un repositorio en GitHub con el nombre *django_api_suite*.
 
    a) Agregue un archivo README.md con el título de su backend y una breve descripción del objetivo de su proyecto.
    b) Agregue un archivo *.gitignore* con la plantilla de *Python*.
    
-2. Acceda a su proyecto *django-api-suite* en Codespaces o en su máquina local.
+2. Acceda a su proyecto *django_api_suite* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
 4. Cree y habilite el :term:`ambiente virtual de desarrollo`, con:
 
@@ -263,7 +263,7 @@ Gestión de dependencias
 Versionamiento
 --------------
 
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django-api-suite*.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_api_suite*.
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones

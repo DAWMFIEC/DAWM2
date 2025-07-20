@@ -18,7 +18,7 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Acceda a su proyecto *django-api-suite* en Codespaces o en su máquina local.
+1. Acceda a su proyecto *django_api_suite* en Codespaces o en su máquina local.
 2. Cree y utilice la(s) rama(s) de desarrollo.
 3. Cree y habilite el ambiente virtual de desarrollo, con:
 
@@ -148,7 +148,7 @@ GET
 
    .. dropdown:: Ver el código 
       :color: primary  
-      
+
       .. code-block:: python
          :emphasize-lines: 7-16
 
@@ -190,7 +190,7 @@ Gestión de dependencias
 Versionamiento
 --------------
 
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django-api-suite*.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_api_suite*.
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
