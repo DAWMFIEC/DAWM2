@@ -3,14 +3,14 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==============================================
-Guía 22: Django - Autenticación y autorización
-==============================================
+============================================
+Guía 22: Django - Despliegue Python Anywhere
+============================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar mecanismos de autenticación y autorización en el API REST mediante el uso de tokens o integración con Firebase Authentication, con el fin de proteger los endpoints y restringir el acceso a usuarios válidos, garantizando la seguridad de los datos administrados desde la aplicación cliente. 
+    Desplegar el proyecto Django en la plataforma PythonAnywhere con el fin de publicar el API REST y permitir el acceso remoto a los servicios expuestos, garantizando su disponibilidad como intermediario entre clientes y la base de datos en Firebase Realtime Database.
 
 Actividades previas
 =====================
@@ -18,14 +18,20 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Acceda a su proyecto *dashboard* en Codespaces o en su máquina local.
+1. Acceda a su proyecto *django_api_suite* en Codespaces o en su máquina local.
 2. Cree y utilice la(s) rama(s) de desarrollo.
-3. Instale los paquetes y levante el servidor, con:
+3. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
-      npm install
-      npm run dev
+       python -m venv env
+       source env/bin/activate
+
+4. Instale las librerías de requirements.txt, con:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
 
 Actividades en clases
 =====================
