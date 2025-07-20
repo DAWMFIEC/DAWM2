@@ -120,7 +120,7 @@ GET
       :color: primary  
     
       .. code-block:: python
-         :emphasize-lines: 4-5
+         :emphasize-lines: 4-8
 
          class DemoRestApi(APIView):
             ...
