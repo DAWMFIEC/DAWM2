@@ -123,7 +123,7 @@ Aplicación: Landing API
 1. Cree una la aplicación **landing_api** en su proyecto.
 2. Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
 3. Registre la ruta \"landing/api/\" con las subrutas de la aplicación **landing_api**
-4. Modifique el archivo ``landing_api/views.py``:
+4. Modifique el archivo ``landing_api/views.py`` con su cliente de IAG generativa, de acuerdo con:
 
    a) Importe los módulos **APIView**, **Response** y **status** de DRF, el módulo **db** de Firebase Admin SDK y el módulo **datetime** de Python,
    b) Cree la clase **LandingAPI** vista basada en clases,
@@ -140,7 +140,8 @@ GET
    
    Considere la documentación `Agrega el SDK de Firebase Admin a tu servidor <https://firebase.google.com/docs/admin/setup?hl=es-419>`_.
 
-1. Edite el archivo ``landing_api/views.py``, con el método **get** que:
+1. Edite el archivo ``landing_api/views.py``
+2. Con su cliente de IAG generativa crear el código necesario para el método **get** que:
 
    a) Obtenga una referencia a la colección en Firebase Realtime Database,
    b) Utilice el método **get** de la referencia para obtener todos los elementos de la colección,
@@ -169,13 +170,14 @@ GET
                # Devuelve un arreglo JSON
                return Response(data, status=status.HTTP_200_OK)
 
-2. Levante el servidor de desarrollo de Django.
-3. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+3. Levante el servidor de desarrollo de Django.
+4. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 POST
 ----
 
-1. Edite el archivo ``landing_api/views.py``, con el método **post** que:
+1. Edite el archivo ``landing_api/views.py``
+2. Con su cliente de IAG generativa crear el código necesario para el método **post** que:
 
    a) Obtenga los datos del cuerpo de la solicitud,
    b) Obtenga una referencia a la colección en Firebase Realtime Database,
@@ -213,8 +215,8 @@ POST
                # Devuelve el id del objeto guardado
                return Response({"id": new_resource.key}, status=status.HTTP_201_CREATED)
 
-2. Levante el servidor de desarrollo de Django.
-3. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+3. Levante el servidor de desarrollo de Django.
+4. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
 
 Gestión de dependencias
 -----------------------
