@@ -37,10 +37,10 @@ Actividades en clases
 
 .. note:: 
 
-   Consulte la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>` para configurar el proyecto y la aplicación.
+   Consulte la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ para configurar el proyecto y la aplicación.
 
-Proyecto: Backend Analytics Server y Aplicación: Dashboard
-----------------------------------------------------------
+Backend Analytics Server y Dashboard
+------------------------------------
 
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
