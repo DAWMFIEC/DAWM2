@@ -15,8 +15,35 @@ Guía 22: Django - Despliegue Python Anywhere
 Actividades previas
 =====================
 
+PythonAnywhere
+--------------
+
+1. Obtenga una cuenta Beginner account en `PythonAnywhere <https://www.pythonanywhere.com/>`_.
+2. Utilice su cliente de IAG generativa para explicar la utilidad de PythonAnywhere.
+
 Actividades en clases
 =====================
+
+PythonAnywhere
+--------------
+
+Console
+^^^^^^^
+
+Files
+^^^^^
+
+WebApp
+^^^^^^
+
+Configuración del proyecto
+--------------------------
+
+Seguridad
+^^^^^^^^^
+
+Archivos estáticos
+^^^^^^^^^^^^^^^^^^
 
 Conclusiones
 ============
