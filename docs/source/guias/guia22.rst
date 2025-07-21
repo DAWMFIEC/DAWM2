@@ -118,7 +118,7 @@ Aplicación Web (WeApp)
    d) En la sección **CODE**, haga clic en la opción **WSGI configuration file** y reemplace el contenido del archivo con el siguiente código:
      
    .. code-block:: python
-      :emphasize-lines: 7-16
+      :emphasize-lines: 1-21
     
       # This file contains the WSGI configuration required to serve up your
       # web application at http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/
@@ -137,7 +137,6 @@ Aplicación Web (WeApp)
 
       # set environment variable to tell django where your settings.py is
       os.environ['DJANGO_SETTINGS_MODULE'] = 'backend_data_server.settings'
-
 
       # serve django via WSGI
       from django.core.wsgi import get_wsgi_application
