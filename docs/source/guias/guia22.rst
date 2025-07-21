@@ -51,7 +51,7 @@ Consola (Console)
    .. code-block:: bash
 
       git clone https://github.com/<USUARIO-GITHUB>/django_api_suite.git
-      cd backend_data_server
+      cd django_api_suite
 
    c) Instale las librerías de requirements.txt, con:
 
