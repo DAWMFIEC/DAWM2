@@ -18,14 +18,14 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Cree un repositorio en GitHub con el nombre *django_ssr_visualizer*.
+1. Cree un repositorio en GitHub con el nombre *django_data_monitor*.
 
    a) Agregue un archivo README.md con el título de su backend y una breve descripción del objetivo de su proyecto.
    b) Agregue un archivo *.gitignore* con la plantilla de *Python*.
    
-2. Acceda a su proyecto *django_ssr_visualizer* en Codespaces o en su máquina local.
+2. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
-4. Cree y habilite el :term:`ambiente virtual de desarrollo`, con:
+4. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
@@ -35,22 +35,18 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Proyecto: Server Side Rendering (SSR)
--------------------------------------
+Proyecto: Backend Analytics Server
+----------------------------------
 
 1. Instale `Django` en su ambiente de desarrollo.
-2. Cree un proyecto Django llamado *backend_dashboard_server* en la ubicación actual.
+2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
 3. Cree una la aplicación **dashboard** en su proyecto.
 
-   a) Registre la aplicación en el archivo de configuración ``backend_dashboard_server/settings.py`` del proyecto:
-   b) Registre la ruta \"\" con las subrutas de la aplicación **dashboard**
+   a) Registre la aplicación en el archivo de configuración ``backend_analytics_server/settings.py`` del proyecto,
+   b) Registre la ruta \"\" con las subrutas de la aplicación **dashboard**.
 
-4. Modifique el archivo ``dashboard/views.py`` con su cliente de IAG generativa, de acuerdo con:
-
-   a) Importe los módulos **APIView**, **Response** y **status** de DRF,
-   b) Cree la vista **index** vista basada en funciones.
-
-5. Cree el archivo ``dashboard/urls.py`` con la ruta \"\" a la vista **index**.
+4. Modifique el archivo ``dashboard/views.py`` con la vista **index** basada en funciones.
+5. Cree el archivo ``dashboard/urls.py`` con la ruta \"\" a la vista **index**, con un mensaje de bienvenida.
 6. Levante el servidor de desarrollo de Django.
 7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta raíz `/`.
 
@@ -72,7 +68,7 @@ Gestión de dependencias
 Versionamiento
 --------------
 
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_ssr_visualizer*.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
