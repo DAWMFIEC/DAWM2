@@ -42,7 +42,7 @@ Proyecto: Server Side Rendering (SSR)
 2. Cree un proyecto Django llamado *backend_dashboard_server* en la ubicación actual.
 3. Cree una la aplicación **dashboard** en su proyecto.
 
-   a) Registre la aplicación en el archivo de configuración ``backend_data_server/settings.py`` del proyecto:
+   a) Registre la aplicación en el archivo de configuración ``backend_dashboard_server/settings.py`` del proyecto:
    b) Registre la ruta \"\" con las subrutas de la aplicación **dashboard**
 
 4. Modifique el archivo ``dashboard/views.py`` con su cliente de IAG generativa, de acuerdo con:
@@ -52,7 +52,7 @@ Proyecto: Server Side Rendering (SSR)
 
 5. Cree el archivo ``dashboard/urls.py`` con la ruta \"\" a la vista **index**.
 6. Levante el servidor de desarrollo de Django.
-7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta `/dashboard/`
+7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta raíz `/`.
 
 Gestión de dependencias
 -----------------------
