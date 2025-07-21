@@ -15,24 +15,6 @@ Guía 22: Django - Despliegue Python Anywhere
 Actividades previas
 =====================
 
-Ambiente de desarrollo
-----------------------
-
-1. Acceda a su proyecto *django_api_suite* en Codespaces o en su máquina local.
-2. Cree y utilice la(s) rama(s) de desarrollo.
-3. Cree y habilite el ambiente virtual de desarrollo, con:
-
-   .. code-block:: bash
-
-       python -m venv env
-       source env/bin/activate
-
-4. Instale las librerías de requirements.txt, con:
-
-   .. code-block:: bash
-
-       pip install -r requirements.txt
-
 Actividades en clases
 =====================
 
@@ -58,4 +40,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">⚛️ useEffect cheatsheet ↓<br><br>❌ Thinking of useEffect as a lifecycle method.<br><br>✅ Thinking of useEffect as a mechanism to sync data (state/props) with systems that aren’t controlled by React. <a href="https://t.co/v8BK5CLsSn">pic.twitter.com/v8BK5CLsSn</a></p>&mdash; George Moller (@_georgemoller) <a href="https://twitter.com/_georgemoller/status/1714250976947794418?ref_src=twsrc%5Etfw">October 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Top 5 Reasons Why PythonAnywhere Should Be Your Next Project&#39;s Home<br><br>1. Zero Setup Hassle<br>2. Collaboration Made Easy<br>3. Always Available, Anywhere Access<br>4. Scales With Your Needs<br>5. Fantastic for Web Apps<br><br>Over to you: What are your go-to tools for Python development? <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://t.co/je9mAEH0jf">pic.twitter.com/je9mAEH0jf</a></p>&mdash; DavidayoTech (@DavidayoAI) <a href="https://twitter.com/DavidayoAI/status/1872787250838376602?ref_src=twsrc%5Etfw">December 27, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
