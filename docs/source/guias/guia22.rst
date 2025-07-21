@@ -15,6 +15,12 @@ Guía 22: Django - Despliegue Python Anywhere
 Actividades previas
 =====================
 
+Firebase Admin Python SDK: Clave privada
+----------------------------------------
+
+1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
+2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin` para generar la clave privada. 
+
 PythonAnywhere
 --------------
 
@@ -27,34 +33,130 @@ Actividades en clases
 PythonAnywhere
 --------------
 
-Console
-^^^^^^^
+Consola (Console)
+^^^^^^^^^^^^^^^^^
 
-Files
-^^^^^
+1. En PythonAnywhere, acceda a la opción **Consoles**.
+2. Cree una nueva consola en **Start a new console:** > **Other: Bash**.
+3. Desde la línea de comandos:
 
-WebApp
-^^^^^^
+   a) Cree un entorno virtual con el nombre environment y con la versión de Python 3.10
 
-Configuración del proyecto
---------------------------
+   .. code-block:: bash
+
+      mkvirtualenv --python=/usr/bin/python3.10 env
+
+   b) Clone el repositorio *django_api_suite* y acceda a la carpeta *backend_data_server*:
+
+   .. code-block:: bash
+
+      git clone https://github.com/<USUARIO-GITHUB>/django_api_suite.git
+      cd backend_data_server
+
+    c) Instale las librerías de requirements.txt, con:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
+
+Archivos (Files)
+^^^^^^^^^^^^^^^^
+
+Clave privada de Firebase Admin SDK
+"""""""""""""""""""""""""""""""""""
+
+1. En PythonAnywhere, acceda a la opción **Files**.
+2. Acceda a la carpeta **backend_data_server**.
+3. Cree la carpeta **secrets** y suba el archivo de clave privada de Firebase Admin SDK, con el nombre ``landing-key.json``.
 
 Seguridad
-^^^^^^^^^
+"""""""""
+
+4. Edite el archivo ``django_api_suite/backend_data_server/settings.py`` el dominio **ALLOWED_HOSTS** agregue el dominio de su WebApp
+
+   .. code-block:: python
+       :emphasize-lines: 2
+
+       ...
+       ALLOWED_HOSTS = ['<USUARIO-PYTHONANYWHERE>.pythonanywhere.com']
 
 Archivos estáticos
-^^^^^^^^^^^^^^^^^^
+""""""""""""""""""
+
+5. Edite el archivo ``django_api_suite/backend_data_server/settings.py`` y modifique la configuración de archivos estáticos:
+
+   .. code-block:: python
+       :emphasize-lines: 4
+
+       ...
+       STATICFILES_DIRS = [ ... ]
+
+       STATIC_ROOT = "assets/"
+
+6. Desde la interfaz de Python Anywhere, acceda en la opción **Console** y ejecute el comando:
+
+   .. code-block:: bash
+
+      python manage.py collectstatic
+
+   .. note:: 
+
+      Confirme la creación de la carpeta ``assets`` en la raíz del proyecto.
+
+Aplicación Web (WeApp)
+^^^^^^^^^^^^^^^^^^^^^^
+
+1. En PythonAnywhere, acceda a la opción **WebApp**.
+2. Seleccione la opción **» Manual configuration (including virtualenvs)**, con la versión de Python 3.10
+3. En la interfaz de la WebApp:
+
+    a) En la sección **CODE**, haga clic en la opción **Working directory** para modificar la ruta a la carpeta del proyecto, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite``.
+    b) En la sección **Virtualenv**, establezca la ruta al entorno virtual, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/.virtualenvs/env/``.
+    c) En el sección **Staic files**, establezca la ruta a la carpeta de archivos estáticos, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite/assets/``.
+    d) En la sección **CODE**, haga clic en la opción **WSGI configuration file** y reemplace el contenido del archivo con el siguiente código:
+    
+    .. code-block:: python
+    
+        # This file contains the WSGI configuration required to serve up your
+        # web application at http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/
+        # It works by setting the variable 'application' to a WSGI handler of some
+        # description.
+        #
+        # The below has been auto-generated for your Django project
+
+        import os
+        import sys
+
+        # add your project directory to the sys.path
+        project_home = '/home/<USUARIO-PYTHONANYWHERE>/django_api_suite'
+        if project_home not in sys.path:
+            sys.path.insert(0, project_home)
+
+        # set environment variable to tell django where your settings.py is
+        os.environ['DJANGO_SETTINGS_MODULE'] = 'backend_data_server.settings'
+
+
+        # serve django via WSGI
+        from django.core.wsgi import get_wsgi_application
+        application = get_wsgi_application()
+
+    .. note:: 
+        
+        Reemplace `<USUARIO-PYTHONANYWHERE>` con su nombre de usuario en PythonAnywhere.
+
+4. En la sección **Web**, haga clic en el botón **Reload** para reiniciar la WebApp y aplicar los cambios.
+5. Revise los cambios en el navegador en la URL: `http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/`.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo?
+    * ¿Qué aprendiste sobre el funcionamiento de un entorno de despliegue en la nube como PythonAnywhere gracias al uso de inteligencia artificial generativa, y qué conceptos necesitaste investigar más allá del código generado?
 
-    * ¿Cómo?
+    * ¿Cómo verificaste que tu backend estuviera correctamente desplegado y accesible desde un entorno externo, y qué medidas tomaste para solucionar problemas derivados de configuraciones automatizadas?
 
-    * ¿Cómo?
+    * ¿Cómo te aseguras de que el uso de inteligencia artificial en el despliegue no limite tu comprensión del proceso ni te impida desarrollar autonomía técnica como desarrollador backend?
 
 
 Actividades autónomas
