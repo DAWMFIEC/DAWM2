@@ -48,6 +48,25 @@ Proyecto: Backend Analytics Server y Aplicación: Dashboard
 8. Levante el servidor de desarrollo de Django.
 9. Revise los cambios en el navegador con la URL raíz, seguida por la ruta raíz `/`.
 
+Plantillas y archivos estáticos
+------------------------------
+
+1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/dashboard`` y la carpeta ``static``
+2. Descargue y descomprima los archivos necesarios, colóquelos en las carpetas correspondientes: 
+
+   a) El archivo :download:`index.html <./files/index.html>` y colóquelo en la carpeta ``templates/dashboard``.
+   b) El archivo :download:`team.jpg <./files/team.jpg>` y colóquelo en la carpeta ``static``.
+
+3. Modifique el archivo ``backend_analytics_server/settings.py``, importe el módulo **os** y agregue la ruta a las plantillas en el arreglo **TEMPLATES**, en la entrada **DIRS**.
+4. Edite el archivo ``dashboard/views.py`` con la renderización de la plantilla ``dashboard/index.html`` en la vista `index`
+5. Edite el archivo ``backend_analytics_server/settings.py``, agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos.
+6. Edite el archivo ``templates/dashboard/index.html``:
+
+   a) Agregue la etiqueta **{% load static %}** al inicio del archivo.
+   b) Reemplace las rutas de los archivos estáticos por las etiquetas **{% static '...' %}**.
+
+7. Revise los cambios en el navegador en la URL en la ruta de la aplicación.
+
 Gestión de dependencias
 -----------------------
 
