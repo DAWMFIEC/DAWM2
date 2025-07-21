@@ -93,7 +93,9 @@ Archivos estáticos
 
        STATIC_ROOT = "assets/"
 
-6. Desde la interfaz de Python Anywhere, acceda en la opción **Console** y ejecute el comando:
+6. Guarde los cambios en el archivo ``django_api_suite/backend_data_server/settings.py``.
+
+7. Desde la interfaz de Python Anywhere, acceda en la opción **Console** y ejecute el comando:
 
    .. code-block:: bash
 
@@ -110,39 +112,40 @@ Aplicación Web (WeApp)
 2. Seleccione la opción **» Manual configuration (including virtualenvs)**, con la versión de Python 3.10
 3. En la interfaz de la WebApp:
 
-    a) En la sección **CODE**, haga clic en la opción **Working directory** para modificar la ruta a la carpeta del proyecto, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite``.
-    b) En la sección **Virtualenv**, establezca la ruta al entorno virtual, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/.virtualenvs/env/``.
-    c) En el sección **Staic files**, establezca la ruta a la carpeta de archivos estáticos, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite/assets/``.
-    d) En la sección **CODE**, haga clic en la opción **WSGI configuration file** y reemplace el contenido del archivo con el siguiente código:
+   a) En la sección **CODE**, haga clic en la opción **Working directory** para modificar la ruta a la carpeta del proyecto, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite``.
+   b) En la sección **Virtualenv**, establezca la ruta al entorno virtual, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/.virtualenvs/env/``.
+   c) En el sección **Staic files**, establezca la ruta a la carpeta de archivos estáticos, por ejemplo: ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite/assets/``.
+   d) En la sección **CODE**, haga clic en la opción **WSGI configuration file** y reemplace el contenido del archivo con el siguiente código:
+     
+   .. code-block:: python
     
-    .. code-block:: python
-    
-        # This file contains the WSGI configuration required to serve up your
-        # web application at http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/
-        # It works by setting the variable 'application' to a WSGI handler of some
-        # description.
-        #
-        # The below has been auto-generated for your Django project
+       # This file contains the WSGI configuration required to serve up your
+       # web application at http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/
+       # It works by setting the variable 'application' to a WSGI handler of some
+       # description.
+       #
+       # The below has been auto-generated for your Django project
 
-        import os
-        import sys
+       import os
+       import sys
 
-        # add your project directory to the sys.path
-        project_home = '/home/<USUARIO-PYTHONANYWHERE>/django_api_suite'
-        if project_home not in sys.path:
+       # add your project directory to the sys.path
+       project_home = '/home/<USUARIO-PYTHONANYWHERE>/django_api_suite'
+       if project_home not in sys.path:
             sys.path.insert(0, project_home)
 
-        # set environment variable to tell django where your settings.py is
-        os.environ['DJANGO_SETTINGS_MODULE'] = 'backend_data_server.settings'
+       # set environment variable to tell django where your settings.py is
+       os.environ['DJANGO_SETTINGS_MODULE'] = 'backend_data_server.settings'
 
 
-        # serve django via WSGI
-        from django.core.wsgi import get_wsgi_application
-        application = get_wsgi_application()
+       # serve django via WSGI
+       from django.core.wsgi import get_wsgi_application
+       application = get_wsgi_application()
 
-    .. note:: 
+   .. note:: 
         
-        Reemplace `<USUARIO-PYTHONANYWHERE>` con su nombre de usuario en PythonAnywhere.
+        Reemplace `<USUARIO-PYTHONANYWHERE>` con su nombre de usuario en PythonAnywhere.    
+    
 
 4. En la sección **Web**, haga clic en el botón **Reload** para reiniciar la WebApp y aplicar los cambios.
 5. Revise los cambios en el navegador en la URL: `http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/`.
