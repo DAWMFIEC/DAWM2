@@ -45,15 +45,9 @@ Proyecto: Backend Analytics Server y Aplicación: Dashboard
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
 3. Cree una la aplicación *dashboard* en su proyecto y regístrelo a la ruta \"\".
-4. Para los archivos estáticos y las plantillas:
-    
-   a) Cree la jerarquía de carpetas ``templates/dashboard`` y la carpeta ``static`` en la raíz del proyecto.
-   a) El archivo :download:`index.html <./files/index.html>` y colóquelo en la carpeta ``templates/dashboard``.
-   b) El archivo :download:`team.jpg <./files/team.jpg>` y colóquelo en la carpeta ``static``.
-
-5. Modifique el archivo ``dashboard/views.py`` con la renderización de la plantilla ``dashboard/index.html`` en la vista `index`
-6. Edite el archivo ``templates/dashboard/index.html`` para que responda con los archivos estáticas.
-7. Revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+4. Utilice la plantilla :download:`template.zip <./files/template.zip>` y los archivos estáticos :download:`static.zip <./files/static.zip>`.
+5. Renderice la plantilla en la vista de la aplicación. Asegúrese de renderizar los archivos estáticos.
+6. Revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
 
 Gestión de dependencias
 -----------------------
