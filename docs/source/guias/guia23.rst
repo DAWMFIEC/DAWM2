@@ -35,20 +35,18 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Proyecto: Backend Analytics Server
-----------------------------------
+Proyecto: Backend Analytics Server y Aplicación: Dashboard
+----------------------------------------------------------
 
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
 3. Cree una la aplicación **dashboard** en su proyecto.
-
-   a) Registre la aplicación en el archivo de configuración ``backend_analytics_server/settings.py`` del proyecto,
-   b) Registre la ruta \"\" con las subrutas de la aplicación **dashboard**.
-
-4. Modifique el archivo ``dashboard/views.py`` con la vista **index** basada en funciones.
-5. Cree el archivo ``dashboard/urls.py`` con la ruta \"\" a la vista **index**, con un mensaje de bienvenida.
-6. Levante el servidor de desarrollo de Django.
-7. Revise los cambios en el navegador con la URL raíz, seguida por la ruta raíz `/`.
+4. Registre la aplicación en el archivo de configuración ``backend_analytics_server/settings.py`` del proyecto,
+5. Registre la ruta \"\" con las subrutas de la aplicación **dashboard**.
+6. Modifique el archivo ``dashboard/views.py`` con la vista **index** basada en funciones.
+7. Cree el archivo ``dashboard/urls.py`` con la ruta \"\" a la vista **index**, con un mensaje de bienvenida.
+8. Levante el servidor de desarrollo de Django.
+9. Revise los cambios en el navegador con la URL raíz, seguida por la ruta raíz `/`.
 
 Gestión de dependencias
 -----------------------
