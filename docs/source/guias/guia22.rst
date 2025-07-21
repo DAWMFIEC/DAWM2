@@ -147,6 +147,7 @@ Aplicación Web (WeApp)
         
       Reemplace `<USUARIO-PYTHONANYWHERE>` con su nombre de usuario en PythonAnywhere.    
     
+   e) Guarde los cambios en el archivo ``wsgi.py``.
 
 4. En la sección **Web**, haga clic en el botón **Reload** para reiniciar la WebApp y aplicar los cambios.
 5. Revise los cambios en el navegador en la URL: `http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/`.
