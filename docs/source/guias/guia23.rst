@@ -52,10 +52,6 @@ Backend Analytics Server y Dashboard
 Herencia de plantillas
 ----------------------
 
-.. sidebar:: html
-
-   Django implementa la técnica web de desarrollo :term:`Server Side Rendering (SSR)` donde el servidor web genera el HTML para una página web y lo envía como una página completamente renderizada al cliente (navegador).
-
 1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}** y **{% endblock %}**.
 
    .. code-block:: html      
