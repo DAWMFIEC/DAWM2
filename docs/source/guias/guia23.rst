@@ -35,17 +35,18 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-.. note:: 
-
-   Consulte la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ para configurar el proyecto y la aplicación.
-
 Backend Analytics Server y Dashboard
 ------------------------------------
 
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
 3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta \"\".
-4. Renderice la plantilla :download:`template.zip <./files/template.zip>` en la vista principal de la aplicación. Renderice los archivos estáticos :download:`static.zip <./files/static.zip>` en la plantilla.
+4. Renderice la plantilla :download:`dashboard.html <./files/dashboard.html>` y los archivos estáticos :download:`assets.zip <./files/assets.zip>` en la vista principal de la aplicación. 
+
+   .. note:: 
+
+      Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
+
 5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
 
 Gestión de dependencias
