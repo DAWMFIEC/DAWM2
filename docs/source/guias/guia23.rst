@@ -37,17 +37,57 @@ Actividades en clases
 
 Backend Analytics Server y Dashboard
 ------------------------------------
-   
+
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
-3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta \"\".
-4. Renderice la plantilla :download:`index.html <./files/dashboard/index.html>` y los archivos estáticos :download:`assets.zip <./files/dashboard/assets.zip>` en la vista principal de la aplicación. 
+3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta raíz (\"\").
+4. Renderice la plantilla :download:`base.html <./files/dashboard/base.html>` y los archivos estáticos :download:`assets.zip <./files/dashboard/assets.zip>` en la vista principal de la aplicación. 
 
    .. note:: 
 
       Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
 
 5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+
+Herencia de plantillas
+----------------------
+
+1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}**.
+
+   .. code-block:: html      
+       :emphasize-lines: 1, 11
+      
+       {% block content %}
+
+         <!-- START - Block content -->
+
+            <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
+                  <div class="p-6 bg-white shadow-md rounded">
+                     Block content
+                  </div>
+            </div>
+         
+         <!-- END - Block content -->
+
+       {% endblock %}
+
+
+2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/` y extienda la plantilla `base.html`.
+
+   .. code-block:: html
+       :emphasize-lines: 1-6
+
+       {% extends "dashboard/base.html" %}
+
+       {% block content %}
+       
+         <h1>Bienvenido al Dashboard</h1>
+       
+       {% endblock %}
+
+3. Revise los cambios en el navegador con la URL raíz.
+4. Utilice su cliente de IAG generativa para explicar la herencia de plantillas en Django.
+
 
 Gestión de dependencias
 -----------------------
