@@ -61,15 +61,15 @@ Herencia de plantillas
 
        {% block content %}
 
-       <!-- START - Block content -->
+         <!-- START - Block content -->
 
-       <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
-         <div class="p-6 bg-white shadow-md rounded">
-            Block content
-         </div>
-       </div>
-         
-       <!-- END - Block content -->
+            <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
+               <div class="p-6 bg-white shadow-md rounded">
+                  Block content
+               </div>
+            </div>
+            
+         <!-- END - Block content -->
 
        {% endblock %}
 
@@ -88,15 +88,15 @@ Herencia de plantillas
 
        {% block content %}
 
-       <!-- START - Block content -->
-       
-       <div class="flex flex-col flex-1 w-full">
+         <!-- START - Block content -->
+         
+            <div class="flex flex-col flex-1 w-full">
 
-         <h1>Bienvenido al Dashboard</h1>
+               <h1>Bienvenido al Dashboard</h1>
 
-       </div>
+            </div>
 
-       <!-- END - Block content -->
+         <!-- END - Block content -->
        
        {% endblock %}
 
@@ -124,18 +124,22 @@ Fragmentos de plantilla
 2. En la plantilla `templates/dashboard/index.html`, reemplace el contenido de la sección con los fragmentos de plantilla `header.html` y `data.html`.
 
    .. code-block:: html
-       :emphasize-lines: 7-8
+       :emphasize-lines: 8-9
 
        {% extends "dashboard/base.html" %}
 
        {% block content %}
        
-       <div class="flex flex-col flex-1 w-full">
+         <!-- START - Block content -->
 
-         {% include "./partials/header.html" %}
-         {% include "./content/data.html" %}
+            <div class="flex flex-col flex-1 w-full">
 
-       </div>
+               {% include "./partials/header.html" %}
+               {% include "./content/data.html" %}
+
+            </div>
+
+         <!-- END - Block content -->
        
        {% endblock %}
 
