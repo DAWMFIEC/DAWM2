@@ -148,7 +148,7 @@ Rutas y Vistas de la aplicación
       Para que su sitio web responda a la URL raíz, asocie la ruta vacía (\"\") del proyecto con la aplicación **homepage** y la ruta vacía (\"\") de la aplicación con la vista **index**.
 
 SSR: Plantillas
-----------
+---------------
 
 .. sidebar:: 
 
