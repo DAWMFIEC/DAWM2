@@ -169,11 +169,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender el propósito de la herencia de plantillas y los fragmentos (include) en la construcción de interfaces reutilizables dentro de un sistema de renderizado del lado del servidor como Django?
 
-    * ¿Cómo?
+    * ¿Qué adaptaciones realizaste al código generado por IA para aplicar correctamente la herencia de plantillas y la inclusión de fragmentos sin comprometer la estructura y funcionalidad del backend?
 
-    * ¿Cómo?
+    * ¿Cómo garantizas que el uso de inteligencia artificial no sustituya tu comprensión del flujo completo de renderizado del backend, sino que complemente tu proceso de aprendizaje y diseño como desarrollador en formación?
 
 Actividades autónomas
 =====================
