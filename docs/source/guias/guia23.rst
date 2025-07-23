@@ -55,7 +55,7 @@ Herencia de plantillas
 1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}**.
 
    .. code-block:: html      
-       :emphasize-lines: 1, 11
+       :emphasize-lines: 1, 13
       
        {% block content %}
 
@@ -75,7 +75,7 @@ Herencia de plantillas
 2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/` y extienda la plantilla `base.html`.
 
    .. code-block:: html
-       :emphasize-lines: 1-6
+       :emphasize-lines: 1-7
 
        {% extends "dashboard/base.html" %}
 
