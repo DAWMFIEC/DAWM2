@@ -105,7 +105,7 @@ Herencia de plantillas
 Fragmentos de plantilla
 -----------------------
 
-1. Descargue los archivos :download:`header.html <./files/dashboard/partials/header.html>` y :download:`data.html <./files/dashboard/partials/data.html>`. Guarde los archivos en la carpeta `templates/dashboard/partials/`.
+1. Descargue los archivos :download:`header.html <./files/partials/header.html>` y :download:`data.html <./files/partials/data.html>`. Guarde los archivos en la carpeta `templates/dashboard/partials/`.
 2. En la plantilla `index.html`, incluya el fragmento de plantilla `header.html` en la sección `Block content`.
 
    .. code-block:: html
