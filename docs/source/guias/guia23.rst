@@ -106,10 +106,10 @@ Fragmentos de plantilla
 -----------------------
 
 1. Descargue los archivos :download:`header.html <./files/partials/header.html>` y :download:`data.html <./files/partials/data.html>`. Guarde los archivos en la carpeta `templates/dashboard/partials/`.
-2. En la plantilla `index.html`, incluya el fragmento de plantilla `header.html` en la sección `Block content`.
+2. En la plantilla `index.html`, reemplace el contenido de la sección `Block content` por los fragmentos de plantilla `header.html` y `data.html`.
 
    .. code-block:: html
-       :emphasize-lines: 1-3
+       :emphasize-lines: 7-8
 
        {% extends "dashboard/base.html" %}
 
