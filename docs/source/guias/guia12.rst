@@ -59,7 +59,7 @@ Actividades en clases
 React: Inicialización del proyecto
 ----------------------------------
 
-.. sidebar:: html
+.. sidebar:: 
 
    React implementa la técnica web de desarrollo :term:`Client Side Rendering (CSR)` donde el navegador carga archivos JavaScript, renderiza la página en el lado del cliente y envía un documento HTML completo al navegador para construir interfaces de usuario. 
 

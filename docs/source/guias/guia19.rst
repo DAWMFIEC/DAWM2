@@ -150,7 +150,7 @@ Rutas y Vistas de la aplicación
 Plantillas
 ----------
 
-.. sidebar:: html
+.. sidebar:: 
 
    Django implementa la técnica web de desarrollo :term:`Server Side Rendering (SSR)` donde el servidor web genera el HTML para una página web y lo envía como una página completamente renderizada al cliente (navegador).
 
