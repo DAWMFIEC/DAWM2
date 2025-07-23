@@ -61,15 +61,15 @@ Herencia de plantillas
 
        {% block content %}
 
-         <!-- START - Block content -->
+       <!-- START - Block content -->
 
-            <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
-                  <div class="p-6 bg-white shadow-md rounded">
-                     Block content
-                  </div>
-            </div>
+       <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
+         <div class="p-6 bg-white shadow-md rounded">
+            Block content
+         </div>
+       </div>
          
-         <!-- END - Block content -->
+       <!-- END - Block content -->
 
        {% endblock %}
 
@@ -85,15 +85,15 @@ Herencia de plantillas
 
        {% block content %}
 
-         <!-- START - Block content -->
+       <!-- START - Block content -->
        
-            <div class="flex flex-col flex-1 w-full">
+       <div class="flex flex-col flex-1 w-full">
 
-               <h1>Bienvenido al Dashboard</h1>
+         <h1>Bienvenido al Dashboard</h1>
+         
+       </div>
 
-            </div>
-
-         <!-- END - Block content -->
+       <!-- END - Block content -->
        
        {% endblock %}
 
@@ -123,12 +123,12 @@ Fragmentos de plantilla
 
        {% block content %}
        
-         <div class="flex flex-col flex-1 w-full">
+       <div class="flex flex-col flex-1 w-full">
 
-            {% include "./partials/header.html" %}
-            {% include "./partials/data.html" %}
+         {% include "./partials/header.html" %}
+         {% include "./partials/data.html" %}
 
-         </div>
+       </div>
        
        {% endblock %}
 
