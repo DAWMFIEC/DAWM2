@@ -59,6 +59,10 @@ Actividades en clases
 React: Inicialización del proyecto
 ----------------------------------
 
+.. sidebar:: html
+
+   React es una biblioteca de JavaScript implementa la técnica web de desarrollo :term:`Client Side Rendering (CSR)` donde el navegador carga archivos JavaScript y renderiza la página en el lado del cliente, SSR pre-renderiza el contenido en el servidor y envía un documento HTML completo al navegador para construir interfaces de usuario. 
+
 1. Explore la documentación de `React <https://react.dev/>`_ para comprender los conceptos básicos de esta biblioteca.
 2. Cree un proyecto de React utilizando `Vite <https://vitejs.dev/guide/#scaffolding-your-first-vite-project>`_.
 
