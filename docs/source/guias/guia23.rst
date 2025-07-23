@@ -37,11 +37,11 @@ Actividades en clases
 
 Backend Analytics Server y Dashboard
 ------------------------------------
-
+   
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
 3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta \"\".
-4. Renderice la plantilla :download:`dashboard.html <./files/dashboard.html>` y los archivos estáticos :download:`assets.zip <./files/assets.zip>` en la vista principal de la aplicación. 
+4. Renderice la plantilla :download:`index.html <./files/dashboard/index.html>` y los archivos estáticos :download:`assets.zip <./files/dashboard/assets.zip>` en la vista principal de la aplicación. 
 
    .. note:: 
 

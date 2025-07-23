@@ -151,7 +151,7 @@ Plantillas
 ----------
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/homepage`` 
-2. Descargue el archivo :download:`index.html <./files/index.html>` y colóquelo en la carpeta ``templates/homepage``.
+2. Descargue el archivo :download:`index.html <./files/homepage/index.html>` y colóquelo en la carpeta ``templates/homepage``.
    
    .. note:: 
 
@@ -198,7 +198,7 @@ Archivos estáticos
 ------------------
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``static/img``  
-2. Descargue el archivo :download:`team.jpg <./files/team.jpg>` y colóquelo en la carpeta ``static/img``.
+2. Descargue el archivo :download:`team.jpg <./files/homepage/team.jpg>` y colóquelo en la carpeta ``static/img``.
 3. Edite el archivo ``backend_data_server/settings.py``, 
 
    a) Agregue el arreglo **STATICFILES_DIRS** con la ruta a la carpeta de archivos estáticos:
