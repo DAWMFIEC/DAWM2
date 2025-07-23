@@ -41,7 +41,7 @@ Backend Analytics Server y Dashboard
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
 3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta raíz (\"\").
-4. Renderice la plantilla :download:`base.html <./files/dashboard/base.html>` y los archivos estáticos :download:`assets.zip <./files/dashboard/assets.zip>` en la vista principal de la aplicación. 
+4. Descargue y renderice la plantilla :download:`base.html <./files/dashboard/base.html>`, con los archivos estáticos :download:`assets.zip <./files/dashboard/assets.zip>`, en la vista principal de la aplicación. 
 
    .. note:: 
 
@@ -75,18 +75,57 @@ Herencia de plantillas
 2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/` y extienda la plantilla `base.html`.
 
    .. code-block:: html
-       :emphasize-lines: 1-7
+       :emphasize-lines: 1-11
 
        {% extends "dashboard/base.html" %}
 
        {% block content %}
        
-         <h1>Bienvenido al Dashboard</h1>
+         <div class="flex flex-col flex-1 w-full">
+
+            <h1>Bienvenido al Dashboard</h1>
+
+         </div>
+       
+       {% endblock %}
+
+3. Renderice la plantilla ``index.html`` en la vista principal de la aplicación *dashboard*.
+
+   .. code-block:: python
+       :emphasize-lines: 4
+
+       from django.shortcuts import render
+
+       def index(request):
+           return render(request, 'dashboard/index.html')
+
+4. Revise los cambios en el navegador con la URL raíz.
+5. Utilice su cliente de IAG generativa para explicar la herencia de plantillas en Django.
+
+Fragmentos de plantilla
+-----------------------
+
+1. Descargue los archivos :download:`header.html <./files/dashboard/partials/header.html>` y :download:`data.html <./files/dashboard/partials/data.html>`. Guarde los archivos en la carpeta `templates/dashboard/partials/`.
+2. En la plantilla `index.html`, incluya el fragmento de plantilla `header.html` en la sección `Block content`.
+
+   .. code-block:: html
+       :emphasize-lines: 1-3
+
+       {% extends "dashboard/base.html" %}
+
+       {% block content %}
+       
+         <div class="flex flex-col flex-1 w-full">
+
+            {% include "./partials/header.html" %}
+            {% include "./partials/data.html" %}
+
+         </div>
        
        {% endblock %}
 
 3. Revise los cambios en el navegador con la URL raíz.
-4. Utilice su cliente de IAG generativa para explicar la herencia de plantillas en Django.
+4. Utilice su cliente de IAG generativa para explicar los fragmentos de plantilla en Django.
 
 
 Gestión de dependencias
