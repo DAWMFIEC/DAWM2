@@ -124,7 +124,7 @@ Fragmentos de plantilla
 2. En la plantilla `templates/dashboard/index.html`, reemplace el contenido de la sección con los fragmentos de plantilla `header.html` y `data.html`.
 
    .. code-block:: html
-       :emphasize-lines: 8-9
+       :emphasize-lines: 9-10
 
        {% extends "dashboard/base.html" %}
 
