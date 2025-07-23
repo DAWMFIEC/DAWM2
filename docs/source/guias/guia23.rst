@@ -146,8 +146,10 @@ Fragmentos de plantilla
 3. Revise los cambios en el navegador con la URL raíz.
 4. Utilice su cliente de IAG generativa para explicar los fragmentos de plantilla en Django.
 
-Server Side Rendering (SSR)
------------------------
+Rederización de datos
+---------------------
+
+
 
 Gestión de dependencias
 -----------------------
