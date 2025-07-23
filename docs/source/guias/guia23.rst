@@ -35,6 +35,10 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+.. sidebar:: Revisar
+
+   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y archivos estáticos.
+
 Backend Analytics Server y Dashboard
 ------------------------------------
 
