@@ -55,8 +55,10 @@ Herencia de plantillas
 1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}**.
 
    .. code-block:: html      
-       :emphasize-lines: 1, 13
+       :emphasize-lines: 3, 15
       
+       ...
+
        {% block content %}
 
          <!-- START - Block content -->
@@ -71,21 +73,27 @@ Herencia de plantillas
 
        {% endblock %}
 
+       ...
+
 
 2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/` y extienda la plantilla `base.html`.
 
    .. code-block:: html
-       :emphasize-lines: 1-11
+       :emphasize-lines: 1-15
 
        {% extends "dashboard/base.html" %}
 
        {% block content %}
+
+         <!-- START - Block content -->
        
-         <div class="flex flex-col flex-1 w-full">
+            <div class="flex flex-col flex-1 w-full">
 
-            <h1>Bienvenido al Dashboard</h1>
+               <h1>Bienvenido al Dashboard</h1>
 
-         </div>
+            </div>
+
+         <!-- END - Block content -->
        
        {% endblock %}
 
@@ -105,8 +113,8 @@ Herencia de plantillas
 Fragmentos de plantilla
 -----------------------
 
-1. Descargue los archivos :download:`header.html <./files/partials/header.html>` y :download:`data.html <./files/partials/data.html>`. Guarde los archivos en la carpeta `templates/dashboard/partials/`.
-2. En la plantilla `index.html`, reemplace el contenido de la sección `Block content` por los fragmentos de plantilla `header.html` y `data.html`.
+1. Descargue los archivos :download:`header.html <./files/partials/header.html>` y :download:`data.html <./files/partials/data.html>` en la carpeta `templates/dashboard/partials/`.
+2. En la plantilla `templates/dashboard/index.html`, reemplace el contenido de la sección `Block content` por los fragmentos de plantilla `header.html` y `data.html`.
 
    .. code-block:: html
        :emphasize-lines: 7-8
