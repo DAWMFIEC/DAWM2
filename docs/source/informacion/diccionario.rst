@@ -196,6 +196,9 @@ Diccionario de términos
     React
         Es una biblioteca de JavaScript para construir interfaces de usuario. Desarrollada por Facebook, React permite crear componentes reutilizables y gestionar el estado de la aplicación de manera eficiente, facilitando el desarrollo de aplicaciones web interactivas y dinámicas.
 
+    Client Side Rendering (CSR)
+        Es una técnica de desarrollo web donde el contenido de una página se genera en el navegador del cliente utilizando JavaScript. En CSR, el servidor envía un archivo HTML básico y los scripts necesarios, y luego el navegador construye la interfaz de usuario dinámicamente, lo que permite una experiencia más interactiva pero puede afectar el rendimiento inicial de carga.
+    
     JSX
         Es una extensión de sintaxis para JavaScript que permite escribir código similar a HTML dentro de archivos JavaScript. JSX se utiliza principalmente en React para definir la estructura y el contenido de los componentes de la interfaz de usuario, facilitando la creación de interfaces dinámicas y reutilizables.
 
@@ -243,6 +246,9 @@ Diccionario de términos
 
     aplicación Django
         Es un componente modular dentro de un proyecto Django que encapsula una funcionalidad específica. Las aplicaciones Django pueden ser reutilizadas en diferentes proyectos y se componen de modelos, vistas, plantillas y archivos estáticos que trabajan juntos para proporcionar una funcionalidad completa.
+
+    Server Side Rendering (SSR)
+        Es una técnica de desarrollo web donde el servidor genera el HTML completo de una página antes de enviarlo al cliente. Esto permite que la página se muestre más rápidamente y mejora la indexación por parte de los motores de búsqueda, ya que el contenido está disponible en el momento de la carga inicial.
 
     Django REST framework
         Es una biblioteca de Django que facilita la creación de APIs RESTful. Proporciona herramientas y utilidades para definir serializadores, vistas y enrutamiento de URLs, lo que permite construir APIs de manera rápida y eficiente.

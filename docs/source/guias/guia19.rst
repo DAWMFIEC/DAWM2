@@ -150,6 +150,10 @@ Rutas y Vistas de la aplicación
 Plantillas
 ----------
 
+.. sidebar:: html
+
+   Django implementa la técnica web de desarrollo :term:`Server Side Rendering (SSR)` donde el servidor web genera el HTML para una página web y lo envía como una página completamente renderizada al cliente (navegador).
+
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/homepage`` 
 2. Descargue el archivo :download:`index.html <./files/homepage/index.html>` y colóquelo en la carpeta ``templates/homepage``.
    
