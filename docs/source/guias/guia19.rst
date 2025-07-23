@@ -147,7 +147,7 @@ Rutas y Vistas de la aplicación
 
       Para que su sitio web responda a la URL raíz, asocie la ruta vacía (\"\") del proyecto con la aplicación **homepage** y la ruta vacía (\"\") de la aplicación con la vista **index**.
 
-Plantillas
+SSR: Plantillas
 ----------
 
 .. sidebar:: 
@@ -156,11 +156,6 @@ Plantillas
 
 1. En la raíz del repositorio, cree la jerarquía de carpetas ``templates/homepage`` 
 2. Descargue el archivo :download:`index.html <./files/homepage/index.html>` y colóquelo en la carpeta ``templates/homepage``.
-   
-   .. note:: 
-
-      La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
-
 3. Modifique el archivo ``backend_data_server/settings.py`` 
 
    a) Importe el módulo **os**
@@ -197,6 +192,10 @@ Plantillas
 
 5. Revise los cambios en el navegador en la URL en la ruta de la aplicación.
 6. Utilice su cliente de IAG generativa para explicar la renderización de plantillas en Django.
+
+   .. note:: 
+
+      La plantilla original se encuentra en el repositorio de GitHub `Windmill Dashboard <https://github.com/estevanmaito/windmill-dashboard>`_, con la vista previa en `Windmill Dashboard <https://windmill-dashboard.vercel.app/>`_.
 
 Archivos estáticos
 ------------------
