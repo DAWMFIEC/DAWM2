@@ -52,7 +52,7 @@ Backend Analytics Server y Dashboard
 Herencia de plantillas
 ----------------------
 
-1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}**.
+1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}** y **{% endblock %}**.
 
    .. code-block:: html      
        :emphasize-lines: 3, 15
@@ -76,7 +76,10 @@ Herencia de plantillas
        ...
 
 
-2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/` y extienda la plantilla `base.html`.
+2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/`, con: 
+
+   a) Extienda de la plantilla `base.html`.
+   b) Defina el bloque `content` con un título de bienvenida al Dashboard.
 
    .. code-block:: html
        :emphasize-lines: 1-15
@@ -90,7 +93,7 @@ Herencia de plantillas
        <div class="flex flex-col flex-1 w-full">
 
          <h1>Bienvenido al Dashboard</h1>
-         
+
        </div>
 
        <!-- END - Block content -->
@@ -113,8 +116,12 @@ Herencia de plantillas
 Fragmentos de plantilla
 -----------------------
 
-1. Descargue los archivos :download:`header.html <./files/partials/header.html>` y :download:`data.html <./files/partials/data.html>` en la carpeta `templates/dashboard/partials/`.
-2. En la plantilla `templates/dashboard/index.html`, reemplace el contenido de la sección `Block content` por los fragmentos de plantilla `header.html` y `data.html`.
+1. Descargue los siguientes archivos y ubíquelos en las carpetas correspondientes:
+
+   a) El archivo :download:`header.html <./files/partials/header.html>` en la carpeta `templates/dashboard/partials/` y 
+   b) El archivo :download:`data.html <./files/partials/data.html>` en la carpeta `templates/dashboard/content/` .
+
+2. En la plantilla `templates/dashboard/index.html`, reemplace el contenido de la sección con los fragmentos de plantilla `header.html` y `data.html`.
 
    .. code-block:: html
        :emphasize-lines: 7-8
@@ -126,7 +133,7 @@ Fragmentos de plantilla
        <div class="flex flex-col flex-1 w-full">
 
          {% include "./partials/header.html" %}
-         {% include "./partials/data.html" %}
+         {% include "./content/data.html" %}
 
        </div>
        
