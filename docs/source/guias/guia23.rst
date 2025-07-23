@@ -44,10 +44,9 @@ Backend Analytics Server y Dashboard
 
 1. Instale `Django` en su ambiente de desarrollo.
 2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
-3. Cree una la aplicación *dashboard* en su proyecto y regístrelo a la ruta \"\".
-4. Utilice la plantilla :download:`template.zip <./files/template.zip>` y los archivos estáticos :download:`static.zip <./files/static.zip>`.
-5. Renderice la plantilla en la vista de la aplicación. Asegúrese de renderizar los archivos estáticos.
-6. Revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta \"\".
+4. Renderice la plantilla :download:`template.zip <./files/template.zip>` en la vista principal de la aplicación. Renderice los archivos estáticos :download:`static.zip <./files/static.zip>` en la plantilla.
+5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
 
 Gestión de dependencias
 -----------------------
