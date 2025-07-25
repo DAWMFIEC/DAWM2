@@ -165,7 +165,7 @@ Inicio de sesión
 
    .. note:: 
 
-      Compruebe que la autenticación con las credenciales de superusuario se redirija al usuario a la vista principal del dashboard.
+      Compruebe que la autenticación con las credenciales de los usuarios **superusuario**, **usuario01** y **usuario02**, se redirija al usuario a la vista principal del dashboard.
 
 3. Utilice el inspector del navegador para verificar la :term:`cookie de sesión`.
 
