@@ -35,6 +35,17 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Paquete: Requests
+-----------------
+
+1. Instale :term:`requests` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+
+       pip install requests
+
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
+
 .. sidebar:: Revisar
 
    Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
@@ -57,17 +68,6 @@ Backend Analytics Server y Dashboard
       Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
 
 5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
-
-Paquete: Requests
------------------
-
-1. Instale :term:`requests` en su ambiente de desarrollo:
-
-   .. code-block:: bash
-
-       pip install requests
-
-2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
 
 Herencia de plantillas
 ----------------------
@@ -220,7 +220,7 @@ Respuesta de APIs externas
    c) Pase la lista de publicaciones como contexto al renderizar la plantilla `index.html`.
 
    .. code-block:: python
-       :emphasize-lines: 2, 11-12, 14
+       :emphasize-lines: 2, 12-13, 15
 
        ...
        import requests
@@ -233,11 +233,35 @@ Respuesta de APIs externas
            }
 
            response = requests.get('https://jsonplaceholder.typicode.com/posts')
-           posts = response.json()
+           
+           # Número total de respuestas
+           total_responses = len(posts.keys())
 
-           return render(request, 'dashboard/index.html', {'data': data, 'posts': posts})
+           return render(request, 'dashboard/index.html', {'data': data, 'total_responses': total_responses})
 
-2. Revise los cambios en el navegador con la URL raíz.
+2. En el fragmento `templates/dashboard/content/data.html`, reemplace:
+ 
+   a) El texto **Indicador 1** por la variable **Número total de respuestas**, y
+   b) El texto **Valor 1** por la variable **{{ total_responses }}**.
+
+
+   .. code-block:: html
+       :emphasize-lines: 4, 8
+
+       ...
+       <div>
+         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+            Número total de respuestas
+         </p>
+         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <!-- START - valor del indicador 1 -->
+            {{ total_responses }}
+            <!-- END - valor del indicador 1 -->
+         </p>
+       </div>
+       ...
+
+3. Revise los cambios en el navegador con la URL raíz.
 
 Gestión de dependencias
 -----------------------
