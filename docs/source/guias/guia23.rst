@@ -122,9 +122,12 @@ Herencia de plantillas
 3. Renderice la plantilla ``index.html`` en la vista principal de la aplicación *dashboard*.
 
    .. code-block:: python
-       :emphasize-lines: 4
+       :emphasize-lines: 7
 
        from django.shortcuts import render
+
+       # Create your views here.
+       from django.http import HttpResponse
 
        def index(request):
            return render(request, 'dashboard/index.html')
@@ -180,7 +183,7 @@ Constantes
        :emphasize-lines: 6-8, 10
 
        ...
-       from django.shortcuts import render
+       from django.http import HttpResponse
 
        def index(request):
 
@@ -221,7 +224,7 @@ Respuesta de APIs externas
 
        ...
        import requests
-       from django.shortcuts import render
+       from django.http import HttpResponse
 
        def index(request):
 
