@@ -35,6 +35,10 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+.. sidebar:: Revisar
+
+   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
+
 Backend Analytics Server y Dashboard
 ------------------------------------
 
@@ -64,11 +68,6 @@ Paquete: Requests
        pip install requests
 
 2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
-
-.. sidebar:: Revisar
-
-   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
-
 
 Herencia de plantillas
 ----------------------
