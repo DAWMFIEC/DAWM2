@@ -273,3 +273,9 @@ Diccionario de términos
 
     fragmentos de plantilla
         Son pequeñas porciones de código HTML que se pueden reutilizar en diferentes partes de una plantilla. En Django, los fragmentos de plantilla se definen utilizando la etiqueta `{% include %}` y permiten modularizar el código, facilitando su mantenimiento y reutilización en diferentes vistas.
+
+    decorador
+        Es una función en Python que se utiliza para modificar o extender el comportamiento de otra función o método. En Django, los decoradores se utilizan comúnmente para aplicar funcionalidades adicionales a las vistas, como la autenticación de usuarios, la autorización de acceso y la gestión de permisos.
+
+    cookie de sesión
+        Es un pequeño fragmento de datos almacenado en el navegador del usuario que se utiliza para identificar y rastrear la sesión del usuario en una aplicación web. Las cookies de sesión permiten mantener el estado de la aplicación entre diferentes solicitudes HTTP, lo que es esencial para la autenticación y la personalización de la experiencia del usuario.

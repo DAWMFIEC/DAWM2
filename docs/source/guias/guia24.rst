@@ -52,8 +52,118 @@ Migraciones de base de datos
 
        python manage.py createsuperuser
 
-3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario.
+3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
 4. Utilice su cliente de IAG para explicar el uso del panel de administración de Django, incluyendo la gestión de usuarios, grupos y permisos.
+
+Autenticación
+-------------
+
+Restricción de acceso
+^^^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/views.py``, con:
+
+   .. code-block:: python
+       :emphasize-lines: 2, 4
+    
+       ...
+       from django.contrib.auth.decorators import login_required
+         
+       @login_required
+       def index(request):
+            ...
+
+2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+
+      Compruebe que el acceso a la vista principal del dashboard requiere autenticación.
+
+3. Utilice su cliente de IAG para explicar el uso del :term:`decorador` `@login_required` en Django, que restringe el acceso a la vista a usuarios autenticados.
+
+Login: Vista y Plantilla de autenticación
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Descargue y ubique el archivo :download:`login.zip <./files/security/login.zip>` en la carpeta `templates/security/`.
+2. Modifique el archivo ``backend_analytics_server/urls.py``, con:
+
+   a) Importe las vistas predefinidas auth_views.
+   b) Agregue las rutas con las vista (basadas en clases) asociadas con el inicio (LoginView) y con el cierre (LogoutView) de sesión.
+
+   .. code-block:: python
+      :emphasize-lines: 2, 7-8, 10-11
+
+      ...
+      from django.contrib.auth import views as auth_views
+
+      urlpatterns = [
+        ...
+
+        # Ruta login/ para la vista LoginView para inicio de sesión, uso de plantilla y alias
+        path('login/', auth_views.LoginView.as_view(template_name='security/login.html'), name='login'),
+            
+        # Ruta logout/ para la vista LogoutView para fin de sesión, redirección y alias
+        path('logout/', auth_views.LogoutView.as_view(next_page='/login/'), name='logout'),
+
+      ]
+
+3. Modifique el archivo ``backend_analytics_server/settings.py``, con:
+
+   a) Agregue la constante **LOGIN_URL** con la URL de inicio de sesión.
+   b) Agregue la constante **LOGOUT_REDIRECT_URL** con la URL raíz del proyecto.
+    
+    .. code-block:: python
+        :emphasize-lines: 2-3
+    
+        ...
+        LOGIN_URL  = '/login/'
+        LOGIN_REDIRECT_URL = '/'
+
+
+4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+    
+       Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
+        
+Inicio de sesión
+^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``templates/security/login.html``, con:
+
+   .. code-block:: html
+       :emphasize-lines: 3, 6, 10, 14
+
+       ...
+       <!-- Método post y action para el URL (con el alias 'login') -->
+       <form method="post" action="{% url 'login' %}">
+
+            <!-- CSRF token -->
+            {% csrf_token %}
+            ...
+
+            <!-- username -->
+            <input name="username" ... >
+            ...
+
+            <!-- password -->
+            <input name="password" ... >
+            ...
+       </form>
+
+2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+
+      Compruebe que la autenticación con las credenciales de superusuario se redirija al usuario a la vista principal del dashboard.
+
+3. Utilice el inspector del navegador para verificar la :term:`cookie de sesión`.
+
+Fin de sesión
+^^^^^^^^^^^^^
+
+Autorización
+------------
 
 Conclusiones
 ============
