@@ -215,7 +215,7 @@ Restricción de permiso: decorador `@permission_required`
        from django.contrib.auth.decorators import login_required, permission_required
          
        @login_required
-       @permission_required('dashboardmodel.index_viewer', raise_exception=True)
+       @permission_required('dashboard.index_viewer', raise_exception=True)
        def index(request):
             ...
 
