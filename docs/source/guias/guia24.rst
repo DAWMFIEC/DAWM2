@@ -223,7 +223,7 @@ Restricción de permiso: decorador `@permission_required`
 
    .. note:: 
 
-      Compruebe que el acceso a la vista principal del dashboard requiere autorización.
+      Compruebe que el acceso a la vista principal del dashboard requiere autorización para los usuarios **usuario01** y **usuario02**; mientras, el superusuario tiene acceso sin restricciones.
 
 3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
 
