@@ -213,18 +213,31 @@ Constantes
 Respuesta de APIs externas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Edite el archivo ``dashboard/views.py``, con:
+1. Modifique el archivo ``backend_analytics_server/settings.py``, con: 
 
-   a) Importe el paquete *requests*.
+   a) Agregue la constante **API_URL** con la URL de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_.
+
+   .. code-block:: python
+       :emphasize-lines: 1
+
+       ...
+       API_URL = 'https://jsonplaceholder.typicode.com/posts'
+       ...
+
+2. Edite el archivo ``dashboard/views.py``, con:
+
+   a) Importe el paquete *requests* y el archivo *from django.conf import settings*.
    b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
    c) Pase la lista de publicaciones como contexto al renderizar la plantilla `index.html`.
 
    .. code-block:: python
-       :emphasize-lines: 2, 12-13, 15
+       :emphasize-lines: 4-5, 14, 16-17, 19
 
        ...
-       import requests
        from django.http import HttpResponse
+       
+       import requests
+       from django.conf import settings
 
        def index(request):
 
@@ -232,10 +245,11 @@ Respuesta de APIs externas
                'title': 'Dashboard de la Landing Page',
            }
 
-           response = requests.get('https://jsonplaceholder.typicode.com/posts')
+           response = requests.get(settings.API_URL)  # URL de la API
+           posts = response.json()  # Convertir la respuesta a JSON
            
            # Número total de respuestas
-           total_responses = len(posts.keys())
+           total_responses = len(posts)
 
            return render(request, 'dashboard/index.html', {'data': data, 'total_responses': total_responses})
 
