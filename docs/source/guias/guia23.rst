@@ -213,7 +213,8 @@ Constantes
 Respuesta de APIs externas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Modifique el archivo ``backend_analytics_server/settings.py``, con: 
+1. Revise la estructura de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ y su propósito como un servicio de prueba para simular respuestas de APIs externas.
+2. Modifique el archivo ``backend_analytics_server/settings.py``, con: 
 
    a) Agregue la constante **API_URL** con la URL de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_.
 
@@ -224,7 +225,7 @@ Respuesta de APIs externas
        API_URL = 'https://jsonplaceholder.typicode.com/posts'
        ...
 
-2. Edite el archivo ``dashboard/views.py``, con:
+3. Edite el archivo ``dashboard/views.py``, con:
 
    a) Importe el paquete *requests* y el archivo *from django.conf import settings*.
    b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
@@ -253,7 +254,7 @@ Respuesta de APIs externas
 
            return render(request, 'dashboard/index.html', {'data': data, 'total_responses': total_responses})
 
-2. En el fragmento `templates/dashboard/content/data.html`, reemplace:
+4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
  
    a) El texto **Indicador 1** por la variable **Número total de respuestas**, y
    b) El texto **Valor 1** por la variable **{{ total_responses }}**.
@@ -275,7 +276,7 @@ Respuesta de APIs externas
        </div>
        ...
 
-3. Revise los cambios en el navegador con la URL raíz.
+5. Revise los cambios en el navegador con la URL raíz.
 
 Gestión de dependencias
 -----------------------
