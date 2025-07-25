@@ -37,14 +37,14 @@ Actividades en clases
 
 .. sidebar:: Revisar
 
-   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y archivos estáticos.
+   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
 
 Backend Analytics Server y Dashboard
 ------------------------------------
 
 1. Instale `Django` en su ambiente de desarrollo.
-2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual.
-3. Cree una la aplicación *dashboard* en su proyecto y regístrela a la ruta raíz (\"\").
+2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual, sin crear una aplicación.
+3. Cree una la aplicación *dashboard* y regístrela a la ruta raíz (\"\").
 4. Descargue y ubique los archivos de la plantilla base y los archivos estáticos en las carpetas correspondientes:
 
    a) El archivo :download:`base.zip <./files/dashboard/base.zip>` en la carpeta `templates/dashboard/`.
@@ -61,7 +61,7 @@ Backend Analytics Server y Dashboard
 Herencia de plantillas
 ----------------------
 
-1. En el archivo ``templates/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}** y **{% endblock %}**.
+1. En el archivo ``templates/dashboard/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}** y **{% endblock %}**.
 
    .. code-block:: html      
        :emphasize-lines: 3, 15
@@ -84,11 +84,10 @@ Herencia de plantillas
 
        ...
 
-
 2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/`, con: 
 
-   a) Extienda de la plantilla `base.html`.
-   b) Defina el bloque `content` con un título de bienvenida al Dashboard.
+   a) Extienda de la plantilla `base.html` con la etiqueta **{% extends %}**.
+   b) Defina el bloque `content` con la etiqueta **{% block content %}** y **{% endblock %}**, con un título de bienvenida al Dashboard.
 
    .. code-block:: html
        :emphasize-lines: 1-15

@@ -53,7 +53,7 @@ Paquete: Django
 Proyecto: Backend Data Server
 -----------------------------
 
-1. Cree un :term:`proyecto Django` llamado *backend_data_server* en la ubicación actual:
+1. Cree un :term:`proyecto Django` llamado *backend_data_server* en la ubicación actual, sin crear una aplicación:
 
    .. code-block:: bash
 
