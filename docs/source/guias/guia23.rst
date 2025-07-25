@@ -58,6 +58,17 @@ Backend Analytics Server y Dashboard
 
 5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
 
+Paquete: Requests
+-----------------
+
+1. Instale :term:`requests` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+
+       pip install requests
+
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
+
 Herencia de plantillas
 ----------------------
 
@@ -98,9 +109,9 @@ Herencia de plantillas
 
          <!-- START - Block content -->
          
-            <div class="flex flex-col flex-1 w-full">
+            <div class="flex flex-col flex-1 justify-center w-full">
 
-               <h1>Bienvenido al Dashboard</h1>
+               <h1 class="text-center text-6xl font-bold">Dashboard de la Landing Page</h1>
 
             </div>
 
@@ -119,7 +130,7 @@ Herencia de plantillas
            return render(request, 'dashboard/index.html')
 
 4. Revise los cambios en el navegador con la URL raíz.
-5. Utilice su cliente de IAG generativa para explicar la herencia de plantillas en Django.
+5. Utilice su cliente de IAG generativa para explicar la :term:`herencia de plantillas` en Django.
 
 Fragmentos de plantilla
 -----------------------
@@ -140,7 +151,7 @@ Fragmentos de plantilla
        
          <!-- START - Block content -->
 
-            <div class="flex flex-col flex-1 w-full">
+            <div class="flex flex-col flex-1 justify-center w-full">
 
                {% include "./partials/header.html" %}
                {% include "./content/data.html" %}
@@ -152,12 +163,78 @@ Fragmentos de plantilla
        {% endblock %}
 
 3. Revise los cambios en el navegador con la URL raíz.
-4. Utilice su cliente de IAG generativa para explicar los fragmentos de plantilla en Django.
+4. Utilice su cliente de IAG generativa para explicar los :term:`fragmentos de plantilla` en Django.
 
-Rederización de datos
----------------------
+Renderización del lado del servidor (SSR)
+------------------------------------------
 
+Constantes
+^^^^^^^^^^
 
+1. Edite el archivo ``dashboard/views.py``, con:
+
+   a) Cree un diccionario **data** con el título del Dashboard.
+   b) Pase el diccionario como contexto al renderizar la plantilla `index.html`.
+
+   .. code-block:: python
+       :emphasize-lines: 6-8, 10
+
+       ...
+       from django.shortcuts import render
+
+       def index(request):
+
+           data = {
+               'title': 'Dashboard de la Landing Page',
+           }
+
+           return render(request, 'dashboard/index.html', data)
+
+2. En el fragmento `templates/dashboard/content/data.html`, reemplace el texto **Título Secundario** por la variable **{{ title }}**.
+
+   .. code-block:: html
+       :emphasize-lines: 5
+
+       ...
+       <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+
+         <!-- START - título secundario -->
+         {{ title }}
+         <!-- END - título secundario -->
+
+       </h2>
+       ...
+
+3. Revise los cambios en el navegador con la URL raíz.
+
+Respuesta de APIs externas
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/views.py``, con:
+
+   a) Importe el paquete *requests*.
+   b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
+   c) Pase la lista de publicaciones como contexto al renderizar la plantilla `index.html`.
+
+   .. code-block:: python
+       :emphasize-lines: 2, 11-12, 14
+
+       ...
+       import requests
+       from django.shortcuts import render
+
+       def index(request):
+
+           data = {
+               'title': 'Dashboard de la Landing Page',
+           }
+
+           response = requests.get('https://jsonplaceholder.typicode.com/posts')
+           posts = response.json()
+
+           return render(request, 'dashboard/index.html', {'data': data, 'posts': posts})
+
+2. Revise los cambios en el navegador con la URL raíz.
 
 Gestión de dependencias
 -----------------------

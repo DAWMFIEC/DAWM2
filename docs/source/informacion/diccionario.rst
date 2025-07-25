@@ -267,3 +267,9 @@ Diccionario de términos
 
     URL raíz
         Es la dirección base de un sitio web o aplicación web, a partir de la cual se construyen todas las demás rutas o enlaces.
+
+    herencia de plantillas
+        Es una característica de los motores de plantillas que permite crear una estructura base para las páginas web y reutilizarla en diferentes vistas. En Django, la herencia de plantillas se logra utilizando bloques y plantillas base, lo que facilita la organización del código y la consistencia visual en toda la aplicación.
+
+    fragmentos de plantilla
+        Son pequeñas porciones de código HTML que se pueden reutilizar en diferentes partes de una plantilla. En Django, los fragmentos de plantilla se definen utilizando la etiqueta `{% include %}` y permiten modularizar el código, facilitando su mantenimiento y reutilización en diferentes vistas.
