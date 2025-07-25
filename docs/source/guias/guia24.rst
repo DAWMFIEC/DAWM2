@@ -79,7 +79,7 @@ Restricción de acceso
 
       Compruebe que el acceso a la vista principal del dashboard requiere autenticación.
 
-3. Utilice su cliente de IAG para explicar el uso del :term:`decorador` `@login_required` en Django, que restringe el acceso a la vista a usuarios autenticados.
+3. Utilice su cliente de IAG para explicar el uso del :term:`decorador` `@login_required` en Django.
 
 Login: Vista y Plantilla de autenticación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -112,12 +112,15 @@ Login: Vista y Plantilla de autenticación
    a) Agregue la constante **LOGIN_URL** con la URL de inicio de sesión.
    b) Agregue la constante **LOGOUT_REDIRECT_URL** con la URL raíz del proyecto.
     
-    .. code-block:: python
-        :emphasize-lines: 2-3
+   .. code-block:: python
+       :emphasize-lines: 2-3, 5-6
     
-        ...
-        LOGIN_URL  = '/login/'
-        LOGIN_REDIRECT_URL = '/'
+       ...
+       # Fallo: acceso sin autenticación
+       LOGIN_URL = '/login/'
+
+       # Éxito: luego de autenticación exitosa
+       LOGIN_REDIRECT_URL = '/'
 
 
 4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
@@ -130,6 +133,10 @@ Inicio de sesión
 ^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``templates/security/login.html``, con:
+
+   a) Agregue el método **post** y el atributo **action** con la URL de inicio de sesión (alias 'login'),
+   b) Agregue el :term:`token CSRF` para proteger el formulario,
+   c) Agregue el atributo **name** a los campos de entrada para el nombre de usuario y la contraseña.
 
    .. code-block:: html
        :emphasize-lines: 3, 6, 10, 14
@@ -158,9 +165,38 @@ Inicio de sesión
       Compruebe que la autenticación con las credenciales de superusuario se redirija al usuario a la vista principal del dashboard.
 
 3. Utilice el inspector del navegador para verificar la :term:`cookie de sesión`.
+4. Utilice su cliente de IAG para explicar el uso del `token CSRF` en Django.
 
 Fin de sesión
 ^^^^^^^^^^^^^
+
+1. Modifique ``templates/dashboard/partials/header.html`` en el bloque **logout**, con:
+
+   .. code-block:: html
+       :emphasize-lines: 5, 8
+
+       ...
+       <!-- START - Block Logout -->
+    
+       <!-- Método post y action para el URL (con el alias 'logout') -->
+       <form method="post" action="{% url 'logout' %}" class="w-full">
+
+            <!-- CSRF token -->
+            {% csrf_token %}
+
+            ...
+
+       </form>
+       <!-- END - Block Logout -->
+       ...
+
+2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
+
+   .. note:: 
+
+      Compruebe que el cierre de sesión redirige al usuario a la vista de inicio de sesión.
+
+3. Utilice su cliente de IAG para explicar el uso de la `cookie de sesión` en el formulario de cierre de sesión.
 
 Autorización
 ------------
