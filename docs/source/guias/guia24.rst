@@ -53,7 +53,8 @@ Migraciones de base de datos
        python manage.py createsuperuser
 
 3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
-4. Utilice su cliente de IAG para explicar el uso del panel de administración de Django, incluyendo la gestión de usuarios, grupos y permisos.
+4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
+5. Utilice su cliente de IAG para explicar el uso del panel de administración de Django, incluyendo la gestión de usuarios, grupos y permisos.
 
 Autenticación
 -------------
@@ -256,11 +257,7 @@ Modelo con permisos
 
        python manage.py runserver
 
-4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para crear los usuarios:
-
-   a) El primer usuario debe tener el nombre de usuario **usuario01**  con el permiso **index_viewer**.
-   b) El segundo usuario debe tener el nombre de usuario **usuario02**  sin permisos adicionales.
-
+4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, modifique solo el usuario **usuario01**  con el permiso **index_viewer**.
 5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
 
    .. note:: 
