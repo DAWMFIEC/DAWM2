@@ -59,7 +59,7 @@ Migraciones de base de datos
 Autenticación
 -------------
 
-Restricción de acceso - decorador `@login_required`
+Restricción de acceso: decorador `@login_required`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``dashboard/views.py``, con:
@@ -203,8 +203,8 @@ Fin de sesión
 Autorización
 ------------
 
-Restricción de permiso - decorador `@permission_required`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Restricción de permiso: decorador `@permission_required`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``dashboard/views.py``, con:
 
