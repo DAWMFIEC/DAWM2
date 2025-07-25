@@ -58,8 +58,8 @@ Migraciones de base de datos
 Autenticación
 -------------
 
-Restricción de acceso
-^^^^^^^^^^^^^^^^^^^^^
+Restricción de acceso - decorador `@login_required`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``dashboard/views.py``, con:
 
@@ -128,6 +128,8 @@ Login: Vista y Plantilla de autenticación
    .. note:: 
     
        Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
+
+5. Utilice su cliente de IAG para explicar el uso de las vistas predefinidas `LoginView` y `LogoutView` en Django, así como la configuración de las constantes `LOGIN_URL` y `LOGOUT_REDIRECT_URL`.
         
 Inicio de sesión
 ^^^^^^^^^^^^^^^^
@@ -165,7 +167,6 @@ Inicio de sesión
       Compruebe que la autenticación con las credenciales de superusuario se redirija al usuario a la vista principal del dashboard.
 
 3. Utilice el inspector del navegador para verificar la :term:`cookie de sesión`.
-4. Utilice su cliente de IAG para explicar el uso del `token CSRF` en Django.
 
 Fin de sesión
 ^^^^^^^^^^^^^
@@ -196,21 +197,88 @@ Fin de sesión
 
       Compruebe que el cierre de sesión redirige al usuario a la vista de inicio de sesión.
 
-3. Utilice su cliente de IAG para explicar el uso de la `cookie de sesión` en el formulario de cierre de sesión.
+3. Utilice su cliente de IAG para explicar el uso del `token CSRF` en Django y el uso de la `cookie de sesión`.
 
 Autorización
 ------------
+
+Restricción de permiso - decorador `@permission_required`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/views.py``, con:
+
+   .. code-block:: python
+       :emphasize-lines: 2, 5
+    
+       ...
+       from django.contrib.auth.decorators import login_required, permission_required
+         
+       @login_required
+       @permission_required('dashboard.index_viewer', raise_exception=True)
+       def index(request):
+            ...
+
+2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+
+      Compruebe que el acceso a la vista principal del dashboard requiere autorización.
+
+3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
+
+Modelo con permisos
+^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/models.py``, con la definición del modelo **DashboardModel** con permisos personalizados:
+
+   .. code-block:: python
+       :emphasize-lines: 3-8
+    
+       ...
+       # Create your models here.
+       class DashboardModel(models.Model):
+                
+            class Meta:
+                permissions = [
+                    ("index_viewer", "Can show to index view (function-based)"),
+                ]
+
+2. Genere las migraciones de la base de datos, con:
+
+   .. code-block:: bash
+    
+       python manage.py makemigrations
+       python manage.py migrate
+
+3. Levante el servidor de desarrollo, con:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para crear los usuarios:
+
+   a) El primer usuario debe tener el nombre de usuario **usuario01**  con el permiso **index_viewer**.
+   b) El segundo usuario debe tener el nombre de usuario **usuario02**  sin permisos adicionales.
+
+5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+    
+       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización.
+
+6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo?
+    * ¿Qué limitaciones identificaste en las soluciones de autenticación sugeridas por la IA, especialmente en relación con la seguridad, la escalabilidad o las buenas prácticas recomendadas por la documentación oficial?
 
-    * ¿Cómo?
+    * ¿Cómo probaste y validaste los mecanismos de autorización implementados, y qué cambios realizaste sobre las configuraciones automáticas para cumplir con los requisitos específicos del proyecto?
 
-    * ¿Cómo?
+    * ¿Qué principios éticos aplicaste al manejar credenciales de usuario y restricciones de acceso en tu backend, especialmente cuando el código base fue propuesto por una IA generativa?
 
 Actividades autónomas
 =====================
