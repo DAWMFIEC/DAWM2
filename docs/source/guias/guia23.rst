@@ -219,7 +219,7 @@ Respuesta de APIs externas
    a) Agregue la constante **API_URL** con la URL de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_.
 
    .. code-block:: python
-       :emphasize-lines: 1
+       :emphasize-lines: 2
 
        ...
        API_URL = 'https://jsonplaceholder.typicode.com/posts'
@@ -232,7 +232,7 @@ Respuesta de APIs externas
    c) Pase la lista de publicaciones como contexto al renderizar la plantilla `index.html`.
 
    .. code-block:: python
-       :emphasize-lines: 4-5, 14, 16-17, 19
+       :emphasize-lines: 4-5, 13-14, 16-17, 19
 
        ...
        from django.http import HttpResponse
@@ -256,7 +256,7 @@ Respuesta de APIs externas
 
 4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
  
-   a) El texto **Indicador 1** por la variable **Número total de respuestas**, y
+   a) El texto **Indicador 1** por el texto **Número total de respuestas**, y
    b) El texto **Valor 1** por la variable **{{ total_responses }}**.
 
 
@@ -277,6 +277,10 @@ Respuesta de APIs externas
        ...
 
 5. Revise los cambios en el navegador con la URL raíz.
+
+   .. note:: 
+
+      Cambie la variable **API_URL** en el archivo ``settings.py`` con la URL de la **Landing API**.
 
 Gestión de dependencias
 -----------------------
