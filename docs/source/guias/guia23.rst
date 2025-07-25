@@ -249,11 +249,11 @@ Respuesta de APIs externas
            total_responses = len(posts)
 
            data = {
-               'title': 'Landing Page Dashboard',
+               'title': "Landing Page' Dashboard",
                'total_responses': total_responses,
            }
 
-           return render(request, 'dashboard/index.html', data )
+           return render(request, 'dashboard/index.html', data)
 
 4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
  
