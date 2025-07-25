@@ -35,21 +35,6 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Paquete: Requests
------------------
-
-1. Instale :term:`requests` en su ambiente de desarrollo:
-
-   .. code-block:: bash
-
-       pip install requests
-
-2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
-
-.. sidebar:: Revisar
-
-   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
-
 Backend Analytics Server y Dashboard
 ------------------------------------
 
@@ -68,6 +53,22 @@ Backend Analytics Server y Dashboard
       Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
 
 5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+
+Paquete: Requests
+-----------------
+
+1. Instale :term:`requests` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+
+       pip install requests
+
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
+
+.. sidebar:: Revisar
+
+   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
+
 
 Herencia de plantillas
 ----------------------
