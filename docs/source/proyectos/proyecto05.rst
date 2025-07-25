@@ -29,3 +29,5 @@ Introducción
   ../guias/guia20.rst
   ../guias/guia21.rst
   ../guias/guia22.rst
+  ../guias/guia23.rst
+  ../guias/guia24.rst

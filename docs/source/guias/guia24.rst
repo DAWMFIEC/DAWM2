@@ -15,8 +15,45 @@ Guía 24: Django - Django Admin (Autenticación y autorización)
 Actividades previas
 =====================
 
+Ambiente de desarrollo
+----------------------
+
+1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
+2. Cree y utilice la(s) rama(s) de desarrollo.
+3. Cree y habilite el ambiente virtual de desarrollo, con:
+
+   .. code-block:: bash
+
+       python -m venv env
+       source env/bin/activate
+
+4. Instale las librerías de requirements.txt, con:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
+
 Actividades en clases
 =====================
+
+Migraciones de base de datos
+----------------------------
+
+1. Genere las migraciones de la base de datos, con:
+
+   .. code-block:: bash
+
+       python manage.py makemigrations
+       python manage.py migrate
+
+2. Cree un superusuario para acceder al panel de administración de Django, con:
+
+   .. code-block:: bash
+
+       python manage.py createsuperuser
+
+3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario.
+4. Utilice su cliente de IAG para explicar el uso del panel de administración de Django, incluyendo la gestión de usuarios, grupos y permisos.
 
 Conclusiones
 ============
