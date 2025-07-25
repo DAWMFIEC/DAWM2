@@ -111,7 +111,7 @@ Herencia de plantillas
          
             <div class="flex flex-col flex-1 justify-center w-full">
 
-               <h1 class="text-center text-6xl font-bold">Dashboard de la Landing Page</h1>
+               <h1 class="text-center text-6xl font-bold">Landing Page' Dashboard</h1>
 
             </div>
 
@@ -188,7 +188,7 @@ Constantes
        def index(request):
 
            data = {
-               'title': 'Dashboard de la Landing Page',
+               'title': "Landing Page' Dashboard",
            }
 
            return render(request, 'dashboard/index.html', data)
@@ -232,7 +232,7 @@ Respuesta de APIs externas
    c) Pase la lista de publicaciones como contexto al renderizar la plantilla `index.html`.
 
    .. code-block:: python
-       :emphasize-lines: 4-5, 13-14, 16-17, 19
+       :emphasize-lines: 4-5, 9-13, 17
 
        ...
        from django.http import HttpResponse
@@ -242,17 +242,18 @@ Respuesta de APIs externas
 
        def index(request):
 
-           data = {
-               'title': 'Dashboard de la Landing Page',
-           }
-
            response = requests.get(settings.API_URL)  # URL de la API
            posts = response.json()  # Convertir la respuesta a JSON
            
            # Número total de respuestas
            total_responses = len(posts)
 
-           return render(request, 'dashboard/index.html', {'data': data, 'total_responses': total_responses})
+           data = {
+               'title': 'Landing Page Dashboard',
+               'total_responses': total_responses,
+           }
+
+           return render(request, 'dashboard/index.html', data )
 
 4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
  
