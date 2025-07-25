@@ -85,7 +85,7 @@ Restricción de acceso - decorador `@login_required`
 Login: Vista y Plantilla de autenticación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Descargue y ubique el archivo :download:`security.zip <./files/security/security.zip>` en la carpeta `templates/security/`.
+1. Descargue y ubique el archivo :download:`login.html <./files/security/login.html>` en la carpeta `templates/security/`.
 2. Modifique el archivo ``backend_analytics_server/urls.py``, con:
 
    a) Importe las vistas predefinidas auth_views.
