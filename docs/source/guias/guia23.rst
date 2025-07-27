@@ -172,8 +172,8 @@ Fragmentos de plantilla
 Renderización del lado del servidor (SSR)
 ------------------------------------------
 
-Constantes
-^^^^^^^^^^
+Datos del lado del servidor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``dashboard/views.py``, con:
 
