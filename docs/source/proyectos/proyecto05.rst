@@ -32,3 +32,4 @@ Introducción
   ../guias/guia23.rst
   ../guias/guia24.rst
   ../guias/guia25.rst
+  ../guias/guia26.rst
