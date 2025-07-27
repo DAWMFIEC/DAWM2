@@ -10,13 +10,27 @@ Guía 25: Django - Despliegue en Railway
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Realizar el despliegue del proyecto Django en la plataforma Railway con el fin de publicar un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
+    Realizar el despliegue de un proyecto Django en la plataforma Railway para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
 
 Actividades previas
 =====================
 
+Railway
+-------
+
+1. Obtenga una cuenta gratuita en `Railway <https://railway.app/>`_ mediante su cuenta de GitHub.
+2. Utilice su cliente de IAG generativa para explicar la utilidad de Railway.
+
 Actividades en clases
 =====================
+
+Despliegue de un proyecto de GitHub
+------------------------------------
+
+1. En Railway, acceda a la opción **New**.
+2. Seleccione **Deploy from GitHub** y conecte su cuenta de GitHub.
+3. Seleccione el repositorio *django_data_monitor* y la rama *main*.
+
 
 Conclusiones
 ============
