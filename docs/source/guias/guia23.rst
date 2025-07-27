@@ -231,7 +231,7 @@ Respuesta de APIs externas
 
    a) Importe el paquete *requests* y el archivo *from django.conf import settings*.
    b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
-   c) Agregue la variable **total_responses** al diccionario **data**.
+   c) Agregue la entrada **total_responses** al diccionario **data**.
 
    .. code-block:: python
        :emphasize-lines: 4-5, 9-13, 17
@@ -284,6 +284,8 @@ Respuesta de APIs externas
    .. note:: 
 
       Cambie la variable **API_URL** en el archivo ``settings.py`` con la URL de la **Landing API**.
+
+6. Utilice su cliente de IAG generativa para explicar cómo se manejan las respuestas de APIs externas en Django y cómo se integran en la renderización del lado del servidor.
 
 Gestión de dependencias
 -----------------------
