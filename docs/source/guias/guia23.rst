@@ -143,7 +143,7 @@ Fragmentos de plantilla
    a) El archivo :download:`header.html <./files/partials/header.html>` en la carpeta `templates/dashboard/partials/` y 
    b) El archivo :download:`data.html <./files/partials/data.html>` en la carpeta `templates/dashboard/content/` .
 
-2. En la plantilla `templates/dashboard/index.html`, reemplace el contenido de la sección con los fragmentos de plantilla `header.html` y `data.html`.
+2. En la plantilla `templates/dashboard/index.html`, reemplace el título por la referencia a los fragmentos de plantilla `header.html` y `data.html`.
 
    .. code-block:: html
        :emphasize-lines: 9-10
