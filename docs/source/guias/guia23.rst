@@ -209,6 +209,7 @@ Constantes
        ...
 
 3. Revise los cambios en el navegador con la URL raíz.
+4. Utilice su cliente de IAG generativa para explicar la renderización del lado del servidor (SSR) en Django.
 
 Respuesta de APIs externas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
