@@ -281,6 +281,11 @@ Gestión de dependencias
 
        deactivate
 
+
+.. warning::
+
+   Asegúrese que el ``.gitignore`` contenga el nombre del archivo ``db.sqlite3``, para no versionar la base de datos en su repositorio.
+
 Versionamiento
 --------------
 
