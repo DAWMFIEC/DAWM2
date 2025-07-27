@@ -3,165 +3,321 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-============================================
-Guía 23: Django - Despliegue Python Anywhere
-============================================
+=============================================
+Guía 23: Django - Server Side Rendering (SSR)
+=============================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Desplegar el proyecto Django en la plataforma PythonAnywhere con el fin de publicar el API REST y permitir el acceso remoto a los servicios expuestos, garantizando su disponibilidad como intermediario entre clientes y la base de datos en Firebase Realtime Database.
+    Explorar la integración del API REST con aplicaciones que utilizan renderizado del lado del servidor (SSR), evaluando su impacto en el rendimiento, la indexación SEO y la interacción inicial del usuario, con el fin de asegurar una experiencia web optimizada desde el servidor.
 
 Actividades previas
 =====================
 
-Firebase Admin Python SDK: Clave privada
-----------------------------------------
+Ambiente de desarrollo
+----------------------
 
-1. En `Firebase Console <https://console.firebase.google.com/>`_, acceda a su proyecto **landing**.
-2. Acceda a `Configuración de proyecto` > `Cuentas de servicio` > `SDK de Firebase Admin` para generar la clave privada. 
+1. Cree un repositorio en GitHub con el nombre *django_data_monitor*.
 
-PythonAnywhere
---------------
+   a) Agregue un archivo README.md con el título de su backend y una breve descripción del objetivo de su proyecto.
+   b) Agregue un archivo *.gitignore* con la plantilla de *Python*.
+   
+2. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
+3. Cree y utilice la(s) rama(s) de desarrollo.
+4. Cree y habilite el ambiente virtual de desarrollo, con:
 
-1. Obtenga una cuenta Beginner account en `PythonAnywhere <https://www.pythonanywhere.com/>`_.
-2. Utilice su cliente de IAG generativa para explicar la utilidad de PythonAnywhere.
+   .. code-block:: bash
+
+       python -m venv env
+       source env/bin/activate
 
 Actividades en clases
 =====================
 
-PythonAnywhere
---------------
+.. sidebar:: Revisar
 
-Consola (Console)
-^^^^^^^^^^^^^^^^^
+   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
 
-1. En PythonAnywhere, acceda a la opción **Consoles**.
-2. Cree una nueva consola en **Start a new console:** > **Other: Bash**.
-3. Desde la línea de comandos:
+Backend Analytics Server y Dashboard
+------------------------------------
 
-   a) Cree un entorno virtual con el nombre environment y con la versión de Python 3.10
+1. Instale `Django` en su ambiente de desarrollo.
+2. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual, sin crear una aplicación.
+3. Cree una la aplicación *dashboard* y regístrela a la ruta raíz (\"\").
+4. Descargue, descomprima y ubique los archivos en las carpetas correspondientes:
+
+   a) El archivo :download:`base.zip <./files/dashboard/base.zip>`. Ubique el archivo ``base.html`` en la carpeta `templates/dashboard/`.
+   b) El archivo :download:`static.zip <./files/dashboard/static.zip>`. Ubique las carpetas dentro de `static/`.
+
+5. Renderice la plantilla ``base.html`` en la vista principal de la aplicación. Configure los archivos estáticos.
+
+   .. note:: 
+
+      Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
+
+5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+6. Utilice su cliente de IAG generativa para explicar :term:`Server Side Rendering (SSR)` en Django.
+
+Paquete: Requests
+-----------------
+
+1. Instale :term:`requests` en su ambiente de desarrollo:
 
    .. code-block:: bash
 
-      mkvirtualenv --python=/usr/bin/python3.10 env
+       pip install requests
 
-   b) Clone el repositorio *django_api_suite* y acceda a la carpeta *backend_data_server*:
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
 
-   .. code-block:: bash
+Herencia de plantillas
+----------------------
 
-      git clone https://github.com/<USUARIO-GITHUB>/django_api_suite.git
-      cd django_api_suite
+1. En el archivo ``templates/dashboard/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}** y **{% endblock %}**.
 
-   c) Instale las librerías de requirements.txt, con:
+   .. code-block:: html      
+       :emphasize-lines: 3, 15
+      
+       ...
 
-   .. code-block:: bash
+       {% block content %}
 
-       pip install -r requirements.txt
+         <!-- START - Block content -->
 
-Archivos (Files)
-^^^^^^^^^^^^^^^^
+            <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
+               <div class="p-6 bg-white shadow-md rounded">
+                  Block content
+               </div>
+            </div>
+            
+         <!-- END - Block content -->
 
-Clave privada de Firebase Admin SDK
-"""""""""""""""""""""""""""""""""""
+       {% endblock %}
 
-1. En PythonAnywhere, acceda a la opción **Files**.
-2. Acceda a la carpeta **backend_data_server**.
-3. Cree la carpeta **secrets** y suba el archivo de clave privada de Firebase Admin SDK, con el nombre ``landing-key.json``.
+       ...
 
-Seguridad
-"""""""""
+2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/`, con: 
 
-4. Edite el archivo ``django_api_suite/backend_data_server/settings.py`` el dominio **ALLOWED_HOSTS** agregue el dominio de su WebApp
+   a) Extienda de la plantilla `base.html` con la etiqueta **{% extends %}**.
+   b) Defina el bloque `content` con la etiqueta **{% block content %}** y **{% endblock %}**, con un título de bienvenida al Dashboard.
+
+   .. code-block:: html
+       :emphasize-lines: 1-15
+
+       {% extends "dashboard/base.html" %}
+
+       {% block content %}
+
+         <!-- START - Block content -->
+         
+            <div class="flex flex-col flex-1 justify-center w-full">
+
+               <h1 class="text-center text-6xl font-bold">Landing Page' Dashboard</h1>
+
+            </div>
+
+         <!-- END - Block content -->
+       
+       {% endblock %}
+
+3. Renderice la plantilla ``index.html`` en la vista principal de la aplicación *dashboard*.
+
+   .. code-block:: python
+       :emphasize-lines: 7
+
+       from django.shortcuts import render
+
+       # Create your views here.
+       from django.http import HttpResponse
+
+       def index(request):
+           return render(request, 'dashboard/index.html')
+
+4. Revise los cambios en el navegador con la URL raíz.
+5. Utilice su cliente de IAG generativa para explicar la :term:`herencia de plantillas` en Django.
+
+Fragmentos de plantilla
+-----------------------
+
+1. Descargue los siguientes archivos y ubíquelos en las carpetas correspondientes:
+
+   a) El archivo :download:`header.html <./files/partials/header.html>` en la carpeta `templates/dashboard/partials/` y 
+   b) El archivo :download:`data.html <./files/partials/data.html>` en la carpeta `templates/dashboard/content/` .
+
+2. En la plantilla `templates/dashboard/index.html`, reemplace el título por la referencia a los fragmentos de plantilla `header.html` y `data.html`.
+
+   .. code-block:: html
+       :emphasize-lines: 9-10
+
+       {% extends "dashboard/base.html" %}
+
+       {% block content %}
+       
+         <!-- START - Block content -->
+
+            <div class="flex flex-col flex-1 justify-center w-full">
+
+               {% include "./partials/header.html" %}
+               {% include "./content/data.html" %}
+
+            </div>
+
+         <!-- END - Block content -->
+       
+       {% endblock %}
+
+3. Revise los cambios en el navegador con la URL raíz.
+4. Utilice su cliente de IAG generativa para explicar los :term:`fragmentos de plantilla` en Django.
+
+Renderización del lado del servidor (SSR)
+------------------------------------------
+
+Datos del lado del servidor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/views.py``, con:
+
+   a) Cree un diccionario **data** con el título del Dashboard.
+   b) Pase el diccionario como contexto al renderizar la plantilla `index.html`.
+
+   .. code-block:: python
+       :emphasize-lines: 6-8, 10
+
+       ...
+       from django.http import HttpResponse
+
+       def index(request):
+
+           data = {
+               'title': "Landing Page' Dashboard",
+           }
+
+           return render(request, 'dashboard/index.html', data)
+
+2. En el fragmento `templates/dashboard/content/data.html`, reemplace el texto **Título Secundario** por la variable **{{ title }}**.
+
+   .. code-block:: html
+       :emphasize-lines: 5
+
+       ...
+       <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+
+         <!-- START - título secundario -->
+         {{ title }}
+         <!-- END - título secundario -->
+
+       </h2>
+       ...
+
+3. Revise los cambios en el navegador con la URL raíz.
+4. Utilice su cliente de IAG generativa para explicar la renderización de datos del lado del servidor en Django.
+
+Respuesta de APIs externas
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Revise la estructura de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ y su propósito como un servicio de prueba para simular respuestas de APIs externas.
+2. Modifique el archivo ``backend_analytics_server/settings.py``, con: 
+
+   a) Agregue la constante **API_URL** con la URL de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_.
 
    .. code-block:: python
        :emphasize-lines: 2
 
        ...
-       ALLOWED_HOSTS = ['<USUARIO-PYTHONANYWHERE>.pythonanywhere.com']
+       API_URL = 'https://jsonplaceholder.typicode.com/posts'
+       ...
 
-Archivos estáticos
-""""""""""""""""""
+3. Edite el archivo ``dashboard/views.py``, con:
 
-5. Edite el archivo ``django_api_suite/backend_data_server/settings.py`` y modifique la configuración de archivos estáticos:
+   a) Importe el paquete *requests* y el archivo *from django.conf import settings*.
+   b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
+   c) Agregue la entrada **total_responses** al diccionario **data**.
 
    .. code-block:: python
-       :emphasize-lines: 4
+       :emphasize-lines: 4-5, 9-13, 17
 
        ...
-       STATICFILES_DIRS = [ ... ]
+       from django.http import HttpResponse
+       
+       import requests
+       from django.conf import settings
 
-       STATIC_ROOT = "assets/"
+       def index(request):
 
-6. Guarde los cambios en el archivo ``django_api_suite/backend_data_server/settings.py``.
+           response = requests.get(settings.API_URL)  # URL de la API
+           posts = response.json()  # Convertir la respuesta a JSON
+           
+           # Número total de respuestas
+           total_responses = len(posts)
 
-7. Desde la interfaz de Python Anywhere, acceda en la opción **Console** y ejecute el comando:
+           data = {
+               'title': "Landing Page' Dashboard",
+               'total_responses': total_responses,
+           }
+
+           return render(request, 'dashboard/index.html', data)
+
+4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
+ 
+   a) El texto **Indicador 1** por el texto **Número total de respuestas**, y
+   b) El texto **Valor 1** por renderización de la variable **{{ total_responses }}**.
+
+
+   .. code-block:: html
+       :emphasize-lines: 4, 8
+
+       ...
+       <div>
+         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+            Número total de respuestas
+         </p>
+         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <!-- START - valor del indicador 1 -->
+            {{ total_responses }}
+            <!-- END - valor del indicador 1 -->
+         </p>
+       </div>
+       ...
+
+5. Revise los cambios en el navegador con la URL raíz.
+
+   .. note:: 
+
+      Cambie la variable **API_URL** en el archivo ``settings.py`` con la URL de la **Landing API**.
+
+6. Utilice su cliente de IAG generativa para explicar cómo se manejan las respuestas de APIs externas en Django y cómo se integran en la renderización del lado del servidor.
+
+Gestión de dependencias
+-----------------------
+
+1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
 
    .. code-block:: bash
 
-      python manage.py collectstatic
+       pip freeze > requirements.txt
 
-   .. note:: 
+2. Desactive el ambiente virtual de desarrollo, con:
 
-      Confirme la creación de la carpeta ``assets`` en la raíz del proyecto.
+   .. code-block:: bash
 
-Aplicación Web (WeApp)
-^^^^^^^^^^^^^^^^^^^^^^
+       deactivate
 
-1. En PythonAnywhere, acceda a la opción **WebApp**.
-2. Seleccione la opción **» Manual configuration (including virtualenvs)**, con la versión de Python 3.10
-3. En la interfaz de la WebApp:
+Versionamiento
+--------------
 
-   a) En la sección **Virtualenv**, establezca la ruta al entorno virtual ``/home/<USUARIO-PYTHONANYWHERE>/.virtualenvs/env/``.
-   b) En el sección **Static files**, relaciona la URL ``/static/`` con la ruta a la carpeta de archivos estáticos ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite/assets/``.
-   c) En la sección **CODE**, haga clic en la opción **Working directory** para modificar la ruta a la carpeta del proyecto ``/home/<USUARIO-PYTHONANYWHERE>/django_api_suite``.
-   d) En la sección **CODE**, haga clic en la opción **WSGI configuration file** y reemplace el contenido del archivo con el siguiente código:
-     
-   .. code-block:: python
-      :emphasize-lines: 1-21
-    
-      # This file contains the WSGI configuration required to serve up your
-      # web application at http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/
-      # It works by setting the variable 'application' to a WSGI handler of some
-      # description.
-      #
-      # The below has been auto-generated for your Django project
-
-      import os
-      import sys
-
-      # add your project directory to the sys.path
-      project_home = '/home/<USUARIO-PYTHONANYWHERE>/django_api_suite'
-      if project_home not in sys.path:
-           sys.path.insert(0, project_home)
-
-      # set environment variable to tell django where your settings.py is
-      os.environ['DJANGO_SETTINGS_MODULE'] = 'backend_data_server.settings'
-
-      # serve django via WSGI
-      from django.core.wsgi import get_wsgi_application
-      application = get_wsgi_application()
-
-   .. note:: 
-        
-      Reemplace `<USUARIO-PYTHONANYWHERE>` con su nombre de usuario en PythonAnywhere.    
-    
-   e) Guarde los cambios en el archivo ``wsgi.py``.
-
-4. En la sección **Web**, haga clic en el botón **Reload** para reiniciar la WebApp y aplicar los cambios.
-5. Revise los cambios en el navegador en la URL: `http://<USUARIO-PYTHONANYWHERE>.pythonanywhere.com/`.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué aprendiste sobre el funcionamiento de un entorno de despliegue en la nube como PythonAnywhere gracias al uso de inteligencia artificial generativa, y qué conceptos necesitaste investigar más allá del código generado?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender el propósito de la herencia de plantillas y los fragmentos (include) en la construcción de interfaces reutilizables dentro de un sistema de renderizado del lado del servidor como Django?
 
-    * ¿Cómo verificaste que tu backend estuviera correctamente desplegado y accesible desde un entorno externo, y qué medidas tomaste para solucionar problemas derivados de configuraciones automatizadas?
+    * ¿Qué adaptaciones realizaste al código generado por IA para aplicar correctamente la herencia de plantillas y la inclusión de fragmentos sin comprometer la estructura y funcionalidad del backend?
 
-    * ¿Cómo te aseguras de que el uso de inteligencia artificial en el despliegue no limite tu comprensión del proceso ni te impida desarrollar autonomía técnica como desarrollador backend?
-
+    * ¿Cómo garantizas que el uso de inteligencia artificial no sustituya tu comprensión del flujo completo de renderizado del backend, sino que complemente tu proceso de aprendizaje y diseño como desarrollador en formación?
 
 Actividades autónomas
 =====================
@@ -173,4 +329,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Top 5 Reasons Why PythonAnywhere Should Be Your Next Project&#39;s Home<br><br>1. Zero Setup Hassle<br>2. Collaboration Made Easy<br>3. Always Available, Anywhere Access<br>4. Scales With Your Needs<br>5. Fantastic for Web Apps<br><br>Over to you: What are your go-to tools for Python development? <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> <a href="https://t.co/je9mAEH0jf">pic.twitter.com/je9mAEH0jf</a></p>&mdash; DavidayoTech (@DavidayoAI) <a href="https://twitter.com/DavidayoAI/status/1872787250838376602?ref_src=twsrc%5Etfw">December 27, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Rendering on the Web – The SEO Version: Pros and Cons from Server Side to Full Client Side Rendering by <a href="https://twitter.com/jbobbink?ref_src=twsrc%5Etfw">@jbobbink</a> <a href="https://t.co/IioPUtth8Y">https://t.co/IioPUtth8Y</a> <a href="https://t.co/VzZrRGVOOo">pic.twitter.com/VzZrRGVOOo</a></p>&mdash; Aleyda Solis 🕊️ (@aleyda) <a href="https://twitter.com/aleyda/status/1094593901493714945?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
