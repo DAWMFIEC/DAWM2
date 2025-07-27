@@ -53,7 +53,7 @@ Migraciones de base de datos
        python manage.py createsuperuser
 
 3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
-4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
+4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o ni pertenencia a algún grupo.
 5. Utilice su cliente de IAG para explicar el uso del panel de administración de Django, incluyendo la gestión de usuarios, grupos y permisos.
 
 Autenticación
@@ -78,14 +78,14 @@ Restricción de acceso: decorador `@login_required`
 
    .. note:: 
 
-      Compruebe que el acceso a la vista principal del dashboard requiere autenticación.
+      Compruebe que el acceso a la vista principal del dashboard requiere autenticación, al mostrar el formulario de inicio de sesión.
 
 3. Utilice su cliente de IAG para explicar el uso del :term:`decorador` `@login_required` en Django.
 
 Login: Vista y Plantilla de autenticación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Descargue y ubique el archivo :download:`login.html <./files/security/login.html>` en la carpeta `templates/security/`.
+1. Descargue y descomprima el archivo :download:`login.zip <./files/security/login.zip>`. Ubique el archivo ``login.html`` en la carpeta `templates/security/`.
 2. Modifique el archivo ``backend_analytics_server/urls.py``, con:
 
    a) Importe las vistas predefinidas auth_views.
