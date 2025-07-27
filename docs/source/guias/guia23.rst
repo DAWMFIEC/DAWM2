@@ -57,6 +57,7 @@ Backend Analytics Server y Dashboard
       Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
 
 5. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+6. Utilice su cliente de IAG generativa para explicar :term:`Server Side Rendering (SSR)` en Django.
 
 Paquete: Requests
 -----------------
@@ -209,7 +210,7 @@ Constantes
        ...
 
 3. Revise los cambios en el navegador con la URL raíz.
-4. Utilice su cliente de IAG generativa para explicar la renderización del lado del servidor, o :term:`Server Side Rendering (SSR)` en Django.
+4. Utilice su cliente de IAG generativa para explicar la renderización de datos del lado del servidor en Django.
 
 Respuesta de APIs externas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -230,7 +231,7 @@ Respuesta de APIs externas
 
    a) Importe el paquete *requests* y el archivo *from django.conf import settings*.
    b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
-   c) Pase la lista de publicaciones como contexto al renderizar la plantilla `index.html`.
+   c) Agregue la variable **total_responses** al diccionario **data**.
 
    .. code-block:: python
        :emphasize-lines: 4-5, 9-13, 17
@@ -259,7 +260,7 @@ Respuesta de APIs externas
 4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
  
    a) El texto **Indicador 1** por el texto **Número total de respuestas**, y
-   b) El texto **Valor 1** por la variable **{{ total_responses }}**.
+   b) El texto **Valor 1** por renderización de la variable **{{ total_responses }}**.
 
 
    .. code-block:: html
