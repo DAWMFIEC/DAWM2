@@ -165,7 +165,7 @@ Inicio de sesión
 
    .. note:: 
 
-      Compruebe que la autenticación con las credenciales de los usuarios **superusuario**, **usuario01** y **usuario02**, se redirija al usuario a la vista principal del dashboard.
+      Compruebe que la autenticación con las credenciales de los usuarios **superusuario**, **usuario01** y **usuario02**, se redirija al usuario a la vista principal del dashboard. Y que la autenticación con las credenciales incorrectas redirige al usuario a la vista de inicio de sesión.
 
 3. Utilice el inspector del navegador para verificar la :term:`cookie de sesión`.
 
@@ -238,11 +238,11 @@ Modelo con permisos
        ...
        # Create your models here.
        class DashboardModel(models.Model):
-                
-            class Meta:
-                permissions = [
-                    ("index_viewer", "Can show to index view (function-based)"),
-                ]
+         
+         class Meta:
+            permissions = [
+               ("index_viewer", "Can show to index view (function-based)"),
+            ]
 
 2. Genere las migraciones de la base de datos, con:
 
@@ -257,12 +257,12 @@ Modelo con permisos
 
        python manage.py runserver
 
-4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, modifique solo el usuario **usuario01**  con el permiso **index_viewer**.
+4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, modifique solo el usuario **usuario01**  con el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
 5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
 
    .. note:: 
     
-       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización.
+       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
 
 6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
 
@@ -315,7 +315,7 @@ En redes:
 
    Método de autenticación basada en sesiones en Django:
 
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">What are web sessions? <br><br>Any data exchange on the web is based on a stateless protocol like HTTP. <br><br>Every HTTP request is independent of the previous ones. <br><br>However, users need to relate the requests to each other. <br><br>For example, they want to stay logged in to a website… <a href="https://t.co/YgYjDSihpa">pic.twitter.com/YgYjDSihpa</a></p>&mdash; Fernando 🇮🇹🇨🇭 (@Franc0Fernand0) <a href="https://twitter.com/Franc0Fernand0/status/1845754683521896944?ref_src=twsrc%5Etfw">October 14, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">What are web sessions? <br><br>Any data exchange on the web is based on a stateless protocol like HTTP. <br><br>Every HTTP request is independent of the previous ones. <br><br>However, users need to relate the requests to each other. <br><br>For example, they want to stay logged in to a website… <a href="https://t.co/6yYQSGv2MP">pic.twitter.com/6yYQSGv2MP</a></p>&mdash; Fernando 🇮🇹🇨🇭 (@Franc0Fernand0) <a href="https://twitter.com/Franc0Fernand0/status/1949031696768070104?ref_src=twsrc%5Etfw">July 26, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
    Otros métodos de autenticación
 
