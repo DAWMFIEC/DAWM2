@@ -171,7 +171,7 @@ GET
                return Response(data, status=status.HTTP_200_OK)
 
 3. Levante el servidor de desarrollo de Django.
-4. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+4. Revise los cambios en el navegador en la URL en la ruta `/landing/api/index/`
 
 POST
 ----
@@ -216,7 +216,7 @@ POST
                return Response({"id": new_resource.key}, status=status.HTTP_201_CREATED)
 
 3. Levante el servidor de desarrollo de Django.
-4. Revise los cambios en el navegador en la URL en la ruta `/landing/api/`
+4. Revise los cambios en el navegador en la URL en la ruta `/landing/api/index/`
 
 Gestión de dependencias
 -----------------------
