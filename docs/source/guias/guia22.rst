@@ -66,7 +66,7 @@ Clave privada de Firebase Admin SDK
 """""""""""""""""""""""""""""""""""
 
 1. En PythonAnywhere, acceda a la opción **Files**.
-2. Acceda a la carpeta **backend_data_server**.
+2. Acceda a la carpeta **django_api_suite**.
 3. Cree la carpeta **secrets** y suba el archivo de clave privada de Firebase Admin SDK, con el nombre ``landing-key.json``.
 
 Seguridad
