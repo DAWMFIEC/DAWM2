@@ -15,8 +15,25 @@ Guía 26: React y Ionic - Introducción y Componentes
 Actividades previas
 =====================
 
+Ambiente de desarrollo
+----------------------
+
+1. Cree un repositorio en GitHub con el nombre *hibrida*.
+
+   a) Agregue un archivo README.md con el título de su aplicación híbrida y una breve descripción del objetivo de su proyecto.
+   b) Agregue un archivo *.gitignore* con la plantilla de *Node*.
+
+2. Acceda a su proyecto *hibrida* en Codespaces o en su máquina local.
+3. Cree y utilice la(s) rama(s) de desarrollo.
+
 Actividades en clases
 =====================
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *hibrida*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
 ============

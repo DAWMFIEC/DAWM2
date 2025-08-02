@@ -15,8 +15,26 @@ Guía 27: React y Ionic - Gestión de rutas y navegación
 Actividades previas
 =====================
 
+Ambiente de desarrollo
+----------------------
+
+1. Acceda a su proyecto *hibrida* en Codespaces o en su máquina local.
+2. Cree y utilice la(s) rama(s) de desarrollo.
+3. Instale los paquetes y levante el servidor, con:
+
+   .. code-block:: bash
+
+      npm install
+      npm run dev
+
 Actividades en clases
 =====================
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *hibrida*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
 ============
