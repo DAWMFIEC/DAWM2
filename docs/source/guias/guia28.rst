@@ -39,4 +39,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Drop the .app, it&#39;s cleaner that way <br><br>Introducing an all-new Railway (dot com)<a href="https://t.co/C5PSPyo5IO">https://t.co/C5PSPyo5IO</a></p>&mdash; Railway (@Railway) <a href="https://twitter.com/Railway/status/1857148311494623725?ref_src=twsrc%5Etfw">November 14, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The next wave of innovation is here with the Android Studio Narwhal Feature Drop→ <a href="https://t.co/fovbsVjuvy">https://t.co/fovbsVjuvy</a><br><br>🤖 Gemini in Android Studio&#39;s Agent mode<br>🖥️ Powerful new tools for XR development <br>💻 Key updates to optimize &amp; refine your app <a href="https://t.co/ulUotc9DRi">pic.twitter.com/ulUotc9DRi</a></p>&mdash; Android Studio (@AndroidStudio) <a href="https://twitter.com/AndroidStudio/status/1950976673110757676?ref_src=twsrc%5Etfw">July 31, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

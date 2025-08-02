@@ -10,7 +10,7 @@ Guía 27: React y Ionic - Gestión de rutas y navegación
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar el sistema de navegación de una aplicación híbrida utilizando Ionic React Router, gestionando rutas públicas y privadas, así como el paso de parámetros entre páginas, con el fin de garantizar una experiencia de usuario fluida y estructurada dentro de la aplicación. 
+    Implementar el sistema de navegación de una aplicación híbrida utilizando un ruteador, gestionando rutas públicas y privadas, así como el paso de parámetros entre páginas, con el fin de garantizar una experiencia de usuario fluida y estructurada dentro de la aplicación. 
 
 Actividades previas
 =====================
@@ -39,4 +39,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Drop the .app, it&#39;s cleaner that way <br><br>Introducing an all-new Railway (dot com)<a href="https://t.co/C5PSPyo5IO">https://t.co/C5PSPyo5IO</a></p>&mdash; Railway (@Railway) <a href="https://twitter.com/Railway/status/1857148311494623725?ref_src=twsrc%5Etfw">November 14, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="es" dir="ltr">React Router, Redux, Styled Components, Apollo...<br><br>¡Deja de usar las dependencias de siempre en React!<br><br>Hilo con las mejores alternativas: <a href="https://t.co/t3tGopkA2e">pic.twitter.com/t3tGopkA2e</a></p>&mdash; Miguel Ángel Durán (@midudev) <a href="https://twitter.com/midudev/status/1671128694365069314?ref_src=twsrc%5Etfw">June 20, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
