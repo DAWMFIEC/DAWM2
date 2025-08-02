@@ -10,7 +10,7 @@ Guía 27: React y Ionic - Gestión de rutas y navegación
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Verbo. 
+    Implementar el sistema de navegación de una aplicación híbrida utilizando Ionic React Router, gestionando rutas públicas y privadas, así como el paso de parámetros entre páginas, con el fin de garantizar una experiencia de usuario fluida y estructurada dentro de la aplicación. 
 
 Actividades previas
 =====================

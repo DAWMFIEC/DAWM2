@@ -10,7 +10,7 @@ Guía 26: React y Ionic - Introducción y Componentes
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Verbo. 
+    Introducir el entorno de desarrollo de aplicaciones híbridas con Ionic y React mediante la creación de interfaces responsivas y reutilizables utilizando Ionic Components, con el fin de comprender la estructura del framework y aplicar buenas prácticas en el diseño visual y funcional de la aplicación. 
 
 Actividades previas
 =====================
