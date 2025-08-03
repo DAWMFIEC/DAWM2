@@ -66,7 +66,7 @@ Configuración de dominios y CSRF
        ...
        ALLOWED_HOSTS = ['.github.dev','127.0.0.1', 'localhost']
 
-       CSRF_TRUSTED_ORIGINS = ['https://*.github.dev', "http://127.0.0.1:8000/","http://localhost:8000",]
+       CSRF_TRUSTED_ORIGINS = ['https://*.github.dev', "http://127.0.0.1:8000","https://localhost:8000",]
        ...
 
 2. Levante el servidor de desarrollo, con:
