@@ -55,7 +55,7 @@ Migraciones de base de datos
 
 3. Utilice su cliente de IAG para explicar las migraciones de base de datos, el uso del panel de administración de Django y el propósito del superusuario.
 
-Configuración para requerimientos
+Configuración de dominios y CSRF
 ---------------------------------
 
 1. Modifique el archivo ``backend_analytics_server/settings.py``, con:
@@ -64,9 +64,9 @@ Configuración para requerimientos
        :emphasize-lines: 2, 4
 
        ...
-       ALLOWED_HOSTS = ['localhost']
+       ALLOWED_HOSTS = ['.app.github.dev','localhost']
 
-       CSRF_TRUSTED_ORIGINS = ["https://localhost:8000",]
+       CSRF_TRUSTED_ORIGINS = ['https://*.app.github.dev', "https://localhost:8000",]
        ...
 
 2. Levante el servidor de desarrollo, con:
