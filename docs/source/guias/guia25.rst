@@ -36,16 +36,16 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Paquete: gunicorn, whitenoise y psycopg
----------------------------------------
+Paquete: gunicorn, whitenoise y mysqlclient
+-------------------------------------------
 
-1. Instale `gunicorn`, `whitenoise` y `psycopg` en su ambiente de desarrollo:
+1. Instale `gunicorn`, `whitenoise` y `mysqlclient` en su ambiente de desarrollo:
 
    .. code-block:: bash
     
-       pip install gunicorn whitenoise psycopg[binary,pool]
+       pip install gunicorn whitenoise mysqlclient
 
-2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn, whitenoise y psycopg.
+2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn, whitenoise y mysqlclient.
 
 Configuración de Django para producción
 ---------------------------------------
@@ -112,8 +112,8 @@ Configuración en Railway
 5. En **Networking**, escoja la opción del dominio personalizado en el puerto 80.
 
 
-MySQL Database
---------------
+Servicio: MySQL Database
+------------------------
 
 1. En Railway, acceda a la opción **New**.
 2. Seleccione **Database** y luego **MySQL**.
