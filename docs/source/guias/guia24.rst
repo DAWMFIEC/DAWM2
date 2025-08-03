@@ -52,15 +52,30 @@ Migraciones de base de datos
 
        python manage.py createsuperuser
 
-3. Levante el servidor de desarrollo, con:
+Habilitación de Django Admin
+----------------------------------------
+
+1. Modifique el archivo ``backend_analytics_server/settings.py``, con:
+
+   .. code-block:: python
+       :emphasize-lines: 2, 4
+
+       ...
+       ALLOWED_HOSTS = ['localhost']
+
+       CSRF_TRUSTED_ORIGINS = ["https://localhost:8000",]
+       ...
+
+2. Levante el servidor de desarrollo, con:
 
    .. code-block:: bash
 
        python manage.py runserver
 
-4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
-5. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
-6. Utilice su cliente de IAG para explicar las migraciones de base de datos y el uso del panel de administración de Django.
+
+3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
+4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
+5. Utilice su cliente de IAG para explicar las migraciones de base de datos y el uso del panel de administración de Django.
 
 Autenticación
 -------------
