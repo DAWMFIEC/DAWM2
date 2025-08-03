@@ -29,6 +29,60 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Ionic: Inicialización del proyecto
+----------------------------------
+
+1. Explore la documentación de `Ionic <https://ionicframework.com/docs/>`_ para comprender los conceptos básicos de esta biblioteca.
+2. Instale Ionic y sus dependencias con el siguiente comando:
+
+    .. code-block:: bash
+    
+        npm install -g @ionic/cli
+
+3. Crea una aplicación Ionic, de acuerdo con:
+
+   a) Comience la configuración, utilizando el comando:
+
+   .. code-block:: bash
+
+      ionic start .
+
+   b) **No** utilice el asistente de creación de proyectos. 
+
+   .. code-block:: bash
+
+       ? Use the app creation wizard? No
+
+   c) Seleccione *React* como framework y elija un nombre para su proyecto, por ejemplo, *hibrida*.
+
+   .. code-block:: bash
+
+       ? Framework to use: React
+       ? Project name: hibrida
+
+   d) Seleccione la plantilla **tabs**.
+
+    .. code-block:: 
+
+        ? Starter template: 
+        ...
+        ❯ tabs         | A starting project with a simple tabbed interface 
+
+3. 
+   .. code-block:: bash
+
+      npm install
+      npm run dev
+
+Componentes de Ionic
+---------------------
+
+1. Explore los componentes de Ionic disponibles en la documentación oficial y familiarícese con su uso.
+2. Implemente al menos tres componentes de Ionic en su aplicación, asegurándose de que sean funcionales y estén bien integrados en la interfaz de usuario.
+3. Aplique estilos personalizados a los componentes utilizando las herramientas de Ionic para mejorar la apariencia visual de la aplicación.
+4. Compruebe la vista previa del resultado en el navegador.
+
+
 Versionamiento
 --------------
 

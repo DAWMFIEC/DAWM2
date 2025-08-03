@@ -46,15 +46,21 @@ Migraciones de base de datos
        python manage.py makemigrations
        python manage.py migrate
 
-2. Cree un superusuario para acceder al panel de administración de Django, con:
+2. Cree un **superusuario** para acceder al panel de administración de Django, con:
 
    .. code-block:: bash
 
        python manage.py createsuperuser
 
-3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
-4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o ni pertenencia a algún grupo.
-5. Utilice su cliente de IAG para explicar las migraciones de base de datos y el uso del panel de administración de Django.
+3. Levante el servidor de desarrollo, con:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
+5. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
+6. Utilice su cliente de IAG para explicar las migraciones de base de datos y el uso del panel de administración de Django.
 
 Autenticación
 -------------
@@ -257,14 +263,37 @@ Modelo con permisos
 
        python manage.py runserver
 
-4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, modifique solo el usuario **usuario01**  con el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
-5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para:
+
+   a) Modificar solo el usuario **usuario01** 
+   b) En **User permissions**, agregue el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
+   c) Guarde los cambios.
+
+5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
 
    .. note:: 
     
        Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
 
 6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
+
+403 Forbidden
+-------------
+
+1. Descargue y descomprima el archivo :download:`403.zip <./files/security/403.zip>`. 
+2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
+3. Levante el servidor de desarrollo, con:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
+
+   .. note:: 
+    
+       Compruebe que el usuario **usuario02** recibe un error 403 Forbidden al intentar acceder a la vista principal del dashboard, y que se muestra la plantilla personalizada.
+
 
 Gestión de dependencias
 -----------------------
