@@ -32,6 +32,12 @@ Ambiente de desarrollo
        python -m venv env
        source env/bin/activate
 
+5. Instale las librerías de requirements.txt, con:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
+
 Actividades en clases
 =====================
 
