@@ -280,7 +280,7 @@ Modelo con permisos
 403 Forbidden
 -------------
 
-1. Descargue y descomprima el archivo :download:`403.zip <./files/security/403.zip>`. 
+1. Descargue y descomprima el archivo :download:`403.zip <./files/exceptions/403.zip>`. 
 2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
 3. Levante el servidor de desarrollo, con:
 
