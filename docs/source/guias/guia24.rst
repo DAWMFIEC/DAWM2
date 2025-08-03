@@ -53,7 +53,7 @@ Migraciones de base de datos
        python manage.py createsuperuser
 
 
-3. Utilice su cliente de IAG para explicar las migraciones de base de datos.
+3. Utilice su cliente de IAG para explicar las migraciones de base de datos, el uso del panel de administración de Django y el propósito del superusuario.
 
 Configuración para requerimientos
 ---------------------------------
@@ -78,7 +78,7 @@ Configuración para requerimientos
 
 3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
 4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
-5. Utilice su cliente de IAG para explicar el uso del panel de administración de Django y la configuración de `ALLOWED_HOSTS` y `CSRF_TRUSTED_ORIGINS`.
+5. Utilice su cliente de IAG para explicar la configuración de `ALLOWED_HOSTS` y `CSRF_TRUSTED_ORIGINS`.
 
 Autenticación
 -------------
