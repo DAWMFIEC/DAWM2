@@ -18,14 +18,14 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
+1. **Clone su proyecto en su máquina local**.
 2. Cree y utilice la(s) rama(s) de desarrollo.
 3. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
        python -m venv env
-       source env/bin/activate
+       env\Scripts\activate
 
 4. Instale las librerías de requirements.txt, con:
 
@@ -262,10 +262,10 @@ Modelo con permisos
        ...
        # Create your models here.
        class DashboardModel(models.Model):
-         
+
          class Meta:
             permissions = [
-               ("index_viewer", "Can show to index view (function-based)"),
+                  ("index_viewer", "Can show to index view (function-based)"),
             ]
 
 2. Genere las migraciones de la base de datos, con:
