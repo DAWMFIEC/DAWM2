@@ -23,7 +23,7 @@ Ambiente de desarrollo
    a) Agregue un archivo README.md con el título de su backend y una breve descripción del objetivo de su proyecto.
    b) Agregue un archivo *.gitignore* con la plantilla de *Python*.
    
-2. **Clone su proyecto en su máquina local**.
+2. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
 4. Cree y habilite el ambiente virtual de desarrollo, con:
 
