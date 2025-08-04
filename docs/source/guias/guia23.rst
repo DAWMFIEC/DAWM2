@@ -34,12 +34,6 @@ Ambiente de desarrollo
        env\Scripts\activate # Windows
        source env/bin/activate # Linux/MacOS
 
-5. Instale las librerías de requirements.txt, con:
-
-   .. code-block:: bash
-
-       pip install -r requirements.txt
-
 Actividades en clases
 =====================
 
