@@ -78,6 +78,28 @@ Configuración de Django para producción
 
 2. Utilice su cliente de IAG generativa para explicar la utilidad de cada una de las configuraciones realizadas.
 
+
+Gestión de dependencias
+-----------------------
+
+1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
+
+   .. code-block:: bash
+
+       pip freeze > requirements.txt
+
+2. Desactive el ambiente virtual de desarrollo, con:
+
+   .. code-block:: bash
+
+       deactivate
+
+Versionamiento
+--------------
+
+1. Versione local y remotamente la rama **deploy**.
+
+
 Railway
 -------
 
