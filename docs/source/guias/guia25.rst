@@ -18,14 +18,16 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Acceda a su proyecto *django_api_suite* en Codespaces o en su máquina local.
+1. **Clone su proyecto en su máquina local**.
 2. Cree y utilice la(s) rama(s) de desarrollo.
 3. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
        python -m venv env
-       source env/bin/activate
+       
+       env\Scripts\activate # Windows
+       source env/bin/activate # Linux/MacOS
 
 4. Instale las librerías de requirements.txt, con:
 

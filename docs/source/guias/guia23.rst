@@ -30,7 +30,9 @@ Ambiente de desarrollo
    .. code-block:: bash
 
        python -m venv env
-       env\Scripts\activate
+       
+       env\Scripts\activate # Windows
+       source env/bin/activate # Linux/MacOS
 
 5. Instale las librerías de requirements.txt, con:
 
