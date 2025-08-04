@@ -103,7 +103,7 @@ Configuración en Railway
 
    .. code-block:: bash
 
-       python manage.py collectstatic && python manage.py makemigrations && python manage.py migrate && python manage.py createsuperuser --noinput
+       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic && python manage.py createsuperuser --noinput
    
    d) En **Deploy** > **Custom Start Command**, utilice:
 
