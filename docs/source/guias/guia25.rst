@@ -15,12 +15,12 @@ Guía 25: Django - Despliegue en Railway
 Actividades previas
 =====================
 
-Ambiente de desarrollo
+Ambiente de despliegue
 ----------------------
 
 1. **Clone su proyecto en su máquina local**.
-2. Cree y utilice la(s) rama(s) de desarrollo.
-3. Cree y habilite el ambiente virtual de desarrollo, con:
+2. Cree y utilice la(s) rama(s) de despliegue: **deploy**.
+3. Cree y habilite el ambiente virtual, con:
 
    .. code-block:: bash
 
@@ -38,16 +38,16 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Paquete: gunicorn, whitenoise y mysqlclient
--------------------------------------------
+Paquete: gunicorn y whitenoise
+------------------------------
 
-1. Instale `gunicorn`, `whitenoise` y `mysqlclient` en su ambiente de desarrollo:
+1. Instale `gunicorn` y `whitenoise` en su ambiente, con:
 
    .. code-block:: bash
     
-       pip install gunicorn whitenoise mysqlclient
+       pip install gunicorn whitenoise
 
-2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn, whitenoise y mysqlclient.
+2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn y whitenoise.
 
 Configuración de Django para producción
 ---------------------------------------
@@ -89,23 +89,23 @@ Configuración en Railway
 
 1. En Railway, acceda a la opción **New**.
 2. Seleccione **Deploy from GitHub** y conecte su cuenta de GitHub.
-3. Seleccione el repositorio *django_data_monitor* y la rama *main*.
+3. Seleccione el repositorio *django_data_monitor* y la rama *deploy*.
 4. Configure el entorno de producción:
 
    a) En **Environment Variables**, agregue las variables (`DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME`) para crear el superusuario.
-   b) En **Build Command**, utilice:
+   b) En **Build** > **Custom Build Command**, utilice:
 
    .. code-block:: bash
 
        pip install -r requirements.txt
 
-   c) En **Pre-deploy Command**, utilice:
+   c) En **Deploy** > **Pre-deploy Command**, utilice:
 
    .. code-block:: bash
 
-       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic && python manage.py createsuperuser --noinput
+       python manage.py collectstatic && python manage.py makemigrations && python manage.py migrate && python manage.py createsuperuser --noinput
    
-   d) En **Deploy**, utilice:
+   d) En **Deploy** > **Custom Start Command**, utilice:
 
    .. code-block:: bash
 
