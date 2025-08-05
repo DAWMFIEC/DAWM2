@@ -10,7 +10,7 @@ Guía 24: Django - Django Admin (Autenticación)
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Configurar el sistema de autenticación mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
+    Configurar el sistema de autenticación y autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
 
 Actividades previas
 =====================
@@ -225,6 +225,59 @@ Fin de sesión
       Compruebe que el cierre de sesión redirige al usuario a la vista de inicio de sesión.
 
 3. Utilice su cliente de IAG para explicar el uso del `token CSRF` en Django y el uso de la `cookie de sesión`.
+
+Verificación de acceso
+----------------------
+
+Escenario: Acceso fallido
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Modifique el archivo ``templates/security/login.html``, con:
+
+   .. code-block:: html
+       :emphasize-lines: 2-6
+
+       ...
+       {% if form.non_field_errors %}
+                                
+         <div id="password_error_div" class="flex items-center justify-center mb-4 py-3 bg-red-100 border-l-4 border-red-500 text-red-700 dark:border-red-400 dark:text-red-500" role="alert">Invalid username or password.</div>
+      
+       {% endif %}
+
+       <!-- Método post y action para el URL (con el alias 'login') -->
+       ...
+       
+Escenario: Acceso exitoso
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2. Modifique el archivo ``templates/partials/header.html``, con:
+
+   .. code-block:: html
+       :emphasize-lines: 6-10
+
+       ...
+
+       <!-- Profile menu -->
+       <li class="relative">
+         
+         {% if user.is_authenticated %}
+            
+            <span>{{ user.username }}</span>
+
+         {% endif %}
+
+         <button> ... </button>
+       </li>
+
+       ...
+
+3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
+
+   .. note::
+
+      Compruebe que la autenticación con un usuario no registrado muestra el mensaje de error "Invalid username or password." y que la autenticación con un usuario registrado muestra el nombre de usuario en el menú de perfil.
+
+4. Utilice su cliente de IAG para explicar el uso la etiqueta de plantilla ``{% if %} ... {% endif %}`` y los objetos **form** y **user** en Django.
 
 Gestión de dependencias
 -----------------------

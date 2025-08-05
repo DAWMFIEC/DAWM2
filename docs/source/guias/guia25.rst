@@ -10,7 +10,7 @@ Guía 25: Django - Django Admin (Autorización)
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Configurar el sistema de autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
+    Configurar el sistema de autenticación y autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
 
 Actividades previas
 =====================
@@ -38,6 +38,47 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Paquete: PyMySQL
+-----------------
+
+1. Instale :term:`PyMySQL` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+
+       pip install PyMySQL
+
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *PyMySQL* en Python y cómo se utiliza para conectarse a bases de datos MySQL en Django.
+
+Conexión a la base de datos
+---------------------------
+
+1. Edite el archivo ``backend_analytics_server/settings.py`` de su proyecto Django, con:
+
+   a) Importe el paquete PyMySQL:
+
+   .. code-block:: python
+       :emphasize-lines: 1
+
+       import pymysql
+       pymysql.install_as_MySQLdb()
+
+   b) Configure la conexión a la base de datos MySQL utilizando PyMySQL:
+
+   .. code-block:: python
+
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.mysql',
+               'NAME': 'nombre_base_datos',
+               'USER': 'usuario',
+               'PASSWORD': 'contraseña',
+               'HOST': 'localhost',
+               'PORT': '3306',
+           }
+       }
+
+2. 
+
 Migraciones de base de datos
 ----------------------------
 
@@ -53,26 +94,6 @@ Migraciones de base de datos
    .. code-block:: bash
 
        python manage.py createsuperuser
-
-3. Cree dos usuarios adicionales, **usuario01** y **usuario02**, con:
-
-   a) Acceda al shell de Django.
-
-   .. code-block:: bash
-
-       python manage.py shell
-
-
-   b) Importe el modelo de usuario y cree los usuarios.
-
-   .. code-block:: python
-
-       from django.contrib.auth.models import User
-
-       User.objects.create_user('usuario01', password='<PASSWORD>')
-       User.objects.create_user('usuario02', password='<PASSWORD>')
-
-       exit()
 
 Autorización
 ------------

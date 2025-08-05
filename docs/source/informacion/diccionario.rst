@@ -279,3 +279,6 @@ Diccionario de términos
 
     cookie de sesión
         Es un pequeño fragmento de datos almacenado en el navegador del usuario que se utiliza para identificar y rastrear la sesión del usuario en una aplicación web. Las cookies de sesión permiten mantener el estado de la aplicación entre diferentes solicitudes HTTP, lo que es esencial para la autenticación y la personalización de la experiencia del usuario.
+
+    PyMySQL
+        Es un adaptador de base de datos para Python que permite interactuar con bases de datos MySQL y MariaDB. PyMySQL es una alternativa a otros adaptadores como MySQLdb y se utiliza comúnmente en aplicaciones Django para conectarse a bases de datos MySQL.
