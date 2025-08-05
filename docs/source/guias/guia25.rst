@@ -56,14 +56,21 @@ Migraciones de base de datos
 
 3. Cree dos usuarios adicionales, **usuario01** y **usuario02**, con:
 
+   a) Acceda al shell de Django.
+
    .. code-block:: bash
 
        python manage.py shell
 
+
+   b) Importe el modelo de usuario y cree los usuarios.
+
+   .. code-block:: python
+
        from django.contrib.auth.models import User
 
-       User.objects.create_user('usuario01', password='Password01!')
-       User.objects.create_user('usuario02', password='Password02!')
+       User.objects.create_user('usuario01', password='<PASSWORD>')
+       User.objects.create_user('usuario02', password='<PASSWORD>')
 
        exit()
 
