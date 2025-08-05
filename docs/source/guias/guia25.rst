@@ -38,6 +38,35 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Migraciones de base de datos
+----------------------------
+
+1. Genere las migraciones de la base de datos, con:
+
+   .. code-block:: bash
+
+       python manage.py makemigrations
+       python manage.py migrate
+
+2. Cree un **superusuario** para acceder al panel de administración de Django, con:
+
+   .. code-block:: bash
+
+       python manage.py createsuperuser
+
+3. Cree dos usuarios adicionales, **usuario01** y **usuario02**, con:
+
+   .. code-block:: bash
+
+       python manage.py shell
+
+       from django.contrib.auth.models import User
+
+       User.objects.create_user('usuario01', password='Password01!')
+       User.objects.create_user('usuario02', password='Password02!')
+
+       exit()
+
 Autorización
 ------------
 
