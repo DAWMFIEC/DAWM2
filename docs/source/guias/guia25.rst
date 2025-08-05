@@ -174,6 +174,4 @@ En redes:
 
 .. raw:: html
 
-   Otros métodos de autenticación
-
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Authentication in REST APIs acts as the crucial gateway, ensuring that solely authorized users or applications gain access to the API&#39;s resources.<br><br>Some popular authentication methods for REST APIs include:<br><br>1. Basic Authentication: <br>Involves sending a username and password with… <a href="https://t.co/Y4CKqZUhBF">pic.twitter.com/Y4CKqZUhBF</a></p>&mdash; Alex Xu (@alexxubyte) <a href="https://twitter.com/alexxubyte/status/1737151765097951544?ref_src=twsrc%5Etfw">December 19, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Django is a high-level Python web development framework that lets you build secure, scalable apps.<br><br>And this crash course teaches you the basics so you can start using it.<br><br>You&#39;ll learn about django-admin &amp; <a href="https://t.co/T2lmhj4NZm">https://t.co/T2lmhj4NZm</a>, the Model-View-Template pattern, how forms work,… <a href="https://t.co/G3ZRyfVpb5">pic.twitter.com/G3ZRyfVpb5</a></p>&mdash; freeCodeCamp.org (@freeCodeCamp) <a href="https://twitter.com/freeCodeCamp/status/1919663989262352561?ref_src=twsrc%5Etfw">May 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
