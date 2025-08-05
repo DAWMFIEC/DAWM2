@@ -3,24 +3,24 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-=======================================
-Guía 25: Django - Despliegue en Railway
-=======================================
+=============================================================
+Guía 24: Django - Django Admin (Autorización)
+=============================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Realizar el despliegue de un proyecto Django en la plataforma Railway para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
+    Configurar el sistema de autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
 
 Actividades previas
 =====================
 
-Ambiente de despliegue
+Ambiente de desarrollo
 ----------------------
 
-1. **Clone su proyecto en su máquina local**.
-2. Cree y utilice la(s) rama(s) de despliegue: **deploy**.
-3. Cree y habilite el ambiente virtual, con:
+1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
+2. Cree y utilice la(s) rama(s) de desarrollo.
+3. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
@@ -38,45 +38,93 @@ Ambiente de despliegue
 Actividades en clases
 =====================
 
-Paquete: gunicorn y whitenoise
-------------------------------
+Autorización
+------------
 
-1. Instale `gunicorn` y `whitenoise` en su ambiente, con:
+Restricción de permiso: decorador `@permission_required`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/views.py``, con:
+
+   .. code-block:: python
+       :emphasize-lines: 2, 5
+    
+       ...
+       from django.contrib.auth.decorators import login_required, permission_required
+         
+       @login_required
+       @permission_required('dashboard.index_viewer', raise_exception=True)
+       def index(request):
+            ...
+
+2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+
+      Compruebe que el acceso a la vista principal del dashboard requiere autorización para los usuarios **usuario01** y **usuario02**; mientras, el superusuario tiene acceso sin restricciones.
+
+3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
+
+Modelo con permisos
+^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``dashboard/models.py``, con la definición del modelo **DashboardModel** con permisos personalizados:
+
+   .. code-block:: python
+       :emphasize-lines: 3-8
+    
+       ...
+       # Create your models here.
+       class DashboardModel(models.Model):
+
+         class Meta:
+            permissions = [
+                  ("index_viewer", "Can show to index view (function-based)"),
+            ]
+
+2. Genere las migraciones de la base de datos, con:
 
    .. code-block:: bash
     
-       pip install gunicorn whitenoise
+       python manage.py makemigrations
+       python manage.py migrate
 
-2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn y whitenoise.
+3. Levante el servidor de desarrollo, con:
 
-Configuración de Django para producción
----------------------------------------
+   .. code-block:: bash
 
-1. En el archivo `backend_analytics_server/settings.py`, configure los siguientes parámetros:
+       python manage.py runserver
 
-   a) **DEBUG**: Cambie a `False`.
-   b) **ALLOWED_HOSTS**: Agregue el dominio de Railway.
-   c) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
-   d) **MIDDLEWARE**: Agregue `WhiteNoiseMiddleware` para servir archivos estáticos.
-   e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
+4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para:
 
-   .. code-block:: python
+   a) Modificar solo el usuario **usuario01** 
+   b) En **User permissions**, agregue el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
+   c) Guarde los cambios.
 
-       DEBUG = False
-       
-       ALLOWED_HOSTS = ['.up.railway.app']
+5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
 
-       CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
-       
-       MIDDLEWARE = [
-         ...
-         'whitenoise.middleware.WhiteNoiseMiddleware',
-         ...
-       ]
+   .. note:: 
+    
+       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
 
-       STATIC_ROOT = "assets/"
+6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
 
-2. Utilice su cliente de IAG generativa para explicar la utilidad de cada una de las configuraciones realizadas.
+403 Forbidden
+-------------
+
+1. Descargue y descomprima el archivo :download:`403.zip <./files/exceptions/403.zip>`. 
+2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
+3. Levante el servidor de desarrollo, con:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
+
+   .. note:: 
+    
+       Compruebe que el usuario **usuario02** recibe un error 403 Forbidden al intentar acceder a la vista principal del dashboard, y que se muestra la plantilla personalizada.
 
 
 Gestión de dependencias
@@ -94,66 +142,27 @@ Gestión de dependencias
 
        deactivate
 
+
+.. warning::
+
+   Asegúrese que el ``.gitignore`` contenga el nombre del archivo ``db.sqlite3``, para no versionar la base de datos en su repositorio.
+
 Versionamiento
 --------------
 
-1. Versione local y remotamente la rama **deploy**.
-
-
-Railway
--------
-
-1. Obtenga una cuenta gratuita en `Railway <https://railway.app/>`_ mediante su cuenta de GitHub.
-2. Utilice su cliente de IAG generativa para explicar la utilidad de Railway.
-
-Configuración en Railway
-------------------------
-
-1. En Railway, acceda a la opción **New**.
-2. Seleccione **Deploy from GitHub** y conecte su cuenta de GitHub.
-3. Seleccione el repositorio *django_data_monitor* y la rama *deploy*.
-4. Configure el entorno de producción:
-
-   a) En **Environment Variables**, agregue las variables (`DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME`) para crear el superusuario.
-   b) En **Build** > **Custom Build Command**, utilice:
-
-   .. code-block:: bash
-
-       pip install -r requirements.txt
-
-   c) En **Deploy** > **Pre-deploy Command**, utilice:
-
-   .. code-block:: bash
-
-       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic && python manage.py createsuperuser --noinput
-   
-   d) En **Deploy** > **Custom Start Command**, utilice:
-
-   .. code-block:: bash
-
-       gunicorn backend_analytics_server.wsgi
-
-5. En **Networking**, escoja la opción del dominio personalizado en el puerto 80.
-
-
-Servicio: MySQL Database
-------------------------
-
-1. En Railway, acceda a la opción **New**.
-2. Seleccione **Database** y luego **MySQL**.
-3. Configure la base de datos con un nombre y otras opciones según sea necesario.
-4. Obtenga la URL de conexión a la base de datos y guárdela para su uso en el proyecto Django.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué elementos clave del proceso de despliegue en Railway comprendiste mejor gracias a la inteligencia artificial generativa, y qué conceptos tuviste que reforzar por tu cuenta para asegurar una implementación funcional?
+    * ¿Qué limitaciones identificaste en las soluciones de autenticación sugeridas por la IA, especialmente en relación con la seguridad, la escalabilidad o las buenas prácticas recomendadas por la documentación oficial?
 
-    * ¿Cómo verificaste el funcionamiento correcto del backend desplegado en Railway, y qué hiciste para resolver problemas como errores de conexión a la base de datos o fallas en el entorno de producción?
+    * ¿Cómo probaste y validaste los mecanismos de autorización implementados, y qué cambios realizaste sobre las configuraciones automáticas para cumplir con los requisitos específicos del proyecto?
 
-    * ¿Qué actitudes asumiste para garantizar que el uso de inteligencia artificial en el proceso de despliegue no reemplazara tu comprensión del entorno de producción, sino que fortaleciera tu capacidad como desarrollador responsable?
+    * ¿Qué principios éticos aplicaste al manejar credenciales de usuario y restricciones de acceso en tu backend, especialmente cuando el código base fue propuesto por una IA generativa?
 
 Actividades autónomas
 =====================
@@ -165,4 +174,6 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Drop the .app, it&#39;s cleaner that way <br><br>Introducing an all-new Railway (dot com)<a href="https://t.co/C5PSPyo5IO">https://t.co/C5PSPyo5IO</a></p>&mdash; Railway (@Railway) <a href="https://twitter.com/Railway/status/1857148311494623725?ref_src=twsrc%5Etfw">November 14, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   Otros métodos de autenticación
+
+   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Authentication in REST APIs acts as the crucial gateway, ensuring that solely authorized users or applications gain access to the API&#39;s resources.<br><br>Some popular authentication methods for REST APIs include:<br><br>1. Basic Authentication: <br>Involves sending a username and password with… <a href="https://t.co/Y4CKqZUhBF">pic.twitter.com/Y4CKqZUhBF</a></p>&mdash; Alex Xu (@alexxubyte) <a href="https://twitter.com/alexxubyte/status/1737151765097951544?ref_src=twsrc%5Etfw">December 19, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

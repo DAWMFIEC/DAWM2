@@ -4,13 +4,13 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =============================================================
-Guía 24: Django - Django Admin (Autenticación y autorización)
+Guía 24: Django - Django Admin (Autenticación)
 =============================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Configurar el sistema de autenticación y autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
+    Configurar el sistema de autenticación mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
 
 Actividades previas
 =====================
@@ -226,95 +226,6 @@ Fin de sesión
 
 3. Utilice su cliente de IAG para explicar el uso del `token CSRF` en Django y el uso de la `cookie de sesión`.
 
-Autorización
-------------
-
-Restricción de permiso: decorador `@permission_required`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Edite el archivo ``dashboard/views.py``, con:
-
-   .. code-block:: python
-       :emphasize-lines: 2, 5
-    
-       ...
-       from django.contrib.auth.decorators import login_required, permission_required
-         
-       @login_required
-       @permission_required('dashboard.index_viewer', raise_exception=True)
-       def index(request):
-            ...
-
-2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
-
-   .. note:: 
-
-      Compruebe que el acceso a la vista principal del dashboard requiere autorización para los usuarios **usuario01** y **usuario02**; mientras, el superusuario tiene acceso sin restricciones.
-
-3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
-
-Modelo con permisos
-^^^^^^^^^^^^^^^^^^^
-
-1. Edite el archivo ``dashboard/models.py``, con la definición del modelo **DashboardModel** con permisos personalizados:
-
-   .. code-block:: python
-       :emphasize-lines: 3-8
-    
-       ...
-       # Create your models here.
-       class DashboardModel(models.Model):
-
-         class Meta:
-            permissions = [
-                  ("index_viewer", "Can show to index view (function-based)"),
-            ]
-
-2. Genere las migraciones de la base de datos, con:
-
-   .. code-block:: bash
-    
-       python manage.py makemigrations
-       python manage.py migrate
-
-3. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para:
-
-   a) Modificar solo el usuario **usuario01** 
-   b) En **User permissions**, agregue el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
-   c) Guarde los cambios.
-
-5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note:: 
-    
-       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
-
-6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
-
-403 Forbidden
--------------
-
-1. Descargue y descomprima el archivo :download:`403.zip <./files/exceptions/403.zip>`. 
-2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
-3. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note:: 
-    
-       Compruebe que el usuario **usuario02** recibe un error 403 Forbidden al intentar acceder a la vista principal del dashboard, y que se muestra la plantilla personalizada.
-
-
 Gestión de dependencias
 -----------------------
 
@@ -365,7 +276,3 @@ En redes:
    Método de autenticación basada en sesiones en Django:
 
    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">What are web sessions? <br><br>Any data exchange on the web is based on a stateless protocol like HTTP. <br><br>Every HTTP request is independent of the previous ones. <br><br>However, users need to relate the requests to each other. <br><br>For example, they want to stay logged in to a website… <a href="https://t.co/6yYQSGv2MP">pic.twitter.com/6yYQSGv2MP</a></p>&mdash; Fernando 🇮🇹🇨🇭 (@Franc0Fernand0) <a href="https://twitter.com/Franc0Fernand0/status/1949031696768070104?ref_src=twsrc%5Etfw">July 26, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-   Otros métodos de autenticación
-
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Authentication in REST APIs acts as the crucial gateway, ensuring that solely authorized users or applications gain access to the API&#39;s resources.<br><br>Some popular authentication methods for REST APIs include:<br><br>1. Basic Authentication: <br>Involves sending a username and password with… <a href="https://t.co/Y4CKqZUhBF">pic.twitter.com/Y4CKqZUhBF</a></p>&mdash; Alex Xu (@alexxubyte) <a href="https://twitter.com/alexxubyte/status/1737151765097951544?ref_src=twsrc%5Etfw">December 19, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

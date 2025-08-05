@@ -3,102 +3,157 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-===================================================
-Guía 26: React y Ionic - Introducción y Componentes
-===================================================
+=======================================
+Guía 26: Django - Despliegue en Railway
+=======================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Introducir el entorno de desarrollo de aplicaciones híbridas con Ionic y React mediante la creación de interfaces responsivas y reutilizables utilizando Ionic Components, con el fin de comprender la estructura del framework y aplicar buenas prácticas en el diseño visual y funcional de la aplicación. 
+    Realizar el despliegue de un proyecto Django en la plataforma Railway para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
 
 Actividades previas
 =====================
 
-Ambiente de desarrollo
+Ambiente de despliegue
 ----------------------
 
-1. Cree un repositorio en GitHub con el nombre *hibrida*.
+1. **Clone su proyecto en su máquina local**.
+2. Cree y utilice la(s) rama(s) de despliegue: **deploy**.
+3. Cree y habilite el ambiente virtual, con:
 
-   a) Agregue un archivo README.md con el título de su aplicación híbrida y una breve descripción del objetivo de su proyecto.
-   b) Agregue un archivo *.gitignore* con la plantilla de *Node*.
+   .. code-block:: bash
 
-2. Acceda a su proyecto *hibrida* en Codespaces o en su máquina local.
-3. Cree y utilice la(s) rama(s) de desarrollo.
+       python -m venv env
+       
+       env\Scripts\activate # Windows
+       source env/bin/activate # Linux/MacOS
+
+4. Instale las librerías de requirements.txt, con:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
 
 Actividades en clases
 =====================
 
-Ionic: Inicialización del proyecto
-----------------------------------
+Paquete: gunicorn y whitenoise
+------------------------------
 
-1. Explore la documentación de `Ionic <https://ionicframework.com/docs/>`_ para comprender los conceptos básicos de esta biblioteca.
-2. Instale Ionic y sus dependencias con el siguiente comando:
+1. Instale `gunicorn` y `whitenoise` en su ambiente, con:
 
-    .. code-block:: bash
+   .. code-block:: bash
     
-        npm install -g @ionic/cli
+       pip install gunicorn whitenoise
 
-3. Crea una aplicación Ionic, de acuerdo con:
+2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn y whitenoise.
 
-   a) Comience la configuración, utilizando el comando:
+Configuración de Django para producción
+---------------------------------------
+
+1. En el archivo `backend_analytics_server/settings.py`, configure los siguientes parámetros:
+
+   a) **DEBUG**: Cambie a `False`.
+   b) **ALLOWED_HOSTS**: Agregue el dominio de Railway.
+   c) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
+   d) **MIDDLEWARE**: Agregue `WhiteNoiseMiddleware` para servir archivos estáticos.
+   e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
+
+   .. code-block:: python
+
+       DEBUG = False
+       
+       ALLOWED_HOSTS = ['.up.railway.app']
+
+       CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
+       
+       MIDDLEWARE = [
+         ...
+         'whitenoise.middleware.WhiteNoiseMiddleware',
+         ...
+       ]
+
+       STATIC_ROOT = "assets/"
+
+2. Utilice su cliente de IAG generativa para explicar la utilidad de cada una de las configuraciones realizadas.
+
+
+Gestión de dependencias
+-----------------------
+
+1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
 
    .. code-block:: bash
 
-      ionic start .
+       pip freeze > requirements.txt
 
-   b) **No** utilice el asistente de creación de proyectos. 
-
-   .. code-block:: bash
-
-       ? Use the app creation wizard? No
-
-   c) Seleccione *React* como framework y elija un nombre para su proyecto, por ejemplo, *hibrida*.
+2. Desactive el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
-       ? Framework to use: React
-       ? Project name: hibrida
-
-   d) Seleccione la plantilla **tabs**.
-
-    .. code-block:: 
-
-        ? Starter template: 
-        ...
-        ❯ tabs         | A starting project with a simple tabbed interface 
-
-3. 
-   .. code-block:: bash
-
-      npm install
-      npm run dev
-
-Componentes de Ionic
----------------------
-
-1. Explore los componentes de Ionic disponibles en la documentación oficial y familiarícese con su uso.
-2. Implemente al menos tres componentes de Ionic en su aplicación, asegurándose de que sean funcionales y estén bien integrados en la interfaz de usuario.
-3. Aplique estilos personalizados a los componentes utilizando las herramientas de Ionic para mejorar la apariencia visual de la aplicación.
-4. Compruebe la vista previa del resultado en el navegador.
-
+       deactivate
 
 Versionamiento
 --------------
 
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *hibrida*.
-2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+1. Versione local y remotamente la rama **deploy**.
+
+
+Railway
+-------
+
+1. Obtenga una cuenta gratuita en `Railway <https://railway.app/>`_ mediante su cuenta de GitHub.
+2. Utilice su cliente de IAG generativa para explicar la utilidad de Railway.
+
+Configuración en Railway
+------------------------
+
+1. En Railway, acceda a la opción **New**.
+2. Seleccione **Deploy from GitHub** y conecte su cuenta de GitHub.
+3. Seleccione el repositorio *django_data_monitor* y la rama *deploy*.
+4. Configure el entorno de producción:
+
+   a) En **Environment Variables**, agregue las variables (`DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME`) para crear el superusuario.
+   b) En **Build** > **Custom Build Command**, utilice:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
+
+   c) En **Deploy** > **Pre-deploy Command**, utilice:
+
+   .. code-block:: bash
+
+       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic && python manage.py createsuperuser --noinput
+   
+   d) En **Deploy** > **Custom Start Command**, utilice:
+
+   .. code-block:: bash
+
+       gunicorn backend_analytics_server.wsgi
+
+5. En **Networking**, escoja la opción del dominio personalizado en el puerto 80.
+
+
+Servicio: MySQL Database
+------------------------
+
+1. En Railway, acceda a la opción **New**.
+2. Seleccione **Database** y luego **MySQL**.
+3. Configure la base de datos con un nombre y otras opciones según sea necesario.
+4. Obtenga la URL de conexión a la base de datos y guárdela para su uso en el proyecto Django.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Qué elementos clave del proceso de despliegue en Railway comprendiste mejor gracias a la inteligencia artificial generativa, y qué conceptos tuviste que reforzar por tu cuenta para asegurar una implementación funcional?
 
-    * ¿Cómo?
+    * ¿Cómo verificaste el funcionamiento correcto del backend desplegado en Railway, y qué hiciste para resolver problemas como errores de conexión a la base de datos o fallas en el entorno de producción?
 
-    * ¿Qué?
+    * ¿Qué actitudes asumiste para garantizar que el uso de inteligencia artificial en el proceso de despliegue no reemplazara tu comprensión del entorno de producción, sino que fortaleciera tu capacidad como desarrollador responsable?
 
 Actividades autónomas
 =====================
@@ -110,4 +165,4 @@ En redes:
 
 .. raw:: html
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is why I love <a href="https://twitter.com/Ionicframework?ref_src=twsrc%5Etfw">@Ionicframework</a>. We can build essentially any UI, sometimes even like this iOS Twitter settings screen with UI Components out of the box. 👨🏼‍🔧<br><br>Everything you see here is from Ionic, <a href="https://twitter.com/ionicons?ref_src=twsrc%5Etfw">@ionicons</a> and styled using Ionic&#39;s theme application colors. <a href="https://t.co/ZocsDvBShH">pic.twitter.com/ZocsDvBShH</a></p>&mdash; Alan Montgomery (@93alan) <a href="https://twitter.com/93alan/status/1512587338962116611?ref_src=twsrc%5Etfw">April 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Drop the .app, it&#39;s cleaner that way <br><br>Introducing an all-new Railway (dot com)<a href="https://t.co/C5PSPyo5IO">https://t.co/C5PSPyo5IO</a></p>&mdash; Railway (@Railway) <a href="https://twitter.com/Railway/status/1857148311494623725?ref_src=twsrc%5Etfw">November 14, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
