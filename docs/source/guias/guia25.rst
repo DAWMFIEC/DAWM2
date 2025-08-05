@@ -57,27 +57,64 @@ Conexión a la base de datos
    a) Importe el paquete PyMySQL:
 
    .. code-block:: python
-       :emphasize-lines: 1
+       :emphasize-lines: 4-6
 
+       ...
+       from pathlib import Path
+       import os
        import pymysql
-       pymysql.install_as_MySQLdb()
 
-   b) Configure la conexión a la base de datos MySQL utilizando PyMySQL:
+       pymysql.install_as_MySQLdb()
+       
+       ...
+
+   b) Reemplace la configuración por defecto por la conexión a la base de datos MySQL utilizando PyMySQL:
 
    .. code-block:: python
+       :emphasize-lines: 5-10
+
+       ...
 
        DATABASES = {
            'default': {
                'ENGINE': 'django.db.backends.mysql',
-               'NAME': 'nombre_base_datos',
-               'USER': 'usuario',
-               'PASSWORD': 'contraseña',
-               'HOST': 'localhost',
-               'PORT': '3306',
-           }
+               'NAME': os.environ.get('MYSQLDATABASE'),
+               'USER': os.environ.get('MYSQLUSER'),
+               'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+               'HOST': os.environ.get('MYSQLHOST'),
+               'PORT': os.environ.get('MYSQLPORT'),
+            }
        }
 
-2. 
+       ...
+
+2. En la terminal establezca las variables de entorno para la conexión a la base de datos MySQL, con:
+
+   .. code-block:: bash
+
+       # Linux/MacOS
+       export MYSQLDATABASE=security
+       export MYSQLUSER=root
+       export MYSQLPASSWORD=root
+       export MYSQLHOST=localhost
+       export MYSQLPORT=3306
+
+       # Verifique las variables de entorno
+       echo $MYSQLDATABASE
+
+       # Windows
+       set MYSQLDATABASE=security
+       set MYSQLUSER=root
+       set MYSQLPASSWORD=root
+       set MYSQLHOST=localhost
+       set MYSQLPORT=3306
+
+       # Verifique las variables de entorno
+       echo %MYSQLDATABASE%
+
+   .. note::
+      
+      Asegúrese de reemplazar los valores con los datos correctos de su base de datos MySQL.
 
 Migraciones de base de datos
 ----------------------------
