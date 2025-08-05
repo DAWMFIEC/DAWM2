@@ -282,3 +282,6 @@ Diccionario de términos
 
     PyMySQL
         Es un adaptador de base de datos para Python que permite interactuar con bases de datos MySQL y MariaDB. PyMySQL es una alternativa a otros adaptadores como MySQLdb y se utiliza comúnmente en aplicaciones Django para conectarse a bases de datos MySQL.
+
+    MySQL Workbench
+        Es una herramienta de administración y diseño de bases de datos MySQL. Proporciona una interfaz gráfica para crear, modificar y administrar bases de datos, así como para ejecutar consultas SQL y visualizar datos. MySQL Workbench es útil para desarrolladores y administradores de bases de datos que trabajan con MySQL.
