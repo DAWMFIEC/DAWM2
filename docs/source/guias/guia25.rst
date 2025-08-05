@@ -139,6 +139,18 @@ Migraciones de base de datos
 
       Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo
 
+3. Levante el servidor de desarrollo, con:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+
+   .. note:: 
+    
+       Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
+
 Autorización
 ------------
 
