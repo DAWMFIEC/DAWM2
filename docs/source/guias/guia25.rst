@@ -116,6 +116,9 @@ Conexión a la base de datos
       
       Asegúrese de reemplazar los valores con los datos correctos de su base de datos MySQL.
 
+3. Con ``MySQL Workbench`` o su cliente de MySQL, cree la base de datos **security** si no existe
+4. Utilice su cliente de IAG generativa para explicar cómo se configura la conexión a una base de datos MySQL en Django utilizando PyMySQL y las variables de entorno.
+
 Migraciones de base de datos
 ----------------------------
 
