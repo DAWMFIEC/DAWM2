@@ -135,6 +135,10 @@ Migraciones de base de datos
 
        python manage.py createsuperuser
 
+   .. note:: 
+
+      Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo
+
 Autorización
 ------------
 
