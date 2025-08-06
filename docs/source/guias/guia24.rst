@@ -73,9 +73,7 @@ Configuración de dominios y CSRF
        ]
 
        ALLOWED_HOSTS = [
-         "127.0.0.1",
-         "localhost",
-         "*.app.github.dev",  # Solo si utiliza Codespaces
+         "*",
        ]
        ...
 
