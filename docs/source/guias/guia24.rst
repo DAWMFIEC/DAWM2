@@ -63,7 +63,7 @@ Configuración de dominios y CSRF
 1. Modifique el archivo ``backend_analytics_server/settings.py``, con:
 
    .. code-block:: python
-       :emphasize-lines: 2-6, 8-12
+       :emphasize-lines: 2-6, 8-10
 
        ...
        CSRF_TRUSTED_ORIGINS = [
