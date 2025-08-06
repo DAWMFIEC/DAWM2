@@ -79,7 +79,7 @@ Configuración de dominios y CSRF
 
    .. note::
 
-      El uso de `ALLOWED_HOSTS` con el valor `['*']` es una práctica insegura para producción, pero es aceptable para desarrollo local. En producción, se debe especificar el dominio o subdominio del servidor.
+       El uso de `ALLOWED_HOSTS` con el valor `['*']` es una práctica insegura para producción, pero es aceptable para desarrollo local. En producción, se debe especificar el dominio o subdominio del servidor.
 
 2. Levante el servidor de desarrollo, con:
 
