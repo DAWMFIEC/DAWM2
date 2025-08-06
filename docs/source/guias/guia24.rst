@@ -63,13 +63,25 @@ Configuración de dominios y CSRF
 1. Modifique el archivo ``backend_analytics_server/settings.py``, con:
 
    .. code-block:: python
-       :emphasize-lines: 2, 4
+       :emphasize-lines: 2-6, 8-12
 
        ...
-       ALLOWED_HOSTS = ['*']
+       CSRF_TRUSTED_ORIGINS = [
+         "https://*.app.github.dev", # Solo si utiliza Codespaces
+         "https://localhost:8000",
+         "http://127.0.0.1:8000"
+       ]
 
-       CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
+       ALLOWED_HOSTS = [
+         "127.0.0.1",
+         "localhost",
+         "*.app.github.dev",  # Solo si utiliza Codespaces
+       ]
        ...
+
+   .. note::
+
+      El uso de `ALLOWED_HOSTS` con el valor `['*']` es una práctica insegura para producción, pero es aceptable para desarrollo local. En producción, se debe especificar el dominio o subdominio del servidor.
 
 2. Levante el servidor de desarrollo, con:
 
