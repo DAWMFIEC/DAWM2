@@ -283,7 +283,7 @@ Escenario: Acceso exitoso
 
          {% endif %}
 
-         <button> ... </button>
+         <button ... > ... </button>
        </li>
 
        ...
