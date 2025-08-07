@@ -245,17 +245,24 @@ Escenario: Acceso fallido
 1. Modifique el archivo ``templates/security/login.html``, con:
 
    .. code-block:: html
-       :emphasize-lines: 2-6
+       :emphasize-lines: 4-8
 
        ...
-       {% if form.non_field_errors %}
-                                
-         <div id="password_error_div" class="flex items-center justify-center mb-4 py-3 bg-red-100 border-l-4 border-red-500 text-red-700 dark:border-red-400 dark:text-red-500" role="alert">Invalid username or password.</div>
-      
-       {% endif %}
+       <div class="w-full">
+         
+         {% if form.non_field_errors %}
+                                 
+            <div id="password_error_div" class="flex items-center justify-center mb-4 py-3 bg-red-100 border-l-4 border-red-500 text-red-700 dark:border-red-400 dark:text-red-500" role="alert">Invalid username or password.</div>
+         
+         {% endif %}
 
-       <!-- Método post y action para el URL (con el alias 'login') -->
-       ...
+         <!-- Método post y action para el URL (con el alias 'login') -->
+         <form method="post" action="{% url 'login' %}">
+         ...
+         </form>
+         
+         ...
+       </div>
        
 Escenario: Acceso exitoso
 ^^^^^^^^^^^^^^^^^^^^^^^^^

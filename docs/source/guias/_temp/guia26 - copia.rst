@@ -4,13 +4,13 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =======================================
-Guía 26: Django - Despliegue en Render
+Guía 26: Django - Despliegue en Railway
 =======================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Realizar el despliegue de un proyecto Django en la plataforma Render para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
+    Realizar el despliegue de un proyecto Django en la plataforma Railway para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
 
 Actividades previas
 =====================
@@ -19,7 +19,7 @@ Ambiente de despliegue
 ----------------------
 
 1. **Clone su proyecto en su máquina local**.
-2. Cree y utilice la(s) rama(s) de desarrollo.
+2. Cree y utilice la(s) rama(s) de despliegue: **deploy**.
 3. Cree y habilite el ambiente virtual, con:
 
    .. code-block:: bash
