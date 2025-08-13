@@ -321,6 +321,7 @@ Versionamiento
 
 1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
 
+
    .. info-card:: 
 
       En caso de tener problemas de autenticación al realizar el versionamiento remoto:
