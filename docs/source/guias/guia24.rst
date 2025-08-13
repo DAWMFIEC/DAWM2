@@ -329,9 +329,9 @@ Versionamiento
        - Copie el token, dado que **no podrá volver a verlo**.
        - Reemplace los valores ``[REPO-OWNER]``, ``[REPO-NAME]`` y ``[TOKEN]`` por un nuevo origin.
 
-          .. code-block:: bash
+         .. code-block:: bash
             
-              git remote set-url origin https://[REPO-OWNER]:[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME].git
+             git remote set-url origin https://[REPO-OWNER]:[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME].git
 
 
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
