@@ -15,32 +15,10 @@ Guía 24: Django - Django Admin (Autenticación)
 Actividades previas
 =====================
 
-Github Tokens Classic
-----------------------
-
-1. Acceda a su cuenta de GitHub.
-2. En `Tokens de acceso personal (clásicos) <https://github.com/settings/tokens>`_, obtenga un token de acceso personal (PAT) de tipo **Classic** con el alcance (scope) **public_repo**.
-3. Copie el token, dado que **no podrá volver a verlo**.
-
 Ambiente de desarrollo
 ----------------------
 
 1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
-
-   .. note:: 
-
-      Para clonar su proyecto localmente, realice los siguientes comandos:
-
-      .. code-block:: bash
-
-         git clone https://<USERNAME>@github.com/<OWNER>/<REPO>.git
-
-      Cambie el valor de origin 
-
-      .. code-block:: bash
-         
-         git remote set-url origin https://[REPO-OWNER]:[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME].git
-
 2. Cree y utilice la(s) rama(s) de desarrollo.
 3. Cree y habilite el ambiente virtual de desarrollo, con:
 
@@ -342,6 +320,20 @@ Versionamiento
 --------------
 
 1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
+
+   .. info-card:: 
+
+       En caso de tener problemas de autenticación al realizar el versionamiento remoto:
+       
+       - Obtenga un `Token de acceso personal (clásicos) <https://github.com/settings/tokens>`_ de tipo **Classic**, con el alcance (scope) **repo**.
+       - Copie el token, dado que **no podrá volver a verlo**.
+       - Reemplace los valores ``[REPO-OWNER]``, ``[REPO-NAME]`` y ``[TOKEN]`` por un nuevo origin.
+
+          .. code-block:: bash
+            
+              git remote set-url origin https://[REPO-OWNER]:[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME].git
+
+
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
