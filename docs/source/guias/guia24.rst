@@ -327,7 +327,19 @@ Versionamiento
        
       - Obtenga un `Token de acceso personal (clásicos) <https://github.com/settings/tokens>`_ de tipo **Classic**, con el alcance (scope) **repo**.
       - Copie el token, dado que **no podrá volver a verlo**.
-      - Reemplace los valores ``[REPO-OWNER]``, ``[REPO-NAME]`` y ``[TOKEN]`` por un nuevo origin.
+      - Borre de memoria cualquier usuario/token que se estuviera guardando temporalmente
+
+        .. code-block:: bash
+
+            git credential-cache exit
+
+      - Elimine la configuración del credential helper definida a nivel global.
+
+        .. code-block:: bash
+
+            git config --global --unset credential.helper
+
+      - Reemplace los valores ``[REPO-OWNER]``, ``[REPO-NAME]`` y ``[TOKEN]`` para modificar el origin.
 
         .. code-block:: bash
             
