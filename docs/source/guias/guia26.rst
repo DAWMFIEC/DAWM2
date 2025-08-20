@@ -167,7 +167,12 @@ Servicio: Web App
 
 1. En Railway, dentro del proyecto.
 2. Seleccione **Create** > **GitHub Repo** y conecte su cuenta de GitHub.
-3. Seleccione el repositorio *django_data_monitor*
+3. Seleccione el repositorio *django_data_monitor*. 
+
+   .. attention::
+      
+      No despliegue la aplicación hasta configurar correctamente las variables de entorno.
+
 4. En la pestaña **Environment Variables**:abbr:
 
    a) Agregue las 5 referencias a las variables `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLHOST` y `MYSQLPORT` con sus valores correspondientes al servicio de MySQL, por ejemplo:
