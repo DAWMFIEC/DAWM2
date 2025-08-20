@@ -100,10 +100,11 @@ Conexión a la base de datos
    b) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
    c) **ALLOWED_HOSTS**: Utilice el dominio de Railway.
    d) **MIDDLEWARE**: Agregue el :term:`middleware` `WhiteNoiseMiddleware` para servir archivos estáticos.
-   e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
+   e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos
+   f) **STATICFILES_STORAGE**: Configure el almacenamiento de archivos estáticos
 
    .. code-block:: python
-       :emphasize-lines: 1,4,8,13,22
+       :emphasize-lines: 1,4,8,12,21,23
 
        DEBUG = False
        
@@ -116,8 +117,7 @@ Conexión a la base de datos
        
        MIDDLEWARE = [
           'django.middleware.security.SecurityMiddleware',
-          # Agregar WhiteNoise al middleware (debe ir después de SecurityMiddleware)
-          'whitenoise.middleware.WhiteNoiseMiddleware', 
+          'whitenoise.middleware.WhiteNoiseMiddleware',  # Agregar WhiteNoise al middleware (debe ir después de SecurityMiddleware)
           'django.contrib.sessions.middleware.SessionMiddleware',
            # ... resto de middlewares
        ]
@@ -127,6 +127,10 @@ Conexión a la base de datos
        STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
        STATIC_ROOT = BASE_DIR / 'assets' 
+
+       STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+       
+       ...
 
 Gestión de dependencias y versionamiento
 ----------------------------------------
@@ -203,7 +207,7 @@ Servicio: Web App
 
        gunicorn backend_analytics_server.wsgi
    
-   d) En **Deploy** > **Pre-deploy Command**, utilice:
+   d) En **Deploy** > **Pre-deploy Step**, utilice:
 
    .. code-block:: bash
 
