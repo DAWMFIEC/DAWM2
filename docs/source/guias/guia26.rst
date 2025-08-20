@@ -126,7 +126,7 @@ Conexión a la base de datos
 
        STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-       STATIC_ROOT = "assets/"
+       STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 Gestión de dependencias y versionamiento
 ----------------------------------------
@@ -196,7 +196,7 @@ Servicio: Web App
 
    .. code-block:: bash
 
-       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic && python manage.py createsuperuser --noinput
+       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && python manage.py createsuperuser --noinput
    
    d) En **Deploy** > **Custom Start Command**, utilice:
 
