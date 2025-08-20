@@ -126,7 +126,7 @@ Conexión a la base de datos
 
        STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-       STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+       STATIC_ROOT = BASE_DIR / 'assets' 
 
 Gestión de dependencias y versionamiento
 ----------------------------------------
@@ -170,13 +170,13 @@ Servicio: Web App
 3. Seleccione el repositorio *django_data_monitor*
 4. En la pestaña **Environment Variables**:abbr:
 
-   a) Agregue la referencia a las variables `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLHOST` y `MYSQLPORT` con sus valores correspondientes al servicio de MySQL, por ejemplo:
+   a) Agregue las 5 referencias a las variables `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLHOST` y `MYSQLPORT` con sus valores correspondientes al servicio de MySQL, por ejemplo:
 
    .. code-block:: bash
 
        MYSQLDATABASE     ${{MySQL.MYSQLDATABASE}}
 
-   b) Agregue las variables `DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME` con sus valores para crear el superusuario.
+   b) Agregue las 3 variables `DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME` con sus valores para crear el superusuario.
 
    .. code-block:: bash
 
@@ -192,20 +192,21 @@ Servicio: Web App
 
        pip install -r requirements.txt
 
-   c) En **Deploy** > **Pre-deploy Command**, utilice:
-
-   .. code-block:: bash
-
-       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && python manage.py createsuperuser --noinput
-   
-   d) En **Deploy** > **Custom Start Command**, utilice:
+   c) En **Deploy** > **Custom Start Command**, utilice:
 
    .. code-block:: bash
 
        gunicorn backend_analytics_server.wsgi
+   
+   d) En **Deploy** > **Pre-deploy Command**, utilice:
 
-5. Luego de desplegar el servicio, en **Networking**, escoja la opción del dominio personalizado en el puerto 8080.
-6. Revise los registros de despliegue para asegurarse de que no haya errores.
+   .. code-block:: bash
+
+       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && python manage.py createsuperuser --noinput
+
+5. Haga clic en el botón **Deploy** para desplegar los servicios con los cambios realizados.
+6. Luego del despliegue exitoso, **Setting** > **Networking**, genere un dominio en el puerto 8080.
+7. Revise los registros de despliegue para asegurarse de que no haya errores.
 
 Conclusiones
 ============
