@@ -52,8 +52,8 @@ Paquete: gunicorn y whitenoise
 Configuración de Django para producción
 ---------------------------------------
 
-Conexión a la base de datos
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Conexión a la base de datos (Obligatorio)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``backend_analytics_server/settings.py`` de su proyecto Django, con:
 
@@ -103,7 +103,7 @@ Conexión a la base de datos
    e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
 
    .. code-block:: python
-       :emphasize-lines: 1,3,7,12,16
+       :emphasize-lines: 1,3,7,12,19
 
        DEBUG = False
        
@@ -117,8 +117,11 @@ Conexión a la base de datos
        MIDDLEWARE = [
          ...
          'whitenoise.middleware.WhiteNoiseMiddleware',
-         ...
        ]
+
+       ...
+
+       STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
        STATIC_ROOT = "assets/"
 
@@ -144,7 +147,8 @@ Railway
 -------
 
 1. Obtenga una cuenta gratuita en `Railway <https://railway.app/>`_ mediante su cuenta de GitHub.
-2. Utilice su cliente de IAG generativa para explicar la utilidad de Railway.
+2. Cree un proyecto nuevo vacío.
+3. Utilice su cliente de IAG generativa para explicar la utilidad de Railway.
 
 Configuración en Railway
 ------------------------
@@ -152,21 +156,33 @@ Configuración en Railway
 Servicio: MySQL Database
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. En Railway, acceda a la opción **New**.
-2. Seleccione **Database** y luego **MySQL**.
-3. Configure la base de datos con un nombre y otras opciones según sea necesario.
-4. Obtenga la URL de conexión a la base de datos y guárdela para su uso en el proyecto Django.
+1. En Railway, acceda al proyecto vacío.
+2. Seleccione la opción **Add Service**, escoja **Database** y luego **Add MySQL**.
 
 Servicio: Web App
 ^^^^^^^^^^^^^^^^^
 
-1. En Railway, acceda a la opción **New**.
-2. Seleccione **Deploy from GitHub** y conecte su cuenta de GitHub.
-3. Seleccione el repositorio *django_data_monitor* y la rama *produccion*.
-4. Configure el entorno de producción:
+1. En Railway, dentro del proyecto.
+2. Seleccione **Create** > **GitHub Repo** y conecte su cuenta de GitHub.
+3. Seleccione el repositorio *django_data_monitor*
+4. En la pestaña **Environment Variables**:abbr:
 
-   a) En **Environment Variables**, agregue las variables (`DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME`) para crear el superusuario.
+   a) Agregue la referencia a las variables `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLHOST` y `MYSQLPORT` con sus valores correspondientes al servicio de MySQL, por ejemplo:
 
+   .. code-block:: bash
+
+       MYSQLDATABASE     ${{MySQL.MYSQLDATABASE}}
+
+   b) Agregue las variables `DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME` con sus valores para crear el superusuario.
+
+   .. code-block:: bash
+
+       DJANGO_SUPERUSER_EMAIL     admin@data.com.ec
+
+5. En la pestaña **Settings**, configure el entorno de producción:
+
+   a) Seleccione la rama **produccion**
+   
    b) En **Build** > **Custom Build Command**, utilice:
 
    .. code-block:: bash
@@ -185,7 +201,7 @@ Servicio: Web App
 
        gunicorn backend_analytics_server.wsgi
 
-5. En **Networking**, escoja la opción del dominio personalizado en el puerto 80.
+5. Luego de desplegar el servicio, en **Networking**, escoja la opción del dominio personalizado en el puerto 80.
 6. Revise los registros de despliegue para asegurarse de que no haya errores.
 
 Conclusiones
