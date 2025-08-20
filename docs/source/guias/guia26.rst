@@ -97,26 +97,28 @@ Conexión a la base de datos
 2. En el archivo `backend_analytics_server/settings.py`, configure los siguientes parámetros:
 
    a) **DEBUG**: Cambie a `False`.
-   b) **ALLOWED_HOSTS**: Utilice el dominio de Railway.
-   c) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
+   b) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
+   c) **ALLOWED_HOSTS**: Utilice el dominio de Railway.
    d) **MIDDLEWARE**: Agregue `WhiteNoiseMiddleware` para servir archivos estáticos.
    e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
 
    .. code-block:: python
-       :emphasize-lines: 1,3,7,12,19
+       :emphasize-lines: 1,4,8,13,21
 
        DEBUG = False
        
-       ALLOWED_HOSTS = ['.up.railway.app']
-
        CSRF_TRUSTED_ORIGINS = [
-        ...,
-        "https://*.up.railway.app"
-        ]
+           "https://*.up.railway.app",
+           ...,
+       ]
+
+       ALLOWED_HOSTS = ['.up.railway.app']
        
        MIDDLEWARE = [
-         ...
-         'whitenoise.middleware.WhiteNoiseMiddleware',
+          'django.middleware.security.SecurityMiddleware',
+          # El middleware WhiteNoise debe colocarse directamente después del Django SecurityMiddleware y antes de todo el resto del middleware
+          'whitenoise.middleware.WhiteNoiseMiddleware', 
+          ...
        ]
 
        ...
