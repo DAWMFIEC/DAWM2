@@ -4,22 +4,22 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =======================================
-Guía 26: Django - Despliegue en Render
+Guía 26: Django - Despliegue en Railway
 =======================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Realizar el despliegue de un proyecto Django en la plataforma Render para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
+    Realizar el despliegue de un proyecto Django en la plataforma Railway para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
 
 Actividades previas
 =====================
 
-Ambiente de despliegue
+Ambiente de producción
 ----------------------
 
-1. **Clone su proyecto en su máquina local**.
-2. Cree y utilice la(s) rama(s) de desarrollo.
+1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
+2. Cree y utilice la rama de **produccion**.
 3. Cree y habilite el ambiente virtual, con:
 
    .. code-block:: bash
@@ -41,32 +41,78 @@ Actividades en clases
 Paquete: gunicorn y whitenoise
 ------------------------------
 
-1. Instale `gunicorn` y `whitenoise` en su ambiente, con:
+1. Instale `PyMySQL`, :term:`gunicorn` y :term:`whitenoise` en su ambiente, con:
 
    .. code-block:: bash
     
-       pip install gunicorn whitenoise
+       pip install gunicorn whitenoise PyMySQL
 
 2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn y whitenoise.
 
 Configuración de Django para producción
 ---------------------------------------
 
-1. En el archivo `backend_analytics_server/settings.py`, configure los siguientes parámetros:
+Conexión a la base de datos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Edite el archivo ``backend_analytics_server/settings.py`` de su proyecto Django, con:
+
+   a) Importe el paquete PyMySQL:
+
+   .. code-block:: python
+       :emphasize-lines: 4-6
+
+       ...
+       from pathlib import Path
+       import os
+       import pymysql
+
+       pymysql.install_as_MySQLdb()
+       
+       ...
+
+   b) Reemplace la configuración por defecto por la conexión a la base de datos MySQL utilizando PyMySQL:
+
+   .. code-block:: python
+       :emphasize-lines: 5-10
+
+       ...
+
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.mysql',
+               'NAME': os.environ.get('MYSQLDATABASE'),
+               'USER': os.environ.get('MYSQLUSER'),
+               'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+               'HOST': os.environ.get('MYSQLHOST'),
+               'PORT': os.environ.get('MYSQLPORT'),
+            }
+       }
+
+       ...
+
+Conexión a la base de datos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2. En el archivo `backend_analytics_server/settings.py`, configure los siguientes parámetros:
 
    a) **DEBUG**: Cambie a `False`.
-   b) **ALLOWED_HOSTS**: Agregue el dominio de Railway.
+   b) **ALLOWED_HOSTS**: Utilice el dominio de Railway.
    c) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
    d) **MIDDLEWARE**: Agregue `WhiteNoiseMiddleware` para servir archivos estáticos.
    e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
 
    .. code-block:: python
+       :emphasize-lines: 1,3,7,12,16
 
        DEBUG = False
        
        ALLOWED_HOSTS = ['.up.railway.app']
 
-       CSRF_TRUSTED_ORIGINS = ["https://*.up.railway.app"]
+       CSRF_TRUSTED_ORIGINS = [
+        ...,
+        "https://*.up.railway.app"
+        ]
        
        MIDDLEWARE = [
          ...
@@ -76,11 +122,8 @@ Configuración de Django para producción
 
        STATIC_ROOT = "assets/"
 
-2. Utilice su cliente de IAG generativa para explicar la utilidad de cada una de las configuraciones realizadas.
-
-
-Gestión de dependencias
------------------------
+Gestión de dependencias y versionamiento
+----------------------------------------
 
 1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
 
@@ -94,10 +137,7 @@ Gestión de dependencias
 
        deactivate
 
-Versionamiento
---------------
-
-1. Versione local y remotamente la rama **deploy**.
+3. Versione local y remotamente la rama **produccion**.
 
 
 Railway
@@ -109,12 +149,24 @@ Railway
 Configuración en Railway
 ------------------------
 
+Servicio: MySQL Database
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. En Railway, acceda a la opción **New**.
+2. Seleccione **Database** y luego **MySQL**.
+3. Configure la base de datos con un nombre y otras opciones según sea necesario.
+4. Obtenga la URL de conexión a la base de datos y guárdela para su uso en el proyecto Django.
+
+Servicio: Web App
+^^^^^^^^^^^^^^^^^
+
 1. En Railway, acceda a la opción **New**.
 2. Seleccione **Deploy from GitHub** y conecte su cuenta de GitHub.
-3. Seleccione el repositorio *django_data_monitor* y la rama *deploy*.
+3. Seleccione el repositorio *django_data_monitor* y la rama *produccion*.
 4. Configure el entorno de producción:
 
    a) En **Environment Variables**, agregue las variables (`DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME`) para crear el superusuario.
+
    b) En **Build** > **Custom Build Command**, utilice:
 
    .. code-block:: bash
@@ -134,15 +186,7 @@ Configuración en Railway
        gunicorn backend_analytics_server.wsgi
 
 5. En **Networking**, escoja la opción del dominio personalizado en el puerto 80.
-
-
-Servicio: MySQL Database
-------------------------
-
-1. En Railway, acceda a la opción **New**.
-2. Seleccione **Database** y luego **MySQL**.
-3. Configure la base de datos con un nombre y otras opciones según sea necesario.
-4. Obtenga la URL de conexión a la base de datos y guárdela para su uso en el proyecto Django.
+6. Revise los registros de despliegue para asegurarse de que no haya errores.
 
 Conclusiones
 ============

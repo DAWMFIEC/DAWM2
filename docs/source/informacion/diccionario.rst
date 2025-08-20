@@ -285,3 +285,9 @@ Diccionario de términos
 
     MySQL Workbench
         Es una herramienta de administración y diseño de bases de datos MySQL. Proporciona una interfaz gráfica para crear, modificar y administrar bases de datos, así como para ejecutar consultas SQL y visualizar datos. MySQL Workbench es útil para desarrolladores y administradores de bases de datos que trabajan con MySQL.
+
+    gunicorn
+        Es un servidor WSGI para aplicaciones Python que permite desplegar aplicaciones web en producción. Gunicorn es compatible con diversas aplicaciones web y se utiliza comúnmente en entornos de producción para manejar múltiples solicitudes concurrentes de manera eficiente.
+
+    whitenoise
+        Es una biblioteca para aplicaciones web en Python que permite servir archivos estáticos de manera eficiente. Whitenoise se integra fácilmente con Django y simplifica la gestión de archivos estáticos en entornos de producción, eliminando la necesidad de configurar un servidor web adicional.
