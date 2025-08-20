@@ -291,3 +291,6 @@ Diccionario de términos
 
     whitenoise
         Es una biblioteca para aplicaciones web en Python que permite servir archivos estáticos de manera eficiente. Whitenoise se integra fácilmente con Django y simplifica la gestión de archivos estáticos en entornos de producción, eliminando la necesidad de configurar un servidor web adicional.
+
+    middleware
+        Es un componente de software que se sitúa entre el servidor y la aplicación web, y se utiliza para procesar las solicitudes y respuestas HTTP. En Django, el middleware permite realizar tareas como la autenticación de usuarios, la gestión de sesiones y la compresión de respuestas, entre otras.

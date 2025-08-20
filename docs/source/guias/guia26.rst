@@ -99,11 +99,11 @@ Conexión a la base de datos
    a) **DEBUG**: Cambie a `False`.
    b) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
    c) **ALLOWED_HOSTS**: Utilice el dominio de Railway.
-   d) **MIDDLEWARE**: Agregue `WhiteNoiseMiddleware` para servir archivos estáticos.
+   d) **MIDDLEWARE**: Agregue el :term:`middleware` `WhiteNoiseMiddleware` para servir archivos estáticos.
    e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos, por ejemplo:
 
    .. code-block:: python
-       :emphasize-lines: 1,4,8,13,21
+       :emphasize-lines: 1,4,8,13,22
 
        DEBUG = False
        
@@ -116,9 +116,10 @@ Conexión a la base de datos
        
        MIDDLEWARE = [
           'django.middleware.security.SecurityMiddleware',
-          # El middleware WhiteNoise debe colocarse directamente después del Django SecurityMiddleware y antes de todo el resto del middleware
+          # Agregar WhiteNoise al middleware (debe ir después de SecurityMiddleware)
           'whitenoise.middleware.WhiteNoiseMiddleware', 
-          ...
+          'django.contrib.sessions.middleware.SessionMiddleware',
+           # ... resto de middlewares
        ]
 
        ...
@@ -203,7 +204,7 @@ Servicio: Web App
 
        gunicorn backend_analytics_server.wsgi
 
-5. Luego de desplegar el servicio, en **Networking**, escoja la opción del dominio personalizado en el puerto 80.
+5. Luego de desplegar el servicio, en **Networking**, escoja la opción del dominio personalizado en el puerto 8080.
 6. Revise los registros de despliegue para asegurarse de que no haya errores.
 
 Conclusiones
