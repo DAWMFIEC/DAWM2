@@ -173,7 +173,7 @@ Servicio: Web App
       
       No despliegue la aplicación hasta configurar correctamente las variables de entorno.
 
-4. En la pestaña **Environment Variables**:abbr:
+4. En la pestaña **Environment Variables**, configure:
 
    a) Agregue las 5 referencias a las variables `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLHOST` y `MYSQLPORT` con sus valores correspondientes al servicio de MySQL, por ejemplo:
 
@@ -181,7 +181,7 @@ Servicio: Web App
 
        MYSQLDATABASE     ${{MySQL.MYSQLDATABASE}}
 
-   b) Agregue las 3 variables `DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_USERNAME` con sus valores para crear el superusuario.
+   b) Agregue las 3 variables `DJANGO_SUPERUSER_USERNAME`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_EMAIL` con sus valores para crear el superusuario.
 
    .. code-block:: bash
 
