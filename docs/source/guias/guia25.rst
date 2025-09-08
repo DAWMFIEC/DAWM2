@@ -3,14 +3,14 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-=============================================================
-Guía 25: Django - Django Admin (Autorización)
-=============================================================
+=============================================
+Guía 23: Django - Server Side Rendering (SSR)
+=============================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Configurar el sistema de autenticación y autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
+    Explorar la integración del API REST con aplicaciones que utilizan renderizado del lado del servidor (SSR), evaluando su impacto en el rendimiento, la indexación SEO y la interacción inicial del usuario, con el fin de asegurar una experiencia web optimizada desde el servidor.
 
 Actividades previas
 =====================
@@ -18,9 +18,14 @@ Actividades previas
 Ambiente de desarrollo
 ----------------------
 
-1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
-2. Cree y utilice la(s) rama(s) de desarrollo.
-3. Cree y habilite el ambiente virtual de desarrollo, con:
+1. Cree un repositorio en GitHub con el nombre *django_data_monitor*.
+
+   a) Agregue un archivo README.md con el título de su backend y una breve descripción del objetivo de su proyecto.
+   b) Agregue un archivo *.gitignore* con la plantilla de *Python*.
+   
+2. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
+3. Cree y utilice la(s) rama(s) de desarrollo.
+4. Cree y habilite el ambiente virtual de desarrollo, con:
 
    .. code-block:: bash
 
@@ -29,213 +34,261 @@ Ambiente de desarrollo
        env\Scripts\activate # Windows
        source env/bin/activate # Linux/MacOS
 
-4. Instale las librerías de requirements.txt, con:
-
-   .. code-block:: bash
-
-       pip install -r requirements.txt
-
 Actividades en clases
 =====================
 
-Paquete: PyMySQL
------------------
+.. sidebar:: Revisar
 
-1. Instale :term:`PyMySQL` en su ambiente de desarrollo:
+   Utilice la `Guía 19: Django - Introducción <https://dawm2.readthedocs.io/es/latest/guias/guia19.html>`_ como referencia para la creación del proyecto y la aplicación, creación de vistas con plantillas y configuración de los archivos estáticos.
 
-   .. code-block:: bash
+Backend Analytics Server y Dashboard
+------------------------------------
 
-       pip install PyMySQL
+1. En la raíz del repositorio cree la carpeta `static` y la jerarquía `templates/dashboard`
+2. Instale `Django` en su ambiente de desarrollo.
+3. Cree un proyecto Django llamado *backend_analytics_server* en la ubicación actual, sin crear una aplicación.
+4. Cree una la aplicación *dashboard* y regístrela a la ruta raíz (\"\").
+5. Descargue, descomprima y ubique los archivos en las carpetas correspondientes:
 
-2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *PyMySQL* en Python y cómo se utiliza para conectarse a bases de datos MySQL en Django.
+   a) El archivo :download:`base.zip <./files/dashboard/base.zip>`. Ubique el archivo ``base.html`` en la carpeta `templates/dashboard/`.
+   b) El archivo :download:`static.zip <./files/dashboard/static.zip>`. Ubique las carpetas dentro de `static/`.
 
-Conexión a la base de datos
----------------------------
-
-1. Edite el archivo ``backend_analytics_server/settings.py`` de su proyecto Django, con:
-
-   a) Importe el paquete PyMySQL:
-
-   .. code-block:: python
-       :emphasize-lines: 4-6
-
-       ...
-       from pathlib import Path
-       import os
-       import pymysql
-
-       pymysql.install_as_MySQLdb()
-       
-       ...
-
-   b) Reemplace la configuración por defecto por la conexión a la base de datos MySQL utilizando PyMySQL:
-
-   .. code-block:: python
-       :emphasize-lines: 5-10
-
-       ...
-
-       DATABASES = {
-           'default': {
-               'ENGINE': 'django.db.backends.mysql',
-               'NAME': os.environ.get('MYSQLDATABASE'),
-               'USER': os.environ.get('MYSQLUSER'),
-               'PASSWORD': os.environ.get('MYSQLPASSWORD'),
-               'HOST': os.environ.get('MYSQLHOST'),
-               'PORT': os.environ.get('MYSQLPORT'),
-            }
-       }
-
-       ...
-
-2. En la terminal establezca las variables de entorno para la conexión a la base de datos MySQL, con:
-
-   .. code-block:: bash
-
-       # Linux/MacOS
-       export MYSQLDATABASE=security
-       export MYSQLUSER=root
-       export MYSQLPASSWORD=root
-       export MYSQLHOST=localhost
-       export MYSQLPORT=3306
-
-       # Verifique las variables de entorno
-       echo $MYSQLDATABASE
-
-       # Windows
-       set MYSQLDATABASE=security
-       set MYSQLUSER=root
-       set MYSQLPASSWORD=root
-       set MYSQLHOST=localhost
-       set MYSQLPORT=3306
-
-       # Verifique las variables de entorno
-       echo %MYSQLDATABASE%
-
-   .. note::
-      
-      Asegúrese de reemplazar los valores con los datos correctos de su base de datos MySQL.
-
-3. Con :term:`MySQL Workbench` o su cliente de MySQL, cree la base de datos **security** si no existe
-4. Utilice su cliente de IAG generativa para explicar cómo se configura la conexión a una base de datos MySQL en Django utilizando PyMySQL y las variables de entorno.
-
-Migraciones de base de datos
-----------------------------
-
-1. Genere las migraciones de la base de datos, con:
-
-   .. code-block:: bash
-
-       python manage.py makemigrations
-       python manage.py migrate
-
-2. Cree un **superusuario** para acceder al panel de administración de Django, con:
-
-   .. code-block:: bash
-
-       python manage.py createsuperuser
-
-3. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo
-4. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+6. Renderice la plantilla ``base.html`` en la vista principal de la aplicación. Configure los archivos estáticos.
 
    .. note:: 
-    
-       Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
 
-Autorización
-------------
+      Reemplace las rutas de los archivos estáticos en la plantilla por las rutas relativas a la carpeta ``static`` del proyecto.
 
-Restricción de permiso: decorador `@permission_required`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+7. Inicie el servidor de desarrollo y revise los cambios en el navegador en la URL en la ruta raíz la aplicación.
+8. Utilice su cliente de IAG generativa para explicar :term:`Server Side Rendering (SSR)` en Django.
+
+Paquete: Requests
+-----------------
+
+1. Instale :term:`requests` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+
+       pip install requests
+
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *requests* en Python y cómo se utiliza para realizar solicitudes HTTP en Django.
+
+Herencia de plantillas
+----------------------
+
+1. En el archivo ``templates/dashboard/base.html``, encierre la sección ``Block content`` entre las etiquetas **{% block content %}** y **{% endblock %}**.
+
+   .. code-block:: html      
+       :emphasize-lines: 3, 15
+      
+       ...
+
+       {% block content %}
+
+         <!-- START - Block content -->
+
+            <div class="flex items-center justify-center h-screen bg-gray-100 w-full">
+               <div class="p-6 bg-white shadow-md rounded">
+                  Block content
+               </div>
+            </div>
+            
+         <!-- END - Block content -->
+
+       {% endblock %}
+
+       ...
+
+2. Cree la plantilla `index.html` en la carpeta `templates/dashboard/`, con: 
+
+   a) Extienda de la plantilla `base.html` con la etiqueta **{% extends %}**.
+   b) Defina el bloque `content` con la etiqueta **{% block content %}** y **{% endblock %}**, con un título de bienvenida al Dashboard.
+
+   .. code-block:: html
+       :emphasize-lines: 1-15
+
+       {% extends "dashboard/base.html" %}
+
+       {% block content %}
+
+         <!-- START - Block content -->
+         
+            <div class="flex flex-col flex-1 justify-center w-full">
+
+               <h1 class="text-center text-6xl font-bold">Landing Page' Dashboard</h1>
+
+            </div>
+
+         <!-- END - Block content -->
+       
+       {% endblock %}
+
+3. Renderice la plantilla ``index.html`` en la vista principal de la aplicación *dashboard*.
+
+   .. code-block:: python
+       :emphasize-lines: 7
+
+       from django.shortcuts import render
+
+       # Create your views here.
+       from django.http import HttpResponse
+
+       def index(request):
+           return render(request, 'dashboard/index.html')
+
+4. Revise los cambios en el navegador con la URL raíz.
+5. Utilice su cliente de IAG generativa para explicar la :term:`herencia de plantillas` en Django.
+
+Fragmentos de plantilla
+-----------------------
+
+1. Descargue los siguientes archivos y ubíquelos en las carpetas correspondientes:
+
+   a) El archivo :download:`header.html <./files/partials/header.html>` en la carpeta `templates/dashboard/partials/` y 
+   b) El archivo :download:`data.html <./files/partials/data.html>` en la carpeta `templates/dashboard/content/` .
+
+2. En la plantilla `templates/dashboard/index.html`, reemplace el título por la referencia a los fragmentos de plantilla `header.html` y `data.html`.
+
+   .. code-block:: html
+       :emphasize-lines: 9-10
+
+       {% extends "dashboard/base.html" %}
+
+       {% block content %}
+       
+         <!-- START - Block content -->
+
+            <div class="flex flex-col flex-1 justify-center w-full">
+
+               {% include "./partials/header.html" %}
+               {% include "./content/data.html" %}
+
+            </div>
+
+         <!-- END - Block content -->
+       
+       {% endblock %}
+
+3. Revise los cambios en el navegador con la URL raíz.
+4. Utilice su cliente de IAG generativa para explicar los :term:`fragmentos de plantilla` en Django.
+
+Renderización del lado del servidor (SSR)
+------------------------------------------
+
+Datos del lado del servidor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``dashboard/views.py``, con:
 
+   a) Cree un diccionario **data** con el título del Dashboard.
+   b) Pase el diccionario como contexto al renderizar la plantilla `index.html`.
+
    .. code-block:: python
-       :emphasize-lines: 2, 5
-    
+       :emphasize-lines: 6-8, 10
+
        ...
-       from django.contrib.auth.decorators import login_required, permission_required
-         
-       @login_required
-       @permission_required('dashboard.index_viewer', raise_exception=True)
+       from django.http import HttpResponse
+
        def index(request):
-            ...
 
-2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+           data = {
+               'title': "Landing Page' Dashboard",
+           }
 
-   .. note:: 
+           return render(request, 'dashboard/index.html', data)
 
-      Compruebe que el acceso a la vista principal del dashboard requiere autorización para los usuarios **usuario01** y **usuario02**; mientras, el superusuario tiene acceso sin restricciones.
+2. En el fragmento `templates/dashboard/content/data.html`, reemplace el texto **Título Secundario** por la variable **{{ title }}**.
 
-3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
+   .. code-block:: html
+       :emphasize-lines: 5
 
-Modelo con permisos
-^^^^^^^^^^^^^^^^^^^
+       ...
+       <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
 
-1. Edite el archivo ``dashboard/models.py``, con la definición del modelo **DashboardModel** con permisos personalizados:
+         <!-- START - título secundario -->
+         {{ title }}
+         <!-- END - título secundario -->
+
+       </h2>
+       ...
+
+3. Revise los cambios en el navegador con la URL raíz.
+4. Utilice su cliente de IAG generativa para explicar la renderización de datos del lado del servidor en Django.
+
+Respuesta de APIs externas
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Revise la estructura de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ y su propósito como un servicio de prueba para simular respuestas de APIs externas.
+2. Modifique el archivo ``backend_analytics_server/settings.py``, con: 
+
+   a) Agregue la constante **API_URL** con la URL de la API `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_.
 
    .. code-block:: python
-       :emphasize-lines: 3-8
-    
+       :emphasize-lines: 2
+
        ...
-       # Create your models here.
-       class DashboardModel(models.Model):
+       API_URL = 'https://jsonplaceholder.typicode.com/posts'
+       ...
 
-         class Meta:
-            permissions = [
-                  ("index_viewer", "Can show to index view (function-based)"),
-            ]
+3. Edite el archivo ``dashboard/views.py``, con:
 
-2. Genere las migraciones de la base de datos, con:
+   a) Importe el paquete *requests* y el archivo *from django.conf import settings*.
+   b) Realice una solicitud GET a la API de `JSONPlaceholder <https://jsonplaceholder.typicode.com/posts>`_ para obtener una lista de publicaciones.
+   c) Agregue la entrada **total_responses** al diccionario **data**.
 
-   .. code-block:: bash
-    
-       python manage.py makemigrations
-       python manage.py migrate
+   .. code-block:: python
+       :emphasize-lines: 4-5, 9-13, 17
 
-3. Levante el servidor de desarrollo, con:
+       ...
+       from django.http import HttpResponse
+       
+       import requests
+       from django.conf import settings
 
-   .. code-block:: bash
+       def index(request):
 
-       python manage.py runserver
+           response = requests.get(settings.API_URL)  # URL de la API
+           posts = response.json()  # Convertir la respuesta a JSON
+           
+           # Número total de respuestas
+           total_responses = len(posts)
 
-4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para:
+           data = {
+               'title': "Landing Page' Dashboard",
+               'total_responses': total_responses,
+           }
 
-   a) Modificar solo el usuario **usuario01** 
-   b) En **User permissions**, agregue el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
-   c) Guarde los cambios.
+           return render(request, 'dashboard/index.html', data)
 
-5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
+4. En el fragmento `templates/dashboard/content/data.html`, reemplace:
+ 
+   a) El texto **Indicador 1** por el texto **Número total de respuestas**, y
+   b) El texto **Valor 1** por renderización de la variable **{{ total_responses }}**.
+
+
+   .. code-block:: html
+       :emphasize-lines: 4, 8
+
+       ...
+       <div>
+         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+            Número total de respuestas
+         </p>
+         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+            <!-- START - valor del indicador 1 -->
+            {{ total_responses }}
+            <!-- END - valor del indicador 1 -->
+         </p>
+       </div>
+       ...
+
+5. Revise los cambios en el navegador con la URL raíz.
 
    .. note:: 
-    
-       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
 
-6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
+      Cambie la variable **API_URL** en el archivo ``settings.py`` con la URL de la **Landing API**.
 
-403 Forbidden
--------------
-
-1. Descargue y descomprima el archivo :download:`403.zip <./files/exceptions/403.zip>`. 
-2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
-3. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note:: 
-    
-       Compruebe que el usuario **usuario02** recibe un error 403 Forbidden al intentar acceder a la vista principal del dashboard, y que se muestra la plantilla personalizada.
-
+6. Utilice su cliente de IAG generativa para explicar cómo se manejan las respuestas de APIs externas en Django y cómo se integran en la renderización del lado del servidor.
 
 Gestión de dependencias
 -----------------------
@@ -256,32 +309,6 @@ Versionamiento
 --------------
 
 1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
-
-   .. info-card:: 
-
-      En caso de tener problemas de autenticación al realizar el versionamiento remoto:
-       
-      - Obtenga un `Token de acceso personal (clásicos) <https://github.com/settings/tokens>`_ de tipo **Classic**, con el alcance (scope) **repo**.
-      - Copie el token, dado que **no podrá volver a verlo**.
-      - Borre de memoria cualquier usuario/token que se estuviera guardando temporalmente
-
-        .. code-block:: bash
-
-            git credential-cache exit
-
-      - Elimine la configuración del credential helper definida a nivel global.
-
-        .. code-block:: bash
-
-            git config --global --unset credential.helper
-
-      - Reemplace los valores ``[REPO-OWNER]``, ``[REPO-NAME]`` y ``[TOKEN]`` para modificar el origin.
-
-        .. code-block:: bash
-            
-            git remote set-url origin https://[REPO-OWNER]:[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME].git
-
-
 2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
 
 Conclusiones
@@ -289,11 +316,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué limitaciones identificaste en las soluciones de autenticación sugeridas por la IA, especialmente en relación con la seguridad, la escalabilidad o las buenas prácticas recomendadas por la documentación oficial?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender el propósito de la herencia de plantillas y los fragmentos (include) en la construcción de interfaces reutilizables dentro de un sistema de renderizado del lado del servidor como Django?
 
-    * ¿Cómo probaste y validaste los mecanismos de autorización implementados, y qué cambios realizaste sobre las configuraciones automáticas para cumplir con los requisitos específicos del proyecto?
+    * ¿Qué adaptaciones realizaste al código generado por IA para aplicar correctamente la herencia de plantillas y la inclusión de fragmentos sin comprometer la estructura y funcionalidad del backend?
 
-    * ¿Qué principios éticos aplicaste al manejar credenciales de usuario y restricciones de acceso en tu backend, especialmente cuando el código base fue propuesto por una IA generativa?
+    * ¿Cómo garantizas que el uso de inteligencia artificial no sustituya tu comprensión del flujo completo de renderizado del backend, sino que complemente tu proceso de aprendizaje y diseño como desarrollador en formación?
 
 Actividades autónomas
 =====================
@@ -305,4 +332,4 @@ En redes:
 
 .. raw:: html
 
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Django is a high-level Python web development framework that lets you build secure, scalable apps.<br><br>And this crash course teaches you the basics so you can start using it.<br><br>You&#39;ll learn about django-admin &amp; <a href="https://t.co/T2lmhj4NZm">https://t.co/T2lmhj4NZm</a>, the Model-View-Template pattern, how forms work,… <a href="https://t.co/G3ZRyfVpb5">pic.twitter.com/G3ZRyfVpb5</a></p>&mdash; freeCodeCamp.org (@freeCodeCamp) <a href="https://twitter.com/freeCodeCamp/status/1919663989262352561?ref_src=twsrc%5Etfw">May 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Rendering on the Web – The SEO Version: Pros and Cons from Server Side to Full Client Side Rendering by <a href="https://twitter.com/jbobbink?ref_src=twsrc%5Etfw">@jbobbink</a> <a href="https://t.co/IioPUtth8Y">https://t.co/IioPUtth8Y</a> <a href="https://t.co/VzZrRGVOOo">pic.twitter.com/VzZrRGVOOo</a></p>&mdash; Aleyda Solis 🕊️ (@aleyda) <a href="https://twitter.com/aleyda/status/1094593901493714945?ref_src=twsrc%5Etfw">February 10, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
