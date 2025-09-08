@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==========================================
-Guía 17: 
-==========================================
+===================================================
+Guía 17: React y Ionic - Introducción y Componentes
+===================================================
 
 .. topic:: Objetivo específico
     :class: objetivo

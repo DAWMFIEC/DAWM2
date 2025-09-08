@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-==========================================
-Guía 18: 
-==========================================
+=========================================================
+Guía 20: React y Ionic - Generación del apk para Android 
+=========================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
