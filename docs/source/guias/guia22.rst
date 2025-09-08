@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ==============================================
-Guía 20: Django -  Django Rest Framework (DRF)
+Guía 22: Django -  Django Rest Framework (DRF)
 ==============================================
 
 .. topic:: Objetivo específico

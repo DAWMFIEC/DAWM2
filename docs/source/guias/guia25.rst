@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =============================================
-Guía 23: Django - Server Side Rendering (SSR)
+Guía 25: Django - Server Side Rendering (SSR)
 =============================================
 
 .. topic:: Objetivo específico

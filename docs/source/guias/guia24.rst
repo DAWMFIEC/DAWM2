@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ============================================
-Guía 22: Django - Despliegue Python Anywhere
+Guía 24: Django - Despliegue Python Anywhere
 ============================================
 
 .. topic:: Objetivo específico

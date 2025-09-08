@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ======================================================
-Guía 21: Django - DRF + Firebase Admin Python SDK
+Guía 23: Django - DRF + Firebase Admin Python SDK
 ======================================================
 
 .. topic:: Objetivo específico

@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ==============================
-Guía 19: Django - Introducción
+Guía 21: Django - Introducción
 ==============================
 
 .. topic:: Objetivo específico

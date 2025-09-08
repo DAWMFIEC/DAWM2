@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =============================================================
-Guía 25: Django - Django Admin (Autorización)
+Guía 27: Django - Django Admin (Autorización)
 =============================================================
 
 .. topic:: Objetivo específico
