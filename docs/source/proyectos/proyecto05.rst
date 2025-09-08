@@ -10,7 +10,7 @@ Proyecto 05: Aplicación Híbrida - React y Ionic
 .. topic:: Objetivo general
     :class: objetivo
 
-    Desarrollar una aplicación móvil utilizando React Native.
+    Construir y empaquetar la aplicación híbrida desarrollada con Ionic y React para diferentes plataformas mediante herramientas de línea de comandos y emuladores, y desplegarla en entornos web o móviles, con el fin de validar su funcionamiento en condiciones reales de uso.
 
 Introducción
 ======================
