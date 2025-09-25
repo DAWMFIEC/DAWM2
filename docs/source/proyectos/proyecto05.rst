@@ -27,11 +27,3 @@ Introducción
 
 .. figure:: ./respuestas/proyecto05-respuesta02.png
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Guías
-  
-  ../guias/guia17.rst
-  ../guias/guia18.rst
-  ../guias/guia19.rst
-  ../guias/guia20.rst
