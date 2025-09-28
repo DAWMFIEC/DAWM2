@@ -12,21 +12,21 @@ Guía 01: Git + GitHub
 
     Explicar el uso de etiquetas de marcado mediante la estructuración de un repositorio personal en GitHub para la creación una identidad digital que facilite la presentación de sus habilidades y proyectos de manera clara y accesible.
 
-Actividades previas
+Actividades en clases
 =====================
+
+Repositorio Personal
+--------------------
 
 1. Ingrese a su cuenta de :term:`GitHub`, en `https://github.com <https://github.com>`_.
 2. Verifique si tiene, o no, un repositorio personal: 
     
    a) En la esquina superior derecha, haga clic en su foto de perfil y seleccione **Your repositories** (Sus repositorios). 
-   b) Revise la lista de repositorios. Si encuentra uno con su nombre de usuario o que represente su portafolio personal, ya tiene un repositorio personal.
+   b) Revise la lista de repositorios. Si encuentra un repositorio con el mismo nombre que su usuario de GitHub, ya tiene un repositorio personal.
 
    .. hint::
     
         Si no tiene un repositorio personal, siga las instrucciones de :term:`Bard` con la guía para :download:`crear repositorio personal <./pdfs/guia01-repositoriopersonal.pdf>` con Github.
-
-Actividades en clases
-=====================
 
 Contenido del repositorio
 -------------------------
@@ -38,10 +38,19 @@ Contenido del repositorio
 
         Omite datos sensibles, como: foto, números de contacto, correo personal, dirección, etc.
 
+3. Analice la documentación para la `administración de los repositorios <https://docs.github.com/es/repositories>`_ en GitHub.
+
 GitHub Pages
 ------------
 
 .. include:: ../tutoriales/github-pages.rst
+
+Versionamiento y Código QR
+--------------------------
+
+1. Revise el `tutorial de Git <https://www.edureka.co/blog/git-tutorial/>`_ con las instrucciones más usadas para el versionamiento con :term:`GIT`.
+2. Genere el código :term:`QR` en `QR Code Generator <https://br.qr-code-generator.com/>`_ a partir de la :term:`URL` de su repositorio personal.
+
 
 Conclusiones
 ============
@@ -57,20 +66,6 @@ Conclusiones
 
 Actividades autónomas
 =====================
-
-Markdown y QR
-------------------------------
-
-* Use el `tutorial de Markdown <https://www.markdownguide.org/basic-syntax/>`_ con las instrucciones básica de Markdown para seguir modificando su archvio *README.md*.
-* Genere el código :term:`QR` en `QR Code Generator <https://br.qr-code-generator.com/>`_ a partir de la :term:`URL` de su repositorio personal.
-
-
-GIT y GitHub
-------------------------------
-
-* Revise el `tutorial de Git <https://www.edureka.co/blog/git-tutorial/>`_ con las instrucciones más usadas para el versionamiento con :term:`GIT`.
-* Analice la documentación para la `administración de los repositorios <https://docs.github.com/es/repositories>`_ en GitHub.
-
 
 Recursos extras
 ------------------------------
