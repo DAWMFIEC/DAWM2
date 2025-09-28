@@ -19,7 +19,8 @@ Ambiente de desarrollo
 ----------------------
 
 1. Acceda a su proyecto *curriculum* en Codespaces o en su máquina local.
-2. Haga clic en el ícono de `Live Preview` en la barra de estado de VSCode para iniciar el servidor local.
+2. Cree y utilice la(s) rama(s) de desarrollo.
+3. Haga clic en el ícono de `Live Preview` en la barra de estado de VSCode para iniciar el servidor local.
 
 Actividades en clases
 =====================
