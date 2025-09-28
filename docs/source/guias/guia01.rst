@@ -32,7 +32,7 @@ Contenido del repositorio
 -------------------------
 
 1. Use el `Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_ con las instrucciones más usadas de :term:`Markdown` para modificar el archivo *README.md* de su proyecto.
-2. Utilice :term:`ChatGPT` para el diseño de la estructura y del contenido de tu repositorio personal, p.e.: títulos de cada sección, tus proyectos, los enlaces a cada proyecto, las tecnologías que has utilizado, el estado de tus proyectos, correo institucional, capturas de pantalla de tus proyectos, etc. 
+2. Utilice :term:`ChatGPT` para obtener sugerencias del diseño, de la estructura y del contenido de tu repositorio personal, p.e.: títulos de cada sección, tus proyectos, los enlaces a cada proyecto, las tecnologías que has utilizado, el estado de tus proyectos, correo institucional, capturas de pantalla de tus proyectos, etc. 
    
    .. attention::
 
