@@ -31,14 +31,14 @@ Repositorio Personal
 Contenido del repositorio
 -------------------------
 
-1. Use el `Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_ con las instrucciones más usadas de :term:`Markdown` para modificar el archivo *README.md* de su proyecto.
+1. Use el `Markdown Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_ con las instrucciones más usadas de :term:`Markdown`, para modificar el archivo *README.md* de su proyecto.
 2. Utilice :term:`ChatGPT` para obtener sugerencias del diseño, de la estructura y del contenido de tu repositorio personal, p.e.: títulos de cada sección, tus proyectos, los enlaces a cada proyecto, las tecnologías que has utilizado, el estado de tus proyectos, correo institucional, capturas de pantalla de tus proyectos, etc. 
    
    .. attention::
 
         Omite datos sensibles, como: foto, números de contacto, correo personal, dirección, etc.
 
-3. Analice la documentación para la `administración de los repositorios <https://docs.github.com/es/repositories>`_ en GitHub.
+3. Revise la `Documentación de repositorios en GitHub <https://docs.github.com/es/repositories>`_ con las actividades más comunes de los repositorios de proyectos.
 
 GitHub Pages
 ------------
@@ -48,9 +48,8 @@ GitHub Pages
 Versionamiento y Código QR
 --------------------------
 
-1. Revise el `tutorial de Git <https://www.edureka.co/blog/git-tutorial/>`_ con las instrucciones más usadas para el versionamiento con :term:`GIT`.
+1. Revise el `Git Tutorial – Commands And Operations In Git <https://www.edureka.co/blog/git-tutorial/>`_ con las instrucciones más usadas para el versionamiento con :term:`GIT`.
 2. Genere el código :term:`QR` en `QR Code Generator <https://br.qr-code-generator.com/>`_ a partir de la :term:`URL` de su repositorio personal.
-
 
 Conclusiones
 ============
