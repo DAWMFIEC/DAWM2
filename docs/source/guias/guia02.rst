@@ -25,25 +25,14 @@ Ambiente de desarrollo
 ----------------------
 
 1. Cree un repositorio en GitHub con el nombre *curriculum*.
-2. Utilice :term:`VSCode` 
+
+   a) Agregue un archivo README.md con el título de su curriculum y una breve descripción del objetivo de su proyecto.
+   b) Seleccione la opción *No .gitignore*.
    
-   a) Desde el navegador, abra su proyecto con :term:`Codespaces`, o 
-   b) Clone localmente tu repositorio *curriculum*. Verifique que el correo electrónico de su cuenta de GitHub esté configurado con su proyecto, de acuerdo con la `Documentación de GitHub <https://docs.github.com/es/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-email-address-for-a-single-repository>`_. 
-
-      (i) Para ello, ejecute el siguiente comando en la terminal de VSCode:
-      
-          .. code-block:: bash
-
-             git config --global user.email 
-
-      (ii) Si el correo electrónico no coincide con el de su cuenta de GitHub, ejecute el siguiente comando en la terminal de VSCode:
-
-           .. code-block:: bash
-
-              git config --local user.email "su correo electrónico"
-         
-3. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
-4. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
+2. Acceda a su proyecto *curriculum* en :term:`Codespaces` o en su máquina local.
+3. Cree y utilice la(s) rama(s) de desarrollo.
+4. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
+5. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
 
 
 Actividades en clases
@@ -75,12 +64,17 @@ Estructura general y semántica
 
 2. Redacte el contenido de tu CV con los datos de contacto, estudios, experiencia, habilidades. Valida y mejora la redacción con ayuda de un cliente de :term:`IAG`.
 
+Versionamiento
+--------------
+
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *curriculum*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+
 Despliegue con GitHub Pages
 ---------------------------
 
-1. Versione local y remotamente el repositorio *curriculum*.
-2. Despliegue el sitio del repositorio *curriculum* de acuerdo la guía para :download:`publicar la rama main con GitHub Pages <./pdfs/guia02-maingithubpages.pdf>`.
-3. Compruebe el resultado en el navegador.
+1. Despliegue el sitio del repositorio *curriculum* de acuerdo la guía para :download:`publicar la rama main con GitHub Pages <./pdfs/guia02-maingithubpages.pdf>`.
+2. Compruebe el resultado en el navegador.
 
 Conclusiones
 ============

@@ -252,11 +252,12 @@ Efectos CSS
    
    Pueden aparecer en :term:`código legado` o para garantizar compatibilidad con navegadores muy antiguos.
 
-Despliegue con GitHub Pages
----------------------------
+Versionamiento
+--------------
 
-1. Versione local y remotamente el repositorio *curriculum*.
-2. Compruebe el resultado en el navegador.
+1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *curriculum*.
+2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+3. Compruebe el resultado en el navegador.
 
 Conclusiones
 ============
