@@ -39,7 +39,7 @@ Contenido del repositorio
 
         Omite datos sensibles, como: foto, números de contacto, correo personal, dirección, etc.
 
-2. :material-round:`note_alt;1.5em;sd-text-success` Utilice la documentación del `Markdown Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_, o un cliente de IAG, para generar las etiquetas de :term:`Markdown` necesarias para modificar el archivo *README.md* con la información de su repositorio personal.
+2. :material-round:`note_alt;1.5em;sd-text-success` Utilice la documentación del `Markdown Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_, o un cliente de IAG, para generar las etiquetas de :term:`Markdown` que modifiquen el archivo *README.md* con la información de su repositorio personal.
 
 GitHub Pages
 ------------
