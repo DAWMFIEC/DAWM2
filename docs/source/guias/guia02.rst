@@ -29,7 +29,11 @@ Ambiente de desarrollo
    a) Agregue un archivo README.md con el título de su curriculum y una breve descripción del objetivo de su proyecto.
    b) Seleccione la opción *No .gitignore*.
    
-2. Acceda a su proyecto *curriculum* en :term:`Codespaces` o en su máquina local.
+2. Acceda a su proyecto *curriculum*:
+
+   a) Haga clic en el botón **Code**, escoja la pestaña :term:`Codespaces` y haga clic en el botón `Create codespace on main`. 
+   b) O, clone su proyecto en su máquina local.
+
 3. Cree y utilice la(s) rama(s) de desarrollo.
 4. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
 5. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
@@ -45,24 +49,7 @@ Archivos y estructura
 2. Habilite la opción `Show Preview` 
    
    a) En `View` > `Command Palette`, busque y seleccione `Live Preview: Show Preview (Internal Browser)`, o
-   
    b) Haga clic en el icono de `Show Preview` junto al nombre del documento.
-
-Estructura general y semántica
-------------------------------
-
-1. Utilice :term:`Copilot` de VSCode para generar las :term:`etiquetas` HTML en el documento *index.html*:
-
-   a) Agregue la :term:`estructura general` que incluya la etiqueta <title> y las etiquetas <meta> (para keywords, description y author). Valide su respuesta con la guía para :download:`crear una página HTML con la estructura general <./pdfs/guia02-estructurageneral.pdf>`.
-
-      .. admonition:: Prompt sugerido
-
-         Genera una estructura HTML básica con las etiquetas <head>, <title>, <meta> y <body>. 
-         La etiqueta <head> debe contener la etiqueta <title> con el nombre de mi CV, y las etiquetas <meta> para keywords, description y author.
-
-   b) Genere la :term:`estructura semántica` que contenga 1 etiqueta <header>, 1 etiqueta <main>, 5 etiquetas <section>, 1 etiqueta <nav> y 1 etiqueta <footer>. El documento HTML debe contener un título (<h1>) con su nombre. Cada sección debe contener un subtítulo (<h2>). Los enlaces de la etiqueta <nav> deben estar relacionados con las secciones. Valide su respuesta con la guía para :download:`crear una página HTML con la estructura semántica <./pdfs/guia02-estructurasemántica.pdf>`.
-
-2. Redacte el contenido de tu CV con los datos de contacto, estudios, experiencia, habilidades. Valida y mejora la redacción con ayuda de un cliente de :term:`IAG`.
 
 Versionamiento
 --------------
