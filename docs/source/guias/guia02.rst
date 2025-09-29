@@ -78,14 +78,6 @@ Conclusiones
 Actividades autónomas
 =====================
 
-Estándar HTML	
-------------------------------
-
-* Revisa el :term:`estándar` del `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
-* Valida el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_.
-* Valida el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
-
-
 Recursos extras
 ------------------------------
 
