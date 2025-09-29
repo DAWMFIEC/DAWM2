@@ -9,3 +9,5 @@
 4. Una vez que hayas publicado tu sitio, puedes verlo en la siguiente URL: 
    
    .. centered:: :literal:`https://[Tu nombre de usuario].github.io/[Tu nombre de usuario]/`.
+
+5. :octicon:`report;1em;sd-text-info` Revise el `Git Tutorial – Commands And Operations In Git <https://www.edureka.co/blog/git-tutorial/>`_ con las instrucciones más usadas para el versionamiento con :term:`GIT`.
