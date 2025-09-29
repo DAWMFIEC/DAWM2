@@ -37,6 +37,8 @@ Contenido del repositorio
 
         Omite datos sensibles, como: foto, números de contacto, correo personal, dirección, etc.
 
+2. :bdg-info:`Para aprender` Utilice la documentación del `Markdown Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_ o un cliente de IAG con las instrucciones más usadas de :term:`Markdown`, para modificar el archivo *README.md* de su proyecto.
+
 GitHub Pages
 ------------
 
