@@ -4,9 +4,9 @@
 
    * Seleccione la opcion **Deploy from a branch**.
    * Escoja la rama `main` como fuente del despliegue.
-   
-4. Haz clic en **Guardar cambios**.
-5. Una vez que hayas publicado tu sitio, puedes verlo en la siguiente URL: 
+   * Haz clic en **Save**.
+
+4. Una vez que hayas publicado tu sitio, puedes verlo en la siguiente URL: 
    
    .. centered:: :literal:`https://[Tu nombre de usuario].github.io/[Tu nombre de usuario]/`.
 
