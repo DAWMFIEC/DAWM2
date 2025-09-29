@@ -28,7 +28,7 @@ Repositorio Personal
     
         Si no tiene un repositorio personal, siga las instrucciones de :term:`Bard` con la guía para :download:`crear repositorio personal <./pdfs/guia01-repositoriopersonal.pdf>` con Github.
 
-3. :octicon:`report;1em;sd-text-info` Revise la `Documentación de repositorios en GitHub <https://docs.github.com/es/repositories>`_ para con las actividades más comunes de los repositorios de proyectos en GitHub.
+3. :octicon:`book;1em;sd-text-success` Revise la `Documentación de repositorios en GitHub <https://docs.github.com/es/repositories>`_ para con las actividades más comunes de los repositorios de proyectos en GitHub.
 
 Contenido del repositorio
 -------------------------
@@ -39,7 +39,7 @@ Contenido del repositorio
 
         Omite datos sensibles, como: foto, números de contacto, correo personal, dirección, etc.
 
-2. :octicon:`report;1em;sd-text-info` Utilice la documentación del `Markdown Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_, o un cliente de IAG, para modificar el archivo *README.md* con las etiquetas de marcado en :term:`Markdown`.
+2. :octicon:`book;1em;sd-text-success` Utilice la documentación del `Markdown Cheat Sheet <https://www.markdownguide.org/cheat-sheet/>`_, o un cliente de IAG, para modificar el archivo *README.md* con las etiquetas de marcado en :term:`Markdown`.
 
 GitHub Pages
 ------------
