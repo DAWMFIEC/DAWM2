@@ -9,10 +9,10 @@ Diccionario de términos
     ChatGPT
     Bard
     Gemini
-        Generador de texto a partir de IA.
+        Herramientas de inteligencia artificial generativa que utilizan modelos de lenguaje para interactuar con los usuarios y generar texto basado en las entradas proporcionadas.
 
     QR
-        Código QR (Quick Response). Código de respuesta rápida.
+        Código QR (Quick Response) es un tipo de código de barras bidimensional que puede almacenar información, como texto, URLs o datos de contacto, y se puede escanear utilizando la cámara de un dispositivo móvil.
 
     URL
         Localizador uniforme de recursos. Es la dirección de un recurso en la web.
