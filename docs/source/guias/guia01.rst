@@ -10,7 +10,7 @@ Guía 01: Git + GitHub
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Explicar el uso de etiquetas de marcado mediante la estructuración de un repositorio personal en GitHub para la creación una identidad digital que facilite la presentación de sus habilidades y proyectos de manera clara y accesible.
+    Desarrollar un repositorio personal en GitHub, que refleje la identidad digital del desarrollador, facilitando la presentación de sus habilidades y proyectos de manera clara y accesible.
 
 Actividades en clases
 =====================

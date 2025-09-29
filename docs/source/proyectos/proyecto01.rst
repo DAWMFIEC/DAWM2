@@ -10,7 +10,7 @@ Proyecto 01: Repositorio del desarrollador
 .. topic:: Objetivo general
     :class: objetivo
 
-    Desarrollar un medio para la generación de una identidad digital que facilite la presentación de las habilidades tecnológicas de una manera clara y accesible.
+    Desarrollar un medio de identidad digital que facilite la presentación de las habilidades tecnológicas de una manera clara y accesible.
 
 Introducción
 =====================
