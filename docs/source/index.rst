@@ -9,7 +9,7 @@ móviles cumpliendo con los estándares actuales y las buenas prácticas de prog
   :caption: Proyectos
   :glob:
 
-  proyectos/*
+  proyectos/proyecto01.rst
 
 .. toctree::
   :maxdepth: 1
