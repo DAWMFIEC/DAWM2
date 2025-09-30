@@ -47,13 +47,13 @@ Actividades en clases
 =====================
 
 HTML
-------------------------
+----
 
 1. Cree el documento :term:`HTML` *index.html* en el :term:`directorio raíz` de tu proyecto.
 2. :material-round:`note_alt;1.5em;sd-text-success` Revise los `Conceptos básicos de HTML <https://developer.mozilla.org/es/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición de HTML. 
 
 Servidor local y público
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 1. Habilite la opción `Show Preview` 
    
@@ -63,6 +63,8 @@ Servidor local y público
 2. Haga clic en la opción `Convertir en Público` y revise la :term:`URL` en una nueva pestaña del navegador.
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `¿Qué es un servidor WEB? <https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de un servidor local y público.
 
+Etiquetas HTML
+--------------
 
 Estructura General
 ^^^^^^^^^^^^^^^^^^
