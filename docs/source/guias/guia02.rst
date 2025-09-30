@@ -47,14 +47,13 @@ Actividades en clases
 =====================
 
 HTML
-----
+------------------------
 
 1. Cree el documento :term:`HTML` *index.html* en el :term:`directorio raíz` de tu proyecto.
-2. Genere la :term:`estructura global` que contenga las etiquetas `<html>`, `<head>` y `<body>`. Valide su respuesta con la guía para :download:`crear una página HTML con la estructura global <./pdfs/guia02-estructuraglobal.pdf>`.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise los `Conceptos básicos de HTML <https://developer.mozilla.org/es/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición de HTML. 
+2. :material-round:`note_alt;1.5em;sd-text-success` Revise los `Conceptos básicos de HTML <https://developer.mozilla.org/es/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición de HTML. 
 
 Servidor local y público
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Habilite la opción `Show Preview` 
    
@@ -62,7 +61,29 @@ Servidor local y público
    b) Haga clic en el icono de `Show Preview` junto al nombre del documento.
 
 2. Haga clic en la opción `Convertir en Público` y revise la :term:`URL` en una nueva pestaña del navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `¿Qué es un servidor WEB? <https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de un servidor web.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `¿Qué es un servidor WEB? <https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de un servidor local y público.
+
+
+Estructura General
+^^^^^^^^^^^^^^^^^^
+
+1. Utilice la guía para :download:`crear una página HTML con la estructura general <./pdfs/guia02-estructurageneral.pdf>` para agregar la :term:`estructura general` de su página. 
+
+   **Nota:** El sitio debe contener, como mínimo, la etiqueta `<title>` y las etiquetas `<meta>` (para keywords, description y author).
+
+2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Estructura de un documento HTML <https://lenguajehtml.com/html/documento/estructura-documento-html/>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura general HTML válida.
+
+Estructura Semántica
+^^^^^^^^^^^^^^^^^^^^
+
+1. Utilice la guía para :download:`crear una página HTML con la estructura semántica <./pdfs/guia02-estructurasemántica.pdf>` :term:`estructura semántica` a su página. 
+
+   **Nota:** El sitio debe contener, como mínimo, 1 etiqueta `<header>`, 1 etiqueta `<main>`, 5 etiquetas `<section>`, 1 etiqueta `<nav>` y 1 etiqueta `<footer>`. El documento HTML debe contener un título (`<h1>`) con su nombre. Cada sección debe contener un subtítulo (`<h2>`).
+   
+2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode. 
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
+
 
 Versionamiento
 --------------
@@ -73,7 +94,7 @@ Versionamiento
 Despliegue con GitHub Pages
 ---------------------------
 
-1. Despliegue el sitio del repositorio *curriculum* de acuerdo la guía para :download:`publicar la rama main con GitHub Pages <./pdfs/guia02-maingithubpages.pdf>`.
+1. Siga las instrucciones de la guía :download:`publicar la rama main con GitHub Pages <./pdfs/guia02-maingithubpages.pdf>` para desplegar el sitio del repositorio *curriculum* con GitHub Pages.
 2. Compruebe el resultado en el navegador.
 
 Conclusiones
