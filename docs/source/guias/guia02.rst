@@ -37,10 +37,10 @@ Ambiente de desarrollo
 3. Cree y utilice la(s) rama(s) de desarrollo.
 
 Live Preview en VSCode
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
-4. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
-5. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
+1. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
+2. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
 
 
 Actividades en clases
