@@ -29,12 +29,16 @@ Ambiente de desarrollo
    a) Agregue un archivo README.md con el título de su curriculum y una breve descripción del objetivo de su proyecto.
    b) Seleccione la opción *No .gitignore*.
    
-2. Acceda a su proyecto *curriculum*:
+2. Acceda al código de su proyecto *curriculum*:
 
-   a) Haga clic en el botón **Code**, escoja la pestaña :term:`Codespaces` y haga clic en el botón `Create codespace on main`. 
-   b) O, clone su proyecto en su máquina local.
+   a) En el repositorio de GitHub: Haga clic en el botón **Code**, escoja la pestaña :term:`Codespaces` y haga clic en el botón `Create codespace on main`, o
+   b) Clone su proyecto en su máquina local.
 
 3. Cree y utilice la(s) rama(s) de desarrollo.
+
+Live Preview en VSCode
+^^^^^^^^^^^^^^^^^^^^^^
+
 4. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
 5. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
 
@@ -42,14 +46,23 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Archivos y estructura
-----------------------
+HTML
+----
 
 1. Cree el documento :term:`HTML` *index.html* en el :term:`directorio raíz` de tu proyecto.
-2. Habilite la opción `Show Preview` 
+2. Genere la :term:`estructura global` que contenga las etiquetas `<html>`, `<head>` y `<body>`. Valide su respuesta con la guía para :download:`crear una página HTML con la estructura global <./pdfs/guia02-estructuraglobal.pdf>`.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise los `Conceptos básicos de HTML <https://developer.mozilla.org/es/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición de HTML. 
+
+Servidor local y público
+------------------------
+
+1. Habilite la opción `Show Preview` 
    
    a) En `View` > `Command Palette`, busque y seleccione `Live Preview: Show Preview (Internal Browser)`, o
    b) Haga clic en el icono de `Show Preview` junto al nombre del documento.
+
+2. Haga clic en la opción `Convertir en Público` y revise la :term:`URL` en una nueva pestaña del navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `¿Qué es un servidor WEB? <https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de un servidor web.
 
 Versionamiento
 --------------
