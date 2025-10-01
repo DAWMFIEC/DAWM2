@@ -83,17 +83,16 @@ Estructura General
 Estructura Semántica
 ^^^^^^^^^^^^^^^^^^^^
 
+.. sidebar:: Estándar HTML
+     
+     Puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_; además, puede validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
+
 1. Utilice la guía para :download:`crear una página HTML con la estructura semántica <./pdfs/guia02-estructurasemántica.pdf>` :term:`estructura semántica` a su página. 
 
    **Nota:** El sitio debe contener, como mínimo, 1 etiqueta `<header>`, 1 etiqueta `<main>`, 5 etiquetas `<section>`, 1 etiqueta `<nav>` y 1 etiqueta `<footer>`. El documento HTML debe contener un título (`<h1>`) con su nombre. Cada sección debe contener un subtítulo (`<h2>`).
    
 2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode. 
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en Manz.dev, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
-
-.. card:: Validación
-     
-     Puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_, y validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
-
 
 Versionamiento
 --------------
