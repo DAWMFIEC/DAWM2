@@ -83,7 +83,7 @@ Estructura General
 Estructura Semántica
 ^^^^^^^^^^^^^^^^^^^^
 
-.. sidebar:: Estándar HTML
+.. sidebar:: Validación
      
      Puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_; además, puede validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
 
