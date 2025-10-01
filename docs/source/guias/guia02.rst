@@ -86,7 +86,7 @@ Estructura Semántica
 2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode. 
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en Manz.dev, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
 
-.. grid:: 6 6
+.. grid:: 2
 
     .. grid-item::
 
