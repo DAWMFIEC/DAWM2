@@ -66,6 +66,10 @@ Servidor local y público
 Etiquetas HTML
 --------------
 
+.. sidebar:: Estándar HTML
+
+    Puede consultar el :term:`estándar` de HTML en el sitio oficial `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
+
 Estructura General
 ^^^^^^^^^^^^^^^^^^
 
@@ -86,19 +90,9 @@ Estructura Semántica
 2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode. 
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en Manz.dev, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
 
-.. grid:: 2
-
-    .. grid-item::
-
-        .. card:: Estándar HTML
-
-            Puede revisar el :term:`estándar` HTML en el sitio oficial `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
-
-    .. grid-item::
-
-         .. card:: Validación
-
-             Puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_, y validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
+.. card:: Validación
+     
+     Puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_, y validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
 
 
 Versionamiento
