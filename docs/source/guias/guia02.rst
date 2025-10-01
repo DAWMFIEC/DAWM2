@@ -86,12 +86,10 @@ Estructura Semántica
 2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode. 
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
 
-Estándar HTML
--------------
+.. card:: Estándar HTML
 
-1. Revise el :term:`estándar` del `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
-2. Valide el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_.
-3. Valide el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
+    Puede revisar el :term:`estándar` HTML `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
+    Además, puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_, y validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
 
 Versionamiento
 --------------
