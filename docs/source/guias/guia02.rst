@@ -74,7 +74,7 @@ Estructura General
    **Nota:** El sitio debe contener, como mínimo, la etiqueta `<title>` y las etiquetas `<meta>` (para keywords, description y author).
 
 2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Estructura de un documento HTML <https://lenguajehtml.com/html/documento/estructura-documento-html/>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura general HTML válida.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Estructura de un documento HTML <https://lenguajehtml.com/html/documento/estructura-documento-html/>`_ en Manz.dev, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura general HTML válida.
 
 Estructura Semántica
 ^^^^^^^^^^^^^^^^^^^^
@@ -84,12 +84,22 @@ Estructura Semántica
    **Nota:** El sitio debe contener, como mínimo, 1 etiqueta `<header>`, 1 etiqueta `<main>`, 5 etiquetas `<section>`, 1 etiqueta `<nav>` y 1 etiqueta `<footer>`. El documento HTML debe contener un título (`<h1>`) con su nombre. Cada sección debe contener un subtítulo (`<h2>`).
    
 2. Revise los cambios en el navegador con la extensión `Live Preview` de VSCode. 
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en MDN Web Docs, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise el sitio `Etiquetas semánticas de sección <https://lenguajehtml.com/html/semantica/que-son/>`_ en Manz.dev, o consulte con su cliente de IAG, acerca de la definición y uso de una estructura semántica adecuada.
 
-.. card:: Estándar HTML
+.. grid:: 6 6
 
-    Puede revisar el :term:`estándar` HTML `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
-    Además, puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_, y validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
+    .. grid-item::
+
+        .. card:: Estándar HTML
+
+            Puede revisar el :term:`estándar` HTML en el sitio oficial `HTML Living Standard <https://html.spec.whatwg.org/multipage/>`_.
+
+    .. grid-item::
+
+         .. card:: Validación
+
+             Puede validar el soporte de las etiquetas HTML en el navegador, con `HTML5 Test <https://html5test.co/>`_ o con `Can I Use <https://caniuse.com/>`_, y validar el anidamiento de etiquetas con `Can I Include <https://caninclude.glitch.me/>`_.
+
 
 Versionamiento
 --------------
