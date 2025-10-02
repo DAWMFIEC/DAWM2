@@ -36,3 +36,4 @@ Introducción
   :caption: Guías
   
   ../guias/guia02.rst
+  ../guias/guia03.rst
