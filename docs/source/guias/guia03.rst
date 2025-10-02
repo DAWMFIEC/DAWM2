@@ -26,7 +26,7 @@ Ambiente de desarrollo
 ----------------------
 
 1. Acceda a su proyecto *curriculum* en Codespaces o en su máquina local.
-2. Cree y utilice la(s) rama(s) de desarrollo.
+2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación para `crear o cambiar de rama<https://docs.github.com/es/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#crear-o-cambiar-de-rama>`_ en Codespaces.
 3. Haga clic en el ícono de `Live Preview` en la barra de estado de VSCode para iniciar el servidor local.
 
 Actividades en clases
@@ -39,7 +39,7 @@ Etiquetas multimedia
 
    a) Agregue un mapa de Google Maps.
 
-   .. admonition:: Prompt sugerido
+   .. hint::
 
       Genera una etiqueta HTML para insertar un mapa de Google Maps en mi CV. 
       El mapa debe mostrar la ubicación de la Escuela Superior Politécnica del Litoral, Guayaquil - Ecuador, en la sección **contacto**.
@@ -54,23 +54,31 @@ Etiquetas de formularios
 
 1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`formularios` en el documento *index.html*:
 
-   a) Añada un formulario que al menos incluya un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta <br>.
+   .. attention::
+      
+      El formulario debe incluir, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta `<br>`.
 
 2. Compruebe la vista previa del resultado en el navegador.
 
 Etiquetas de semántica de texto
 -------------------------------
 
-1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`semántica de texto` en el documento *index.html*, con:
+1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`semántica de texto` en el documento *index.html*:
    
-   a) Agregue un párrafo con un enlace a un sitio web. 
-   b) Añada una lista ordenada de elementos.
-   c) Incorpore una lista no ordenada de elementos.
-   d) Agregue una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
+   .. attention::
 
-2. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas contenedoras en el documento *index.html*, con:
+      El documento debe incluir:
 
-   a) Agregue la sección referencias, que contenga al menos tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
+      a) Agregue un párrafo con un enlace a un sitio web. 
+      b) Añada una lista ordenada de elementos.
+      c) Incorpore una lista no ordenada de elementos.
+      d) Agregue una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
+
+2. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas contenedoras en el documento *index.html*:
+
+   .. attention::
+
+      En la sección referencias del documento debe contener, al menos, tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
 
 3. Consulta a tu cliente de IAG la justificación de cada etiqueta contenedora.
 
@@ -84,7 +92,7 @@ Versionamiento
 --------------
 
 1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *curriculum*.
-2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación para `levantar una solicitud de cambios <https://docs.github.com/es/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#levantar-una-solicitud-de-cambios>`_ en Codespaces.
 3. Compruebe el resultado en el navegador.
 
 Conclusiones
