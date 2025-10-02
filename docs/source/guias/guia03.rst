@@ -26,7 +26,7 @@ Ambiente de desarrollo
 ----------------------
 
 1. Acceda a su proyecto *curriculum* en Codespaces o en su máquina local.
-2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación para `crear o cambiar de rama<https://docs.github.com/es/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#crear-o-cambiar-de-rama>`_ en Codespaces.
+2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación para `crear o cambiar de rama <https://docs.github.com/es/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#crear-o-cambiar-de-rama>`_ en Codespaces.
 3. Haga clic en el ícono de `Live Preview` en la barra de estado de VSCode para iniciar el servidor local.
 
 Actividades en clases
@@ -48,24 +48,26 @@ Etiquetas multimedia
    c) Incorpore un video de YouTube (incluya la URL).
          
 2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `¿Cómo insertar vídeos de YouTube en nuestra web (HTML)? <https://www.desarrollolibre.net/blog/html/como-insertar-videos-de-youtube-en-nuestra-web-html>`_ y `Cómo crear un mapa con Leaflet <https://mappinggis.com/2013/06/como-crear-un-mapa-con-leaflet/>`_ mediante etiquetas HTML.
     
 Etiquetas de formularios
 ------------------------
 
 1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`formularios` en el documento *index.html*:
 
-   .. attention::
+   .. info::
       
       El formulario debe incluir, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta `<br>`.
 
 2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de los elementos HTML en `HTML Attributes <https://www.w3docs.com/learn-html/html-attributes.html>`_.
 
 Etiquetas de semántica de texto
 -------------------------------
 
 1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`semántica de texto` en el documento *index.html*:
    
-   .. attention::
+   .. info::
 
       El documento debe incluir:
 
@@ -76,7 +78,7 @@ Etiquetas de semántica de texto
 
 2. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas contenedoras en el documento *index.html*:
 
-   .. attention::
+   .. info::
 
       En la sección referencias del documento debe contener, al menos, tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
 
@@ -109,18 +111,6 @@ Conclusiones
 
 Actividades autónomas
 =====================
-
-Atributos HTML	
-------------------------------
-
-* Revisa los :term:`atributos` del `HTML Attributes <https://www.w3docs.com/learn-html/html-attributes.html>`_.
-
-Embeber contenido multimedia
-------------------------------
-
-* En `¿Cómo insertar vídeos de YouTube en nuestra web (HTML)? <https://www.desarrollolibre.net/blog/html/como-insertar-videos-de-youtube-en-nuestra-web-html>`_ se encuentran las instrucciones sobre cómo embeber videos de YouTube.
-* Revisa las instrucciones de `Cómo crear un mapa con Leaflet <https://mappinggis.com/2013/06/como-crear-un-mapa-con-leaflet/>`_ para aprender a embeber mapas.
-* Para agregar una canción o un playlist de SoundCloud, revisa `Embedding a track or playlist <https://help.soundcloud.com/hc/en-us/articles/115003568008-Embedding-a-track-or-playlist>`_.
 
 Recursos extras
 ------------------------------
