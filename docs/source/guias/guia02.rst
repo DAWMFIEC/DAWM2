@@ -34,10 +34,10 @@ Ambiente de desarrollo
    a) En el repositorio de GitHub: Haga clic en el botón **Code**, escoja la pestaña :term:`Codespaces` y haga clic en el botón `Create codespace on main`, o
    b) Clone su proyecto en su máquina local.
 
-3. Cree y utilice la(s) rama(s) de desarrollo.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la explicación en `What is Github Codespaces <https://4geeks.com/lesson/what-is-github-codespaces>`_, o consulte con su cliente de IAG, acerca de la definición y uso de GitHub Codespaces.
 
-Live Preview en VSCode
-----------------------
+Extensión: Live Preview en VSCode
+---------------------------------
 
 1. Acceda a la opción **Extensión** en la barra lateral izquierda (o presione Ctrl+Shift+X).
 2. Busque e instale la extensión `Live Preview` en el Marketplace de VSCode.
