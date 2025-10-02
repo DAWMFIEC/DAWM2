@@ -65,28 +65,20 @@ Etiquetas de formularios
 Etiquetas de semántica de texto
 -------------------------------
 
-1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`semántica de texto` en el documento *index.html*:
-   
-   .. info::
+1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`semántica de texto` en el documento *index.html*. El documento debe incluir:
 
-      El documento debe incluir:
+   a) Un párrafo con un enlace a un sitio web. 
+   b) Una lista ordenada de elementos.
+   c) Una lista no ordenada de elementos.
+   d) Una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
 
-      a) Agregue un párrafo con un enlace a un sitio web. 
-      b) Añada una lista ordenada de elementos.
-      c) Incorpore una lista no ordenada de elementos.
-      d) Agregue una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
-
-2. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas contenedoras en el documento *index.html*:
-
-   .. info::
-
-      En la sección referencias del documento debe contener, al menos, tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
+2. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas contenedoras en el documento *index.html*. El documento, en la sección referencias, debe contener, al menos, tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
 
 3. Consulta a tu cliente de IAG la justificación de cada etiqueta contenedora.
 
    .. admonition:: Prompt sugerido
 
-      Desarrolla la justificación para el uso de las etiquetas HTML [coloque aquí las etiquetas HTML].
+      Desarrolla la justificación para el uso de las etiquetas HTML [coloque aquí las etiquetas HTML] en un documento HTML relacionado con un curriculum vitae digital.
 
 4. Compruebe la vista previa del resultado en el navegador.
 
