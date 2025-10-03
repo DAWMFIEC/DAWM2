@@ -34,12 +34,27 @@ Actividades en clases
 
 Etiquetas multimedia
 --------------------
+
+2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `¿Cómo insertar vídeos de YouTube en nuestra web (HTML)? <https://www.desarrollolibre.net/blog/html/como-insertar-videos-de-youtube-en-nuestra-web-html>`_ y `Cómo crear un mapa con Leaflet <https://mappinggis.com/2013/06/como-crear-un-mapa-con-leaflet/>`_ mediante etiquetas HTML.
     
 Etiquetas de formularios
 ------------------------
 
+2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de la etiqueta `<form>` en `HTML Attributes <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form>`_.
+
+Etiquetas de semánticas
+-------------------------------
+
+2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación sobre las etiquetas semánticas en `HTML5 Semantic Elements <https://www.w3schools.com/html/html5_semantic_elements.asp>`_.
+
 Etiquetas de semántica de texto
 -------------------------------
+
+2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la información sobre las etiquetas semánticas de texto en `Etiquetas semánticas de texto <https://lenguajehtml.com/html/texto/que-son/>`_.
 
 Versionamiento
 --------------
