@@ -18,7 +18,7 @@ Actividades previas
 Diseño
 ------
 
-1. Decida el contenido de su CV para que incorpore un formulario, una imagen, un video y un mapa, considerando la recomendación para el :download:`diseño del contenido de un CV <./pdfs/guia03-disenocontenido.pdf>`.
+1. Decida el contexto de uso para un formulario, una imagen, un video y un mapa en su CV, considerando la guía de :download:`diseño del contenido de un CV <./pdfs/guia03-disenocontenido.pdf>`.
 
 2. Escoja las secciones en su documento *index.html* en las que colocará el formulario, la imagen, el video y el mapa.
 
@@ -34,55 +34,12 @@ Actividades en clases
 
 Etiquetas multimedia
 --------------------
-
-1. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas :term:`multimedia` en el documento *index.html*:
-
-   a) Agregue un mapa de Google Maps.
-
-   .. hint::
-
-      Genera una etiqueta HTML para insertar un mapa de Google Maps en mi CV. 
-      El mapa debe mostrar la ubicación de la Escuela Superior Politécnica del Litoral, Guayaquil - Ecuador, en la sección **contacto**.
-
-   b) Añada una imagen con el placeholder de `Picsum <https://picsum.photos>`_ o `Placehold <https://placehold.co>`_.
-   c) Incorpore un video de YouTube (incluya la URL).
-         
-2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `¿Cómo insertar vídeos de YouTube en nuestra web (HTML)? <https://www.desarrollolibre.net/blog/html/como-insertar-videos-de-youtube-en-nuestra-web-html>`_ y `Cómo crear un mapa con Leaflet <https://mappinggis.com/2013/06/como-crear-un-mapa-con-leaflet/>`_ mediante etiquetas HTML.
     
 Etiquetas de formularios
 ------------------------
 
-1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`formularios` en el documento *index.html*:
-
-   .. info::
-      
-      El formulario debe incluir, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta `<br>`.
-
-2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de los elementos HTML en `HTML Attributes <https://www.w3docs.com/learn-html/html-attributes.html>`_.
-
 Etiquetas de semántica de texto
 -------------------------------
-
-1. Utilice un cliente de IAG para generar una recomendación de el uso de etiquetas de :term:`semántica de texto` en el documento *index.html*. El documento debe incluir:
-
-   a) Un párrafo con un enlace a un sitio web. 
-   b) Una lista ordenada de elementos.
-   c) Una lista no ordenada de elementos.
-   d) Una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
-
-2. Utilice un cliente de IAG para generar una recomendación del uso de etiquetas contenedoras en el documento *index.html*. El documento debe incluir:
-
-   a) En la sección referencias, al menos, tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
-
-3. Consulta a tu cliente de IAG la justificación de cada etiqueta contenedora.
-
-   .. admonition:: Prompt sugerido
-
-      Desarrolla la justificación para el uso de las etiquetas HTML [coloque aquí las etiquetas HTML] en un documento HTML relacionado con un curriculum vitae digital.
-
-4. Compruebe la vista previa del resultado en el navegador.
 
 Versionamiento
 --------------
