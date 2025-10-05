@@ -62,7 +62,7 @@ Diccionario de términos
     multimedia
         Contenido que combina diferentes tipos de medios, como texto, imágenes, audio y video. En HTML, se utilizan etiquetas específicas para incluir y mostrar contenido multimedia en una página web.
 
-    formularios
+    formulario
         Conjunto de elementos HTML que permiten a los usuarios ingresar datos y enviar información a un servidor. Incluye etiquetas como <form>, <input>, <textarea>, <select>, entre otras.
 
     semántica de texto

@@ -35,23 +35,42 @@ Actividades en clases
 Etiquetas multimedia
 --------------------
 
+1. Utilice un cliente de IAG para obtener una recomendación de las etiquetas HTML, para los siguientes elementos :term:`multimedia`:
+
+   a) Un mapa de Google Maps.
+
+   .. hint::
+
+   En el contexto de un sitio web, de un curriculum vitae, genera una etiqueta HTML para insertar un mapa de Google Maps en mi CV. 
+   El mapa debe mostrar la ubicación de la Escuela Superior Politécnica del Litoral, Guayaquil - Ecuador, en la sección **contacto**.
+
+   b) Una imagen con el placeholder de `Picsum <https://picsum.photos>`_ o `Placehold <https://placehold.co>`_.
+   c) Un video de YouTube (incluya la URL).
+
 2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `¿Cómo insertar vídeos de YouTube en nuestra web (HTML)? <https://www.desarrollolibre.net/blog/html/como-insertar-videos-de-youtube-en-nuestra-web-html>`_ y `Cómo crear un mapa con Leaflet <https://mappinggis.com/2013/06/como-crear-un-mapa-con-leaflet/>`_ mediante etiquetas HTML.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Cómo crear un mapa con Leaflet <https://mappinggis.com/2013/06/como-crear-un-mapa-con-leaflet/>`_, `¿Cómo insertar vídeos de YouTube en nuestra web (HTML)? <https://www.desarrollolibre.net/blog/html/como-insertar-videos-de-youtube-en-nuestra-web-html>`_ mediante etiquetas HTML.
     
 Etiquetas de formularios
 ------------------------
 
+1. Utilice un cliente de IAG para obtener una recomendación de etiquetas HTML, para incluir un :term:`formulario` en su sitio web, considerando que:
+
+   .. info::
+      
+      El formulario debe incluir, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta `<br>`.
+ 
 2. Compruebe la vista previa del resultado en el navegador.
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de la etiqueta `<form>` en `HTML Attributes <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form>`_.
 
-Etiquetas de semánticas
--------------------------------
-
-2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación sobre las etiquetas semánticas en `HTML5 Semantic Elements <https://www.w3schools.com/html/html5_semantic_elements.asp>`_.
-
 Etiquetas de semántica de texto
 -------------------------------
+
+1. Utilice un cliente de IAG para obtener una recomendación de etiquetas :term:`semántica de texto` HTML:
+
+   a) Un párrafo con un enlace a un sitio web. 
+   b) Una lista ordenada de elementos.
+   c) Una lista no ordenada de elementos.
+   d) Una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
 
 2. Compruebe la vista previa del resultado en el navegador.
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise la información sobre las etiquetas semánticas de texto en `Etiquetas semánticas de texto <https://lenguajehtml.com/html/texto/que-son/>`_.
