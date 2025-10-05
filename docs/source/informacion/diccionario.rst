@@ -68,6 +68,9 @@ Diccionario de términos
     semántica de texto
         Conjunto de etiquetas HTML que proporcionan significado y estructura al texto en una página web. Incluye etiquetas como <h1>, <p>, <ul>, <ol>, entre otras.
 
+    semántica contenedoras
+        Conjunto de etiquetas HTML que se utilizan para agrupar y organizar contenido relacionado en una página web. Incluye etiquetas como <div>, <span>, <section>, entre otras.
+
     IAG
         Generador de texto a partir de IA. Herramienta que utiliza inteligencia artificial para generar texto y recomendaciones basadas en el contenido proporcionado por el usuario.
 

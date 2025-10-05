@@ -3,9 +3,9 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-=======================================================================
-Guía 03: HTML - Etiquetas multimedia, formularios y semánticas de texto
-=======================================================================
+=============================================================
+Guía 03: HTML - Etiquetas semáticas, multimedia y formularios
+=============================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
@@ -32,18 +32,37 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Etiquetas multimedia
---------------------
+Etiquetas de semántica contenedoras
+-----------------------------------
 
-1. Utilice un cliente de IAG para obtener una recomendación de las etiquetas HTML, para los siguientes elementos :term:`multimedia`:
-
-   a) Un mapa de Google Maps.
+1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para generar una recomendación del uso de etiquetas contenedoras :term:`semántica contenedora` HTML.
 
    .. hint::
 
-       En el contexto de un sitio web, de un curriculum vitae, genera una etiqueta HTML para insertar un mapa de Google Maps en mi CV. 
-       El mapa debe mostrar la ubicación de la Escuela Superior Politécnica del Litoral, Guayaquil - Ecuador, en la sección **contacto**.
+       En el contexto de un sitio web con un curriculum vitae, genera las etiquetas HTML5 semánticas contenedoras adecuadas con tres testimonios de personas para la que usted ha trabajado. Cada testimonio debe contener una frase, un párrafo con el nombre de la persona, su cargo y una breve descripción de su experiencia laboral con usted. Incluya la referencia en el menu de navegación.
+       
+2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación sobre las etiquetas semánticas en `HTML5 Semantic Elements <https://www.w3schools.com/html/html5_semantic_elements.asp>`_.
 
+Etiquetas de semántica de texto
+-------------------------------
+
+1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para obtener las recomendaciones de etiquetas :term:`semántica de texto` HTML, para:
+
+   a) Un párrafo, con un enlace a un sitio web. 
+   b) Una lista ordenada de elementos.
+   c) Una lista no ordenada de elementos.
+   d) Una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
+
+2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la información sobre las etiquetas semánticas de texto en `Etiquetas semánticas de texto <https://lenguajehtml.com/html/texto/que-son/>`_.
+
+Etiquetas multimedia
+--------------------
+
+1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para obtener una recomendación de las etiquetas HTML, para los siguientes elementos :term:`multimedia`:
+
+   a) Un mapa de Google Maps.
    b) Una imagen con el placeholder de `Picsum <https://picsum.photos>`_ o `Placehold <https://placehold.co>`_.
    c) Un video de YouTube (incluya la URL).
 
@@ -53,22 +72,9 @@ Etiquetas multimedia
 Etiquetas de formularios
 ------------------------
 
-1. Utilice un cliente de IAG para obtener una recomendación de etiquetas HTML, para incluir un :term:`formulario` que contenga, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones de selección única, un vector de valores de selección múltiple, un elemento para un área de texto y un botón para enviar el formulario. No utilice la etiqueta `<br>`.
+1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para obtener una recomendación de etiquetas HTML, para incluir un :term:`formulario` que contenga, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones de selección única, un vector de valores de selección múltiple, un elemento para un área de texto y un botón para enviar el formulario. No utilice la etiqueta `<br>`.
 2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de la etiqueta `<form>` en `HTML Attributes <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form>`_.
-
-Etiquetas de semántica de texto
--------------------------------
-
-1. Utilice un cliente de IAG para obtener una recomendación de etiquetas :term:`semántica de texto` HTML:
-
-   a) Un párrafo con un enlace a un sitio web. 
-   b) Una lista ordenada de elementos.
-   c) Una lista no ordenada de elementos.
-   d) Una tabla sin bordes, con al menos tres filas y tres columnas. La primera fila y la primera columna debe contener los encabezados de la tabla.
-
-2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la información sobre las etiquetas semánticas de texto en `Etiquetas semánticas de texto <https://lenguajehtml.com/html/texto/que-son/>`_.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de la etiqueta `form <https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form>`_.
 
 Versionamiento
 --------------
