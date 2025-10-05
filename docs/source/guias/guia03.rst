@@ -35,7 +35,7 @@ Actividades en clases
 Etiquetas de semántica contenedoras
 -----------------------------------
 
-1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para generar una recomendación del uso de etiquetas contenedoras :term:`semántica contenedora` HTML.
+1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para generar una recomendación del uso de etiquetas de :term:`semántica contenedoras` HTML.
 
    .. hint::
 
