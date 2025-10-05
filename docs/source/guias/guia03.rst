@@ -53,12 +53,7 @@ Etiquetas multimedia
 Etiquetas de formularios
 ------------------------
 
-1. Utilice un cliente de IAG para obtener una recomendación de etiquetas HTML, para incluir un :term:`formulario` en su sitio web, considerando que:
-
-   .. important:: 
-      
-       El formulario debe incluir, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta `<br>`.
- 
+1. Utilice un cliente de IAG para obtener una recomendación de etiquetas HTML, para incluir un :term:`formulario` que contenga, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones de selección única, un vector de valores de selección múltiple, un elemento para un área de texto y un botón para enviar el formulario. No utilice la etiqueta `<br>`.
 2. Compruebe la vista previa del resultado en el navegador.
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación con los :term:`atributos` de la etiqueta `<form>` en `HTML Attributes <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form>`_.
 
