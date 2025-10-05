@@ -55,7 +55,7 @@ Etiquetas de formularios
 
 1. Utilice un cliente de IAG para obtener una recomendación de etiquetas HTML, para incluir un :term:`formulario` en su sitio web, considerando que:
 
-   .. info::
+   .. important:: 
       
        El formulario debe incluir, al menos, un elemento para ingresar un texto en una línea, un elemento con una lista desplegable, un conjunto de opciones relacionadas, un vector de valores, un elemento para un área de texto y un botón para enviar el formulario. Todos los elementos son obligatorios. No utilice la etiqueta `<br>`.
  
