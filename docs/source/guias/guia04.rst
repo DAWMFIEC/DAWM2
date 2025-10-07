@@ -18,8 +18,8 @@ Actividades previas
 Diseño
 ------
 
-1. Escoge las tipografías con `Google Fonts <https://fonts.google.com/>`_ y combínalas con `Fontjoy <https://fontjoy.com/>`_ de acuerdo a tu gusto para el título de pricipal, para los títulos en las secciones y para todo el documento.
-2. Seleciona a tu gusto una combinación de colores de acuerdo con la guía de `Happy Hues <https://www.happyhues.co/>`_, `Huemint <https://huemint.com/website-2/>`_, `Coolors <https://coolors.co/>`_ o `ColorMagic <https://colormagic.app/>`_.
+1. Escoge las tipografías con `Google Fonts <https://fonts.google.com/>`_ y combínalas con `Fontjoy <https://fontjoy.com/>`_ de acuerdo a tu gusto para el título de principal, para los títulos en las secciones y para todo el documento.
+2. Selecciona la combinación de colores de acuerdo con la guía de `Happy Hues <https://www.happyhues.co/>`_, `Huemint <https://huemint.com/website-2/>`_, `Coolors <https://coolors.co/>`_ o `ColorMagic <https://colormagic.app/>`_.
 
 Ambiente de desarrollo
 ----------------------
@@ -37,20 +37,20 @@ Archivos y estructura
 1. Cree la carpeta *stylesheets* dentro del directorio de tu proyecto.
 2. Cree el documento :term:`CSS` *style.css* dentro de la carpeta *stylesheets* de tu proyecto.
 3. Referencie el documento *style.css* en el documento *index.html* dentro de la etiqueta `<head>`. Valide su respuesta con la guía para :download:`referenciar una hoja de estilo externa <./pdfs/guia04-referenciacss.pdf>`.
-
+4. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS spec­i­fi­ca­tions<https://www.w3.org/Style/CSS/specs.en.html>`_.
 
 Reglas CSS - I
 --------------
 
-1. Utilice un cliente de IAG para generar las :term:`reglas CSS` en el documento *stylesheets/style.css*:
+1. Utilice un cliente de IAG, en el contexto de su currículum vitae, para generar las :term:`reglas CSS` en el documento *stylesheets/style.css*, con:
 
-   a) Agregue el :term:`selector CSS` para todos los elementos, aplique la :term:`propiedad CSS` **font-family** con el :term:`valor CSS` **'Segoe UI', Tahoma, Geneva, Verdana, sans-serif**.
+   a) El :term:`selector CSS` para todos los elementos, aplique la :term:`propiedad CSS` **font-family** con el :term:`valor CSS` **'Segoe UI', Tahoma, Geneva, Verdana, sans-serif**.
 
       .. admonition:: Prompt sugerido
 
           Agrega el selector CSS para todos los elementos que aplique la propiedad CSS font-family con el valor CSS “Segoe UI”, Tahoma, Geneva, Verdana, sans-serif.
     
-   b) Añada el selector para el título principal, aplique la propiedad CSS para alinear el texto al centro y en negritas.
+   b) El selector solo para el título principal con las propiedades CSS que centren el texto horizontalmente y en negritas.
 
    .. dropdown:: Ver la solución
     :color: success
@@ -76,7 +76,8 @@ Reglas CSS - I
         }
 
 2. Compruebe la vista previa del resultado en el navegador.
-3. Utilice el :term:`inspector del navegador` para verificar que las reglas CSS se aplican correctamente a los elementos HTML.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS - MDN <https://developer.mozilla.org/es/docs/Web/CSS>`_ con el selector universal, el selector por elemento y las `Propiedades y Valores CSS <https://www.w3schools.com/cssref/index.php>`_.
+4. Utilice el :term:`inspector del navegador` para verificar que las reglas CSS se aplican correctamente a los elementos HTML.
 
 .. note :: 
 
@@ -90,10 +91,10 @@ Reglas CSS - II
    a) A la etiqueta `<img>`, agregue el atributo **id** con el valor **photo**.
    b) A las etiquetas `<h2>`, agregue el atributo **class** con el valor **subtitle**.
 
-2. Utilice un cliente de IAG para generar las reglas CSS en el documento *stylesheets/style.css*:
+2. Utilice un cliente de IAG, en el contexto de su currículum vitae, para generar las reglas CSS en el documento *stylesheets/style.css*, con:
 
-   a) Agregue el selector por id con el valor **photo** cuyo ancho es `8vw` y el alto es `automático`.
-   b) Añada el selector por clase con el valor **subtitle** cuyo color del texto es `rgb(151 156 165 / 0.89);` y el texto en mayúsculas.
+   a) El selector por id con el valor **photo** cuyo ancho es `8vw` y el alto es `automático`.
+   b) El selector por clase con el valor **subtitle** cuyo color del texto es `rgb(151 156 165 / 0.89);` y el texto en mayúsculas.
 
 
    .. dropdown:: Ver la solución
@@ -125,6 +126,7 @@ Reglas CSS - II
         }
 
 3. Compruebe la vista previa del resultado en el navegador.
+4. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS - MDN <https://developer.mozilla.org/es/docs/Web/CSS>`_ con el selector por clase, por identificador y las `Propiedades y Valores CSS <https://www.w3schools.com/cssref/index.php>`_.
 
 Reglas CSS - III
 ----------------
@@ -164,8 +166,8 @@ Reglas CSS - III
         }
 
 2. Compruebe la vista previa del resultado en el navegador.
-
-3. Consulta a tu cliente de IAG la justificación para el uso de cada tipo de selector.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS - MDN <https://developer.mozilla.org/es/docs/Web/CSS>`_ con los selectores descendiente, de hijo inmediato y las `Propiedades y Valores CSS <https://www.w3schools.com/cssref/index.php>`_.
+4. Consulta a tu cliente de IAG la justificación para el uso de cada tipo de selector.
 
    .. admonition:: Prompt sugerido
 
@@ -214,6 +216,7 @@ Modelo de caja
         }
 
 2. Compruebe la vista previa del resultado en el navegador.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Modelo de Caja de CSS <https://developer.mozilla.org/es/docs/Web/CSS/CSS_box_model  >`_ con las propiedades CSS de borde, margen y relleno.
 
 
 Efectos CSS
@@ -246,6 +249,7 @@ Efectos CSS
         }
 
 3. Compruebe la vista previa del resultado en el navegador.
+4. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Border Radius <https://developer.mozilla.org/es/docs/Web/CSS/border-radius>`_ y `Box Shadow <https://developer.mozilla.org/es/docs/Web/CSS/box-shadow>`_.
 
 .. note :: 
    
@@ -274,13 +278,6 @@ Conclusiones
 
 Actividades autónomas
 =====================
-
-Estándar CSS
-------------------------------
-
-* Revisa el estándar con las `Descripciones de todas las especificaciones CSS <https://www-w3-org.translate.goog/Style/CSS/specs.en.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc>`_.
-* Revisa la documentación de `CSS - MDN <https://developer.mozilla.org/es/docs/Web/CSS>`_.
-* En **W3Schools** revisa las opciones de `Selectores CSS <https://www.w3schools.com/cssref/css_selectors.php>`_ y las `Propiedades y Valores CSS <https://www.w3schools.com/cssref/index.php>`_.
 
 Recursos extras
 ------------------------------
