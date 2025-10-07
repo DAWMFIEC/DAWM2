@@ -37,7 +37,7 @@ Archivos y estructura
 1. Cree la carpeta *stylesheets* dentro del directorio de tu proyecto.
 2. Cree el documento :term:`CSS` *style.css* dentro de la carpeta *stylesheets* de tu proyecto.
 3. Referencie el documento *style.css* en el documento *index.html* dentro de la etiqueta `<head>`. Valide su respuesta con la guía para :download:`referenciar una hoja de estilo externa <./pdfs/guia04-referenciacss.pdf>`.
-4. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS spec­i­fi­ca­tions<https://www.w3.org/Style/CSS/specs.en.html>`_.
+4. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS spec­i­fi­ca­tions <https://www.w3.org/Style/CSS/specs.en.html>`_.
 
 Reglas CSS - I
 --------------
@@ -216,7 +216,7 @@ Modelo de caja
         }
 
 2. Compruebe la vista previa del resultado en el navegador.
-3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Modelo de Caja de CSS <https://developer.mozilla.org/es/docs/Web/CSS/CSS_box_model  >`_ con las propiedades CSS de borde, margen y relleno.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Modelo de Caja de CSS <https://developer.mozilla.org/es/docs/Web/CSS/CSS_box_model>`_ con las propiedades CSS de borde, margen y relleno.
 
 
 Efectos CSS
