@@ -79,9 +79,9 @@ Reglas CSS - I
 3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `CSS - MDN <https://developer.mozilla.org/es/docs/Web/CSS>`_ con el selector universal, el selector por elemento y las `Propiedades y Valores CSS <https://www.w3schools.com/cssref/index.php>`_.
 4. Utilice el :term:`inspector del navegador` para verificar que las reglas CSS se aplican correctamente a los elementos HTML.
 
-    .. note :: 
+   .. note :: 
 
-        Para utilizar una fuente de Google Fonts, primero debes incluirla en tu proyecto. Puedes hacerlo agregando un enlace a la fuente en el archivo HTML o importándola directamente en tu archivo CSS, de acuerdo a la guía de `Google Fonts <https://developers.google.com/fonts/docs/getting_started?hl=es-419>`_
+       Para utilizar una fuente de Google Fonts, primero debes incluirla en tu proyecto. Puedes hacerlo agregando un enlace a la fuente en el archivo HTML o importándola directamente en tu archivo CSS, de acuerdo a la guía de `Google Fonts <https://developers.google.com/fonts/docs/getting_started?hl=es-419>`_
 
 Reglas CSS - II
 ---------------
