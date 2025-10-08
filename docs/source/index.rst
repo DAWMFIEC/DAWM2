@@ -11,6 +11,7 @@ móviles cumpliendo con los estándares actuales y las buenas prácticas de prog
 
   proyectos/proyecto01.rst
   proyectos/proyecto02.rst
+  proyectos/proyecto03.rst
 
 .. toctree::
   :maxdepth: 1
