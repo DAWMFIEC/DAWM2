@@ -25,3 +25,4 @@ Introducción
   :maxdepth: 1
   :caption: Guías
   
+  ../guias/guia06.rst
