@@ -64,7 +64,7 @@ Secciones
 
    .. code-block:: html
        :caption: Sección con imágenes.
-       :emphasize-lines: 1-9
+       :emphasize-lines: 1-10
        :linenos:
         
         <section class="bg-white dark:bg-gray-900">
