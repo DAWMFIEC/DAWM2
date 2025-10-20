@@ -60,7 +60,7 @@ Viewport
 Secciones
 ^^^^^^^^^
 
-1. Modifique el archivo *index.html*, con:
+1. Agregue a su archivo *index.html*:
 
    .. code-block:: html
        :caption: Sección con imágenes.
