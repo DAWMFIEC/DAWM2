@@ -99,7 +99,7 @@ HTML
 
    .. note:: El código anterior crea una notificación interactiva que permite al usuario suscribirse a un servicio o cerrar la notificación.
 
-3. Agregue la clase `hidden` al elemento `<div id="toast-interactive">` para ocultar la notificación inicialmente, con:
+3. Agregue la clase `hidden` al elemento `<div id=\"toast-interactive\">` para ocultar la notificación inicialmente, con:
 
    .. code-block:: html
        :caption: Notificación interactiva oculta
