@@ -21,12 +21,12 @@ JSON
 1. Visite el sitio web de `ReqBin <https://reqbin.com/>`_.
 2. Realice las siguientes peticiones HTTP, p.e.:
    
-   a) Petición GET a los Datos Generales de la API:
+   a) Petición GET a los Datos Generales:
 
       - **URL:** `https://data-dawm.github.io/Datos/Products/GeneralData.json`
       - **Método:** `GET`
     
-   b) Petición GET a los Datos Privados de la API:
+   b) Petición GET a los Datos Privados:
 
       - **URL:** `https://data-dawm.github.io/Datos/Products/PrivateData.json`
       - **Método:** `GET`
