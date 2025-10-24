@@ -15,24 +15,24 @@ Guía 09: Promesas, Servicios y JSON
 Actividades previas
 =====================
 
-Faker API
----------
-
-1. Visite el sitio web de `Faker API <https://fakerapi.it/>`_.
-2. Familiarícese con la documentación de la API del recurso **Texts** y los parámetros que puede utilizar para personalizar las respuestas.
-3. Utilice un cliente de IAG para explicar el concepto de :term:`API` y cómo se utiliza para interactuar con servicios externos.
-
 JSON
 ----
 
 1. Visite el sitio web de `ReqBin <https://reqbin.com/>`_.
-2. Realice una petición a la API de Faker, p.e.:
+2. Realice las siguientes peticiones HTTP, p.e.:
    
-   - **URL:** `https://fakerapi.it/api/v2/texts?_quantity=10&_characters=120`
-   - **Método:** `GET`
+   a) Petición GET a los Datos Generales de la API:
+
+      - **URL:** `https://data-dawm.github.io/Datos/Products/GeneralData.json`
+      - **Método:** `GET`
+    
+    a) Petición GET a los Datos Privados de la API:
+
+      - **URL:** `https://data-dawm.github.io/Datos/Products/PrivateData.json`
+      - **Método:** `GET`
 
 3. Explore la :term:`petición HTTP` y la :term:`respuesta HTTP` en formato :term:`JSON` que se muestra en la sección de respuesta.
-4. Utilice un cliente de IAG para explicar cómo se estructura la petición y la respuesta de la API; además del formato JSON.
+4. Utilice un cliente de IAG para explicar cómo se estructura la petición y la respuesta de la API; además del formato :term:`JSON`.
 
 Ambiente de desarrollo
 ----------------------
@@ -298,3 +298,7 @@ En redes:
     APIs públicas para probar	
 
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Try Public APIs for free<a href="https://t.co/YKUy0OdgTA">https://t.co/YKUy0OdgTA</a></p>&mdash; SwiftUIX (@SwiftUIHome) <a href="https://twitter.com/SwiftUIHome/status/1917132347260211689?ref_src=twsrc%5Etfw">April 29, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+    Dataset original 
+
+    Chinmay Shanbhag. (2022). BigBasket Products [Data set]. Kaggle. https://doi.org/10.34740/KAGGLE/DSV/4100336
