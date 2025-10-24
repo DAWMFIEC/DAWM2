@@ -64,7 +64,7 @@ HTML
 
         <!-- Nuestros Productos -->
         <section class="bg-slate-50 dark:bg-gray-900">
-            <div id="container-05" class="px-4 py-5 mx-auto max-w-md md:max-w-xl">
+            <div id="container-05" class="px-4 pt-8 mx-auto max-w-md md:max-w-xl">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-1">
                     <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white text-center">Nuestros de
                     productos</h2>
