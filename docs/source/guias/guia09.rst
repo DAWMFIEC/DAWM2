@@ -26,7 +26,7 @@ JSON
       - **URL:** `https://data-dawm.github.io/Datos/Products/GeneralData.json`
       - **Método:** `GET`
     
-    a) Petición GET a los Datos Privados de la API:
+   b) Petición GET a los Datos Privados de la API:
 
       - **URL:** `https://data-dawm.github.io/Datos/Products/PrivateData.json`
       - **Método:** `GET`
@@ -62,10 +62,17 @@ HTML
     
         <section class="bg-slate-50 dark:bg-gray-900"> ... </section>
 
+        <!-- Nuestros Productos -->
         <section class="bg-slate-50 dark:bg-gray-900">
-            <div class="max-w-4xl pt-8 pb-3 mx-auto">
+            <div id="container-05" class="px-4 py-5 mx-auto max-w-md md:max-w-xl">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-1">
+                    <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white text-center">Nuestros de
+                    productos</h2>
+                </div>
+            </div>
+            <div id="container-06" class="max-w-4xl pt-5 pb-5 mx-auto">
                 <div id="skeleton-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-                
+
                     <!-- Skeleton Card -->
                     <div class="animate-pulse space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
                     <div class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
