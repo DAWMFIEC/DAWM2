@@ -15,24 +15,24 @@ Guía 09: Promesas, Servicios y JSON
 Actividades previas
 =====================
 
-JSON
-----
+HTTP: Requerimientos y respuestas
+----------------------------------
 
 1. Visite el sitio web de `ReqBin <https://reqbin.com/>`_.
 2. Realice las siguientes peticiones HTTP, p.e.:
    
    a) Petición GET a los Datos Generales:
 
-      - **URL:** `https://data-dawm.github.io/Datos/Products/GeneralData.json`
+      - **URL:** `https://data-dawm.github.io/Data/Products.json`
       - **Método:** `GET`
     
    b) Petición GET a los Datos Privados:
 
-      - **URL:** `https://data-dawm.github.io/Datos/Products/PrivateData.json`
+      - **URL:** `https://data-dawm.github.io/Data/Categories.xml`
       - **Método:** `GET`
 
-3. Explore la :term:`petición HTTP` y la :term:`respuesta HTTP` en formato :term:`JSON` que se muestra en la sección de respuesta.
-4. Utilice un cliente de IAG para explicar cómo se estructura la petición y la respuesta de la API; además del formato :term:`JSON`.
+3. Explore la :term:`petición HTTP` y la :term:`respuesta HTTP` en los formatos :term:`JSON` y :term:`XML` que se muestra en la sección de respuesta.
+4. Utilice un cliente de IAG para explicar cómo se estructura la petición y la respuesta de la API; además delos formatos :term:`JSON` y :term:`XML`.
 
 Ambiente de desarrollo
 ----------------------

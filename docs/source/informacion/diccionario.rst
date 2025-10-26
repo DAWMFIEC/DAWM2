@@ -187,6 +187,9 @@ Diccionario de términos
     JSON
         (JavaScript Object Notation) es un formato ligero de intercambio de datos que es fácil de leer y escribir para los humanos, y fácil de analizar y generar para las máquinas. JSON se utiliza comúnmente para transmitir datos entre un servidor y un cliente en aplicaciones web, especialmente en APIs RESTful.
 
+    XML
+        (eXtensible Markup Language) es un lenguaje de marcado que se utiliza para almacenar y transportar datos de manera estructurada. XML es similar a HTML, pero está diseñado para ser más flexible y extensible, permitiendo a los desarrolladores definir sus propias etiquetas y estructuras de datos.
+
     promesas
         Objetos en JavaScript que representan la finalización o el fracaso eventual de una operación asíncrona. Las promesas permiten manejar operaciones asíncronas de manera más legible y estructurada, evitando el uso excesivo de callbacks anidados (callback hell).
 
