@@ -10,7 +10,7 @@ Guía 09: Promesas, Servicios y JSON
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Implementar funciones en JavaScript que consuman servicios externos utilizando promesas para recuperar datos en formato JSON y mostrarlos dinámicamente en la landing page mejorando así la interactividad y la presentación de contenido relevante para el usuario.
+    Implementar funciones en JavaScript que consuman servicios externos utilizando promesas para la recuperación y presentación de datos en formato JSON y XML en la landing page.
 
 Actividades previas
 =====================
@@ -21,14 +21,14 @@ HTTP: Requerimientos y respuestas
 1. Visite el sitio web de `ReqBin <https://reqbin.com/>`_.
 2. Realice las siguientes peticiones HTTP, p.e.:
    
-   a) Petición GET a los Datos Generales:
+   a) Petición GET de los productos:
 
-      - **URL:** `https://data-dawm.github.io/Data/Products.json`
+      - **URL:** `https://data-dawm.github.io/datum/reseller/products.json`
       - **Método:** `GET`
     
-   b) Petición GET a los Datos Privados:
+   b) Petición GET de las categorías:
 
-      - **URL:** `https://data-dawm.github.io/Data/Categories.xml`
+      - **URL:** `https://data-dawm.github.io/datum/reseller/categories.xml`
       - **Método:** `GET`
 
 3. Explore la :term:`petición HTTP` y la :term:`respuesta HTTP` en los formatos :term:`JSON` y :term:`XML` que se muestra en la sección de respuesta.
