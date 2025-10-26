@@ -124,31 +124,36 @@ HTML
 
 2. Compruebe la vista previa del resultado en el navegador.
 
+JS: Fetch con cadena de promesas
+--------------------------------
+
 .. sidebar:: 
 
    .. image:: https://cdn.hashnode.com/res/hashnode/image/upload/v1677409815862/3588ce49-a480-46fe-a229-9dafafa4c61d.png
       
    Mastering JavaScript Promises: The Ultimate Guide de `Loknath Reddy <https://loknath.hashnode.dev/mastering-javascript-promises-the-ultimate-guide>`_.
 
-JS: Fetch con cadena de promesas
---------------------------------
-
 1. Dentro de la carpeta *js*, cree el documento javascript *functions.js*. Declare el modo estricto del documento. 
-2. Cree la función flecha `fetchProducts`, que reciba un parámetro **url**, con las siguientes instrucciones:
+2. Escribe una función llamada `fetchProducts` que reciba un parámetro `url`, con las siguientes instrucciones:
 
    .. note::
 
       :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `How to fetch json in JavaScript <https://codetogo.io/how-to-fetch-json-in-javascript/>`_ crear el objeto fetch.
 
-   a) Dentro de la función, usa la instrucción return **fetch(url)** para iniciar la solicitud HTTP al recurso indicado por url.
-   b) Agregue el primer bloque `then(response => { /* bloque de código then - 1 */ })`, con:
+   a) Dentro de la función, utiliza la palabra clave **return** para devolver el resultado de `fetch(url)`.
+   b) Agregue el primer bloque `.then(response => { /*  bloque then - 1 */ })`. Dentro del *bloque then - 1*, realice lo siguiente:
    
-      i) Verifique si no está la propiedad `ok`, del objeto response, para lanzar un error con `throw new Error(...)`.
-      ii) Si la respuesta es correcta, retorne `response.json()` para procesar el cuerpo de la respuesta como JSON.
-   
-   c) Agregue el segundo bloque `then(data => { /* bloque de código then - 2 */ })`, para que retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
+      i) Usa la estructura if para comprobar **!response.ok** para lanzar un error con `throw new Error("Error HTTP: "+response.status)`.
+      ii) Caso contrario, si la respuesta es correcta, retorne `response.json()` para procesar los datos.
 
-   d) Agregue el bloque `catch(error => { /* bloque de código catch */ })`, para que retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error) `{"error": "${error.message}"}`.
+   c) Agregue el segundo bloque `.then(data => { /* bloque then - 2 */ })`. Dentro del *bloque then - 2*,
+   realice los siguiente:
+   
+      i) Retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
+
+   d) Agregue el bloque `catch(error => { /* bloque catch */ })`. Dentro del *bloque catch*, realice lo siguiente:
+   
+      i) Retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error `\`"${error.message}"\``).
 
    .. dropdown:: Ver la solución
     :color: success
@@ -162,7 +167,7 @@ JS: Fetch con cadena de promesas
             return fetch(url)
                 .then(response => {
 
-                    // Verificar si la respuesta es exitosa (status 200-299)
+                    // Verificar si la respuesta no es exitosa
                     if (!response.ok) {
                         throw new Error(`Error HTTP: ${response.status}`);
                     }
@@ -181,9 +186,10 @@ JS: Fetch con cadena de promesas
                 })
                 .catch(error => {
 
+                    // Error en la solicitud
                     return {
                         success: false,
-                        body: `{"error": "${error.message}"}`
+                        body: `"${error.message}"`
                     };
 
                 });
