@@ -133,20 +133,22 @@ JS: Fetch con cadena de promesas
       
    Mastering JavaScript Promises: The Ultimate Guide de `Loknath Reddy <https://loknath.hashnode.dev/mastering-javascript-promises-the-ultimate-guide>`_.
 
-1. Cree el documento javascript *functions.js* dentro de la carpeta *js* de tu proyecto. Declare el modo estricto del documento. Cree la función flecha `fetchProducts`. Exporte la función del módulo. 
+1. Dentro de la carpeta *js*, cree el documento javascript *functions.js*. Declare el modo estricto del documento. 
+2. Cree la función flecha `fetchProducts`, que reciba un parámetro **url**, con las siguientes instrucciones:
 
-2. :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `Fetching JSON with JavaScript Fetch API <https://reqbin.com/code/javascript/wc3qbk0b/javascript-fetch-json-example>`_ para usar el objeto fetch en una petición HTTP asíncrona a la URL `https://data-dawm.github.io/datum/reseller/products.json`. 
+   .. note::
 
-3. Asegúrese de que la función `fetchProducts` cumpla con los siguientes requisitos:
+      :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `How to fetch json in JavaScript <https://codetogo.io/how-to-fetch-json-in-javascript/>`_ crear el objeto fetch.
 
-   a) Procese la respuesta en una cadena de :term:`promesas` (then, then y catch).
-   b) La función siempre devuelve un objeto con las claves **success** y **body**.
-      
-      (i) La clave **success** tendrá un valor booleano que indica si la petición fue exitosa (true) o si ocurrió un error (false) en el servidor HTTP o durante el procesamiento del cliente. 
-      
-      (ii) En caso de éxito, el objeto debe incluir **body** con el contenido de la respuesta convertida a JSON. 
-      
-      (iii) En caso de error, el objeto debe incluir **body** con un mensaje descriptivo del error ocurrido.
+   a) Dentro de la función, usa la instrucción return **fetch(url)** para iniciar la solicitud HTTP al recurso indicado por url.
+   b) Agregue el primer bloque `then(response => { /* bloque de código then - 1 */ })`, con:
+   
+      i) Verifique si no está la propiedad `ok`, del objeto response, para lanzar un error con `throw new Error(...)`.
+      ii) Si la respuesta es correcta, retorne `response.json()` para procesar el cuerpo de la respuesta como JSON.
+   
+   c) Agregue el segundo bloque `then(data => { /* bloque de código then - 2 */ })`, para que retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
+
+   d) Agregue el bloque `catch(error => { /* bloque de código catch */ })`, para que retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error) `{"error": "${error.message}"}`.
 
    .. dropdown:: Ver la solución
     :color: success
@@ -188,6 +190,8 @@ JS: Fetch con cadena de promesas
         }
 
         export { fetchProducts }
+
+3. Exporte la función `fetchProducts`.
 
 JSDoc
 -----
