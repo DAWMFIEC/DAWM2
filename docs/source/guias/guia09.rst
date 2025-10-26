@@ -124,6 +124,71 @@ HTML
 
 2. Compruebe la vista previa del resultado en el navegador.
 
+JS: Fetch con cadena de promesas
+--------------------------------
+
+.. sidebar:: 
+
+   .. image:: https://cdn.hashnode.com/res/hashnode/image/upload/v1677409815862/3588ce49-a480-46fe-a229-9dafafa4c61d.png
+      
+   Mastering JavaScript Promises: The Ultimate Guide de `Loknath Reddy <https://loknath.hashnode.dev/mastering-javascript-promises-the-ultimate-guide>`_.
+
+1. Cree el documento javascript *functions.js* dentro de la carpeta *js* de tu proyecto. Declare el modo estricto del documento. Cree la función flecha `fetchProducts`. Exporte la función del módulo. 
+
+2. :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `Fetching JSON with JavaScript Fetch API <https://reqbin.com/code/javascript/wc3qbk0b/javascript-fetch-json-example>`_ para usar el objeto fetch en una petición HTTP asíncrona a la URL `https://data-dawm.github.io/datum/reseller/products.json`. 
+
+3. Asegúrese de que la función `fetchProducts` cumpla con los siguientes requisitos:
+
+   a) Procese la respuesta en una cadena de :term:`promesas` (then, then y catch).
+   b) La función siempre devuelve un objeto con las claves **success** y **body**.
+      
+      (i) La clave **success** tendrá un valor booleano que indica si la petición fue exitosa (true) o si ocurrió un error (false) en el servidor HTTP o durante el procesamiento del cliente. 
+      
+      (ii) En caso de éxito, el objeto debe incluir **body** con el contenido de la respuesta convertida a JSON. 
+      
+      (iii) En caso de error, el objeto debe incluir **body** con un mensaje descriptivo del error ocurrido.
+
+   .. dropdown:: Ver la solución
+    :color: success
+
+    .. code-block:: javascript
+        
+        'use strict';
+
+        let fetchProducts =  (url) => {
+
+            return fetch(url)
+                .then(response => {
+
+                    // Verificar si la respuesta es exitosa (status 200-299)
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+
+                    return response.json();
+
+                })
+                .then(data => {
+
+                    // Respuesta exitosa
+                    return {
+                        success: true,
+                        body: data
+                    };
+
+                })
+                .catch(error => {
+
+                    return {
+                        success: false,
+                        body: `{"error": "${error.message}"}`
+                    };
+
+                });
+        }
+
+        export { fetchProducts }
+
 JSDoc
 -----
 
