@@ -143,17 +143,11 @@ JS: Fetch con cadena de promesas
    a) Dentro de la función, utiliza la palabra clave **return** para devolver el resultado de `fetch(url)`.
    b) Agregue el primer bloque `.then(response => { /*  bloque then - 1 */ })`. Dentro del *bloque then - 1*, realice lo siguiente:
    
-      i) Usa la estructura if para comprobar **!response.ok** para lanzar un error con `throw new Error("Error HTTP: "+response.status)`.
+      i) Usa la estructura if con la condición **!response.ok** para lanzar un error con `throw new Error("Error HTTP: "+response.status)`.
       ii) Caso contrario, si la respuesta es correcta, retorne `response.json()` para procesar los datos.
 
-   c) Agregue el segundo bloque `.then(data => { /* bloque then - 2 */ })`. Dentro del *bloque then - 2*,
-   realice los siguiente:
-   
-      i) Retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
-
-   d) Agregue el bloque `catch(error => { /* bloque catch */ })`. Dentro del *bloque catch*, realice lo siguiente:
-   
-      i) Retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error `\`"${error.message}"\``).
+   c) Agregue el segundo bloque `.then(data => { /* bloque then - 2 */ })`. Dentro del *bloque then - 2*, retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
+   d) Agregue el bloque `catch(error => { /* bloque catch */ })`. Dentro del *bloque catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error `\`"${error.message}"\``).
 
    .. dropdown:: Ver la solución
     :color: success
