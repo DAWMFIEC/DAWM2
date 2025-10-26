@@ -124,14 +124,14 @@ HTML
 
 2. Compruebe la vista previa del resultado en el navegador.
 
-JS: Fetch con cadena de promesas
---------------------------------
-
 .. sidebar:: 
 
    .. image:: https://cdn.hashnode.com/res/hashnode/image/upload/v1677409815862/3588ce49-a480-46fe-a229-9dafafa4c61d.png
       
    Mastering JavaScript Promises: The Ultimate Guide de `Loknath Reddy <https://loknath.hashnode.dev/mastering-javascript-promises-the-ultimate-guide>`_.
+
+JS: Fetch con cadena de promesas
+--------------------------------
 
 1. Dentro de la carpeta *js*, cree el documento javascript *functions.js*. Declare el modo estricto del documento. 
 2. Cree la función flecha `fetchProducts`, que reciba un parámetro **url**, con las siguientes instrucciones:
