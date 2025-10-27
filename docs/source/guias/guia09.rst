@@ -258,7 +258,7 @@ JS: Carga de productos
 
    f) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **productHTML**.
 
-6. En caso que es **false**, renderice el mensaje de error como contenido del elemento con el id \"products-container\".
+6. En caso que es **false**, muestre una alerta con el mensaje de error.
 7. Llame a la función ``renderProducts`` en la función de autoejecución.
 8. Compruebe la vista previa del resultado y la consola del navegador para verificar la ejecución del código.
 
@@ -272,14 +272,22 @@ JS: Fetch con async/await
    Async/Await Explained By Doing Your Morning Routine de `blog.codeanalogies.com <https://blog.codeanalogies.com/2019/12/22/async-await-explained-by-doing-your-morning-routine/>`_.
 
 1. Modifique el archivo *functions.js*. 
-2. Defina `fetchCategories` como una función asincrónica que reciba un parámetro `url`, con las siguientes instrucciones:
+2. Defina ``fetchCategories`` como una función asincrónica que reciba un parámetro `url`
+
+   .. code-block:: javascript
+
+       let fetchCategories = async (url) => {
+           // cuerpo de la función
+       }
+
+3. Modifique la función *fetchCategories* con las siguientes instrucciones:
 
     .. note::
 
       :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `Consumiendo una API en JavaScript utilizando Async / Await <https://gist.github.com/hchocobar/f35ebd5cccd70b633338301363b1e501>`_ para realizar una petición http con ``fetch``.
 
    a) Dentro de la función, defina un bloque ``try { /* bloque try */ } catch (error) { /* bloque catch */ }``.
-   b) En el bloque *try*, utilice la palabra clave **await** para esperar la resolución de ``fetch(url)`` y almacene el resultado en la variable **response**.
+   b) En el bloque *try*, almacene en la variable **response** el resultado esperar la resolución de ``await fetch(url)``.
       
       i) Use la estructura if con la condición **!response.ok** para lanzar un error.
 
@@ -296,10 +304,47 @@ JS: Fetch con async/await
 
     d) En el bloque *catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
 
-3. Exporte la función `fetchCategories`.
+4. Exporte la función `fetchCategories`.
 
 JS: Carga de categorías
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+    
+    Verifique que el documento *js/file01.js* sea importado como módulo (type=\"module\") en el documento *index.html*.
+
+1. Al inicio del documento *js/file01.js*, importe la función ``fetchCategories`` desde el documento *functions.js*.
+2. Defina ``renderCategories`` como una función asincrónica en el documento *js/file01.js*. 
+3. Dentro de la función ``renderCategories``, defina un bloque ``try { /* bloque try */ } catch (error) { /* bloque catch */ }``.
+4. Dentro del *bloque try*, almacene en **result** el resultado de esperar la resolución de ``await fetchCategories('https://data-dawm.github.io/datum/reseller/categories.xml')``.
+5. Utilice una estructura condicional para verificar si ``result.success`` es true o false.
+6. En caso que es **true**:
+   
+   a) Almacene en **container** la referencia al elemento con id \"categories\" (utilice el elemento **document**). 
+   b) Reemplace el contenido anterior (la propiedad ``innerHTML``) con la opción predeterminada deshabilitada.
+
+      .. code-block:: javascript
+   
+          container.innnerHTML = `<option selected disabled>Seleccione una categoría</option>`;
+ 
+   c) Almacene en **categoriesXML** el contenido de ``result.body``.
+   d) Utilice el método ``getElementsByTagName`` para obtener una colección de elementos `<category>` desde **categoriesXML**. Almacene el resultado en la variable **categories**.
+   e) Recorra el arreglo **categories** utilizando el método ``for (let category of categories) { /* bloque for */ }``.
+   f) En el *bloque for*, cree una opción HTML con la información de la categoría (id y name), utilizando una plantilla de literales (template literals). Almacene el resultado en la variable **categoryHTML**.
+
+      .. code-block:: javascript
+
+          ...
+            
+          let categoryHTML = `<option value="[CATEGORY.ID]">[CATEGORY.NAME]</option>`;
+
+    g) Extraiga el valor de id y name del objeto **category** utilizando los métodos ``getElementsByTagName`` y ``textContent``.
+    h) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes.
+    i) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
+
+6. En caso que es **false** o dentro del *bloque catch*, muestre una alerta con el mensaje de error.
+7. Llame a la función ``renderCategories`` en la función de autoejecución.
+8. Compruebe la vista previa del resultado y la consola del navegador para verificar la ejecución del código.
 
 JSDoc
 -----
