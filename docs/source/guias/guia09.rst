@@ -375,9 +375,9 @@ JS: Carga de categorías
    
       i) En la variable **categoryHTML** cree una opción HTML con la información de la categoría (id y name).
 
-      .. code-block:: javascript
+         .. code-block:: javascript
 
-          let categoryHTML = `<option value="[ID]">[NAME]</option>`;
+            let categoryHTML = `<option value="[ID]">[NAME]</option>`;
 
       ii) Del elemento **category**, utilizando los métodos `getElementsByTagName <https://developer.mozilla.org/es/docs/Web/API/Document/getElementsByTagName>`_ y `textContent <https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent>`_ para extraer el valor de id y name.
       iii) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes de id y name.
