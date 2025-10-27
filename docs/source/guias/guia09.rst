@@ -379,7 +379,7 @@ JS: Carga de categorías
 
           let categoryHTML = `<option value="[ID]">[NAME]</option>`;
 
-      ii) Del elemento **category**, utilizando los métodos ``getElementsByTagName`` y ``textContent`` para extraer el valor de id y name.
+      ii) Del elemento **category**, utilizando los métodos `getElementsByTagName <https://developer.mozilla.org/es/docs/Web/API/Document/getElementsByTagName>`_ y `textContent <https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent>`_ para extraer el valor de id y name.
       iii) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes de id y name.
       iv) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
 
