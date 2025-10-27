@@ -138,7 +138,7 @@ JS: Fetch con cadena de promesas
 
    .. note::
 
-      :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `How to fetch json in JavaScript <https://codetogo.io/how-to-fetch-json-in-javascript/>`_ crear el objeto fetch.
+      :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `How to fetch json in JavaScript <https://codetogo.io/how-to-fetch-json-in-javascript/>`_ para realizar una petición http con ``fetch``.
 
    a) Dentro de la función, utiliza la palabra clave **return** para devolver el resultado de ``fetch(url)``.
    b) Agregue el primer bloque ``.then(response => { /*  bloque then - 1 */ })``. Dentro del *bloque then - 1*, realice lo siguiente:
@@ -261,6 +261,45 @@ JS: Carga de productos
 6. En caso que es **false**, renderice el mensaje de error como contenido del elemento con el id \"products-container\".
 7. Llame a la función ``renderProducts`` en la función de autoejecución.
 8. Compruebe la vista previa del resultado y la consola del navegador para verificar la ejecución del código.
+
+JS: Fetch con async/await
+-------------------------
+
+.. sidebar:: 
+
+   .. image:: https://i0.wp.com/blog.codeanalogies.com/wp-content/uploads/2019/12/AsyncDiag3Fail.jpg
+      
+   Async/Await Explained By Doing Your Morning Routine de `blog.codeanalogies.com <https://blog.codeanalogies.com/2019/12/22/async-await-explained-by-doing-your-morning-routine/>`_.
+
+1. Modifique el archivo *functions.js*. 
+2. Defina `fetchCategories` como una función asincrónica que reciba un parámetro `url`, con las siguientes instrucciones:
+
+    .. note::
+
+      :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `Consumiendo una API en JavaScript utilizando Async / Await <https://gist.github.com/hchocobar/f35ebd5cccd70b633338301363b1e501>`_ para realizar una petición http con ``fetch``.
+
+   a) Dentro de la función, defina un bloque ``try { /* bloque try */ } catch (error) { /* bloque catch */ }``.
+   b) En el bloque *try*, utilice la palabra clave **await** para esperar la resolución de ``fetch(url)`` y almacene el resultado en la variable **response**.
+      
+      i) Use la estructura if con la condición **!response.ok** para lanzar un error.
+
+         .. code-block:: javascript
+   
+             throw new Error(`Error HTTP: ${response.status}`);
+   
+      ii) Caso contrario, si la respuesta es correcta: 
+      
+          A. En la variable **text** espere por la resolución de ``await response.text()``.
+          B. En la constante **parser** cree una nueva instancia de ``DOMParser()``.
+          C. En la variable **data** asigne el resultado de convertir el texto a un objeto XML, con el método ``parser.parseFromString(text, "application/xml")``.
+          D. Retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
+
+    d) En el bloque *catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
+
+3. Exporte la función `fetchCategories`.
+
+JS: Carga de categorías
+^^^^^^^^^^^^^^^^^^^^^^^
 
 JSDoc
 -----
