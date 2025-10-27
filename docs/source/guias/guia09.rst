@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ====================================
-Guía 09: Promesas, Servicios y JSON 
+Guía 09: Promesas, XML y JSON 
 ====================================
 
 .. topic:: Objetivo específico
