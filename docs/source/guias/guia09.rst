@@ -140,8 +140,8 @@ JS: Fetch con cadena de promesas
 
       :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `How to fetch json in JavaScript <https://codetogo.io/how-to-fetch-json-in-javascript/>`_ crear el objeto fetch.
 
-   a) Dentro de la función, utiliza la palabra clave **return** para devolver el resultado de `fetch(url)`.
-   b) Agregue el primer bloque `.then(response => { /*  bloque then - 1 */ })`. Dentro del *bloque then - 1*, realice lo siguiente:
+   a) Dentro de la función, utiliza la palabra clave **return** para devolver el resultado de ``fetch(url)``.
+   b) Agregue el primer bloque ``.then(response => { /*  bloque then - 1 */ })``. Dentro del *bloque then - 1*, realice lo siguiente:
    
       i) Use la estructura if con la condición **!response.ok** para lanzar un error.
 
@@ -149,10 +149,10 @@ JS: Fetch con cadena de promesas
       
                throw new Error(`Error HTTP: ${response.status}`);
 
-      ii) Caso contrario, si la respuesta es correcta, retorne `response.json()` para procesar los datos en el siguiente bloque.
+      ii) Caso contrario, si la respuesta es correcta, retorne ``response.json()`` para procesar los datos en el siguiente bloque.
 
-   c) Agregue el segundo bloque `.then(data => { /* bloque then - 2 */ })`. Dentro del *bloque then - 2*, retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
-   d) Agregue el bloque `catch(error => { /* bloque catch */ })`. Dentro del *bloque catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error `\`${error.message}\``).
+   c) Agregue el segundo bloque ``.then(data => { /* bloque then - 2 */ })``. Dentro del *bloque then - 2*, retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
+   d) Agregue el bloque ``.catch(error => { /* bloque catch */ })``. Dentro del *bloque catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
 
    .. dropdown:: Ver la solución
     :color: success
@@ -188,7 +188,7 @@ JS: Fetch con cadena de promesas
                     // Error en la solicitud
                     return {
                         success: false,
-                        body: `${error.message}`
+                        body: error.message
                     };
 
                 });
@@ -205,16 +205,16 @@ JS: Carga de productos
     
     Verifique que el documento *js/file01.js* sea importado como módulo (type=\"module\") en el documento *index.html*.
 
-1. Al inicio del documento *js/file01.js*, importe la función `fetchProducts` desde el documento *functions.js*.
-2. Agregue una función flecha `renderProducts` en el documento *js/file01.js*. 
-3. Dentro de la función `renderProducts`, llame a la función `fetchProducts` con la URL `https://data-dawm.github.io/datum/reseller/products.json`. Encadena un bloque `.then(result => { /* bloque then */ })` para procesar el resultado. 
-4. Dentro del *bloque then*, utilice una estructura condicional para verificar si `result.success` es true o false.
+1. Al inicio del documento *js/file01.js*, importe la función ``fetchProducts`` desde el documento *functions.js*.
+2. Agregue una función flecha ``renderProducts`` en el documento *js/file01.js*. 
+3. Dentro de la función ``renderProducts``, llame a la función ``fetchProducts`` con la URL `'https://data-dawm.github.io/datum/reseller/products.json'`. Encadena un bloque ``.then(result => { /* bloque then */ })`` para procesar el resultado. 
+4. Dentro del *bloque then*, utilice una estructura condicional para verificar si ``result.success`` es true o false.
 5. En caso que es **true**:
    
    a) Almacene en **container** la referencia al elemento con id \"products-container\" (utilice el elemento **document**). Elimine cualquier contenido anterior dentro del elemento usando la propiedad `innerHTML <https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML>`_.
-   b) Almacene en **products** el contenido de `result.body`. Seleccione solo los primeros 6 productos del arreglo.
-   c) Recorra el arreglo **products** utilizando el método `forEach( product => { /* bloque forEach */ })`. 
-   d) En el bloque `forEach`, cree una tarjeta HTML con la información del producto (imgUrl, title, price, productURL y category_id), utilizando una plantilla de literales (template literals). Almacene el resultado en la variable **productHTML**.
+   b) Almacene en **products** el contenido de ``result.body``. Seleccione solo los primeros 6 productos del arreglo con `slice <https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice>`_.
+   c) Recorra el arreglo **products** utilizando el método ``.forEach( product => { /* bloque forEach */ })``. 
+   d) En el bloque *forEach*, cree una tarjeta HTML con la información del producto (imgUrl, title, price, productURL y category_id), utilizando una plantilla de literales (template literals). Almacene el resultado en la variable **productHTML**.
 
       .. dropdown:: Ver el código 
         :color: primary
@@ -223,7 +223,7 @@ JS: Carga de productos
 
             ...
             
-            let productCard = `
+            let productHTML = `
                 <div class="space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
                     <img
                         class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg object-cover transition-transform duration-300 hover:scale-[1.03]"
@@ -247,10 +247,10 @@ JS: Carga de productos
 
             ...
 
-   e) Del contenedor **container**, utilice la propiedad `innerHTML` para concatenar el HTML del producto.
+   e) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **productHTML**.
 
 6. En caso que es **false**, renderice el mensaje de error como contenido del elemento con el id \"products-container\".
-7. Llame a la función `renderProducts` en la función de autoejecución.
+7. Llame a la función ``renderProducts`` en la función de autoejecución.
 8. Compruebe la vista previa del resultado y la consola del navegador para verificar la ejecución del código.
 
 JSDoc
