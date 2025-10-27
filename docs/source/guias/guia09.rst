@@ -383,9 +383,9 @@ JS: Carga de categorías
       iii) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes de id y name.
       iv) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
 
-6. En caso que es **false** o dentro del *bloque catch*, muestre una alerta con el mensaje de error.
-7. Llame a la función ``renderCategories`` en la función de autoejecución.
-8. Compruebe la vista previa del resultado y la consola del navegador para verificar la ejecución del código.
+7. En caso que es **false** o dentro del *bloque catch*, muestre una alerta con el mensaje de error.
+8. Llame a la función ``renderCategories`` en la función de autoejecución.
+9. Compruebe la vista previa del resultado y la consola del navegador para verificar la ejecución del código.
 
 JSDoc
 -----
