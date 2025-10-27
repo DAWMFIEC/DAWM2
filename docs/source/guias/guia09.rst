@@ -373,15 +373,15 @@ JS: Carga de categorías
    e) Recorra la lista de elementos en **categories** utilizando el método ``for (let category of categories) { /* bloque for */ }``.
    f) En el *bloque for*:
    
-      A. En la variable **categoryHTML** cree una opción HTML con la información de la categoría (id y name).
+      i) En la variable **categoryHTML** cree una opción HTML con la información de la categoría (id y name).
 
       .. code-block:: javascript
 
           let categoryHTML = `<option value="[ID]">[NAME]</option>`;
 
-      B. Del elemento **category**, utilizando los métodos ``getElementsByTagName`` y ``textContent`` para extraer el valor de id y name.
-      C. Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes.
-      D. Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
+      ii) Del elemento **category**, utilizando los métodos ``getElementsByTagName`` y ``textContent`` para extraer el valor de id y name.
+      iii) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes de id y name.
+      iv) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
 
 6. En caso que es **false** o dentro del *bloque catch*, muestre una alerta con el mensaje de error.
 7. Llame a la función ``renderCategories`` en la función de autoejecución.
