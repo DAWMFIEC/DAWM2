@@ -271,7 +271,7 @@ JS: Fetch con async/await
    Async/Await Explained By Doing Your Morning Routine de `blog.codeanalogies.com <https://blog.codeanalogies.com/2019/12/22/async-await-explained-by-doing-your-morning-routine/>`_.
 
 1. Modifique el archivo *functions.js*. 
-2. Defina ``fetchCategories`` como una función asincrónica que reciba un parámetro `url`
+2. Defina ``fetchCategories`` como una función flecha asincrónica que recibe el parámetro `url`
 
    .. code-block:: javascript
 
