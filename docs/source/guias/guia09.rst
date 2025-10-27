@@ -302,7 +302,7 @@ JS: Fetch con async/await
           C. En la variable **data** asigne el resultado de convertir el texto a un objeto XML, con el método ``parser.parseFromString(text, "application/xml")``.
           D. Retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
 
-    d) En el bloque *catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
+   c) En el bloque *catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
 
 4. Exporte la función `fetchCategories`.
 
@@ -379,9 +379,9 @@ JS: Carga de categorías
             
           let categoryHTML = `<option value="[CATEGORY.ID]">[CATEGORY.NAME]</option>`;
 
-    g) Extraiga el valor de id y name del objeto **category** utilizando los métodos ``getElementsByTagName`` y ``textContent``.
-    h) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes.
-    i) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
+   g) Extraiga el valor de id y name del objeto **category** utilizando los métodos ``getElementsByTagName`` y ``textContent``.
+   h) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes.
+   i) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
 
 6. En caso que es **false** o dentro del *bloque catch*, muestre una alerta con el mensaje de error.
 7. Llame a la función ``renderCategories`` en la función de autoejecución.
