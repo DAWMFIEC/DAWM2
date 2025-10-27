@@ -369,19 +369,19 @@ JS: Carga de categorías
           container.innnerHTML = `<option selected disabled>Seleccione una categoría</option>`;
  
    c) Almacene en **categoriesXML** el contenido de ``result.body``.
-   d) Utilice el método ``getElementsByTagName`` para obtener una colección de elementos `<category>` desde **categoriesXML**. Almacene el resultado en la variable **categories**.
-   e) Recorra el arreglo **categories** utilizando el método ``for (let category of categories) { /* bloque for */ }``.
-   f) En el *bloque for*, cree una opción HTML con la información de la categoría (id y name), utilizando una plantilla de literales (template literals). Almacene el resultado en la variable **categoryHTML**.
+   d) De **categoriesXML**, utilice el método `getElementsByTagName <https://developer.mozilla.org/es/docs/Web/API/Document/getElementsByTagName>`_ para obtener una colección de elementos `category`. Almacene el resultado en la variable **categories**.
+   e) Recorra la lista de elementos en **categories** utilizando el método ``for (let category of categories) { /* bloque for */ }``.
+   f) En el *bloque for*:
+   
+      A. En la variable **categoryHTML** cree una opción HTML con la información de la categoría (id y name).
 
       .. code-block:: javascript
 
-          ...
-            
-          let categoryHTML = `<option value="[CATEGORY.ID]">[CATEGORY.NAME]</option>`;
+          let categoryHTML = `<option value="[ID]">[NAME]</option>`;
 
-   g) Extraiga el valor de id y name del objeto **category** utilizando los métodos ``getElementsByTagName`` y ``textContent``.
-   h) Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes.
-   i) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
+      B. Del elemento **category**, utilizando los métodos ``getElementsByTagName`` y ``textContent`` para extraer el valor de id y name.
+      C. Reemplace los marcadores de posición en **categoryHTML** con los valores correspondientes.
+      D. Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **categoryHTML**.
 
 6. En caso que es **false** o dentro del *bloque catch*, muestre una alerta con el mensaje de error.
 7. Llame a la función ``renderCategories`` en la función de autoejecución.
