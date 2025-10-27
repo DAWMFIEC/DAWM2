@@ -134,7 +134,7 @@ JS: Fetch con cadena de promesas
    Mastering JavaScript Promises: The Ultimate Guide de `Loknath Reddy <https://loknath.hashnode.dev/mastering-javascript-promises-the-ultimate-guide>`_.
 
 1. Dentro de la carpeta *js*, cree el documento javascript *functions.js*. Declare el modo estricto del documento. 
-2. Escribe una función llamada `fetchProducts` que reciba un parámetro `url`, con las siguientes instrucciones:
+2. Escribe una función flecha llamada `fetchProducts` que reciba un parámetro `url`, con las siguientes instrucciones:
 
    .. note::
 
@@ -214,48 +214,48 @@ JS: Carga de productos
    a) Almacene en **container** la referencia al elemento con id \"products-container\" (utilice el elemento **document**). Elimine cualquier contenido anterior dentro del elemento usando la propiedad `innerHTML <https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML>`_.
    b) Almacene en **products** el contenido de ``result.body``. Seleccione solo los primeros 6 productos del arreglo con `slice <https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice>`_.
    c) Recorra el arreglo **products** utilizando el método ``.forEach( product => { /* bloque forEach */ })``. 
-   d) En el bloque *forEach*, cree una tarjeta HTML con la información del producto (imgUrl, title, price, productURL y category_id), utilizando una plantilla de literales (template literals). Almacene el resultado en la variable **productHTML**.
+   d) En el bloque *forEach*:
+   
+      i) Cree una tarjeta HTML con la información del producto (imgUrl, title, price, productURL y category_id), utilizando una plantilla de literales (template literals). Almacene el resultado en la variable **productHTML**.
 
-      .. dropdown:: Ver el código 
-        :color: primary
+         .. dropdown:: Ver el código 
+             :color: primary
 
-        .. code-block:: javascript
+             .. code-block:: javascript
 
-            ...
-            
-            let productHTML = `
-                <div class="space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
-                    <img
-                        class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg object-cover transition-transform duration-300 hover:scale-[1.03]"
-                        src="[PRODUCT.IMGURL]" alt="[PRODUCT.TITLE]">
-                    <h3
-                        class="h-6 text-xl font-semibold tracking-tight text-gray-900 dark:text-white hover:text-black-600 dark:hover:text-white-400">
-                        $[PRODUCT.PRICE]
-                    </h3>
+                 ...
+                    
+                 let productHTML = `
+                    <div class="space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
+                        <img
+                            class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg object-cover transition-transform duration-300 hover:scale-[1.03]"
+                            src="[PRODUCT.IMGURL]" alt="[PRODUCT.TITLE]">
+                        <h3
+                            class="h-6 text-xl font-semibold tracking-tight text-gray-900 dark:text-white hover:text-black-600 dark:hover:text-white-400">
+                            $[PRODUCT.PRICE]
+                        </h3>
 
-                    <div class="h-5 rounded w-full">[PRODUCT.TITLE]</div>
-                        <div class="space-y-2">
-                            <a href="[PRODUCT.PRODUCTURL]" target="_blank" rel="noopener noreferrer"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full inline-block">
-                                Ver en Amazon
-                            </a>
-                            <div class="hidden"><span class="1">[PRODUCT.CATEGORY_ID]</span></div>
+                        <div class="h-5 rounded w-full">[PRODUCT.TITLE]</div>
+                            <div class="space-y-2">
+                                <a href="[PRODUCT.PRODUCTURL]" target="_blank" rel="noopener noreferrer"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full inline-block">
+                                    Ver en Amazon
+                                </a>
+                                <div class="hidden"><span class="1">[PRODUCT.CATEGORY_ID]</span></div>
+                            </div>
                         </div>
-                    </div>
-                </div>`;
+                    </div>`;
 
-            ...
+      ii) Reemplace los marcadores de posición en **productHTML** con los valores correspondientes del objeto **product**, utilizando el método ``replaceAll`` de las cadenas de texto, p.e.:
 
-   e) Reemplace los marcadores de posición en **productHTML** con los valores correspondientes del objeto **product**, utilizando el método ``replaceAll`` de las cadenas de texto, p.e.:
+          .. code-block:: javascript
 
-      .. code-block:: javascript
+             productHTML = productHTML.replaceAll("[PRODUCT.TITLE]", product.title.length > 20 ? product.title.substring(0, 20) + "..." : product.title);
+             ...
+             productHTML = productHTML.replaceAll('[PRODUCT.CATEGORY_ID]', product.category_id);
+             ...
 
-            productHTML = productHTML.replaceAll("[PRODUCT.TITLE]", product.title.length > 20 ? product.title.substring(0, 20) + "..." : product.title);
-            ...
-            productHTML = productHTML.replaceAll('[PRODUCT.CATEGORY_ID]', product.category_id);
-            ...
-
-   f) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **productHTML**.
+      iii) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **productHTML**.
 
 6. En caso que es **false**, muestre una alerta con el mensaje de error.
 7. Llame a la función ``renderProducts`` en la función de autoejecución.
@@ -275,11 +275,9 @@ JS: Fetch con async/await
 
    .. code-block:: javascript
 
-       let fetchCategories = async (url) => {
-           // cuerpo de la función
-       }
+       let fetchCategories = async (url) => { /* cuerpo de la función */ }
 
-3. Modifique la función *fetchCategories* con las siguientes instrucciones:
+3. Modifique el cuerpo de la función *fetchCategories* con las siguientes instrucciones:
 
    .. note::
 
