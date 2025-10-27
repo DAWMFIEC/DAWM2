@@ -40,7 +40,7 @@ Archivos y estructura
 
        "use strict";
 
-3. Referencie el documento *file01.js*, con el tipo "module", en el documento *index.html* al final de la etiqueta `<body>`. Valide su respuesta con la guía para :download:`referenciar una hoja de estilo externa <./pdfs/guia08-referenciajs.pdf>`.
+3. Referencie el documento *file01.js*, con el tipo \"module\", en el documento *index.html* al final de la etiqueta `<body>`. Valide su respuesta con la guía para :download:`referenciar una hoja de estilo externa <./pdfs/guia08-referenciajs.pdf>`.
 
 HTML
 ----
