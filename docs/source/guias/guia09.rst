@@ -207,7 +207,7 @@ JS: Carga de productos
 
 1. Al inicio del documento *js/file01.js*, importe la función ``fetchProducts`` desde el documento *functions.js*.
 2. Agregue una función flecha ``renderProducts`` en el documento *js/file01.js*. 
-3. Dentro de la función ``renderProducts``, llame a la función ``fetchProducts`` con la URL `'https://data-dawm.github.io/datum/reseller/products.json'`. Encadena un bloque ``.then(result => { /* bloque then */ })`` para procesar el resultado. 
+3. Dentro de la función ``renderProducts``, llame a la función ``fetchProducts`` con la URL `\'https://data-dawm.github.io/datum/reseller/products.json\'`. Encadena un bloque ``.then(result => { /* bloque then */ })`` para procesar el resultado. 
 4. Dentro del *bloque then*, utilice una estructura condicional para verificar si ``result.success`` es true o false.
 5. En caso que es **true**:
    
@@ -227,15 +227,15 @@ JS: Carga de productos
                 <div class="space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
                     <img
                         class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg object-cover transition-transform duration-300 hover:scale-[1.03]"
-                        src="${product.imgUrl}" alt="[PRODUCT.TITLE]">
+                        src="[PRODUCT.IMGURL]" alt="[PRODUCT.TITLE]">
                     <h3
                         class="h-6 text-xl font-semibold tracking-tight text-gray-900 dark:text-white hover:text-black-600 dark:hover:text-white-400">
                         $[PRODUCT.PRICE]
                     </h3>
 
-                    <div class="h-5 rounded w-full">[PRODUCT.TITLE - 20 caracteres]</div>
+                    <div class="h-5 rounded w-full">[PRODUCT.TITLE]</div>
                         <div class="space-y-2">
-                            <a href="[PRODUCT.URL]" target="_blank" rel="noopener noreferrer"
+                            <a href="[PRODUCT.PRODUCTURL]" target="_blank" rel="noopener noreferrer"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full inline-block">
                                 Ver en Amazon
                             </a>
@@ -247,7 +247,16 @@ JS: Carga de productos
 
             ...
 
-   e) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **productHTML**.
+   e) Reemplace los marcadores de posición en **productHTML** con los valores correspondientes del objeto **product**, utilizando el método ``replaceAll`` de las cadenas de texto, p.e.:
+
+      .. code-block:: javascript
+
+            productHTML = productHTML.replaceAll("[PRODUCT.TITLE]", product.title.length > 20 ? product.title.substring(0, 20) + "..." : product.title);
+            ...
+            productHTML = productHTML.replaceAll('[PRODUCT.CATEGORY_ID]', product.category_id);
+            ...
+
+   f) Del objeto **container**, utilice la propiedad ``innerHTML`` para concatenar **productHTML**.
 
 6. En caso que es **false**, renderice el mensaje de error como contenido del elemento con el id \"products-container\".
 7. Llame a la función ``renderProducts`` en la función de autoejecución.
