@@ -242,8 +242,7 @@ JS: Carga de productos
                             <div class="hidden"><span class="1">[PRODUCT.CATEGORY_ID]</span></div>
                         </div>
                     </div>
-                </div>
-            `;
+                </div>`;
 
             ...
 
