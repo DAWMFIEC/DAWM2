@@ -282,7 +282,7 @@ JS: Fetch con async/await
 
 3. Modifique la función *fetchCategories* con las siguientes instrucciones:
 
-    .. note::
+   .. note::
 
       :material-round:`note_alt;1.5em;sd-text-success` Tome como referencia `Consumiendo una API en JavaScript utilizando Async / Await <https://gist.github.com/hchocobar/f35ebd5cccd70b633338301363b1e501>`_ para realizar una petición http con ``fetch``.
 
