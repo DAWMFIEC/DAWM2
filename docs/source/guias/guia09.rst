@@ -154,6 +154,8 @@ JS: Fetch con cadena de promesas
    c) Agregue el segundo bloque ``.then(data => { /* bloque then - 2 */ })``. Dentro del *bloque then - 2*, retorne un objeto con las claves **success** (valor true) y **body** (contenido de data).
    d) Agregue el bloque ``.catch(error => { /* bloque catch */ })``. Dentro del *bloque catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
 
+3. Exporte la función `fetchProducts`.
+
    .. dropdown:: Ver la solución
     :color: success
 
@@ -195,8 +197,6 @@ JS: Fetch con cadena de promesas
         }
 
         export { fetchProducts }
-
-3. Exporte la función `fetchProducts`.
 
 JS: Carga de productos
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -305,6 +305,47 @@ JS: Fetch con async/await
     d) En el bloque *catch*, retorne un objeto con las claves **success** (valor false) y **body** (mensaje de error ``error.message``).
 
 4. Exporte la función `fetchCategories`.
+
+.. dropdown:: Ver la solución
+    :color: success
+
+    .. code-block:: javascript
+        :emphasize-lines: 3-30, 34
+        
+        'use strict';
+
+        let fetchCategories = async (url) => {
+
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+
+                let text = await response.text()
+
+                const parser = new DOMParser();
+                const data = parser.parseFromString(text, "application/xml");
+
+                return {
+                    success: true,
+                    body: data
+                };
+
+            } catch (error) {
+
+                return {
+                    success: false,
+                    body: error.message
+                };
+
+            }
+        }
+
+        let fetchProducts =  (url) => { ... }
+
+        export { fetchCategories, fetchProducts }
 
 JS: Carga de categorías
 ^^^^^^^^^^^^^^^^^^^^^^^
