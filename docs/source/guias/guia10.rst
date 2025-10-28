@@ -10,7 +10,7 @@ Guía 10: Firebase: Realtime Database y SDK
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Integrar Firebase Realtime Database utilizando su SDK para almacenar y recuperar datos en tiempo real desde una landing page desarrollada con JavaScript y TailwindCSS, permitiendo una experiencia de usuario dinámica e interactiva.
+    Integrar Firebase Realtime Database utilizando su SDK para el almacenamiento y recuperación de datos en tiempo real desde una landing page desarrollada con JavaScript y TailwindCSS, permitiendo una experiencia de usuario dinámica e interactiva.
 
 Actividades previas
 =====================
