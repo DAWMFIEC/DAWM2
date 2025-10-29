@@ -213,28 +213,33 @@ JS: Guardar votos en Firebase
 
 1. En el documento javascript *js/firebase.js*, implemente el siguiente código: 
 
-   a) Define una función llamada `saveVote` que reciba un parámetro `productID`.
-   b) Dentro de la función, obtén una referencia a la colección `votes` de la base de datos.
-   c) Crea una nueva referencia para un usuario utilizando la función `push()`.
-   d) Guarda los datos en la base de datos con la función `set()`, con el valor del parámetro y la fecha actual.
-   e) Maneja el resultado de la operación con promesas, devolviendo un objeto con un mesaje de éxito o de error.
-   f) Exporta la función `saveVote` para que pueda ser utilizada en otros archivos.
+   a) Define una función flecha `saveVote`, que reciba un parámetro `productID`.
+   b) Dentro de la función, tome como referencia la documentación de `Operaciones básicas de escritura <https://firebase.google.com/docs/database/web/read-and-write?hl=es-419>`_:
+      
+      (i) Obtenga una referencia a la colección `votes` de la base de datos, con la función `ref()`.
+      (ii) Crea una nueva referencia para un usuario utilizando la función `push()`.
+      (iii) Guarda los datos (`productID` y la fecha actual) en la base de datos con la función `set()`.
+      (iv) Maneje el resultado de la función `set()` como una promesa, devuelva un objeto con un estado y un mesaje de éxito o de error.
+   
+   c) Exporta la función `saveVote` para que pueda ser utilizada en otros archivos.
 
 2. Con un cliente de IAG, explique cómo se utiliza el SDK de Firebase para realizar las operaciones CRUD (Create, Read, Update, Delete).
 
-JS: Interacción con el formulario
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+JS: Enviar datos desde un formulario
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. En el documento *js/file01.js*, importe la función `saveVote` desde *js/firebase.js*.
-2. En el documento *js/file01.js*, iutilice un cliente de IAG para implementar la siguiente funcionalidad: 
+En el documento *js/file01.js*,
+
+1. Importe la función `saveVote` desde *js/firebase.js*.
+2. Implemente la siguiente funcionalidad: 
 
    a) Defina la función flecha `enableForm` (antes de la función de autoejecución).
    b) Dentro de la función flecha, obtenga una referencia al formulario HTML con el identificador \'form_voting\'.
-   c) Con la referencia al formulario, agregue un *listener* con `addEventListener <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener>`_ para el evento \'submit\', que:
+   c) Con la referencia al formulario, utilice `addEventListener <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener>`_ para el evento \'submit\' y un *listener* que:
       
       (i) Use el evento del *callback* para prevenir el comportamiento por defecto del formulario. Use el método `preventDefault <https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault>`_.
       (ii) Obtenga la referencia al elemento con identificador \'select_product\' y extraiga el valor mediante el atributo `value <https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/value>`_.
-      (iii) Llame a la función `saveVote` con el valor obtenido del campo de texto. Maneje la promesa devuelta para mostrar un mensaje de éxito o error con un mensaje de alerta.
+      (iii) Llame a la función `saveVote` con el valor obtenido del campo de texto. Maneje la promesa y muestre el resultado con un mensaje de alerta.
 
    d) Invoque la función `enableForm` en la función de autoejecución.
 
@@ -246,24 +251,30 @@ JS: Obtener votos en Firebase
 
 1. Modifique el código del archivo *js/firebase.js*, de acuerdo con las siguientes especificaciones: 
 
-   a) Defina una función llamada `getVotes`.
-   b) Dentro de la función, obtenga una referencia a la colección `votes` de la base de datos.
-   c) Utilice la función `get` para obtener los datos de la colección.
-   d) Exporta la función `getVotes` para que pueda ser utilizada en otros archivos.
+   a) Defina `getVotes` y asigne una función flecha asíncrona.
+   b) Dentro de la función, tome como referencia la documentación de `Lee los datos una sola vez <https://firebase.google.com/docs/database/web/read-and-write?hl=es-419#read_data_once>`_:
+      
+      (i) Obtenga una referencia a la colección `votes` de la base de datos, con la función `ref()`.
+      (ii) Utilice la función `get` para esperar por los datos de la colección.
+      (iii) Si existen datos, retorne un objeto con el estado y los datos obtenidos, con la función `val()`. De lo contrario, retorne un objeto con un estado y un mensaje indicando que no hay datos.
+   
+   c) Exporte la función `getVotes` para que pueda ser utilizada en otros archivos.
 
-3. Con un cliente de IAG, explique cómo se utiliza el SDK de Firebase para obtener datos de la base de datos en tiempo real.
+3. Con un cliente de IAG, explique cómo se utiliza el SDK de Firebase para obtener datos de la base de datos.
 
-JS: Interacción con la tabla
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+JS: Mostrar datos en una tabla
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. En el documento *js/file01.js*, importe la función `getVotes` desde *js/firebase.js*.
-2. En el documento *js/file01.js*, utilice un cliente de IAG para implementar la siguiente funcionalidad: 
+En el documento *js/file01.js*,
 
-   a) Defina una función llamada `displayVotes`.
-   b) Dentro de la función, obtenga los votos utilizando la función `getVotes`.
-   c) Itere sobre los votos obtenidos y cree una tabla donde cada fila represente un voto, mostrando el producto votado y el total de votos.
+1. Importe la función `getVotes` desde *js/firebase.js*.
+2. Implemente la siguiente funcionalidad: 
+
+   a) Defina `displayVotes` y asigne una función flecha asíncrona.
+   b) Dentro de la función, espere por los votos utilizando la función `getVotes`.
+   c) Itere sobre los votos obtenidos y cree una tabla donde cada fila represente un voto. En cada fila, muestre el producto votado y el total de votos.
    d) Inserte la tabla en el elemento HTML con el identificador `results`.
-   e) Invoque la función `displayVotes` en la función de autoejecución y luego de guardar un voto.
+   e) Invoque la función `displayVotes` en la función de autoejecución.
 
 3. En el navegador, verifique que al cargar la página se muestren los votos almacenados en Firebase en una tabla.
 
