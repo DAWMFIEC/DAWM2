@@ -211,7 +211,7 @@ JS: Conexión a Firebase
 JS: Guardar votos en Firebase
 -----------------------------
 
-1. En el documento javascript *js/firebase.js*, implemente el siguiente código con un cliente de IAG y verifique la respuesta: 
+1. En el documento javascript *js/firebase.js*, implemente el siguiente código: 
 
    a) Define una función llamada `saveVote` que reciba un parámetro `productID`.
    b) Dentro de la función, obtén una referencia a la colección `votes` de la base de datos.
@@ -226,14 +226,14 @@ JS: Interacción con el formulario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. En el documento *js/file01.js*, importe la función `saveVote` desde *js/firebase.js*.
-2. En el documento *js/file01.js*, implemente la siguiente funcionalidad con un cliente de IAG, de acuerdo con las siguientes especificaciones: 
+2. En el documento *js/file01.js*, iutilice un cliente de IAG para implementar la siguiente funcionalidad: 
 
    a) Defina la función flecha `enableForm` (antes de la función de autoejecución).
    b) Dentro de la función flecha, obtenga una referencia al formulario HTML con el identificador \'form_voting\'.
-   c) Con la referencia al formulario, agregue un *listener* con `addEventListener <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener>`_ para el evento \'submit\', con el *callback*:
+   c) Con la referencia al formulario, agregue un *listener* con `addEventListener <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener>`_ para el evento \'submit\', que:
       
-      (i) Prevenga el comportamiento por defecto del formulario, con el método  `preventDefault <https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault>`_.
-      (ii) Obtenga el valor del campo de entrada que tenga el identificador \'select_product\', con el atributo `value ;<https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/value>`_.
+      (i) Use el evento del *callback* para prevenir el comportamiento por defecto del formulario. Use el método `preventDefault <https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault>`_.
+      (ii) Obtenga la referencia al elemento con identificador \'select_product\' y extraiga el valor mediante el atributo `value <https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/value>`_.
       (iii) Llame a la función `saveVote` con el valor obtenido del campo de texto. Maneje la promesa devuelta para mostrar un mensaje de éxito o error con un mensaje de alerta.
 
    d) Invoque la función `enableForm` en la función de autoejecución.
@@ -244,7 +244,7 @@ JS: Interacción con el formulario
 JS: Obtener votos en Firebase
 -----------------------------
 
-1. Con un cliente de IAG, modifique el código del archivo *js/firebase.js*, de acuerdo con las siguientes especificaciones: 
+1. Modifique el código del archivo *js/firebase.js*, de acuerdo con las siguientes especificaciones: 
 
    a) Defina una función llamada `getVotes`.
    b) Dentro de la función, obtenga una referencia a la colección `votes` de la base de datos.
@@ -257,7 +257,7 @@ JS: Interacción con la tabla
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. En el documento *js/file01.js*, importe la función `getVotes` desde *js/firebase.js*.
-2. Con un cliente de IAG, modifique el código del archivo *js/file01.js*, de acuerdo con las siguientes especificaciones:
+2. En el documento *js/file01.js*, utilice un cliente de IAG para implementar la siguiente funcionalidad: 
 
    a) Defina una función llamada `displayVotes`.
    b) Dentro de la función, obtenga los votos utilizando la función `getVotes`.
