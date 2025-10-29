@@ -171,7 +171,7 @@ JS: Conexión a Firebase
          :emphasize-lines: 1-2
 
          import { initializeApp } from "https://www.gstatic.com/firebasejs/x.y.z/firebase-app.js";
-         import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/x.y.z/firebase-database.js";
+         import { getDatabase, ref, set, push, get, child } from "https://www.gstatic.com/firebasejs/x.y.z/firebase-database.js";
 
    b) Utilice las variables de entorno definidas en el archivo **.env** para configurar la conexión a Firebase, considerando que utiliza Vite como herramienta de construcción.
 
@@ -211,7 +211,7 @@ JS: Conexión a Firebase
 JS: Guardar votos en Firebase
 -----------------------------
 
-1. Use el cliente de IAG y modifique el documento javascript *js/firebase.js*, de acuerdo con las siguientes especificaciones: 
+1. En el documento javascript *js/firebase.js*, implemente el siguiente código con un cliente de IAG y verifique la respuesta: 
 
    a) Define una función llamada `saveVote` que reciba un parámetro `productID`.
    b) Dentro de la función, obtén una referencia a la colección `votes` de la base de datos.
@@ -226,7 +226,7 @@ JS: Interacción con el formulario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. En el documento *js/file01.js*, importe la función `saveVote` desde *js/firebase.js*.
-2. Con un cliente de IAG, modifique el código del archivo *js/file01.js*, de acuerdo con las siguientes especificaciones: 
+2. En el documento *js/file01.js*, implemente la siguiente funcionalidad con un cliente de IAG, de acuerdo con las siguientes especificaciones: 
 
    a) Defina la función flecha `enableForm` (antes de la función de autoejecución).
    b) Dentro de la función flecha, obtenga una referencia al formulario HTML con el identificador \'form_voting\'.
