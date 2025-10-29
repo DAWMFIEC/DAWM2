@@ -271,7 +271,7 @@ En el documento *js/file01.js*.
 2. Implemente la siguiente funcionalidad: 
 
    a) Defina `displayVotes` y asigne una función flecha asíncrona.
-   b) Dentro de la función, espere por los votos utilizando la función `getVotes`.
+   b) Dentro de la función, use la función `getVotes` y espere por los votos.
    c) Itere sobre los votos obtenidos y cree una tabla donde cada fila represente un voto. En cada fila, muestre el producto votado y el total de votos.
    d) Inserte la tabla en el elemento HTML con el identificador `results`.
    e) Invoque la función `displayVotes` en la función de autoejecución.
