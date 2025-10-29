@@ -165,7 +165,7 @@ JS: Conexión a Firebase
 
 1. Cree el documento javascript *js/firebase.js*, agregue el siguiente código: 
 
-   a) Desde el CDN, importe la `última versión(firebase@x.y.z) <https://github.com/firebase/firebase-js-sdk/releases/latest>`_ de las funciones de Firebase para inicializar la aplicación (initializeApp), acceder a la base de datos en tiempo real (getDatabase, ref) y crear datos (set, push).
+   a) Desde el CDN, importe la `última versión(firebase@x.y.z) <https://github.com/firebase/firebase-js-sdk/releases/latest>`_ de las funciones de Firebase para inicializar la aplicación (initializeApp), acceder a la base de datos en tiempo real (getDatabase, ref), crear datos (set, push) y obtener datos (get y child) .
 
       .. code-block:: javascript
          :emphasize-lines: 1-2
@@ -228,17 +228,15 @@ JS: Interacción con el formulario
 1. En el documento *js/file01.js*, importe la función `saveVote` desde *js/firebase.js*.
 2. Con un cliente de IAG, modifique el código del archivo *js/file01.js*, de acuerdo con las siguientes especificaciones: 
 
-   a) Define una función llamada `enableForm`.
-   b) Dentro de la función, selecciona el formulario HTML que tenga el  identificador \'form_voting\'.
-   c) Agrega un *listener* de eventos al formulario que reaccione cuando se envíe (submit).
-   d) Dentro del *callback*:
+   a) Defina la función flecha `enableForm` (antes de la función de autoejecución).
+   b) Dentro de la función flecha, obtenga una referencia al formulario HTML con el identificador \'form_voting\'.
+   c) Con la referencia al formulario, agregue un *listener* con `addEventListener <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener>`_ para el evento \'submit\', con el *callback*:
       
-      (i) Prevenga el comportamiento por defecto del formulario.
-      (ii) Obtenga el valor del campo de entrada que tenga el identificador \'select_product\'
-      (iii) Llame a la función `saveVote` pasando el valor obtenido del campo de texto.
-      (iv) Limpia el formulario después de enviarlo.
-   
-   e) Invoque la función `enableForm` en la función de autojecución.
+      (i) Prevenga el comportamiento por defecto del formulario, con el método  `preventDefault <https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault>`_.
+      (ii) Obtenga el valor del campo de entrada que tenga el identificador \'select_product\', con el atributo `value ;<https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/value>`_.
+      (iii) Llame a la función `saveVote` con el valor obtenido del campo de texto. Maneje la promesa devuelta para mostrar un mensaje de éxito o error con un mensaje de alerta.
+
+   d) Invoque la función `enableForm` en la función de autoejecución.
 
 3. En el navegador, verifique que al enviar el formulario se guarden los votos en Firebase y que se muestre un mensaje de éxito o error.
 4. Con un cliente de IAG, explique cómo se maneja la interacción entre el JavaScript y la interfaz de usuario, y cómo se envían los datos a Firebase.
@@ -246,8 +244,7 @@ JS: Interacción con el formulario
 JS: Obtener votos en Firebase
 -----------------------------
 
-1. En el documento *js/firebase.js*, importe las funciones necesarias para obtener (get y child) en la base de datos en tiempo real.
-2. Con un cliente de IAG, modifique el código del archivo *js/firebase.js*, de acuerdo con las siguientes especificaciones: 
+1. Con un cliente de IAG, modifique el código del archivo *js/firebase.js*, de acuerdo con las siguientes especificaciones: 
 
    a) Defina una función llamada `getVotes`.
    b) Dentro de la función, obtenga una referencia a la colección `votes` de la base de datos.

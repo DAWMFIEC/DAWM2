@@ -206,7 +206,7 @@ JS: Carga de productos
     Verifique que el documento *js/file01.js* sea importado como módulo (type=\"module\") en el documento *index.html*.
 
 1. Al inicio del documento *js/file01.js*, importe la función ``fetchProducts`` desde el documento *functions.js*.
-2. Agregue una función flecha ``renderProducts`` en el documento *js/file01.js*. 
+2. Agregue una función flecha ``renderProducts`` en el documento *js/file01.js* (antes de la función de autoejecución). 
 3. Dentro de la función ``renderProducts``, llame a la función ``fetchProducts`` con la URL `\'https://data-dawm.github.io/datum/reseller/products.json\'`. Encadena un bloque ``.then(result => { /* bloque then */ })`` para procesar el resultado. 
 4. Dentro del *bloque then*, utilice una estructura condicional para verificar si ``result.success`` es true o false.
 5. En caso que es **true**:
@@ -352,7 +352,7 @@ JS: Carga de categorías
     Verifique que el documento *js/file01.js* sea importado como módulo (type=\"module\") en el documento *index.html*.
 
 1. Al inicio del documento *js/file01.js*, importe la función ``fetchCategories`` desde el documento *functions.js*.
-2. Defina ``renderCategories`` como una función asincrónica en el documento *js/file01.js*. 
+2. Defina ``renderCategories`` como una función asincrónica en el documento *js/file01.js* (antes de la función de autoejecución). 
 3. Dentro de la función ``renderCategories``, defina un bloque ``try { /* bloque try */ } catch (error) { /* bloque catch */ }``.
 4. Dentro del *bloque try*, almacene en **result** el resultado de esperar la resolución de ``await fetchCategories('https://data-dawm.github.io/datum/reseller/categories.xml')``.
 5. Utilice una estructura condicional para verificar si ``result.success`` es true o false.
