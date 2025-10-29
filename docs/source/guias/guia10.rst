@@ -228,7 +228,7 @@ JS: Guardar votos en Firebase
 JS: Enviar datos desde un formulario
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-En el documento *js/file01.js*,
+En el documento *js/file01.js*.
 
 1. Importe la función `saveVote` desde *js/firebase.js*.
 2. Implemente la siguiente funcionalidad: 
@@ -265,7 +265,7 @@ JS: Obtener votos en Firebase
 JS: Mostrar datos en una tabla
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-En el documento *js/file01.js*,
+En el documento *js/file01.js*.
 
 1. Importe la función `getVotes` desde *js/firebase.js*.
 2. Implemente la siguiente funcionalidad: 
