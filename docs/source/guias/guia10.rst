@@ -163,12 +163,47 @@ JS: Conexión a Firebase
       
    JavaScript en tu proyecto web en `Agrega Firebase al proyecto de JavaScript <https://firebase.google.com/docs/web/setup>`_.
 
-1. Cree el documento javascript *js/firebase.js*, con su cliente de IAG genere el código de acuerdo con las siguientes especificaciones: 
+1. Cree el documento javascript *js/firebase.js*, agregue el siguiente código: 
 
-   a) Desde el CDN, importe la `última versión(firebase@11.9.1) <https://github.com/firebase/firebase-js-sdk/releases/latest>`_ de las funciones de Firebase para inicializar la aplicación (initializeApp), acceder a la base de datos en tiempo real (getDatabase, ref) y crear datos (set, push).
+   a) Desde el CDN, importe la `última versión(firebase@x.y.z) <https://github.com/firebase/firebase-js-sdk/releases/latest>`_ de las funciones de Firebase para inicializar la aplicación (initializeApp), acceder a la base de datos en tiempo real (getDatabase, ref) y crear datos (set, push).
+
+      .. code-block:: javascript
+         :emphasize-lines: 1-2
+
+         import { initializeApp } from "https://www.gstatic.com/firebasejs/x.y.z/firebase-app.js";
+         import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/x.y.z/firebase-database.js";
+
    b) Utilice las variables de entorno definidas en el archivo **.env** para configurar la conexión a Firebase, considerando que utiliza Vite como herramienta de construcción.
+
+      .. code-block:: javascript
+         :emphasize-lines: 3-7
+
+         ...
+
+         const firebaseConfig = {
+           apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+           ...,
+           appId: import.meta.env.VITE_FIREBASE_APP_ID,
+         };
+
    c) Inicialice la aplicación Firebase utilizando el objeto de configuración importado desde las variables de entorno.
+   
+      .. code-block:: javascript
+         :emphasize-lines: 3
+
+         const firebaseConfig = { ... };
+
+         const app = initializeApp(firebaseConfig);
+
    d) Obtenga una referencia a la base de datos en tiempo real de Firebase asociada con la aplicación.
+
+      .. code-block:: javascript
+         :emphasize-lines: 3
+
+         const app = ...;
+
+         const database = getDatabase(app);
+
    e) Aún no exporte las funciones.
 
 2. Con un cliente de IAG, explique cómo se utiliza el SDK de Firebase para enviar datos a la base de datos en tiempo real.
@@ -188,7 +223,7 @@ JS: Guardar votos en Firebase
 2. Con un cliente de IAG, explique cómo se utiliza el SDK de Firebase para realizar las operaciones CRUD (Create, Read, Update, Delete).
 
 JS: Interacción con el formulario
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. En el documento *js/file01.js*, importe la función `saveVote` desde *js/firebase.js*.
 2. Con un cliente de IAG, modifique el código del archivo *js/file01.js*, de acuerdo con las siguientes especificaciones: 
@@ -222,7 +257,7 @@ JS: Obtener votos en Firebase
 3. Con un cliente de IAG, explique cómo se utiliza el SDK de Firebase para obtener datos de la base de datos en tiempo real.
 
 JS: Interacción con la tabla
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. En el documento *js/file01.js*, importe la función `getVotes` desde *js/firebase.js*.
 2. Con un cliente de IAG, modifique el código del archivo *js/file01.js*, de acuerdo con las siguientes especificaciones:
