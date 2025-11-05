@@ -10,7 +10,7 @@ Guía 11: TypeScript - Introducción
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Explorar los conceptos básicos de TypeScript e implementar tipado estático en el desarrollo del dashboard, con el fin de mejorar la robustez, claridad y escalabilidad del código.  
+    Explorar los conceptos básicos de TypeScript e implementar tipado estático, con el fin de mejorar la robustez, claridad y escalabilidad del código.  
 
 Actividades previas
 =====================
