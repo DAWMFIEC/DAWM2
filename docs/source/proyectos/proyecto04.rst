@@ -25,9 +25,6 @@ Introducción
   :maxdepth: 1
   :caption: Guías
   
-  ../guias/guia11.rst
   ../guias/guia12.rst
   ../guias/guia13.rst
   ../guias/guia14.rst
-  ../guias/guia15.rst
-  ../guias/guia16.rst
