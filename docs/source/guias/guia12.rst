@@ -161,7 +161,7 @@ MUI: Inicialización del proyecto y componente Grid
 MUI: Ubicación de elementos y Responsividad
 -------------------------------------------
 
-1. Modifique el componente `Grid` su archivo `src/App.tsx`:
+1. Modifique el componente `Grid` de su archivo `src/App.tsx`:
 
    a) Para que sea un contenedor principal utilizando el :term:`prop` `container <https://mui.com/material-ui/react-container/>`_.
    b) Ajuste el espaciado de 5 unidades entre los elementos utilizando la propiedad `spacing <https://mui.com/material-ui/react-container/>`_. 
@@ -182,9 +182,9 @@ MUI: Ubicación de elementos y Responsividad
          );
       }
 
-2. Utilice su cliente de IAG para definir el prop `size <https://mui.com/material-ui/react-grid/#multiple-breakpoints>`_, para aplicar el estilo en los múltiples puntos de interrupción:
+2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `fluid grids <https://mui.com/material-ui/react-grid/#fluid-grids>`_ en MUI, para aplicar el estilo:
 
-   a) Pantallas extra pequeñas `xs`, todos los elementos se apilen verticalmente. 
+   a) Pantallas extra pequeñas `xs`, todos los elementos ocupan 12 columnas. 
    b) Pantallas medianas `md`, en adelante:
    
       (i) El encabezado ocupe todo el ancho (12 columnas), 
@@ -226,10 +226,7 @@ MUI: Ubicación de elementos y Responsividad
 
          export default App;
 
-3. Con un cliente de IAG, genere el código para modificar los elementos del Grid, de acuerdo a los siguientes requerimientos:
-
-   a) La gráfica y la tabla tienen la propiedad `sx <https://mui.com/material-ui/customization/how-to-customize/#the-sx-prop>`_ para ocultar los elementos en pantallas extra pequeñas y mostrar como bloque desde pantallas medianas.
-   b) Compruebe la vista previa del resultado en el navegador para diferentes tamaños.
+3. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de la propiedad `sx <https://mui.com/material-ui/customization/how-to-customize/#the-sx-prop>`_, para que la gráfica y la tabla no se muestran en pantallas extra pequeñas y se muestran como bloque desde pantallas medianas.
 
    .. dropdown:: Ver el código 
       :color: primary
@@ -265,7 +262,8 @@ MUI: Ubicación de elementos y Responsividad
 
          export default App;
 
-4. Consulte su cliente de IAG para explicar la utilidad de los props en los componentes, por ejemplo `size` y `sx`.
+4. Compruebe la vista previa del resultado en el navegador para diferentes tamaños.
+5. Consulte su cliente de IAG para explicar la utilidad de los props en los componentes, por ejemplo `size` y `sx`.
 
 Versionamiento
 --------------
