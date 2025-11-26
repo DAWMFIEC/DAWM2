@@ -40,20 +40,17 @@ React y MUI: Componentes y Props
 Componente: HeaderUI
 ^^^^^^^^^^^^^^^^^^^^
 
-1. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Componentizing our React app <https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/React_components>`_, luego:
-
-   a) Cree el documento `src/components/HeaderUI.tsx`.
-   b) Dentro del documento, agregue y exporte el :term:`componente funcional` **HeaderUI**.
-
-2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Typography <https://mui.com/material-ui/react-typography/>`_, que:
+1. Cree y exporte el :term:`componente funcional` **HeaderUI** en el archivo `src/components/HeaderUI.tsx`.
+2. Agregue el contenido al componente `HeaderUI`, con:
 
    a) Importe el componente `Typography <https://mui.com/material-ui/react-typography/>`_ de la librería `@mui/material/Typography`
-   b) Dentro del componente `HeaderUI`, retorne un elemento `Typography` con el texto "Dashboard del Clima".
-   c) El componente `Typography` debe tener con las siguientes propiedades:
+   b) Use el componente `Typography` con las siguientes propiedades:
       
-      (i) Utilice el estilo tipográfico (variant) de un encabezado de nivel 2 (h2),
-      (ii) Se renderiza (component) como un encabezado de nivel 1 (h1), y
-      (iii) El estilo en línea (sx) para que el texto se muestre en negrita (fontWeight: 'bold').
+      (i) Estilo tipográfico (variant) de un encabezado de nivel 2 (h2),
+      (ii) Renderización (component) como un encabezado de nivel 1 (h1), y
+      (iii) Estilo en línea (sx) para que el texto se muestre en negrita (fontWeight: 'bold').
+
+   c) El texto del componente `Typography` es "Dashboard del Clima".  
 
    .. dropdown:: Ver la solución 
         :color: success
