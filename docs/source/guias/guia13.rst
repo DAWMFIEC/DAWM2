@@ -35,7 +35,7 @@ React y MUI: Componentes y Props
 
 .. note::
 
-   Utilice la documentación de React para `Definir un componente <https://es.react.dev/learn/your-first-component>`_ y la documentación de MUI para usar `Material UI components <https://mui.com/material-ui/all-components/>`_
+   Utilice la documentación de `TypeScript <https://www.typescriptlang.org/docs/handbook/intro.html>`_, de `React <https://es.react.dev/learn>`_ y de `Material UI components <https://mui.com/material-ui/all-components/>`_.
 
 Componente: HeaderUI
 ^^^^^^^^^^^^^^^^^^^^
@@ -44,7 +44,7 @@ Componente: HeaderUI
 2. Agregue el contenido al componente `HeaderUI`, con:
 
    a) Importe el componente `Typography <https://mui.com/material-ui/react-typography/>`_ de la librería `@mui/material/Typography`
-   b) Use el componente `Typography` con las siguientes propiedades:
+   b) En el JSX, use el componente `Typography` con las siguientes propiedades:
       
       (i) Estilo tipográfico (variant) de un encabezado de nivel 2 (h2),
       (ii) Renderización (component) como un encabezado de nivel 1 (h1), y
@@ -102,13 +102,13 @@ Componente: HeaderUI
 Interfaz: AlertConfig
 ^^^^^^^^^^^^^^^^^^^^^
 
-1. Cree el componente funcional `AlertUI`
-2. Utilice su cliente de IAG, para modificar el componente `AlertUI` con el siguiente código:
+1. Cree y exporte el componente funcional **AlertUI** en el archivo `src/components/AlertUI.tsx`.
+2. Agregue el contenido al componente `AlertUI`, con:
     
    a) Importe el componente `Alert <https://mui.com/material-ui/react-alert/>`_ desde la librería `@mui/material/Alert`.
    b) Define la :term:`interfaz` **AlertConfig**, con la propiedad obligatoria `description` del tipo cadena de texto.
-   c) Exporte el componente funcional predeterminado `AlertUI`, con el parámetro `config` del tipo **AlertConfig**.
-   d) Retorne el component `Alert`, con:
+   c) Agergue el parámetro `config` del tipo **AlertConfig** a componente funcional `AlertUI`.
+   d) En el JSX, use el component `Alert` con las siguientes propiedades:
       
       (i) El tipo de alerta de éxito (severity=\"success\"),
       (ii) El estilo visual del componente es contorneado (variant=\"outlined\"),
