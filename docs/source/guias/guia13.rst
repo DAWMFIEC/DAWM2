@@ -37,15 +37,19 @@ React y MUI: Componentes y Props
 
    Utilice la documentación de React para `Definir un componente <https://es.react.dev/learn/your-first-component>`_ y la documentación de MUI para usar `Material UI components <https://mui.com/material-ui/all-components/>`_
 
-Cabeceras, Tipografía y Alertas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Componente: HeaderUI
+^^^^^^^^^^^^^^^^^^^^
 
-1. Cree el archivo `src/components/HeaderUI.tsx`.
-2. Utilice su cliente de IAG, para modificar el componente `HeaderUI` con el siguiente código:
+1. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Componentizing our React app <https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Frameworks_libraries/React_components>`_, luego:
 
-   a) Importe el componente `Typography <https://mui.com/material-ui/react-typography/>`_ desde la librería `@mui/material/Typography`
-   b) Exporte por defecto el :term:`componente funcional` (función) **HeaderUI**.
-   c) Dentro del componente `HeaderUI`, retorna un elemento `Typography` que muestre el texto "Dashboard", con las siguientes características:
+   a) Cree el documento `src/components/HeaderUI.tsx`.
+   b) Dentro del documento, agregue y exporte el :term:`componente funcional` **HeaderUI**.
+
+2. :material-round:`note_alt;1.5em;sd-text-success` Revise la documentación de `Typography <https://mui.com/material-ui/react-typography/>`_, que:
+
+   a) Importe el componente `Typography <https://mui.com/material-ui/react-typography/>`_ de la librería `@mui/material/Typography`
+   b) Dentro del componente `HeaderUI`, retorne un elemento `Typography` con el texto "Dashboard del Clima".
+   c) El componente `Typography` debe tener con las siguientes propiedades:
       
       (i) Utilice el estilo tipográfico (variant) de un encabezado de nivel 2 (h2),
       (ii) Se renderiza (component) como un encabezado de nivel 1 (h1), y
@@ -65,7 +69,7 @@ Cabeceras, Tipografía y Alertas
                         variant="h2" 
                         component="h1" 
                         sx={{fontWeight: 'bold'}}>
-                        Dashboard
+                        Dashboard del Clima
                     </Typography>
                 )
             }
@@ -98,8 +102,8 @@ Cabeceras, Tipografía y Alertas
 4. Compruebe la vista previa del resultado en el navegador.
 5. Con un cliente de IAG, compare el uso del DOM versus el uso del DOM Virtual de React.
 
-Alertas
-^^^^^^^
+Interfaz: AlertConfig
+^^^^^^^^^^^^^^^^^^^^^
 
 1. Cree el componente funcional `AlertUI`
 2. Utilice su cliente de IAG, para modificar el componente `AlertUI` con el siguiente código:
