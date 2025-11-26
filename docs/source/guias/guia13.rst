@@ -106,8 +106,8 @@ Interfaz: AlertConfig
 2. Agregue el contenido al componente `AlertUI`, con:
     
    a) Importe el componente `Alert <https://mui.com/material-ui/react-alert/>`_ desde la librería `@mui/material/Alert`.
-   b) Define la :term:`interfaz` **AlertConfig**, con la propiedad obligatoria `description` del tipo cadena de texto.
-   c) Agergue el parámetro `config` del tipo **AlertConfig** a componente funcional `AlertUI`.
+   b) Define la :term:`interfaz` **AlertConfig**, con la propiedad `description` del tipo cadena de texto.
+   c) Agregue el parámetro `config` del tipo **AlertConfig** a componente funcional `AlertUI`.
    d) En el JSX, use el component `Alert` con las siguientes propiedades:
       
       (i) El tipo de alerta de éxito (severity=\"success\"),
