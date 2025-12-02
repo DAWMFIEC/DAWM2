@@ -21,11 +21,11 @@ Open-Meteo
 1. Acceda a la página web de `Open-Meteo API <https://open-meteo.com/en/docs>`_.
 2. Configure el API de Open-Meteo:
    
-   a) Seleccione la zona de _America/Chicago (GMT-5)_ en la sección **Location and Time**.
+   a) En la sección **Location and Time**, seleccione la zona de _America/Chicago (GMT-5)_.
    b) Marque los indicadores: temperatura (`Temperature (2 m)`), humedad relativa (`Relative Humidity (2 m)`), temperatura aparente (`Apparent Temperature`) y  velocidad del viento (`Wind Speed (10 m)`), en la sección **Current Weather** .
-   c) Escoja la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`), en **Settings**.  
+   c) En **Settings**, escoja la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`).  
 
-3. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
+3. Compruebe la estructura del JSON en su navegador.
 
 Ambiente de desarrollo
 ----------------------
@@ -42,17 +42,17 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Interfaces y tipos de datos
+Tipos de datos e Interfaces
 ---------------------------
 
-1. Genere el tipo de datos TypeScript para el JSON de salida de la API de Open-Meteo, con:
+1. Acceda al sitio `Transform Tools / JSON to TypeScript <https://transform.tools/json-to-typescript>`_. 
+2. Utilice el JSON de salida de la API de Open-Meteo para generar las interfaces de TypeScript. 
+3. Dentro de su proyecto *dashboard*:
 
-   a) Utilice `JSON to TypeScript <https://json2ts.vercel.app/>`_. 
-   b) Coloque el JSON de salida de la API de Open-Meteo en el campo de entrada.
-   c) Genere el código TypeScript de las interfaces y cópielo en su proyecto en el archivo `src/types/DashboardTypes.tsx`.
-   d) Modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
+   a) Agregue el archivo `src/types/DashboardTypes.tsx`
+   b) Modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
 
-2. Utilice su cliente de IAG para justificar el uso de las interfaces y el tipo de datos que representan.
+4. Utilice su cliente de IAG para justificar el uso de las interfaces y el tipo de datos que representan.
 
 IndicatorUI
 -----------
@@ -92,7 +92,7 @@ IndicatorUI
    a) Importe el componente `IndicatorUI` desde el archivo `./components/IndicatorUI`.
    b) En la sección en la seccion **Indicadores**:
 
-      (i) Convierta el componente Grid un contenedor.
+      (i) Convierta el componente Grid un _contenedor_.
       (ii) Agregue cuatro componentes Grid con indicadores `IndicatorUI`, con los props:
 
       (i) Título: "Temperatura (2m)", Descripción: "XX°C"
