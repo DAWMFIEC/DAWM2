@@ -18,12 +18,14 @@ Actividades previas
 Open-Meteo
 ----------
 
-1. Configure API de Open-Meteo en `Open-Meteo API <https://open-meteo.com/en/docs>`_, con:
+1. Acceda a la página web de `Open-Meteo API <https://open-meteo.com/en/docs>`_.
+2. Configure el API de Open-Meteo:
    
-   a) Seleccione la zona horaria, para Ecuador elija la opción **America/Chicago** (GMT-5).
-   b) Marque los indicadores que desea mostrar el dashboard en la sección de `Current Weather <https://open-meteo.com/en/docs#current_weather>`_ de la documentación, en este caso: temperatura (`Temperature (2 m)`), humedad relativa (`Relative Humidity (2 m)`), temperatura aparente (`Apparent Temperature`) y  velocidad del viento (`Wind Speed (10 m)`).
-   c) Seleccione la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`), etc.  
-2. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
+   a) Seleccione la zona de _America/Chicago (GMT-5)_ en la sección **Location and Time**.
+   b) Marque los indicadores: temperatura (`Temperature (2 m)`), humedad relativa (`Relative Humidity (2 m)`), temperatura aparente (`Apparent Temperature`) y  velocidad del viento (`Wind Speed (10 m)`), en la sección **Current Weather** .
+   c) Escoja la configuración de las unidades de medida de la API, en este caso: temperatura (`Celsius °C`), velocidad del viento (`km/h`) y unidades de precipitación (`Millimeter`), en **Settings**.  
+
+3. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
 
 Ambiente de desarrollo
 ----------------------
