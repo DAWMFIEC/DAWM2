@@ -18,7 +18,7 @@ Actividades previas
 Open-Meteo
 ----------
 
-1. Acceda a la página web de `Open-Meteo API <https://open-meteo.com/en/docs>`_.
+1. Acceda al sitio `Open-Meteo API <https://open-meteo.com/en/docs>`_.
 2. Configure el API de Open-Meteo:
    
    a) En la sección **Location and Time**, seleccione la zona de _America/Chicago (GMT-5)_.
@@ -150,8 +150,8 @@ DataFetcher
 2. Cree el componente `DataFetcher`, con:
 
    a) Importe los hooks `useState` y `useEffect` de React.
-   b) Importe las interfaces como tipos de datos (`type`)  `OpenMeteoResponse` y `DataFetcherOutput` en el archivo `../types/DashboardTypes.tsx`. 
-   c) Declare que el componente `DataFetcher` retorna un objeto del tipo `DataFetcherOutput`.
+   b) Importe la interfaz como tipos de datos (`type`)  `OpenMeteoResponse` del archivo `../types/DashboardTypes.tsx`. 
+   c) Declare que el componente `DataFetcher` retorna un objeto del tipo `OpenMeteoResponse`.
    
    .. dropdown:: Ver la solución 
         :color: success
@@ -159,9 +159,9 @@ DataFetcher
         .. code-block:: tsx
 
             import { useEffect, useState } from 'react';
-            import { type OpenMeteoResponse, type DataFetcherOutput } from '../types/DashboardTypes';
+            import { type OpenMeteoResponse } from '../types/DashboardTypes';
 
-            export default function DataFetcher() : DataFetcherOutput { }
+            export default function DataFetcher() : OpenMeteoResponse { }
 
 3. Dentro de `DataFetcher`:
       
