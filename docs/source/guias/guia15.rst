@@ -168,13 +168,13 @@ DataFetcher
    a) Declare la constante de estado `data` y la función de actualización `setData` del tipo `OpenMeteoResponse` (o `null`). El valor predeterminado es de tipo **null**.
    b) Defina la constante `URL` con el :term:`endpoint` de los datos de Open-Meteo.
    c) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
-   d) Retorne el valor de `data` al final del componente.
+   d) Retorne `data` al final del componente.
    
    .. dropdown:: Ver la solución 
         :color: success
         
         .. code-block:: tsx
-            :emphasize-lines: 3, 5, 7
+            :emphasize-lines: 3, 5, 7, 9
 
             export default function DataFetcher() : OpenMeteoResponse {
 
@@ -190,7 +190,6 @@ DataFetcher
 
 4. Dentro del función flecha del `useEffect`, realice un requerimiento asíncrono con la URL del endpoint. Al completarse la petición, actualice el estado `data` con la respuesta en formato JSON.
 5. Con un cliente de IAG, explique el uso del hook useEffect y la configuración del arreglo de dependencias.
-
 
 App.tsx
 ^^^^^^^
@@ -222,8 +221,9 @@ App.tsx
         :color: success
     
         .. code-block:: tsx
-            :emphasize-lines: 20
+            :emphasize-lines: 3-7
     
+            ...
             <Grid size={{ xs: 12, md: 3 }}>
                 {dataFetcherOutput && 
                     (<IndicatorUI     
@@ -231,9 +231,9 @@ App.tsx
                         description={ `${dataFetcherOutput.current.temperature_2m} ${dataFetcherOutput.current_units.temperature_2m}` } />)
                 }
             </Grid>
+            ...
 
 3. Compruebe el resultado de la petición asíncrona del navegador.
-
 
 Versionamiento
 --------------
