@@ -143,15 +143,15 @@ React - Hook: useEffect
 
     Considere la explicación del uso del hook `useEffect <https://es.react.dev/reference/react/useEffect>`_.
 
-DataFetcher
-^^^^^^^^^^^
+useFetchData
+^^^^^^^^^^^^
 
-1. Cree el componente funcional `DataFetcher` en el archivo `src/functions/DataFetcher.tsx`.
-2. Cree el componente `DataFetcher`, con:
+1. Cree el componente funcional `useFetchData` en el archivo `src/functions/useFetchData.tsx`.
+2. Cree el componente `useFetchData`, con:
 
    a) Importe los hooks `useState` y `useEffect` de React.
    b) Importe la interfaz como tipos de datos (`type`)  `OpenMeteoResponse` del archivo `../types/DashboardTypes.tsx`. 
-   c) Declare que el componente `DataFetcher` retorna un objeto del tipo `OpenMeteoResponse`.
+   c) Declare que el componente `useFetchData` retorna un objeto del tipo `OpenMeteoResponse`.
    
    .. dropdown:: Ver la solución 
         :color: success
@@ -161,9 +161,9 @@ DataFetcher
             import { useEffect, useState } from 'react';
             import { type OpenMeteoResponse } from '../types/DashboardTypes';
 
-            export default function DataFetcher() : OpenMeteoResponse { }
+            export default function useFetchData() : OpenMeteoResponse { }
 
-3. Dentro de `DataFetcher`:
+3. Dentro de `useFetchData`:
       
    a) Declare la constante de estado `data` y la función de actualización `setData` del tipo `OpenMeteoResponse` (o `null`). El valor predeterminado es de tipo **null**.
    b) Defina la constante `URL` con el :term:`endpoint` de los datos de Open-Meteo.
@@ -176,7 +176,7 @@ DataFetcher
         .. code-block:: tsx
             :emphasize-lines: 3, 5, 7, 9
 
-            export default function DataFetcher() : OpenMeteoResponse {
+            export default function useFetchData() : OpenMeteoResponse {
 
                 const  URL = 'https://api.open-meteo.com/v1/forecast ... ';
 
@@ -200,13 +200,13 @@ App.tsx
        :emphasize-lines: 2,8
 
        ...
-       import DataFetcher from './functions/DataFetcher';
+       import useFetchData from './functions/useFetchData';
        ...
 
        function App() {
 
             ...
-            const dataFetcherOutput = DataFetcher();
+            const dataFetcherOutput = useFetchData();
             ...
        
             return ( ... )
