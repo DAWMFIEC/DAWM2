@@ -93,7 +93,7 @@ IndicatorUI
    b) En la sección en la seccion **Indicadores**:
 
       (i) Convierta el componente Grid un _contenedor_.
-      (ii) Agregue cuatro componentes Grid con indicadores `IndicatorUI`, con los props _Temperatura_, _Temperatura aparente_, _Velocidad del viento_ y _Humedad relativa_.
+      (ii) Agregue cuatro componentes `IndicatorUI` con los indicadores *Temperatura*, *Temperatura aparente*, *Velocidad del viento* y *Humedad relativa*.
 
    .. code-block:: tsx
        :emphasize-lines: 2, 12-30
@@ -116,15 +116,15 @@ IndicatorUI
                         </Grid>
 
                         <Grid size={{ xs: 12, md: 3 }}>
-                            <!-- Indicator con la Temperatura aparente en °C' -->
+                            {/* IndicatorUI con la Temperatura aparente en °C' */}
                         </Grid>
 
                         <Grid size={{ xs: 12, md: 3 }}>
-                            <!-- Indicator con la Velocidad del viento en km/h' -->
+                            {/* IndicatorUI con la Velocidad del viento en km/h' */}
                         </Grid>
                         
                         <Grid size={{ xs: 12, md: 3 }}>
-                            <!-- Indicator con la Humedad relativa en %' -->
+                            {/* IndicatorUI con la Humedad relativa en %' */}
                         </Grid>
 
                     </Grid>
