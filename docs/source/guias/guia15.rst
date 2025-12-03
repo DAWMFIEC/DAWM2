@@ -93,7 +93,7 @@ IndicatorUI
    b) En la sección en la seccion **Indicadores**:
 
       (i) Convierta el componente Grid un _contenedor_.
-      (ii) Agregue cuatro componentes `IndicatorUI` con los indicadores *Temperatura*, *Temperatura aparente*, *Velocidad del viento* y *Humedad relativa*.
+      (ii) Agregue cuatro componentes `IndicatorUI` con los indicadores *Temperatura (2m)*, *Temperatura aparente*, *Velocidad del viento* y *Humedad relativa*.
 
    .. code-block:: tsx
        :emphasize-lines: 2, 12-30
@@ -166,8 +166,9 @@ DataFetcher
 3. Dentro de `DataFetcher`:
       
    a) Declare la constante de estado `data` y la función de actualización `setData` del tipo `OpenMeteoResponse` (o `null`). El valor predeterminado es de tipo **null**.
-   b) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
-   c) Retorne el valor de `data` al final del componente.
+   b) Defina la constante `URL` con el :term:`endpoint` de los datos de Open-Meteo.
+   c) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
+   d) Retorne el valor de `data` al final del componente.
    
    .. dropdown:: Ver la solución 
         :color: success
@@ -177,6 +178,8 @@ DataFetcher
 
             export default function DataFetcher() : OpenMeteoResponse {
 
+                const  URL = 'https://api.open-meteo.com/v1/forecast ... ';
+
                 const [data, setData] = useState<OpenMeteoResponse | null>(null);
                 
                 useEffect(() => { }, []); // El array vacío asegura que el efecto se ejecute solo una vez después del primer renderizado
@@ -184,6 +187,53 @@ DataFetcher
                 return data;
 
             }
+
+4. Dentro del función flecha del `useEffect`, realice un requerimiento asíncrono con la URL del endpoint. Al completarse la petición, actualice el estado `data` con la respuesta en formato JSON.
+5. Con un cliente de IAG, explique el uso del hook useEffect y la configuración del arreglo de dependencias.
+
+
+App.tsx
+^^^^^^^
+
+1. Importe y almacene su salida en una constante `dataFetcherOutput` en el archivo `src/App.tsx`.
+
+   .. code-block:: tsx
+       :emphasize-lines: 2,8
+
+       ...
+       import DataFetcher from './functions/DataFetcher';
+       ...
+
+       function App() {
+
+            ...
+            const dataFetcherOutput = DataFetcher();
+            ...
+       
+            return ( ... )
+       }
+
+2. Modifique el archivo `src/App.tsx`, con:
+
+   a) En el componente `IndicatorUI` para el indicador *Temperatura (2m)*
+   b) Utilice `dataFetcherOutput` para validar el estado de la respuesta y renderice la entrada `temperature_2m` con su unidad.
+
+   .. dropdown:: Ver la solución 
+        :color: success
+    
+        .. code-block:: tsx
+            :emphasize-lines: 20
+    
+            <Grid size={{ xs: 12, md: 3 }}>
+                {dataFetcherOutput && 
+                    (<IndicatorUI     
+                        title='Temperatura (2m)' 
+                        description={ `${dataFetcherOutput.current.temperature_2m} ${dataFetcherOutput.current_units.temperature_2m}` } />)
+                }
+            </Grid>
+
+3. Compruebe el resultado de la petición asíncrona del navegador.
+
 
 Versionamiento
 --------------

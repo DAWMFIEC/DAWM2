@@ -223,6 +223,9 @@ Diccionario de términos
     hook 
         Es una función especial que permite a los componentes funcionales acceder a características propias de los componentes de clase, como el manejo de estado (useState), efectos secundarios (useEffect), referencias (useRef), entre otros.
 
+    endpoint
+        Es una URL específica dentro de una API que representa un recurso o una funcionalidad particular. Los endpoints se utilizan para realizar operaciones como obtener, crear, actualizar o eliminar datos a través de peticiones HTTP.
+
     variable de estado
         Es un valor que se almacena dentro de un componente y que puede cambiar a lo largo del tiempo, provocando que el componente se vuelva a renderizar cuando ese valor se actualiza.
 
