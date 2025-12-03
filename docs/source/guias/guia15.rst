@@ -133,8 +133,8 @@ IndicatorUI
             )
        }
 
-
-4. Compruebe la vista previa del resultado en el navegador.
+4. Complete los componentes `IndicatorUI` con los valores de los indicadores y sus unidades.
+5. Compruebe la vista previa del resultado en el navegador.
 
 React - Hook: useEffect
 -----------------------
