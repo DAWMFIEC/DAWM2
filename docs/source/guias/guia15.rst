@@ -215,7 +215,8 @@ App.tsx
 2. Modifique el archivo `src/App.tsx`, con:
 
    a) En el componente `IndicatorUI` para el indicador *Temperatura (2m)*
-   b) Utilice `dataFetcherOutput` para validar el estado de la respuesta y renderice la entrada `temperature_2m` con su unidad.
+   b) Utilice `dataFetcherOutput` para validar el renderizado del indicador con el valor de `temperature_2m` y su unidad.
+   **Nota**: Revise la estructura del JSON.
 
    .. dropdown:: Ver la solución 
         :color: success
