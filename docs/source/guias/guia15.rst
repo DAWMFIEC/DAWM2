@@ -165,160 +165,25 @@ DataFetcher
 
 3. Dentro de `DataFetcher`:
       
-   a) Declare el hook `useState` para almacenar los datos obtenidos de la API (`data`, valor predeterminado **null**)
+   a) Declare la constante de estado `data` y la función de actualización `setData` del tipo `OpenMeteoResponse`. El valor predeterminado es de tipo **null**.
    b) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
+   c) Retorne el valor de `data` al final del componente.
    
-   d) Dentro del hook **useEffect**:
-   
-      (i) Defina la constante `url` con la URL de la API de Open-Meteo que obtuvo en las actividades previas.
-      (ii) Defina la función asíncrona `fetchData` que realizará la petición asíncrona a la API de Open-Meteo. 
-      (iii) Valide si la respuesta no es exitosa, lance un error. Caso contrario, si la respuesta es exitosa (código de estado HTTP 200), convierta la respuesta a JSON y almacene el resultado en el estado `data` con `setData`. 
-      (iv) En caso de error, almacene el mensaje de error en el estado `error` con `setError`
-      (v) Ya sea por éxito o por error, cambie el estado `loading` a `false` una vez que se haya completado la petición.
-      (vi) Llame a la función `fetchData` dentro del hook `useEffect`.
-
-   e) El componente `DataFetcher` retorna un objeto con los objetos `data`, `loading` y `error` como propiedades.
-
    .. dropdown:: Ver la solución 
         :color: success
         
         .. code-block:: tsx
-            :emphasize-lines: 1-53
+            :emphasize-lines: 3-53
 
-            export default function DataFetcher() : DataFetcherOutput {
+            export default function DataFetcher() : OpenMeteoResponse {
 
                 const [data, setData] = useState<OpenMeteoResponse | null>(null);
-                const [loading, setLoading] = useState(true);
-                const [error, setError] = useState<string | null>(null);
+                
+                useEffect(() => { }, []); // El array vacío asegura que el efecto se ejecute solo una vez después del primer renderizado
 
-                useEffect(() => {
-
-                    // Reemplace con su URL de la API de Open-Meteo obtenida en actividades previas
-                    const url = ``
-
-                    const fetchData = async () => {
-
-                        try {
-                            
-                            const response = await fetch(url);
-
-                            if (!response.ok) {
-                                throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
-                            }
-
-                            const result: OpenMeteoResponse = await response.json();
-                            setData(result);
-
-                        } catch (err: any) {
-
-                            if (err instanceof Error) {
-                                setError(err.message);
-                            } else {
-                                setError("Ocurrió un error desconocido al obtener los datos.");
-                            }
-
-                        } finally {
-                            setLoading(false);
-                        }
-                    };
-
-                    fetchData();
-
-                }, []); // El array vacío asegura que el efecto se ejecute solo una vez después del primer renderizado
-
-                return { data, loading, error };
+                return data;
 
             }
-            
-2. Reemplace la URL de la API de Open-Meteo en el código del componente `DataFetcher` con la URL que obtuvo en las actividades previas.
-3. Importe y almacene su salida en una constante `dataFetcherOutput` en el archivo `src/App.tsx`.
-
-   .. code-block:: tsx
-       :emphasize-lines: 2,8
-
-       ...
-       import DataFetcher from './functions/DataFetcher';
-       ...
-
-       function App() {
-
-            ...
-            const dataFetcherOutput = DataFetcher();
-            ...
-       
-            return ( ... )
-       }
-
-4. Compruebe con el inspector resultado de la petición asíncrona del navegador.
-5. Con un cliente de IAG, explique el uso del hook `useEffect` y la configuración del arreglo de dependencias.
-
-Renderizado condicional
-^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Modifique el archivo `src/App.tsx`, para mostrar el contenido de `dataFetcherOutput`:
-
-   a) Si `dataFetcherOutput.loading` es **true**, muestre un mensaje de carga.
-   b) Si `dataFetcherOutput.error` no es **null**, muestre el mensaje de error.
-   c) Si `dataFetcherOutput.data` no es **null**, muestre los datos obtenidos de la API, como la temperatura actual, temperatura aparente, velocidad del viento y humedad relativa, utilizando el componente `IndicatorUI` para cada indicador.
-
-   .. code-block:: tsx
-       :emphasize-lines: 12-46
-
-       ...
-
-       function App() {
-
-            ...
-            return (
-                <Grid ... >
-
-                    {/* Indicadores */}
-                    <Grid ... >
-
-                        {/* Renderizado condicional de los datos obtenidos */}
-
-                        {dataFetcherOutput.loading && <p>Cargando datos...</p>}
-                        {dataFetcherOutput.error && <p>Error: {dataFetcherOutput.error}</p>}
-                        {dataFetcherOutput.data && (
-                        <>
-
-                            {/* Indicadores con datos obtenidos */}
-
-                            <Grid size={{ xs: 12, md: 3 }} >
-                                <IndicatorUI
-                                    title='Temperatura (2m)'
-                                    description={dataFetcherOutput.data.current.temperature_2m + " " + dataFetcherOutput.data.current_units.temperature_2m} />
-                            </Grid>
-
-                            <Grid size={{ xs: 12, md: 3 }}>
-                                <IndicatorUI 
-                                    title='Temperatura aparente'
-                                    description={dataFetcherOutput.data.current.apparent_temperature + " " + dataFetcherOutput.data.current_units.apparent_temperature} />
-                            </Grid>
-
-                            <Grid size={{ xs: 12, md: 3 }}>
-                                <IndicatorUI 
-                                    title='Velocidad del viento'
-                                    description={dataFetcherOutput.data.current.wind_speed_10m + " " + dataFetcherOutput.data.current_units.wind_speed_10m} />
-                            </Grid>
-
-                            <Grid size={{ xs: 12, md: 3 }}>
-                                <IndicatorUI 
-                                    title='Humedad relativa'
-                                    description={dataFetcherOutput.data.current.relative_humidity_2m + " " + dataFetcherOutput.data.current_units.relative_humidity_2m} />
-                            </Grid>
-
-                        </>
-                        )}  
-
-                    </Grid>
-
-                </Grid>
-            )
-       }
-
-2. Compruebe la vista previa del resultado en el navegador.
-3. Con un cliente de IAG, explique el renderizado condicional en React, mediante el uso de variables de estado.
 
 Versionamiento
 --------------
