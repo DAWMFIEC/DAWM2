@@ -47,10 +47,19 @@ Tipos de datos e Interfaces
 
 1. Acceda al sitio `Transform Tools / JSON to TypeScript <https://transform.tools/json-to-typescript>`_. 
 2. Utilice el JSON de salida de la API de Open-Meteo para generar las interfaces de TypeScript. 
-3. Dentro de su proyecto *dashboard*:
+3. Dentro de su proyecto *dashboard*, cree el archivo `src/types/DashboardTypes.tsx`, con:
 
-   a) Agregue el archivo `src/types/DashboardTypes.tsx`
-   b) Modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
+   a) Utilice las interfaces generadas en el paso anterior y modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
+   b) Agregue la interfaz `DataFetcherOutput`, con:
+
+   .. code-block:: tsx
+       :emphasize-lines: 1-7
+
+        export interface DataFetcherOutput {
+            data: OpenMeteoResponse | null;
+            loading: boolean;
+            error: string | null;
+        }
 
 4. Utilice su cliente de IAG para justificar el uso de las interfaces y el tipo de datos que representan.
 
@@ -152,16 +161,28 @@ DataFetcher
 ^^^^^^^^^^^
 
 1. Cree el componente funcional `DataFetcher` en el archivo `src/functions/DataFetcher.tsx`.
-2. Utilice su cliente de IAG, para generar el código del componente `DataFetcher`, con:
+2. Cree el componente `DataFetcher`, con:
 
    a) Importe los hooks `useState` y `useEffect` de React.
-   b) Importe la interfaz `OpenMeteoResponse` desde el archivo `../types/DashboardTypes.tsx`. Al importar, indique que es un tipo de dato con `type`.
-   c) Dentro de `DataFetcher`:
-      
-      (i) Agregue el hook `useState` para almacenar los datos obtenidos de la API (`data`, valor predeterminado **null**), un estado de carga (`loading`, valor predeterminado **true**) y el mensaje de error (`error`, valor predeterminado **null**).
-      (ii) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
+   b) Importe las interfaces como tipos de datos (`type`)  `OpenMeteoResponse` y `DataFetcherOutput` en el archivo `../types/DashboardTypes.tsx`. 
+   c) Declare que el componente `DataFetcher` retorna un objeto del tipo `DataFetcherOutput`.
    
-   d) Dentro del hook **useEffect**:
+   .. dropdown:: Ver la solución 
+        :color: success
+        
+        .. code-block:: tsx
+
+            import { useEffect, useState } from 'react';
+            import { type OpenMeteoResponse, type DataFetcherOutput } from '../types/DashboardTypes';
+
+            export default function DataFetcher() : DataFetcherOutput { }
+
+3. Dentro de `DataFetcher`:
+      
+   a) Declare el hook `useState` para almacenar los datos obtenidos de la API (`data`, valor predeterminado **null**)
+   b) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
+   
+    d) Dentro del hook **useEffect**:
    
       (i) Defina la constante `url` con la URL de la API de Open-Meteo que obtuvo en las actividades previas.
       (ii) Defina la función asíncrona `fetchData` que realizará la petición asíncrona a la API de Open-Meteo. 
@@ -177,15 +198,6 @@ DataFetcher
         
         .. code-block:: tsx
             :emphasize-lines: 1-53
-
-            import { useEffect, useState } from 'react';
-            import type { OpenMeteoResponse } from '../types/DashboardTypes';
-
-            interface DataFetcherOutput {
-                data: OpenMeteoResponse | null;
-                loading: boolean;
-                error: string | null;
-            }
 
             export default function DataFetcher() : DataFetcherOutput {
 
