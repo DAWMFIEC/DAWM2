@@ -165,7 +165,7 @@ DataFetcher
 
 3. Dentro de `DataFetcher`:
       
-   a) Declare la constante de estado `data` y la función de actualización `setData` del tipo `OpenMeteoResponse`. El valor predeterminado es de tipo **null**.
+   a) Declare la constante de estado `data` y la función de actualización `setData` del tipo `OpenMeteoResponse` (o `null`). El valor predeterminado es de tipo **null**.
    b) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
    c) Retorne el valor de `data` al final del componente.
    
@@ -173,7 +173,7 @@ DataFetcher
         :color: success
         
         .. code-block:: tsx
-            :emphasize-lines: 3-53
+            :emphasize-lines: 3, 5, 7
 
             export default function DataFetcher() : OpenMeteoResponse {
 
