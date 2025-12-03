@@ -180,7 +180,7 @@ useFetchData
 
                 const  URL = 'https://api.open-meteo.com/v1/forecast ... ';
 
-                const [data, setData] = useState<OpenMeteoResponse | null>(null);
+                const [data, setData] = useState<OpenMeteoResponse>();
                 
                 useEffect(() => { }, []); // El array vacío asegura que el efecto se ejecute solo una vez después del primer renderizado
 
