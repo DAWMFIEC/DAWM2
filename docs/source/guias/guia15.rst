@@ -47,19 +47,10 @@ Tipos de datos e Interfaces
 
 1. Acceda al sitio `Transform Tools / JSON to TypeScript <https://transform.tools/json-to-typescript>`_. 
 2. Utilice el JSON de salida de la API de Open-Meteo para generar las interfaces de TypeScript. 
-3. Dentro de su proyecto *dashboard*, cree el archivo `src/types/DashboardTypes.tsx`, con:
+3. Dentro de su proyecto *dashboard*:
 
-   a) Utilice las interfaces generadas en el paso anterior y modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
-   b) Agregue la interfaz `DataFetcherOutput`, con:
-
-   .. code-block:: tsx
-       :emphasize-lines: 1-7
-
-        export interface DataFetcherOutput {
-            data: OpenMeteoResponse | null;
-            loading: boolean;
-            error: string | null;
-        }
+   a) Cree el archivo `src/types/DashboardTypes.tsx`
+   b) Coloque el código de las interfaces generadas en el paso anterior y modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
 
 4. Utilice su cliente de IAG para justificar el uso de las interfaces y el tipo de datos que representan.
 
@@ -102,12 +93,7 @@ IndicatorUI
    b) En la sección en la seccion **Indicadores**:
 
       (i) Convierta el componente Grid un _contenedor_.
-      (ii) Agregue cuatro componentes Grid con indicadores `IndicatorUI`, con los props:
-
-      (i) Título: "Temperatura (2m)", Descripción: "XX°C"
-      (ii) Título: "Temperatura aparente", Descripción: "YY°C"
-      (iii) Título: "Velocidad del viento", Descripción: "ZZkm/h"
-      (iv) Título: "Humedad relativa", Descripción: "NN%"
+      (ii) Agregue cuatro componentes Grid con indicadores `IndicatorUI`, con los props _Temperatura_, _Temperatura aparente_, _Velocidad del viento_ y _Humedad relativa_.
 
    .. code-block:: tsx
        :emphasize-lines: 2, 12-30
@@ -130,15 +116,15 @@ IndicatorUI
                         </Grid>
 
                         <Grid size={{ xs: 12, md: 3 }}>
-                            <IndicatorUI title='Temperatura aparente' description='YY°C' />
+                            <!-- Indicator con la Temperatura aparente en °C' -->
                         </Grid>
 
                         <Grid size={{ xs: 12, md: 3 }}>
-                            <IndicatorUI title='Velocidad del viento' description='ZZkm/h' />
+                            <!-- Indicator con la Velocidad del viento en km/h' -->
                         </Grid>
                         
                         <Grid size={{ xs: 12, md: 3 }}>
-                            <IndicatorUI title='Humedad relativa' description='NN%' />
+                            <!-- Indicator con la Humedad relativa en %' -->
                         </Grid>
 
                     </Grid>
@@ -169,7 +155,7 @@ DataFetcher
    
    .. dropdown:: Ver la solución 
         :color: success
-        
+
         .. code-block:: tsx
 
             import { useEffect, useState } from 'react';
@@ -182,7 +168,7 @@ DataFetcher
    a) Declare el hook `useState` para almacenar los datos obtenidos de la API (`data`, valor predeterminado **null**)
    b) Agregue el hook `useEffect` para que reaccione **únicamente** después del primer renderizado del DOM.
    
-    d) Dentro del hook **useEffect**:
+   d) Dentro del hook **useEffect**:
    
       (i) Defina la constante `url` con la URL de la API de Open-Meteo que obtuvo en las actividades previas.
       (ii) Defina la función asíncrona `fetchData` que realizará la petición asíncrona a la API de Open-Meteo. 
