@@ -91,17 +91,17 @@ TableUI y ChartUI
             {
                field: 'label',
                headerName: 'Label',
-               width: 150,
+               width: 125,
             },
             {
                field: 'value1',
                headerName: 'Value 1',
-               width: 150,
+               width: 125,
             },
             {
                field: 'value2',
                headerName: 'Value 2',
-               width: 150,
+               width: 125,
             },
             {
                field: 'resumen',
@@ -109,7 +109,7 @@ TableUI y ChartUI
                description: 'No es posible ordenar u ocultar esta columna.',
                sortable: false,
                hideable: false,
-               width: 160,
+               width: 100,
                valueGetter: (_, row) => `${row.label || ''} ${row.value1 || ''} ${row.value2 || ''}`,
             },
          ];
