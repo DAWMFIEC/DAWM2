@@ -30,27 +30,6 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-React - Hook: useFetchData
---------------------------
-
-Una forma avanzada de implementar un requerimiento asincrónico es mediante el uso de variables de estado para vigilar el estado del proceso, como se muestra en la siguiente descripción:
-
-1. `useFetchData` es un custom hook diseñado para realizar solicitudes asíncronas a una URL y gestionar el ciclo completo de estados asociados a la carga de datos. El hook encapsula tres variables de estado:
-
-   a) `data`: para almacenar la información obtenida.
-   b) `loading`: para indicar si la solicitud está en proceso. 
-   c) `error`: para registrar cualquier falla ocurrida durante la carga.
-
-   El hook ejecuta la solicitud y devuelve un objeto con estos tres estados para que cualquier componente pueda utilizarlos. Gracias a su implementación genérica, permite tipar los datos esperados al usarlo en TypeScript.
-
-2. En el componente `App.tsx`, el hook `useFetchData` se invoca al cargar el componente. A partir de allí, el componente accede directamente a las variables de estado devueltas por el hook:
-
-   a) Si loading es falso y no hay error, App muestra los datos.
-   b) Si loading es verdadero, App muestra un indicador de carga. 
-   c) Si existe un error, se presenta un mensaje informativo al usuario.
-
-   Con este patrón, `App.tsx` se mantiene limpio y enfocado en la presentación, mientras que la lógica de obtención de datos se delega completamente al hook personalizado.
-
 Versionamiento
 --------------
 
