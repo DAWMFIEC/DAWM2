@@ -146,7 +146,7 @@ React - Hook: useEffect
 useFetchData
 ^^^^^^^^^^^^
 
-1. Cree el componente funcional `useFetchData` en el archivo `src/functions/useFetchData.tsx`.
+1. Cree el componente funcional `useFetchData` en el archivo `src/hooks/useFetchData.tsx`.
 2. Cree el componente `useFetchData`, con:
 
    a) Importe los hooks `useState` y `useEffect` de React.
@@ -200,7 +200,7 @@ App.tsx
        :emphasize-lines: 2,8
 
        ...
-       import useFetchData from './functions/useFetchData';
+       import useFetchData from './hooks/useFetchData';
        ...
 
        function App() {

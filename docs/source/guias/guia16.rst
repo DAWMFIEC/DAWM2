@@ -27,15 +27,17 @@ Open-Meteo
 
 2. Con la URL de la API con los parámetros seleccionados, compruebe la estructura del JSON de salida en su navegador.
 
-Interfaces y tipos de datos
----------------------------
+Interfaces, tipos de datos y URL
+--------------------------------
 
 1. Genere el tipo de datos TypeScript para el JSON de salida de la API de Open-Meteo, con:
 
    a) Utilice `Transform Tools / JSON to TypeScript <https://transform.tools/json-to-typescript>`_. 
    b) Coloque el JSON de salida de la API de Open-Meteo en el campo de entrada.
-   c) Genere el código TypeScript de las interfaces y cópielo en su proyecto en el archivo `src/types/DashboardTypes.tsx`.
-   d) Modifique el nombre de la interfaz `Root` por `OpenMeteoResponse`.
+   c) Identifique las diferencias con las interfaces existentes en el archivo `src/types/DashboardTypes.tsx`.
+   d) Actualice o cree nuevas interfaces en el archivo `src/types/DashboardTypes.tsx`, según sea necesario.
+
+2. Actualice la URL en `hooks/useFetchData.tsx` con la URL generada en Open-Meteo.
 
 Ambiente de desarrollo
 ----------------------
