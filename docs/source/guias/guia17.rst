@@ -79,11 +79,11 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a entender el propósito de useEffect y useState con la relación con el ciclo de vida de los componentes en React?
 
-    * ¿Qué?
+    * ¿Qué decisiones tomaste al integrar useEffect y useState en tu dashboard para ejecutar tareas como peticiones asincrónicas o sincronización de datos?
 
-    * ¿Cómo?
+    * ¿Cómo aseguras que el uso de useEffect y useState en tu proyecto refleja tu comprensión y no una dependencia automática de herramientas generativas, especialmente al enfrentar errores o comportamientos inesperados?
 
 Actividades autónomas
 =====================
