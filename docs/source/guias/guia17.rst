@@ -41,7 +41,7 @@ Comunicación entre componentes con hooks personalizados
 
 2. Genere el código necesario para implementar este escenario en su proyecto *dashboard*.
 
-   a) En el componente `App.tsx`, utilice una hook para almacenar la opción seleccionada por el usuario y comunique la opción seleccionada al hook useFetchData
+   a) En el componente `App.tsx`:
  
    .. code-block:: typescript
        :emphasize-lines: 1, 6, 7
@@ -51,33 +51,79 @@ Comunicación entre componentes con hooks personalizados
 
        function App() {
         
+         // Utilice una variable de estado para almacenar la opción seleccionada por el usuario
          const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+         // Comunique la opción seleccionada al hook useFetchData
          const dataFetcherOutput = useFetchData(selectedOption);
+
+         return (
+
+            ...
+            <SelectorUI onOptionSelect={setSelectedOption} />
+            ...
+
+         );
         
        }
 
-   b) En el hook `useFetchData.tsx`, defina el tipo de dato del prop, modifique el efecto secundario para que dependa de la opción seleccionada y parametrice la opción seleccionada en la URL del requerimiento asíncrono.
+   b) En el componente `Selector.tsx`:
 
    .. code-block:: typescript
-       :emphasize-lines: 3, 9-12,17
+       :emphasize-lines: 3-6, 8-9, 16-17
+    
+       ...
+    
+       // Defina la interfaz del prop
+       interface SelectorProps {
+          onOptionSelect: (option: string) => void; 
+       }
+    
+       // Defina el prop en el componente
+       export default function Selector({ onOptionSelect }: SelectorProps) {
+          
+            ...
+    
+            const handleChange = (event: SelectChangeEvent<string>) => {
+              ...
+
+              // Comunique los cambios al componente padre
+              onOptionSelect(selectedValue); 
+
+            };
+    
+            ...
+       }
+
+   c) En el hook `useFetchData.tsx`:
+
+   .. code-block:: typescript
+       :emphasize-lines: 3-7, 8-9, 16-18, 23
 
        ...
 
+       // Estrategia para convertir la opción seleccionada en un objeto
+       const CITY_COORDS: Record<string, { latitude: number; longitude: number }> = {
+         'Guayaquil': { latitude: -2.1962, longitude: -79.8862 },
+         ...
+       };
+
+       // Tipo del prop: string | null
        export default function useFetchData(selectedOption: string | null) : OpenMeteoResponse {
         
          ...
-        
+
          useEffect(() => {
            
-           if (selectedOption !== null) {
-              const cityConfig = CITY_COORDS[selectedOption];
-              const URL = `https://api.open-meteo.com/v1/forecast?latitude=...&longitude=...`
-           }
+
+           // Parametrice la opción seleccionada en la URL del requerimiento asíncrono
+           const cityConfig = selectedOption != null? CITY_COORDS[selectedOption] : CITY_COORDS["Guayaquil"];
+           const URL = `https://api.open-meteo.com/v1/forecast?latitude=${cityConfig.latitude}&longitude=${cityConfig.longitude}&...`
 
            fetch( URL )
-             .then( ... )
+           ...
            
-         }, [selectedOption]); 
+         }, [selectedOption]); // El efecto secundario depende de la opción seleccionada
         
          ...
        }
