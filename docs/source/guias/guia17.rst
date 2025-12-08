@@ -33,17 +33,27 @@ Actividades en clases
 Comunicación entre componentes con hooks personalizados
 -------------------------------------------------------
 
-1. Analice el siguiente escenario de comunicación entre componentes en React utilizando hooks personalizados para la gestión de estados y efectos secundarios. 
+1. Analice el siguiente escenario de interacción en el dashboard: 
 
    a) El usuario selecciona una ciudad de la lista de opciones.
    b) El sistema realiza una petición asincrónica a una API de datos climáticos para obtener la información correspondiente a la ciudad seleccionada.
    c) De acuerdo con la respuesta de la API, el sistema actualiza los componentes visuales del dashboard, incluyendo indicadores, tablas y gráficos, para reflejar los datos climáticos de la ciudad seleccionada.
-   
-   Finalmente, el usuario visualiza un dashboard completamente actualizado según su elección, experimentando una interacción fluida donde cada cambio en la ciudad seleccionada se refleja de manera inmediata en todos los elementos del sistema.
 
 2. Genere el código necesario para implementar este escenario en su proyecto *dashboard*.
 
-   a) `App.tsx`
+   a) `App.tsx`, utilice una hook para almacenar la opción seleccionada por el usuario.
+
+   .. code-block:: typescript
+       :emphasize-lines: 1, 5
+
+       import { useState } from 'react';
+
+       function App() {
+        
+         const [selectedOption, setSelectedOption] = useState<string | null>(null);
+        
+       }
+
    b) `SelectorUI.tsx`
    c)  `IndicatorsUI.tsx`, `ChartUI.tsx` y `TableUI.tsx`
 
