@@ -37,7 +37,7 @@ Comunicación entre componentes con hooks personalizados
 
    a) El usuario selecciona una ciudad desde el componente `SelectorUI`. El componente `SelectorUI` ejecuta el callback `handleChange`.
    b) El componente `App` actualiza la constante de estado con la ciudad seleccionada en el componente `SelectorUI` y pasa la ciudad seleccionada como propiedad al hook personalizado `useFetchData`.
-   c) El hook personalizado `useFetchData` utiliza la ciudad seleccionada para realizar una petición asincrónica a una API de datos climáticos y obtiene la información correspondiente. El hook personalizado `useFetchData` actualiza su estado interno con los datos obtenidos y los devuelve al componente `App`.
+   c) El hook personalizado `useFetchData` utiliza la ciudad seleccionada para realizar una petición asincrónica a una API de datos climáticos. El hook personalizado `useFetchData` actualiza su estado interno con los datos obtenidos y los devuelve al componente `App`.
    d) El componente `App` recibe los datos climáticos desde el hook personalizado `useFetchData` y re-renderiza los datos en los componentes `IndicatorUI`, `TableUI` y `ChartUI`.
 
 2. Genere el código necesario para implementar este escenario en su proyecto *dashboard*.
