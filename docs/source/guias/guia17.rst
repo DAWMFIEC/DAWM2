@@ -41,21 +41,38 @@ Comunicación entre componentes con hooks personalizados
 
 2. Genere el código necesario para implementar este escenario en su proyecto *dashboard*.
 
-   a) `App.tsx`, utilice una hook para almacenar la opción seleccionada por el usuario.
-
+   a) En el componente `App.tsx`, utilice una hook para almacenar la opción seleccionada por el usuario y comunique la opción seleccionada al hook useFetchData
+ 
    .. code-block:: typescript
-       :emphasize-lines: 1, 5
+       :emphasize-lines: 1, 6, 7
 
        import { useState } from 'react';
+       ...
 
        function App() {
         
          const [selectedOption, setSelectedOption] = useState<string | null>(null);
+         const dataFetcherOutput = useFetchData(selectedOption);
         
        }
 
-   b) `SelectorUI.tsx`
-   c)  `IndicatorsUI.tsx`, `ChartUI.tsx` y `TableUI.tsx`
+   b) En el hook `useFetchData.tsx`, defina el tipo de dato del prop, modifique el efecto secundario para que dependa de la opción seleccionada, y realice la petición asincrónica a la API con la opción seleccionada.
+
+   .. code-block:: typescript
+       :emphasize-lines: 3, 9
+
+       ...
+
+       export default function useFetchData(selectedOption: string | null) : OpenMeteoResponse {
+        
+         ...
+        
+         useEffect(() => {
+           
+         }, [selectedOption]); 
+        
+         ...
+       }
 
 3. Compruebe la vista previa del resultado en el navegador.
 
