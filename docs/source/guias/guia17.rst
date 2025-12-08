@@ -30,34 +30,18 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-React - Hook: useFetchData
---------------------------
+Comunicación entre componentes con hooks personalizados
+-------------------------------------------------------
 
-Una forma avanzada de implementar un requerimiento asincrónico es mediante el uso de variables de estado para vigilar el estado del proceso, como se muestra en la siguiente descripción:
+1. Analice el siguiente escenario de comunicación entre componentes en React utilizando hooks personalizados para la gestión de estados y efectos secundarios: 
 
-1. `useFetchData` es un custom hook diseñado para realizar solicitudes asíncronas a una URL y gestionar el ciclo completo de estados asociados a la carga de datos. El hook encapsula tres variables de estado:
+   a) El usuario selecciona una ciudad desde el componente `SelectorUI`. El componente `SelectorUI` ejecuta el callback `handleChange`.
+   b) El componente `App` actualiza la constante de estado con la ciudad seleccionada en el componente `SelectorUI` y pasa la ciudad seleccionada como propiedad al hook personalizado `useFetchData`.
+   c) El hook personalizado `useFetchData` utiliza la ciudad seleccionada para realizar una petición asincrónica a una API de datos climáticos y obtiene la información correspondiente. El hook personalizado `useFetchData` actualiza su estado interno con los datos obtenidos y los devuelve al componente `App`.
+   d) El componente `App` recibe los datos climáticos desde el hook personalizado `useFetchData` y re-renderiza los datos en los componentes `IndicatorUI`, `TableUI` y `ChartUI`.
 
-   a) `loading`: para indicar si la solicitud está en proceso. El valor predeterminado es _true_.
-   b) `data`: para almacenar la información obtenida o _null_ si no hay datos. El valor predeterminado es _null_.
-   c) `error`: para registrar cualquier falla ocurrida durante la carga o _null_ si no hay errores. El valor predeterminado es _null_.
-
-   Durante la petición asincrónica, el hook actualiza estas variables de estado según si la solicitud está en proceso, información obtenida y cualquier falla que ocurra.
-
-   El hook devuelve un objeto que contiene estas tres variables de estado, permitiendo a los componentes que lo utilizan manejar fácilmente la lógica de presentación basada en el estado de la solicitud.
-
-2. En el componente `App.tsx`, el hook `useFetchData` se invoca al cargar el componente. A partir de allí, el componente accede directamente a las variables de estado devueltas por el hook para el renderizado condicional:
-
-   a) Si `dataFetcherOutput.loading` es **true**, muestre un mensaje de carga.
-   b) Si `dataFetcherOutput.error` no es **null**, muestre el mensaje de error.
-   c) Si `dataFetcherOutput.data` no es **null**, muestre los datos obtenidos de la API, como la temperatura actual, temperatura aparente, velocidad del viento y humedad relativa, utilizando el componente `IndicatorUI` para cada indicador.
-
+2. Genere el código necesario para implementar este escenario en su proyecto *dashboard*.
 3. Compruebe la vista previa del resultado en el navegador.
-4. Con un cliente de IAG, explique el renderizado condicional en React, mediante el uso de variables de estado.
-
-
-React - Hook: useUpdateData
----------------------------
-
 
 Versionamiento
 --------------
