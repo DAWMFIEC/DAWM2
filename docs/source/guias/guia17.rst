@@ -56,10 +56,10 @@ Comunicación entre componentes con hooks personalizados
         
        }
 
-   b) En el hook `useFetchData.tsx`, defina el tipo de dato del prop, modifique el efecto secundario para que dependa de la opción seleccionada, y realice la petición asincrónica a la API con la opción seleccionada.
+   b) En el hook `useFetchData.tsx`, defina el tipo de dato del prop, modifique el efecto secundario para que dependa de la opción seleccionada y parametrice la opción seleccionada en la URL del requerimiento asíncrono.
 
    .. code-block:: typescript
-       :emphasize-lines: 3, 9
+       :emphasize-lines: 3, 9-12,17
 
        ...
 
@@ -68,6 +68,14 @@ Comunicación entre componentes con hooks personalizados
          ...
         
          useEffect(() => {
+           
+           if (selectedOption !== null) {
+              const cityConfig = CITY_COORDS[selectedOption];
+              const URL = `https://api.open-meteo.com/v1/forecast?latitude=...&longitude=...`
+           }
+
+           fetch( URL )
+             .then( ... )
            
          }, [selectedOption]); 
         
