@@ -44,7 +44,7 @@ Comunicación entre componentes con hooks personalizados
    a) En el componente `App.tsx`:
  
    .. code-block:: typescript
-       :emphasize-lines: 1, 6, 7
+       :emphasize-lines: 1, 6-7, 9-10, 15
 
        import { useState } from 'react';
        ...
@@ -98,7 +98,7 @@ Comunicación entre componentes con hooks personalizados
    c) En el hook `useFetchData.tsx`:
 
    .. code-block:: typescript
-       :emphasize-lines: 3-7, 8-9, 16-18, 23
+       :emphasize-lines: 3-7, 9-10, 17-19, 24
 
        ...
 
