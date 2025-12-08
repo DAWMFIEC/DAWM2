@@ -35,7 +35,7 @@ Comunicación entre componentes con hooks personalizados
 
 1. Analice el siguiente escenario de comunicación entre componentes en React utilizando hooks personalizados para la gestión de estados y efectos secundarios: 
 
-   a) El usuario selecciona una ciudad desde el componente `SelectorUI`. El componente `SelectorUI` ejecuta el callback `handleChange`.
+   a) El usuario selecciona una ciudad desde el componente `SelectorUI`. El componente `SelectorUI` ejecuta el callback `handleChange` y actualiza la ciudad seleccionada en el componente padre `App`.
    b) El componente `App` actualiza la constante de estado con la ciudad seleccionada en el componente `SelectorUI` y pasa la ciudad seleccionada como propiedad al hook personalizado `useFetchData`.
    c) El hook personalizado `useFetchData` utiliza la ciudad seleccionada para realizar una petición asincrónica a una API de datos climáticos. El hook personalizado `useFetchData` actualiza su estado interno con los datos obtenidos y los devuelve al componente `App`.
    d) El componente `App` recibe los datos climáticos desde el hook personalizado `useFetchData` y re-renderiza los datos en los componentes `IndicatorUI`, `TableUI` y `ChartUI`.
