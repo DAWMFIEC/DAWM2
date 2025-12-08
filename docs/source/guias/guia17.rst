@@ -3,14 +3,14 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-=====================================
-Guía 17: React - Hooks Personalizados
-=====================================
+===============================================
+Guía 17: React - Comunicación entre componentes
+===============================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Incorporar hooks personalizados de React para la gestión de estados y efectos secundarios en la obtención y visualización de datos climáticos en el dashboard. 
+    Implementar una estrategia de comunicación entre componentes en React utilizando hooks personalizados para la gestión de estados y efectos secundarios. 
 
 Actividades previas
 =====================
@@ -33,14 +33,20 @@ Actividades en clases
 Comunicación entre componentes con hooks personalizados
 -------------------------------------------------------
 
-1. Analice el siguiente escenario de comunicación entre componentes en React utilizando hooks personalizados para la gestión de estados y efectos secundarios: 
+1. Analice el siguiente escenario de comunicación entre componentes en React utilizando hooks personalizados para la gestión de estados y efectos secundarios. 
 
-   a) El usuario selecciona una ciudad desde el componente `SelectorUI`. El componente `SelectorUI` ejecuta el callback `handleChange` y actualiza la ciudad seleccionada en el componente padre `App`.
-   b) El componente `App` actualiza la constante de estado con la ciudad seleccionada en el componente `SelectorUI` y pasa la ciudad seleccionada como propiedad al hook personalizado `useFetchData`.
-   c) El hook personalizado `useFetchData` utiliza la ciudad seleccionada para realizar una petición asincrónica a una API de datos climáticos. El hook personalizado `useFetchData` actualiza su estado interno con los datos obtenidos y los devuelve al componente `App`.
-   d) El componente `App` recibe los datos climáticos desde el hook personalizado `useFetchData` y re-renderiza los datos en los componentes `IndicatorUI`, `TableUI` y `ChartUI`.
+   a) El usuario selecciona una ciudad de la lista de opciones.
+   b) El sistema realiza una petición asincrónica a una API de datos climáticos para obtener la información correspondiente a la ciudad seleccionada.
+   c) De acuerdo con la respuesta de la API, el sistema actualiza los componentes visuales del dashboard, incluyendo indicadores, tablas y gráficos, para reflejar los datos climáticos de la ciudad seleccionada.
+   
+   Finalmente, el usuario visualiza un dashboard completamente actualizado según su elección, experimentando una interacción fluida donde cada cambio en la ciudad seleccionada se refleja de manera inmediata en todos los elementos del sistema.
 
 2. Genere el código necesario para implementar este escenario en su proyecto *dashboard*.
+
+   a) `App.tsx`
+   b) `SelectorUI.tsx`
+   c)  `IndicatorsUI.tsx`, `ChartUI.tsx` y `TableUI.tsx`
+
 3. Compruebe la vista previa del resultado en el navegador.
 
 Versionamiento
@@ -68,9 +74,9 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Cómo te ayudó la inteligencia artificial generativa a entender el propósito de los hooks con la relación con el ciclo de vida de los componentes en React?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a entender la comunicación entre componentes en React?
 
-    * ¿Qué decisiones tomaste al integrar un hook personalizados en tu dashboard para ejecutar tareas como peticiones asincrónicas o sincronización de datos?
+    * ¿Qué decisiones tomaste al integrar un hook para personalizar la interacción en tu dashboard?
 
     * ¿Cómo aseguras que el uso de hooks en tu proyecto refleja tu comprensión y no una dependencia automática de herramientas generativas, especialmente al enfrentar errores o comportamientos inesperados?
 
