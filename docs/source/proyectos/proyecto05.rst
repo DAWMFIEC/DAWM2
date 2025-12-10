@@ -4,7 +4,7 @@
   SPDX-License-Identifier: CC-BY-SA-4.0
   
 ===============================================
-Proyecto 05: Aplicación Híbrida - React y Ionic
+Proyecto 05: Aplicación Híbrida - Ionic y React
 ===============================================
 
 .. topic:: Objetivo general
