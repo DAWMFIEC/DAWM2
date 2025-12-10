@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 ==========================================
-Guía 17: React - Progressive Web App (PWA)
+React - Progressive Web App (PWA)
 ==========================================
 
 .. topic:: Objetivo específico
