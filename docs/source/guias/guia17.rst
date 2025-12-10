@@ -67,7 +67,7 @@ Comunicación entre componentes con hooks personalizados
         
        }
 
-   b) En el componente `Selector.tsx`:
+   b) En el componente `SelectorUI.tsx`:
 
    .. code-block:: typescript
        :emphasize-lines: 3-6, 8-9, 16-17
