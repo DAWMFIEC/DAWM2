@@ -13,13 +13,15 @@ móviles cumpliendo con los estándares actuales y las buenas prácticas de prog
   proyectos/proyecto02.rst
   proyectos/proyecto03.rst
   proyectos/proyecto04.rst
+  proyectos/proyecto05.rst
+
 
 .. toctree::
   :maxdepth: 1
   :caption: Extras
   :glob:
 
-  extras/*
+  guias/extra/*
 
 .. toctree::
   :maxdepth: 1
