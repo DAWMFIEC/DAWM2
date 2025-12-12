@@ -21,8 +21,7 @@ Ambiente de desarrollo
 1. Cree un repositorio en GitHub con el nombre *mobile*.
 
    a) Agregue un archivo README.md con el título de su aplicación híbrida y una breve descripción del objetivo de su proyecto.
-   b) Utilice la plantilla de *Node*.
-   c) **NO** marque la opción del *.gitignore*.
+   b) **NO** marque la opción del *.gitignore*.
    
 2. Acceda a su proyecto *mobile* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
@@ -54,7 +53,7 @@ Creación de una aplicación híbrida con Ionic y React
 
    .. code-block:: bash
 
-       ionic start hibrida tabs --type=react --capacitor
+       ionic start . tabs --type=react --capacitor
 
    **Nota:** No es necesario crear una cuenta en Ionic al solicitarlo durante el proceso de creación de la aplicación.
 
