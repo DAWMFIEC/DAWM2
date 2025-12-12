@@ -32,9 +32,8 @@ Ambiente de despliegue
 1. Obtenga una cuenta en `Ionic Appflow <https://ionic.io/appflow>`_.
 
     a) Verifique su cuenta a través del correo electrónico.
-    b) Inicie sesión en `Ionic Appflow <https://ionic.io/appflow>`_.
-    
-2. Cree una nueva aplicación en Ionic Appflow con el nombre de su proyecto móvil híbrido.
+
+2. Inicie sesión en `Ionic Appflow <https://ionic.io/appflow>`_.
 
 Actividades en clases
 =====================
@@ -78,6 +77,23 @@ Creación de una aplicación híbrida con Ionic y React
 3. Revise el funcionamiento de la aplicación en el navegador web e inspecione la vista responsiva para dispositivos móviles.
 4. Utilice un cliente de IAG para explicar las características principales de la estructura del proyecto generado por Ionic CLI para una aplicación híbrida con React y de Capacitor como herramienta de empaquetado.
 
+Plataforma Android
+------------------
+
+1. En el proyecto, genere los archivos nativos del proyecto Android dentro de una carpeta Android en el directorio raíz de tu proyecto.
+
+   .. code-block:: bash
+
+       ionic cap add android
+
+2. Después de la primera adición, o cada vez que actualices tu código web, debes copiar los recursos web más recientes al proyecto nativo de Android. El comando sync se encarga de esto y también instala cualquier complemento nativo nuevo que hayas añadido.
+
+   .. code-block:: bash
+
+       ionic cap sync android
+
+3. Utilice un cliente de IAG para explicar las características principales de Capacitor como herramienta de empaquetado para aplicaciones híbridas, enfocándose en la plataforma Android.
+
 Versionamiento
 --------------
 
@@ -89,15 +105,11 @@ Despliegue en Ionic Appflow
 
 1. Conecte la aplicación híbrida en el repositorio *mobile* con la aplicación creada en Ionic Appflow.
 
-   a) Siga las instrucciones en `Ionic Appflow <https://ionic.io/appflow/docs/getting-started/connecting-your-repo>`_ para conectar su repositorio GitHub con Ionic Appflow.
+   a) Siga las instrucciones en `Connect Using GitHub <https://ionic.io/docs/appflow/quickstart/github>`_ para conectar su repositorio GitHub con Ionic Appflow.
    b) Seleccione el repositorio *mobile* y la rama principal (main) para conectar con Ionic Appflow.
 
-2. Realice un despliegue manual de la aplicación híbrida en Ionic Appflow.
-    a) Siga las instrucciones en `Ionic Appflow <https://ionic.io/appflow/docs/getting-started/manual-deploys>`_ para realizar un despliegue manual.
-    b) Espere a que el proceso de construcción (build) finalice exitosamente.
-
-3. Revise el historial de despliegues en Ionic Appflow para verificar que el despliegue manual se haya realizado correctamente.
-4. Luego de completar exitosamente el despliegue manual, descargue o utilice el QR code proporcionado por Ionic Appflow para instalar la aplicación híbrida en un dispositivo móvil compatible.
+2. Realice un compilación nativa de la aplicación híbrida en Ionic Appflow, de acuerdo con las instrucciones en `Start a Native Build <https://ionic.io/docs/appflow/quickstart/package#start-a-native-build>`_ para realizar la compilación nativa.
+3. Luego de completar exitosamente el despliegue manual, descargue o utilice el QR code proporcionado por Ionic Appflow para instalar la aplicación híbrida en un dispositivo móvil compatible.
 
 Conclusiones
 ============
