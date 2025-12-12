@@ -10,7 +10,7 @@ Guía 18: React y Ionic - Introducción, Gestión de rutas y Navegación
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Desarrollar una aplicación móvil híbrida utilizando React e Ionic, implementando gestión de rutas y navegación entre diferentes vistas de la aplicación.
+    Explorar el framework Ionic junto con React para el desarrollo de una aplicación móvil híbrida, enfocándose en la gestión de rutas y la navegación entre vistas.
 
 Actividades previas
 =====================
