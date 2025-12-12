@@ -20,10 +20,14 @@ Introducción
     Como desarrollador de aplicaciones móviles, explica los pasos del proceso para crear una aplicación móvil.
 
 .. figure:: ./respuestas/proyecto05-respuesta01.png
+    :align: center
+    :width: 100%
 
 .. admonition:: Prompt
     
     Redacta posibles problemas cuya solución implique el desarrollo y uso de una aplicación móvil.
 
 .. figure:: ./respuestas/proyecto05-respuesta02.png
+    :align: center
+    :width: 100%
 
