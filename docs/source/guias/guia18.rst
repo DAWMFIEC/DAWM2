@@ -34,15 +34,15 @@ Ionic CLI
 
 1. Instale Ionic CLI globalmente en su ambiente de desarrollo.
 
-    .. code-block:: bash
-        
-        npm install -g @ionic/cli
+   .. code-block:: bash
+       
+       npm install -g @ionic/cli
 
 2. Verifique la instalación de Ionic CLI.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        ionic --version
+       ionic --version
 
 3. Utilice un cliente de IAG para explicar la utilidad de Ionic Framework y Ionic CLI en el desarrollo de aplicaciones móviles híbridas.
 
