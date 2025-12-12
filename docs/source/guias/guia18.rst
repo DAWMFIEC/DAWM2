@@ -29,6 +29,49 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Ionic CLI 
+---------
+
+1. Instale Ionic CLI globalmente en su ambiente de desarrollo.
+
+    .. code-block:: bash
+        
+        npm install -g @ionic/cli
+
+2. Verifique la instalación de Ionic CLI.
+
+    .. code-block:: bash
+
+        ionic --version
+
+3. Utilice un cliente de IAG para explicar la utilidad de Ionic Framework y Ionic CLI en el desarrollo de aplicaciones móviles híbridas.
+
+Creación de una aplicación híbrida con Ionic y React
+----------------------------------------------------
+
+1. Cree una nueva aplicación híbrida con Ionic y React utilizando Ionic CLI, a partir de la plantilla *tabs* y con Capacitor como herramienta de empaquetado.
+
+    .. code-block:: bash
+
+        ionic start hibrida tabs --type=react --capacitor
+
+    **Nota:** No es necesario crear una cuenta en Ionic al solicitarlo durante el proceso de creación de la aplicación.
+
+2. Acceda al directorio de la aplicación creada.
+
+    .. code-block:: bash
+
+        cd hibrida
+
+3. Inicie la aplicación en modo de desarrollo.
+
+    .. code-block:: bash
+
+        ionic serve
+
+4. Revise el funcionamiento de la aplicación en el navegador web e inspecione la vista responsiva para dispositivos móviles.
+5. Utilice un cliente de IAG para explicar las características principales de la estructura del proyecto generado por Ionic CLI para una aplicación híbrida con React y de Capacitor como herramienta de empaquetado.
+
 Versionamiento
 --------------
 
