@@ -21,7 +21,8 @@ Ambiente de desarrollo
 1. Cree un repositorio en GitHub con el nombre *mobile*.
 
    a) Agregue un archivo README.md con el título de su aplicación híbrida y una breve descripción del objetivo de su proyecto.
-   b) Agregue un archivo *.gitignore* con la plantilla de *Node*.
+   b) Utilice la plantilla de *Node*.
+   c) **NO** marque la opción del *.gitignore*.
    
 2. Acceda a su proyecto *mobile* en Codespaces o en su máquina local.
 3. Cree y utilice la(s) rama(s) de desarrollo.
