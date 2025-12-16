@@ -3,24 +3,24 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-=============================================================
-Guía 27: Django - Django Admin (Autorización)
-=============================================================
+=======================================
+Guía 28: Django - Despliegue en Railway
+=======================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Configurar el sistema de autenticación y autorización mediante el panel de administración de Django, gestionando usuarios, grupos y permisos de acceso a los endpoints de la API REST, con el propósito de controlar qué acciones pueden realizar distintos perfiles dentro de la aplicación y asegurar el flujo de comunicación de los datos desde usuarios autenticados. 
+    Realizar el despliegue de un proyecto Django en la plataforma Railway para la publicación de un servicio web accesible desde cualquier cliente y garantizar la comunicación estable y segura con los datos. 
 
 Actividades previas
 =====================
 
-Ambiente de desarrollo
+Ambiente de producción
 ----------------------
 
 1. Acceda a su proyecto *django_data_monitor* en Codespaces o en su máquina local.
-2. Cree y utilice la(s) rama(s) de desarrollo.
-3. Cree y habilite el ambiente virtual de desarrollo, con:
+2. Cree y utilice la rama de **produccion**.
+3. Cree y habilite el ambiente virtual, con:
 
    .. code-block:: bash
 
@@ -38,19 +38,22 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
-Paquete: PyMySQL
------------------
+Paquete: gunicorn y whitenoise
+------------------------------
 
-1. Instale :term:`PyMySQL` en su ambiente de desarrollo:
+1. Instale `PyMySQL`, :term:`gunicorn` y :term:`whitenoise` en su ambiente, con:
 
    .. code-block:: bash
+    
+       pip install gunicorn whitenoise PyMySQL
 
-       pip install PyMySQL
+2. Utilice su cliente de IAG generativa para explicar la utilidad de los paquetes gunicorn y whitenoise.
 
-2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *PyMySQL* en Python y cómo se utiliza para conectarse a bases de datos MySQL en Django.
+Configuración de Django para producción
+---------------------------------------
 
-Conexión a la base de datos
----------------------------
+Conexión a la base de datos (Obligatorio)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``backend_analytics_server/settings.py`` de su proyecto Django, con:
 
@@ -88,157 +91,49 @@ Conexión a la base de datos
 
        ...
 
-2. En la terminal establezca las variables de entorno para la conexión a la base de datos MySQL, con:
+Conexión a la base de datos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   .. code-block:: bash
+2. En el archivo `backend_analytics_server/settings.py`, configure los siguientes parámetros:
 
-       # Linux/MacOS
-       export MYSQLDATABASE=security
-       export MYSQLUSER=root
-       export MYSQLPASSWORD=root
-       export MYSQLHOST=localhost
-       export MYSQLPORT=3306
-
-       # Verifique las variables de entorno
-       echo $MYSQLDATABASE
-
-       # Windows
-       set MYSQLDATABASE=security
-       set MYSQLUSER=root
-       set MYSQLPASSWORD=root
-       set MYSQLHOST=localhost
-       set MYSQLPORT=3306
-
-       # Verifique las variables de entorno
-       echo %MYSQLDATABASE%
-
-   .. note::
-      
-      Asegúrese de reemplazar los valores con los datos correctos de su base de datos MySQL.
-
-3. Con :term:`MySQL Workbench` o su cliente de MySQL, cree la base de datos **security** si no existe
-4. Utilice su cliente de IAG generativa para explicar cómo se configura la conexión a una base de datos MySQL en Django utilizando PyMySQL y las variables de entorno.
-
-Migraciones de base de datos
-----------------------------
-
-1. Genere las migraciones de la base de datos, con:
-
-   .. code-block:: bash
-
-       python manage.py makemigrations
-       python manage.py migrate
-
-2. Cree un **superusuario** para acceder al panel de administración de Django, con:
-
-   .. code-block:: bash
-
-       python manage.py createsuperuser
-
-3. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo
-4. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
-
-   .. note:: 
-    
-       Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
-
-Autorización
-------------
-
-Restricción de permiso: decorador `@permission_required`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Edite el archivo ``dashboard/views.py``, con:
+   a) **DEBUG**: Cambie a `False`.
+   b) **CSRF_TRUSTED_ORIGINS**: Agregue el dominio de Railway.
+   c) **ALLOWED_HOSTS**: Utilice el dominio de Railway.
+   d) **MIDDLEWARE**: Agregue el :term:`middleware` `WhiteNoiseMiddleware` para servir archivos estáticos.
+   e) **STATIC_ROOT**: Configure la ruta para los archivos estáticos
+   f) **STATICFILES_STORAGE**: Configure el almacenamiento de archivos estáticos
 
    .. code-block:: python
-       :emphasize-lines: 2, 5
-    
+       :emphasize-lines: 1,4,8,12,21,23
+
+       DEBUG = False
+       
+       CSRF_TRUSTED_ORIGINS = [
+           "https://*.up.railway.app",
+           ...,
+       ]
+
+       ALLOWED_HOSTS = ['.up.railway.app']
+       
+       MIDDLEWARE = [
+          'django.middleware.security.SecurityMiddleware',
+          'whitenoise.middleware.WhiteNoiseMiddleware',  # Agregar WhiteNoise al middleware (debe ir después de SecurityMiddleware)
+          'django.contrib.sessions.middleware.SessionMiddleware',
+           # ... resto de middlewares
+       ]
+
        ...
-       from django.contrib.auth.decorators import login_required, permission_required
-         
-       @login_required
-       @permission_required('dashboard.index_viewer', raise_exception=True)
-       def index(request):
-            ...
 
-2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+       STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-   .. note:: 
+       STATIC_ROOT = BASE_DIR / 'assets' 
 
-      Compruebe que el acceso a la vista principal del dashboard requiere autorización para los usuarios **usuario01** y **usuario02**; mientras, el superusuario tiene acceso sin restricciones.
-
-3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
-
-Modelo con permisos
-^^^^^^^^^^^^^^^^^^^
-
-1. Edite el archivo ``dashboard/models.py``, con la definición del modelo **DashboardModel** con permisos personalizados:
-
-   .. code-block:: python
-       :emphasize-lines: 3-8
-    
+       STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+       
        ...
-       # Create your models here.
-       class DashboardModel(models.Model):
 
-         class Meta:
-            permissions = [
-                  ("index_viewer", "Can show to index view (function-based)"),
-            ]
-
-2. Genere las migraciones de la base de datos, con:
-
-   .. code-block:: bash
-    
-       python manage.py makemigrations
-       python manage.py migrate
-
-3. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para:
-
-   a) Modificar solo el usuario **usuario01** 
-   b) En **User permissions**, agregue el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
-   c) Guarde los cambios.
-
-5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note:: 
-    
-       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
-
-6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
-
-403 Forbidden
--------------
-
-1. Descargue y descomprima el archivo :download:`403.zip <./files/exceptions/403.zip>`. 
-2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
-3. Levante el servidor de desarrollo, con:
-
-   .. code-block:: bash
-
-       python manage.py runserver
-
-4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note:: 
-    
-       Compruebe que el usuario **usuario02** recibe un error 403 Forbidden al intentar acceder a la vista principal del dashboard, y que se muestra la plantilla personalizada.
-
-
-Gestión de dependencias
------------------------
+Gestión de dependencias y versionamiento
+----------------------------------------
 
 1. Genere el archivo `requirements.txt` con la lista de paquetes utilizados, con:
 
@@ -252,48 +147,86 @@ Gestión de dependencias
 
        deactivate
 
-Versionamiento
---------------
-
-1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
-
-   .. info-card:: 
-
-      En caso de tener problemas de autenticación al realizar el versionamiento remoto:
-       
-      - Obtenga un `Token de acceso personal (clásicos) <https://github.com/settings/tokens>`_ de tipo **Classic**, con el alcance (scope) **repo**.
-      - Copie el token, dado que **no podrá volver a verlo**.
-      - Borre de memoria cualquier usuario/token que se estuviera guardando temporalmente
-
-        .. code-block:: bash
-
-            git credential-cache exit
-
-      - Elimine la configuración del credential helper definida a nivel global.
-
-        .. code-block:: bash
-
-            git config --global --unset credential.helper
-
-      - Reemplace los valores ``[REPO-OWNER]``, ``[REPO-NAME]`` y ``[TOKEN]`` para modificar el origin.
-
-        .. code-block:: bash
-            
-            git remote set-url origin https://[REPO-OWNER]:[TOKEN]@github.com/[REPO-OWNER]/[REPO-NAME].git
+3. Versione local y remotamente la rama **produccion**.
 
 
-2. Genere la(s) solicitud(es) de cambios (pull request) para la rama principal y apruebe los cambios.
+Railway
+-------
+
+1. Obtenga una cuenta gratuita en `Railway <https://railway.app/>`_ mediante su cuenta de GitHub.
+2. Cree un proyecto nuevo vacío.
+3. Utilice su cliente de IAG generativa para explicar la utilidad de Railway.
+
+Configuración en Railway
+------------------------
+
+Servicio: MySQL Database
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. En Railway, acceda al proyecto vacío.
+2. Seleccione la opción **Add Service**, escoja **Database** y luego **Add MySQL**.
+
+Servicio: Web App
+^^^^^^^^^^^^^^^^^
+
+1. En Railway, dentro del proyecto.
+2. Seleccione **Create** > **GitHub Repo** y conecte su cuenta de GitHub.
+3. Seleccione el repositorio *django_data_monitor*. 
+
+   .. attention::
+      
+      No despliegue la aplicación hasta configurar correctamente las variables de entorno.
+
+4. En la pestaña **Environment Variables**, configure:
+
+   a) Agregue las 5 referencias a las variables `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLHOST` y `MYSQLPORT` con sus valores correspondientes al servicio de MySQL, por ejemplo:
+
+   .. code-block:: bash
+
+       MYSQLDATABASE     ${{MySQL.MYSQLDATABASE}}
+
+   b) Agregue las 3 variables `DJANGO_SUPERUSER_USERNAME`, `DJANGO_SUPERUSER_PASSWORD` y `DJANGO_SUPERUSER_EMAIL` con sus valores para crear el superusuario.
+
+   .. code-block:: bash
+
+       DJANGO_SUPERUSER_EMAIL     admin@data.com.ec
+
+5. En la pestaña **Settings**, configure el entorno de producción:
+
+   a) Seleccione la rama **produccion**
+   
+   b) En **Build** > **Custom Build Command**, utilice:
+
+   .. code-block:: bash
+
+       pip install -r requirements.txt
+
+   c) En **Deploy** > **Custom Start Command**, utilice:
+
+   .. code-block:: bash
+
+       gunicorn backend_analytics_server.wsgi
+   
+   d) En **Deploy** > **Pre-deploy Step**, utilice:
+
+   .. code-block:: bash
+
+       python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && python manage.py createsuperuser --noinput
+
+5. Haga clic en el botón **Deploy** para desplegar los servicios con los cambios realizados.
+6. Luego del despliegue exitoso, **Setting** > **Networking**, genere un dominio en el puerto 8080.
+7. Revise los registros de despliegue para asegurarse de que no haya errores.
 
 Conclusiones
 ============
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué limitaciones identificaste en las soluciones de autenticación sugeridas por la IA, especialmente en relación con la seguridad, la escalabilidad o las buenas prácticas recomendadas por la documentación oficial?
+    * ¿Qué elementos clave del proceso de despliegue en Railway comprendiste mejor gracias a la inteligencia artificial generativa, y qué conceptos tuviste que reforzar por tu cuenta para asegurar una implementación funcional?
 
-    * ¿Cómo probaste y validaste los mecanismos de autorización implementados, y qué cambios realizaste sobre las configuraciones automáticas para cumplir con los requisitos específicos del proyecto?
+    * ¿Cómo verificaste el funcionamiento correcto del backend desplegado en Railway, y qué hiciste para resolver problemas como errores de conexión a la base de datos o fallas en el entorno de producción?
 
-    * ¿Qué principios éticos aplicaste al manejar credenciales de usuario y restricciones de acceso en tu backend, especialmente cuando el código base fue propuesto por una IA generativa?
+    * ¿Qué actitudes asumiste para garantizar que el uso de inteligencia artificial en el proceso de despliegue no reemplazara tu comprensión del entorno de producción, sino que fortaleciera tu capacidad como desarrollador responsable?
 
 Actividades autónomas
 =====================
@@ -305,4 +238,4 @@ En redes:
 
 .. raw:: html
 
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Django is a high-level Python web development framework that lets you build secure, scalable apps.<br><br>And this crash course teaches you the basics so you can start using it.<br><br>You&#39;ll learn about django-admin &amp; <a href="https://t.co/T2lmhj4NZm">https://t.co/T2lmhj4NZm</a>, the Model-View-Template pattern, how forms work,… <a href="https://t.co/G3ZRyfVpb5">pic.twitter.com/G3ZRyfVpb5</a></p>&mdash; freeCodeCamp.org (@freeCodeCamp) <a href="https://twitter.com/freeCodeCamp/status/1919663989262352561?ref_src=twsrc%5Etfw">May 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Drop the .app, it&#39;s cleaner that way <br><br>Introducing an all-new Railway (dot com)<a href="https://t.co/C5PSPyo5IO">https://t.co/C5PSPyo5IO</a></p>&mdash; Railway (@Railway) <a href="https://twitter.com/Railway/status/1857148311494623725?ref_src=twsrc%5Etfw">November 14, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

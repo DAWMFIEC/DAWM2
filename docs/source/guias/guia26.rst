@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =============================================================
-Guía 26: Django - Django Admin (Autenticación)
+Guía 27: Django - Django Admin (Autorización)
 =============================================================
 
 .. topic:: Objetivo específico
@@ -38,6 +38,87 @@ Ambiente de desarrollo
 Actividades en clases
 =====================
 
+Paquete: PyMySQL
+-----------------
+
+1. Instale :term:`PyMySQL` en su ambiente de desarrollo:
+
+   .. code-block:: bash
+
+       pip install PyMySQL
+
+2. Utilice su cliente de IAG generativa para explicar el propósito del paquete *PyMySQL* en Python y cómo se utiliza para conectarse a bases de datos MySQL en Django.
+
+Conexión a la base de datos
+---------------------------
+
+1. Edite el archivo ``backend_analytics_server/settings.py`` de su proyecto Django, con:
+
+   a) Importe el paquete PyMySQL:
+
+   .. code-block:: python
+       :emphasize-lines: 4-6
+
+       ...
+       from pathlib import Path
+       import os
+       import pymysql
+
+       pymysql.install_as_MySQLdb()
+       
+       ...
+
+   b) Reemplace la configuración por defecto por la conexión a la base de datos MySQL utilizando PyMySQL:
+
+   .. code-block:: python
+       :emphasize-lines: 5-10
+
+       ...
+
+       DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.mysql',
+               'NAME': os.environ.get('MYSQLDATABASE'),
+               'USER': os.environ.get('MYSQLUSER'),
+               'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+               'HOST': os.environ.get('MYSQLHOST'),
+               'PORT': os.environ.get('MYSQLPORT'),
+            }
+       }
+
+       ...
+
+2. En la terminal establezca las variables de entorno para la conexión a la base de datos MySQL, con:
+
+   .. code-block:: bash
+
+       # Linux/MacOS
+       export MYSQLDATABASE=security
+       export MYSQLUSER=root
+       export MYSQLPASSWORD=root
+       export MYSQLHOST=localhost
+       export MYSQLPORT=3306
+
+       # Verifique las variables de entorno
+       echo $MYSQLDATABASE
+
+       # Windows
+       set MYSQLDATABASE=security
+       set MYSQLUSER=root
+       set MYSQLPASSWORD=root
+       set MYSQLHOST=localhost
+       set MYSQLPORT=3306
+
+       # Verifique las variables de entorno
+       echo %MYSQLDATABASE%
+
+   .. note::
+      
+      Asegúrese de reemplazar los valores con los datos correctos de su base de datos MySQL.
+
+3. Con :term:`MySQL Workbench` o su cliente de MySQL, cree la base de datos **security** si no existe
+4. Utilice su cliente de IAG generativa para explicar cómo se configura la conexión a una base de datos MySQL en Django utilizando PyMySQL y las variables de entorno.
+
 Migraciones de base de datos
 ----------------------------
 
@@ -54,59 +135,35 @@ Migraciones de base de datos
 
        python manage.py createsuperuser
 
-
-3. Utilice su cliente de IAG para explicar las migraciones de base de datos, el uso del panel de administración de Django y el propósito del superusuario.
-
-Configuración de dominios y CSRF
----------------------------------
-
-1. Modifique el archivo ``backend_analytics_server/settings.py``, con:
-
-   .. code-block:: python
-       :emphasize-lines: 2-6, 8-10
-
-       ...
-       CSRF_TRUSTED_ORIGINS = [
-         "https://*.app.github.dev", # Solo si utiliza Codespaces
-         "https://localhost:8000",
-         "http://127.0.0.1:8000"
-       ]
-
-       ALLOWED_HOSTS = [
-         "*",
-       ]
-       ...
-
-   .. note::
-
-       El uso de `ALLOWED_HOSTS` con el valor `['*']` es una práctica insegura para producción, pero es aceptable para desarrollo local. En producción, se debe especificar el dominio o subdominio del servidor.
-
-2. Levante el servidor de desarrollo, con:
+3. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo
+4. Levante el servidor de desarrollo, con:
 
    .. code-block:: bash
 
        python manage.py runserver
 
+5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
 
-3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/admin/`. Inicie sesión con las credenciales del superusuario y explore el panel de administración.
-4. Cree los usuarios **usuario01** y **usuario02**, sin permisos o pertenencia a algún grupo.
-5. Utilice su cliente de IAG para explicar la configuración de `ALLOWED_HOSTS` y `CSRF_TRUSTED_ORIGINS`.
+   .. note:: 
+    
+       Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
 
-Autenticación
--------------
+Autorización
+------------
 
-Restricción de acceso: decorador `@login_required`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Restricción de permiso: decorador `@permission_required`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Edite el archivo ``dashboard/views.py``, con:
 
    .. code-block:: python
-       :emphasize-lines: 2, 4
+       :emphasize-lines: 2, 5
     
        ...
-       from django.contrib.auth.decorators import login_required
+       from django.contrib.auth.decorators import login_required, permission_required
          
        @login_required
+       @permission_required('dashboard.index_viewer', raise_exception=True)
        def index(request):
             ...
 
@@ -114,187 +171,71 @@ Restricción de acceso: decorador `@login_required`
 
    .. note:: 
 
-      Compruebe que el acceso a la vista principal del dashboard requiere autenticación, al mostrar el formulario de inicio de sesión.
+      Compruebe que el acceso a la vista principal del dashboard requiere autorización para los usuarios **usuario01** y **usuario02**; mientras, el superusuario tiene acceso sin restricciones.
 
-3. Utilice su cliente de IAG para explicar el uso del :term:`decorador` `@login_required` en Django.
+3. Utilice su cliente de IAG para explicar el uso del decorador `@permission_required` en Django.
 
-Login: Vista y Plantilla de autenticación
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Modelo con permisos
+^^^^^^^^^^^^^^^^^^^
 
-1. Descargue y descomprima el archivo :download:`login.zip <./files/security/login.zip>`. Ubique el archivo ``login.html`` en la carpeta `templates/security/`.
-2. Modifique el archivo ``backend_analytics_server/urls.py``, con:
-
-   a) Importe las vistas predefinidas auth_views.
-   b) Agregue las rutas con las vista (basadas en clases) asociadas con el inicio (LoginView) y con el cierre (LogoutView) de sesión.
+1. Edite el archivo ``dashboard/models.py``, con la definición del modelo **DashboardModel** con permisos personalizados:
 
    .. code-block:: python
-      :emphasize-lines: 2, 7-8, 10-11
-
-      ...
-      from django.contrib.auth import views as auth_views
-
-      urlpatterns = [
-        ...
-
-        # Ruta login/ para la vista LoginView para inicio de sesión, uso de plantilla y alias
-        path('login/', auth_views.LoginView.as_view(template_name='security/login.html'), name='login'),
-            
-        # Ruta logout/ para la vista LogoutView para fin de sesión, redirección y alias
-        path('logout/', auth_views.LogoutView.as_view(next_page='/login/'), name='logout'),
-
-      ]
-
-3. Modifique el archivo ``backend_analytics_server/settings.py``, con:
-
-   a) Agregue la constante **LOGIN_URL** con la URL de inicio de sesión.
-   b) Agregue la constante **LOGOUT_REDIRECT_URL** con la URL raíz del proyecto.
-    
-   .. code-block:: python
-       :emphasize-lines: 2-3, 5-6
+       :emphasize-lines: 3-8
     
        ...
-       # Fallo: acceso sin autenticación
-       LOGIN_URL = '/login/'
+       # Create your models here.
+       class DashboardModel(models.Model):
 
-       # Éxito: luego de autenticación exitosa
-       LOGIN_REDIRECT_URL = '/'
+         class Meta:
+            permissions = [
+                  ("index_viewer", "Can show to index view (function-based)"),
+            ]
 
+2. Genere las migraciones de la base de datos, con:
 
-4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+   .. code-block:: bash
+    
+       python manage.py makemigrations
+       python manage.py migrate
+
+3. Levante el servidor de desarrollo, con:
+
+   .. code-block:: bash
+
+       python manage.py runserver
+
+4. Use el panel de administración de Django `http://127.0.0.1:8000/admin/`, para:
+
+   a) Modificar solo el usuario **usuario01** 
+   b) En **User permissions**, agregue el permiso **Dashboard | dashboard model | Can show to index view (function-based)**.
+   c) Guarde los cambios.
+
+5. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
 
    .. note:: 
     
-       Compruebe que el acceso a la vista principal del dashboard redirige a la vista de inicio de sesión si no está autenticado.
+       Compruebe que el usuario **usuario01** puede acceder a la vista principal del dashboard, mientras que el usuario **usuario02** recibe un error de autorización; mientras, el superusuario tiene acceso sin restricciones
 
-5. Utilice su cliente de IAG para explicar el uso de las vistas predefinidas `LoginView` y `LogoutView` en Django, así como la configuración de las constantes `LOGIN_URL` y `LOGOUT_REDIRECT_URL`.
-        
-Inicio de sesión
-^^^^^^^^^^^^^^^^
+6. Utilice su cliente de IAG para explicar el uso de los permisos personalizados en modelos de Django y cómo se aplican a las vistas.
 
-1. Edite el archivo ``templates/security/login.html``, con:
+403 Forbidden
+-------------
 
-   a) Agregue el método **post** y el atributo **action** con la URL de inicio de sesión (alias 'login'),
-   b) Agregue el :term:`token CSRF` para proteger el formulario,
-   c) Agregue el atributo **name** a los campos de entrada para el nombre de usuario y la contraseña.
+1. Descargue y descomprima el archivo :download:`403.zip <./files/exceptions/403.zip>`. 
+2. Ubique el archivo ``403.html`` en la carpeta `templates/`.
+3. Levante el servidor de desarrollo, con:
 
-   .. code-block:: html
-       :emphasize-lines: 3, 6, 10, 14
+   .. code-block:: bash
 
-       ...
-       <!-- Método post y action para el URL (con el alias 'login') -->
-       <form method="post" action="{% url 'login' %}">
+       python manage.py runserver
 
-            <!-- CSRF token -->
-            {% csrf_token %}
-            ...
-
-            <!-- username -->
-            <input name="username" ... >
-            ...
-
-            <!-- password -->
-            <input name="password" ... >
-            ...
-       </form>
-
-2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`. 
+4. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
 
    .. note:: 
-
-      Compruebe que la autenticación con las credenciales de los usuarios **superusuario**, **usuario01** y **usuario02**, se redirija al usuario a la vista principal del dashboard. Y que la autenticación con las credenciales incorrectas redirige al usuario a la vista de inicio de sesión.
-
-3. Utilice el inspector del navegador para verificar la :term:`cookie de sesión`.
-
-Fin de sesión
-^^^^^^^^^^^^^
-
-1. Modifique ``templates/dashboard/partials/header.html`` en el bloque **logout**, con:
-
-   .. code-block:: html
-       :emphasize-lines: 5, 8
-
-       ...
-       <!-- START - Block Logout -->
     
-       <!-- Método post y action para el URL (con el alias 'logout') -->
-       <form method="post" action="{% url 'logout' %}" class="w-full">
+       Compruebe que el usuario **usuario02** recibe un error 403 Forbidden al intentar acceder a la vista principal del dashboard, y que se muestra la plantilla personalizada.
 
-            <!-- CSRF token -->
-            {% csrf_token %}
-
-            ...
-
-       </form>
-       <!-- END - Block Logout -->
-       ...
-
-2. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note:: 
-
-      Compruebe que el cierre de sesión redirige al usuario a la vista de inicio de sesión.
-
-3. Utilice su cliente de IAG para explicar el uso del `token CSRF` en Django y el uso de la `cookie de sesión`.
-
-Verificación de acceso
-----------------------
-
-Escenario: Acceso fallido
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Modifique el archivo ``templates/security/login.html``, con:
-
-   .. code-block:: html
-       :emphasize-lines: 4-8
-
-       ...
-       <div class="w-full">
-         
-         {% if form.non_field_errors %}
-                                 
-            <div id="password_error_div" class="flex items-center justify-center mb-4 py-3 bg-red-100 border-l-4 border-red-500 text-red-700 dark:border-red-400 dark:text-red-500" role="alert">Invalid username or password.</div>
-         
-         {% endif %}
-
-         <!-- Método post y action para el URL (con el alias 'login') -->
-         <form method="post" action="{% url 'login' %}">
-         ...
-         </form>
-         
-         ...
-       </div>
-       
-Escenario: Acceso exitoso
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-2. Modifique el archivo ``templates/partials/header.html``, con:
-
-   .. code-block:: html
-       :emphasize-lines: 6-10
-
-       ...
-
-       <!-- Profile menu -->
-       <li class="relative">
-         
-         {% if user.is_authenticated %}
-            
-            <span>{{ user.username }}</span>
-
-         {% endif %}
-
-         <button ... > ... </button>
-       </li>
-
-       ...
-
-3. Revise los cambios en el navegador con la URL `http://127.0.0.1:8000/`.
-
-   .. note::
-
-      Compruebe que la autenticación con un usuario no registrado muestra el mensaje de error "Invalid username or password." y que la autenticación con un usuario registrado muestra el nombre de usuario en el menú de perfil.
-
-4. Utilice su cliente de IAG para explicar el uso la etiqueta de plantilla ``{% if %} ... {% endif %}`` y los objetos **form** y **user** en Django.
 
 Gestión de dependencias
 -----------------------
@@ -311,16 +252,10 @@ Gestión de dependencias
 
        deactivate
 
-
-.. warning::
-
-   Asegúrese que el ``.gitignore`` contenga el nombre del archivo ``db.sqlite3``, para no versionar la base de datos en su repositorio.
-
 Versionamiento
 --------------
 
 1. Versione local y remotamente la(s) rama(s) de desarrollo en el repositorio *django_data_monitor*.
-
 
    .. info-card:: 
 
@@ -370,10 +305,4 @@ En redes:
 
 .. raw:: html
 
-   Método de autenticación basada en sesiones en Django:
-
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">What are web sessions? <br><br>Any data exchange on the web is based on a stateless protocol like HTTP. <br><br>Every HTTP request is independent of the previous ones. <br><br>However, users need to relate the requests to each other. <br><br>For example, they want to stay logged in to a website… <a href="https://t.co/6yYQSGv2MP">pic.twitter.com/6yYQSGv2MP</a></p>&mdash; Fernando 🇮🇹🇨🇭 (@Franc0Fernand0) <a href="https://twitter.com/Franc0Fernand0/status/1949031696768070104?ref_src=twsrc%5Etfw">July 26, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-   Otros métodos de autenticación
-
-   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Authentication in REST APIs acts as the crucial gateway, ensuring that solely authorized users or applications gain access to the API&#39;s resources.<br><br>Some popular authentication methods for REST APIs include:<br><br>1. Basic Authentication: <br>Involves sending a username and password with… <a href="https://t.co/Y4CKqZUhBF">pic.twitter.com/Y4CKqZUhBF</a></p>&mdash; Alex Xu (@alexxubyte) <a href="https://twitter.com/alexxubyte/status/1737151765097951544?ref_src=twsrc%5Etfw">December 19, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Django is a high-level Python web development framework that lets you build secure, scalable apps.<br><br>And this crash course teaches you the basics so you can start using it.<br><br>You&#39;ll learn about django-admin &amp; <a href="https://t.co/T2lmhj4NZm">https://t.co/T2lmhj4NZm</a>, the Model-View-Template pattern, how forms work,… <a href="https://t.co/G3ZRyfVpb5">pic.twitter.com/G3ZRyfVpb5</a></p>&mdash; freeCodeCamp.org (@freeCodeCamp) <a href="https://twitter.com/freeCodeCamp/status/1919663989262352561?ref_src=twsrc%5Etfw">May 6, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
