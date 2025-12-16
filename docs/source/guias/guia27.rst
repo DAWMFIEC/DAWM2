@@ -4,7 +4,7 @@
    SPDX-License-Identifier: CC-BY-SA-4.0
 
 =======================================
-Guía 28: Django - Despliegue en Railway
+Guía 27: Django - Despliegue en Railway
 =======================================
 
 .. topic:: Objetivo específico

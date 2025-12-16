@@ -14,6 +14,7 @@ móviles cumpliendo con los estándares actuales y las buenas prácticas de prog
   proyectos/proyecto03.rst
   proyectos/proyecto04.rst
   proyectos/proyecto05.rst
+  proyectos/proyecto06.rst
 
 
 .. toctree::
