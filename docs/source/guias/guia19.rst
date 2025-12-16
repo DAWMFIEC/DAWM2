@@ -18,10 +18,7 @@ Actividades previas
 Ambiente de despliegue
 ----------------------
 
-1. Obtenga una cuenta en `Ionic Appflow <https://ionic.io/appflow>`_.
-
-    a) Verifique su cuenta a través del correo electrónico.
-
+1. Obtenga una cuenta en `Ionic Appflow <https://ionic.io/appflow>`_ y verifique su cuenta a través del correo electrónico.
 2. Inicie su sesión en `Ionic Appflow <https://ionic.io/appflow>`_.
 
 Actividades en clases
@@ -30,13 +27,13 @@ Actividades en clases
 Plataforma Android
 ------------------
 
-1. En el proyecto, genere los archivos nativos del proyecto Android dentro de una carpeta Android en el directorio raíz de tu proyecto.
+1. En el proyecto, genere los archivos nativos del proyecto Android dentro de una carpeta `android`, en el directorio raíz de tu proyecto.
 
    .. code-block:: bash
 
        ionic cap add android
 
-   **Nota:** Después de la primera adición, o cada vez que actualices tu código web, debes copiar los recursos web más recientes al proyecto nativo de Android. El comando sync se encarga de esto y también instala cualquier complemento nativo nuevo que hayas añadido.
+   **Nota:** Después de la primera adición, o cada vez que actualice el código de su aplicación, debes copiar los recursos web más recientes al proyecto nativo de Android. El comando `sync` se encarga de esto y también instala cualquier complemento nativo nuevo que hayas añadido.
 
 2. Utilice un cliente de IAG para explicar las características principales de Capacitor como herramienta de empaquetado para aplicaciones híbridas, enfocándose en la plataforma Android.
 
