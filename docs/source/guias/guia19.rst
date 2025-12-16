@@ -3,18 +3,17 @@
    Licensed under Creative Commons Attribution-ShareAlike 4.0 International License
    SPDX-License-Identifier: CC-BY-SA-4.0
 
-========================================================
-Guía 19: React y Ionic - Generación del apk para Android 
-========================================================
+==================================================
+Guía 19: Appflow - Generación del apk para Android 
+==================================================
 
 .. topic:: Objetivo específico
     :class: objetivo
 
-    Init. 
+    Desplegar una aplicación híbrida en un dispositivo Android utilizando Ionic Appflow.
 
 Actividades previas
 =====================
-
 
 Ambiente de despliegue
 ----------------------
@@ -23,8 +22,7 @@ Ambiente de despliegue
 
     a) Verifique su cuenta a través del correo electrónico.
 
-2. Inicie sesión en `Ionic Appflow <https://ionic.io/appflow>`_.
-
+2. Inicie su sesión en `Ionic Appflow <https://ionic.io/appflow>`_.
 
 Actividades en clases
 =====================
@@ -38,13 +36,9 @@ Plataforma Android
 
        ionic cap add android
 
-2. Después de la primera adición, o cada vez que actualices tu código web, debes copiar los recursos web más recientes al proyecto nativo de Android. El comando sync se encarga de esto y también instala cualquier complemento nativo nuevo que hayas añadido.
+   **Nota:** Después de la primera adición, o cada vez que actualices tu código web, debes copiar los recursos web más recientes al proyecto nativo de Android. El comando sync se encarga de esto y también instala cualquier complemento nativo nuevo que hayas añadido.
 
-   .. code-block:: bash
-
-       ionic cap sync android
-
-3. Utilice un cliente de IAG para explicar las características principales de Capacitor como herramienta de empaquetado para aplicaciones híbridas, enfocándose en la plataforma Android.
+2. Utilice un cliente de IAG para explicar las características principales de Capacitor como herramienta de empaquetado para aplicaciones híbridas, enfocándose en la plataforma Android.
 
 
 Despliegue en Ionic Appflow
@@ -64,11 +58,12 @@ Conclusiones
 
 .. topic:: Preguntas de cierre
 
-    * ¿Qué?
+    * ¿Cómo te ayudó la inteligencia artificial generativa a comprender el proceso de despliegue con Appflow?
 
-    * ¿Qué?
+    * ¿Cómo aseguraste que el proceso de despliegue continuo fuera fluido y coherente?
 
-    * ¿Cómo?
+    * ¿Qué actitudes consideras fundamentales para asegurar que el resultado final de la aplicación híbrida sea auténtica y producto de tu criterio profesional, incluso si partiste de una base generada por IA?
+
 
 Actividades autónomas
 =====================
@@ -80,4 +75,4 @@ En redes:
 
 .. raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Introducing the Appflow CLI 🪄<br><br>This standalone CLI allows you to manage all aspect of your app&#39;s CI/CD lifecycle, whether you&#39;re using Appflow or integrating with another CI/CD platform.<br><br>Get all the details in our latest blog post 👇<a href="https://t.co/exhlIcrE2w">https://t.co/exhlIcrE2w</a></p>&mdash; Appflow (@useappflow) <a href="https://twitter.com/useappflow/status/1783581330011214221?ref_src=twsrc%5Etfw">April 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
