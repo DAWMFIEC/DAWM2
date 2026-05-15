@@ -1,9 +1,11 @@
 # Configuration file for the Sphinx documentation builder.
 
+import datetime
+
 # -- Project information
 
 project = 'Desarrollo de Aplicaciones Web y Móviles'	
-copyright = '2025, DAWM'
+copyright = f'{datetime.datetime.now().year}, DAWM'
 author = 'Allan Avendaño'
 
 release = '0.1'
