@@ -151,7 +151,7 @@ Interfaz: AlertConfig
 
                 {/* Alertas */}
                 <Grid ...
-                    container justifyContent="right" alignItems="center">
+                    container sx={{ justifyContent: "right", alignItems: "center" }}>
                     
                     <AlertUI description="No se preveen lluvias"/>
                 
